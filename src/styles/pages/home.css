@@ -59,7 +59,7 @@
   }
 }
 
-/* ===== Bloc "Quiénes somos" (imatge de fons + overlay) ===== */
+/* ===== Bloc "Quiénes somos" (imatge de fons + títol flotant + caixa amb tall diagonal) ===== */
 .about-preview {
   position: relative;
   min-height: 540px;
@@ -70,20 +70,16 @@
 @media (min-width: 1024px) {
   .about-preview {
     background-image: var(--about-image-desktop);
+    min-height: 640px;
   }
 }
 
-.about-preview__overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.75) 45%, rgba(255, 255, 255, 0) 85%);
-}
-
-.about-preview__content {
+/* Títol: flota directament sobre la imatge, cantonada superior esquerra */
+.about-preview__heading {
   position: relative;
-  z-index: 10;
-  max-width: 688px;
-  padding: var(--space-8) var(--space-4);
+  z-index: 5;
+  max-width: 600px;
+  padding: var(--space-8) var(--space-4) 0;
   color: var(--color-primary);
 }
 
@@ -97,9 +93,23 @@
   margin-bottom: var(--space-4);
 }
 
-.about-preview__content h2 {
+.about-preview__heading h2 {
   color: var(--color-primary);
   font-size: clamp(1.6rem, 3vw, 2.4rem);
+}
+
+/* Caixa: separada, fons sòlid, ancorada a sota/dreta, amb tall diagonal a la cantonada superior esquerra */
+.about-preview__panel {
+  position: relative;
+  z-index: 5;
+  margin: var(--space-8) var(--space-4) 0;
+  padding: var(--space-8) var(--space-4);
+  background: var(--color-soft);
+  color: var(--color-primary);
+}
+
+.about-preview__panel p {
+  margin-bottom: var(--space-4);
 }
 
 .about-preview__logos {
@@ -109,10 +119,10 @@
   font-size: 0.85rem;
 }
 
-.about-preview__logos > div {
+.about-preview__logos-row {
   display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
+  align-items: center;
+  gap: var(--space-4);
 }
 
 .about-preview__logos img {
@@ -125,12 +135,26 @@
   display: block;
   text-transform: uppercase;
   font-weight: 700;
-  opacity: 0.8;
+  opacity: 0.7;
+  margin-bottom: var(--space-2);
 }
 
 @media (min-width: 1024px) {
-  .about-preview__content {
-    padding: var(--space-16) var(--space-8);
+  .about-preview__heading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: var(--space-16) var(--space-8) 0;
+  }
+
+  .about-preview__panel {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: min(560px, 46%);
+    margin: 0;
+    padding: var(--space-12) var(--space-8) var(--space-8) var(--space-12);
+    clip-path: polygon(22% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 40%);
   }
 }
 

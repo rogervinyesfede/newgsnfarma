@@ -41,24 +41,35 @@ import '../styles/pages/home.css';
     class="about-preview"
     style="--about-image-mobile: url(/images/about-preview-mobile.webp); --about-image-desktop: url(/images/about-preview-desktop.webp)"
   >
-    <div class="about-preview__overlay"></div>
-    <div class="about-preview__content">
+    <div class="about-preview__heading">
       <span class="about-preview__pretitle">¿Quiénes somos?</span>
       <h2>Unidos por un compromiso inquebrantable con la salud de las personas.</h2>
+    </div>
+
+    <div class="about-preview__panel">
       <p>
         GSN Farma Labs Group nace de la unión de GSN Farma Labs y CoetusPharma, ambas empresas
         farmacéuticas con una sólida trayectoria en el desarrollo, registro, fabricación y
         comercialización de productos regulados.
       </p>
+      <p>
+        Con esta unión se suma la amplia experiencia de las dos compañías, permitiéndonos ofrecer
+        una estructura integral altamente especializada, capaz de cubrir todo el ciclo de vida del
+        producto y de dar respuesta a los retos actuales y futuros del sector.
+      </p>
       <div class="about-preview__logos">
         <div>
           <span class="about-preview__logos-label">Promueve</span>
-          <img src="/images/logo-social.png" alt="Socialdrive" />
-          <img src="/images/logo-generalitat.png" alt="Generalitat de Catalunya" />
+          <div class="about-preview__logos-row">
+            <img src="/images/logo-social.png" alt="Socialdrive" />
+            <img src="/images/logo-generalitat.png" alt="Generalitat de Catalunya" />
+          </div>
         </div>
         <div>
           <span class="about-preview__logos-label">Financia</span>
-          <img src="/images/logo-espana.png" alt="Gobierno de España" />
+          <div class="about-preview__logos-row">
+            <img src="/images/logo-espana.png" alt="Gobierno de España" />
+          </div>
         </div>
       </div>
       <a href="/quienes-somos" class="btn btn--outline">Conoce más sobre el grupo</a>
