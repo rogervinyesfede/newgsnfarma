@@ -1,8 +1,101 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
+import '../styles/pages/home.css';
 ---
 
-<BaseLayout title="GSN Farma" description="Web corporativa GSN Farma">
-  <h1>GSN Farma</h1>
-  <p>Projecte en construcció — base tècnica idèntica a orissens-web-v2.</p>
+<BaseLayout
+  title="GSN Farma Labs Group | Laboratorio farmacéutico"
+  description="Laboratorio farmacéutico con más de 30 años de experiencia desarrollando soluciones de salud con visión global y ADN farmacéutico bajo el enfoque One Health Care."
+>
+  <section class="home-hero">
+    <div class="container">
+      <h1>GSN FARMA LABS GROUP</h1>
+      <p>
+        GSN Farma Labs Group es un grupo farmacéutico especializado en el desarrollo, fabricación,
+        registro y comercialización de productos regulados de alta calidad y eficacia.
+      </p>
+      <p>
+        Ofrecemos soluciones en <strong>medicamentos, complementos alimenticios, productos sanitarios,
+        cosméticos y biocidas</strong>, cumpliendo en todo momento con los más altos estándares de
+        <strong>calidad, seguridad y trazabilidad.</strong>
+      </p>
+      <a href="/servicios" class="btn btn--primary">Descubre nuestros servicios</a>
+    </div>
+  </section>
+
+  <section class="home-about">
+    <div class="container">
+      <h2>Unidos por un compromiso inquebrantable con la salud de las personas.</h2>
+      <p>
+        GSN Farma Labs Group nace de la unión de GSN Farma Labs y CoetusPharma, ambas empresas
+        farmacéuticas con una sólida trayectoria en el desarrollo, registro, fabricación y
+        comercialización de productos regulados.
+      </p>
+      <p>
+        Con esta unión se suma la amplia experiencia de las dos compañías, permitiéndonos ofrecer una
+        estructura integral altamente especializada, capaz de cubrir todo el ciclo de vida del producto
+        y de dar respuesta a los retos actuales y futuros del sector.
+      </p>
+
+      <div class="home-about__logos">
+        <div>
+          <span class="home-about__logos-label">Promueve</span>
+          <p>Socialdrive · Generalitat de Catalunya</p>
+        </div>
+        <div>
+          <span class="home-about__logos-label">Financia</span>
+          <p>Gobierno de España</p>
+        </div>
+      </div>
+
+      <a href="/quienes-somos" class="btn">Conoce más sobre el grupo</a>
+    </div>
+  </section>
+
+  <section class="home-areas">
+    <div class="container">
+      <h2>Así sumamos salud</h2>
+      <p>
+        GSN Farma Labs Group estructura su actividad en dos grandes áreas de negocio que reflejan su
+        modelo integral y su visión de grupo: los <strong>servicios farmacéuticos</strong> y las
+        <strong>marcas propias</strong>.
+      </p>
+
+      <div class="home-areas__grid">
+        <article>
+          <h3>Servicios</h3>
+          <p>
+            Ofrecemos servicios integrales para productos regulados, acompañando cada proyecto a lo
+            largo de todo su ciclo de vida, desde el desarrollo y la fabricación hasta el registro, la
+            calidad y la comercialización.
+          </p>
+          <a href="/servicios" class="btn btn--sm">Ver servicios</a>
+        </article>
+        <article>
+          <h3>Marcas</h3>
+          <p>
+            Desarrollamos y comercializamos marcas propias en los ámbitos de la salud humana y animal,
+            impulsadas por la innovación, el rigor farmacéutico y la visión One Health.
+          </p>
+          <a href="/nuestras-marcas" class="btn btn--sm">Ver marcas</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-contact">
+    <div class="container">
+      <h2>¿Hablamos?</h2>
+      <p>
+        En GSN Farma Labs Group trabajamos como partner estratégico para impulsar soluciones en salud
+        con visión a largo plazo.
+      </p>
+      <p>
+        Si deseas ampliar información o explorar una posible colaboración para que te acompañemos en
+        todo momento, ponte en contacto con nosotros.
+      </p>
+      <ContactForm />
+    </div>
+  </section>
 </BaseLayout>

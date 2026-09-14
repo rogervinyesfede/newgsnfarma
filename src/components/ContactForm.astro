@@ -1,0 +1,49 @@
+---
+import '../styles/components/contact-form.css';
+
+interface Props {
+  submitLabel?: string;
+}
+
+const { submitLabel = 'Enviar' } = Astro.props;
+---
+
+<form class="contact-form" name="contacto" method="POST">
+  <div class="contact-form__row">
+    <label>
+      Nombre y apellidos
+      <input type="text" name="nombre" required />
+    </label>
+    <label>
+      Teléfono
+      <input type="tel" name="telefono" required />
+    </label>
+  </div>
+
+  <label>
+    Email
+    <input type="email" name="email" required />
+  </label>
+
+  <fieldset class="contact-form__interest">
+    <legend>Estoy interesado en</legend>
+    <label class="contact-form__radio">
+      <input type="radio" name="interes" value="servicios" /> Servicios
+    </label>
+    <label class="contact-form__radio">
+      <input type="radio" name="interes" value="marcas" /> Nuestras marcas
+    </label>
+  </fieldset>
+
+  <label>
+    Escribe tu mensaje
+    <textarea name="mensaje" rows="5"></textarea>
+  </label>
+
+  <label class="contact-form__consent">
+    <input type="checkbox" name="consentimiento" required />
+    He leído y acepto las Condiciones Generales y la <a href="/politica-de-privacidad">Política de privacidad</a>
+  </label>
+
+  <button type="submit" class="btn btn--primary">{submitLabel}</button>
+</form>

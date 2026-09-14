@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import services from '../data/services.json';
+import '../styles/pages/inner-page.css';
+import '../styles/components/service-block.css';
+---
+
+<BaseLayout
+  title="Servicios farmacéuticos | GSN Farma Labs Group"
+  description="Servicios farmacéuticos especializados en desarrollo, fabricación y gestión de productos farmacéuticos y soluciones de salud con altos estándares de calidad."
+>
+  <Hero
+    title="Nuestros servicios"
+    subtitle="Tu partner global para el desarrollo y la comercialización"
+  />
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Nuestra fábrica: garantía de calidad, fiabilidad y capacidad productiva</h2>
+      <p>
+        GSN Farma Labs Group dispone de una planta industrial diseñada para la fabricación de
+        productos regulados bajo los más altos estándares de calidad, seguridad y trazabilidad,
+        garantizando procesos eficientes controlados y escalables.
+      </p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>I+D, dos siglas que definen todo nuestro proceso</h2>
+      <p>Integración de servicios globales y desarrollo de producto.</p>
+      <p>
+        El área de I+D de GSN Farma Labs Group combina los <strong>servicios globales de
+        desarrollo</strong> de CoetusPharma con los <strong>servicios de desarrollo de
+        producto</strong> de GSN FARMA, ofreciendo un enfoque integral, flexible y orientado a
+        resultados.
+      </p>
+      <p>
+        Acompañamos proyectos propios y de terceros en las áreas de medicamentos y complementos
+        alimenticios, desde la fase conceptual hasta su escalado industrial.
+      </p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Servicios complementarios que completan nuestra propuesta integral</h2>
+      <p>
+        Además de nuestras capacidades de fabricación e I+D, ofrecemos una serie de servicios
+        especializados que garantizan la calidad, el cumplimiento regulatorio y la correcta gestión
+        del producto a lo largo de todo su ciclo de vida.
+      </p>
+
+      {services.map((service) => (
+        <div class="service-block">
+          <h3>{service.title}</h3>
+          <p>{service.description}</p>
+          <ul>
+            {service.items.map((item: string) => <li>{item}</li>)}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

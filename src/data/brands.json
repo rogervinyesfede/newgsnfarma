@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Orissens",
+    "category": "Salud de la mujer",
+    "description": "Una marca nacida en la farmacia, que recupera el origen natural del cuidado femenino con fórmulas específicas basadas en la ciencia, desarrolladas con máxima seguridad, eficacia y rigor farmacéutico. Creada para acompañar a la mujer en cada etapa de su vida.",
+    "url": "https://www.orissens.com/"
+  },
+  {
+    "name": "GSN",
+    "category": "Salud natural",
+    "description": "Complementos alimenticios con ingredientes de origen natural y de alta calidad, formulados bajo los principios de simplicidad, efectividad y evidencia científica, para acompañar el bienestar diario.",
+    "url": "https://gsn.es/"
+  },
+  {
+    "name": "Esenta",
+    "category": "Salud natural",
+    "description": "Una alternativa saludable al agua embotellada y de grifo mediante tecnología de ósmosis inversa clínicamente probada, diseñada para mejorar el bienestar diario de las personas.",
+    "url": "https://www.esenta.es/"
+  },
+  {
+    "name": "Nakama",
+    "category": "Salud animal",
+    "description": "Soluciones seguras y eficaces para el bienestar de las mascotas, con un enfoque ético, responsable y basado en la evidencia, orientado a mejorar su salud y calidad de vida.",
+    "url": "https://www.nakamanimals.com/"
+  }
+]

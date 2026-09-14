@@ -1,0 +1,37 @@
+---
+import '../styles/components/footer.css';
+
+const legalLinks = [
+  { label: 'Aviso legal', href: '/aviso-legal' },
+  { label: 'Política de privacidad', href: '/politica-de-privacidad' },
+  { label: 'Política de cookies', href: '/politica-de-cookies' },
+];
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <div class="site-footer__brand">
+      <span class="site-footer__logo">GSN Farma Labs Group</span>
+      <a
+        href="https://www.linkedin.com/company/gsn-farma"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="site-footer__social"
+        aria-label="LinkedIn de GSN Farma Labs Group"
+      >
+        LinkedIn
+      </a>
+    </div>
+
+    <div class="site-footer__legal">
+      <span>Todos los derechos reservados © {year}</span>
+      <ul>
+        {legalLinks.map((link) => (
+          <li><a href={link.href}>{link.label}</a></li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</footer>

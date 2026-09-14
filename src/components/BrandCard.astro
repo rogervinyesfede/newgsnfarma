@@ -1,0 +1,21 @@
+---
+import '../styles/components/brand-card.css';
+
+interface Props {
+  name: string;
+  category: string;
+  description: string;
+  url: string;
+}
+
+const { name, category, description, url } = Astro.props;
+---
+
+<article class="brand-card">
+  <p class="brand-card__category">{category}</p>
+  <h3>{name}</h3>
+  <p>{description}</p>
+  <a href={url} target="_blank" rel="noopener noreferrer" class="btn btn--sm">
+    Visitar {name}
+  </a>
+</article>

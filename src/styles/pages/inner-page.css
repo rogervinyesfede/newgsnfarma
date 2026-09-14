@@ -1,0 +1,33 @@
+/* Estils compartits per pàgines de contingut (quienes-somos, servicios, contacto...) */
+
+.content-section {
+  padding-block: var(--space-16);
+}
+
+.content-section:nth-child(even) {
+  background: var(--color-primary-light);
+}
+
+.content-section .container {
+  max-width: 860px;
+}
+
+.content-section h2 {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+}
+
+.content-section ul {
+  list-style: disc;
+  padding-left: var(--space-6);
+  margin-bottom: var(--space-4);
+}
+
+.content-section li {
+  margin-bottom: var(--space-2);
+}
+
+.content-section .btn-group {
+  display: flex;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}

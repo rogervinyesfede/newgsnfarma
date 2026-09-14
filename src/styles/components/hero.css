@@ -1,0 +1,20 @@
+.hero {
+  --hero-image: none;
+  position: relative;
+  padding-block: calc(var(--space-16) * 2) var(--space-16);
+  background: var(--hero-image) center / cover no-repeat, var(--color-primary-light);
+  color: var(--color-grey-800);
+}
+
+.hero__inner {
+  max-width: 640px;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.hero__subtitle {
+  font-size: 1.1rem;
+  color: var(--color-grey-600);
+}

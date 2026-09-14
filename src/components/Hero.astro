@@ -1,0 +1,18 @@
+---
+import '../styles/components/hero.css';
+
+interface Props {
+  title: string;
+  subtitle?: string;
+  image?: string;
+}
+
+const { title, subtitle, image } = Astro.props;
+---
+
+<section class="hero" style={image ? `--hero-image: url(${image})` : undefined}>
+  <div class="container hero__inner">
+    <h1>{title}</h1>
+    {subtitle && <p class="hero__subtitle">{subtitle}</p>}
+  </div>
+</section>

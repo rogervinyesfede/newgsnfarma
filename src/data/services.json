@@ -1,0 +1,76 @@
+[
+  {
+    "title": "Almacenamiento farmacéutico",
+    "description": "A partir de 2027, actuaremos como operador logístico farmacéutico, con autorización como entidad de distribución mayorista de productos de uso humano y veterinario. Así como almacén por contrato.",
+    "items": [
+      "Alquiler de espacios delimitados",
+      "Monitorización ambiental a 15 ºC–25 ºC",
+      "Almacenamiento refrigerado de producto a 2 ºC–8 ºC",
+      "Soporte en retiradas de producto del mercado",
+      "Gestión de devoluciones"
+    ]
+  },
+  {
+    "title": "Aseguramiento de la calidad",
+    "description": "Ofrecemos un servicio integral de aseguramiento de la calidad orientado a garantizar el cumplimiento normativo, la robustez de los sistemas de calidad y la preparación frente a inspecciones GXP, bajo normativa europea.",
+    "items": [
+      "Búsqueda, homologación y due dilligence de proveedores",
+      "Auditorías GXP (fabricantes, laboratorios, almacenes, transportistas, materiales de acondicionamiento)",
+      "Asesoramiento y formación en cumplimiento GMP / GDP",
+      "Preparación y soporte en inspecciones GXP",
+      "Implementación y mantenimiento de sistemas de Calidad",
+      "Realización de Gap analysis (AARR) y PQR",
+      "Redacción de PNTs",
+      "Gestión de desviaciones e incidencias",
+      "Liberación de lotes y transferencia de fabricación"
+    ]
+  },
+  {
+    "title": "Acondicionamiento secundario y serialización",
+    "description": "A partir de 2027, te acompañaremos en la gestión integral del acondicionamiento secundario y serialización.",
+    "items": [
+      "Almacenamiento de materiales de acondicionamiento",
+      "Etiquetado y estuchado o empaquetado",
+      "Codificado",
+      "Termosellado y termoencogido",
+      "Armado de packs y ofertas",
+      "Cambio de prospecto",
+      "Serialización conforme a normativa vigente"
+    ]
+  },
+  {
+    "title": "Cámaras climáticas y estudios de estabilidad",
+    "description": "A partir de 2027, realizaremos estudios de estabilidad para evaluar el comportamiento de medicamentos y complementos alimenticios bajo distintas condiciones ambientales. ¿Para qué realizamos estos estudios?",
+    "items": [
+      "Garantizar la calidad, seguridad y eficacia del producto durante su vida útil",
+      "Cumplir con los requisitos regulatorios (EMA, FDA)",
+      "Proteger la seguridad del paciente",
+      "Definir condiciones óptimas de almacenamiento y transporte"
+    ]
+  },
+  {
+    "title": "Regulatory Affairs",
+    "description": "Ofrecemos soporte completo en asuntos regulatorios.",
+    "items": [
+      "Elaboración y compilación de dossiers de registro (Módulos 1–5) en formato CTD",
+      "Revisión y adecuación del Dossier Master",
+      "Reformateo del dossier según requisitos nacionales",
+      "Presentación de nuevas solicitudes (Nacional, DCP, CP, MRP)",
+      "Gestión de la fase nacional",
+      "Elaboración de maquetas para registro",
+      "Soporte técnico y elaboración del documento de respuesta para responder a las preguntas formuladas por los evaluadores de las agencias sanitarias",
+      "Solicitud de precio y reembolso"
+    ]
+  },
+  {
+    "title": "Subvenciones",
+    "description": "Acompañamos a empresas en la identificación, gestión y seguimiento de subvenciones, ofreciendo un servicio integral que abarca tanto las oportunidades actuales como la planificación de ayudas futuras.",
+    "items": [
+      "Análisis de subvenciones vigentes y planificación de ayudas a medio y largo plazo",
+      "Elaboración, presentación y seguimiento de proyectos y solicitudes, garantizando adaptación regulatoria y cumplimiento",
+      "Gestión de líneas de subvención a nivel europeo, estatal, autonómico, local y privado",
+      "Asesoramiento a grandes industrias y PYMES en proyectos de I+D+i, desarrollo de producto, inversiones, logística, sostenibilidad y responsabilidad social",
+      "Coordinación interdepartamental y trabajo en red con entidades públicas y privadas"
+    ]
+  }
+]

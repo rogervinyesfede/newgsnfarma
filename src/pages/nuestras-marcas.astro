@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import BrandCard from '../components/BrandCard.astro';
+import brands from '../data/brands.json';
+import '../styles/pages/inner-page.css';
+import '../styles/pages/nuestras-marcas.css';
+
+const areas = ['Medicamentos', 'Salud natural', 'Salud mujer', 'Salud animal', 'Cosméticos'];
+---
+
+<BaseLayout
+  title="Nuestras marcas | GSN Farma Labs Group"
+  description="Marcas de salud desarrolladas bajo el modelo One Health Care, especializadas en medicamentos, salud natural, salud de la mujer y salud animal."
+>
+  <Hero title="Nuestras marcas" subtitle="Siempre al servicio de la salud y el bienestar" />
+
+  <section class="content-section">
+    <div class="container">
+      <p>
+        GSN Farma Labs Group desarrolla y comercializa un portafolio de marcas propias en los ámbitos
+        de salud natural, salud animal y medicamentos, integrando conocimiento farmacéutico,
+        innovación y visión One Health.
+      </p>
+      <div class="brands-areas">
+        {areas.map((area) => <span>{area}</span>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Marcas con propósito</h2>
+      <div class="brands-grid">
+        {brands.map((brand) => (
+          <BrandCard
+            name={brand.name}
+            category={brand.category}
+            description={brand.description}
+            url={brand.url}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

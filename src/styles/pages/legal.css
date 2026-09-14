@@ -1,0 +1,17 @@
+.legal-content {
+  padding-block: var(--space-16);
+}
+
+.legal-content .container {
+  max-width: 820px;
+}
+
+.legal-content h2 {
+  margin-top: var(--space-8);
+  font-size: 1.3rem;
+}
+
+.legal-content p {
+  color: var(--color-grey-600);
+  line-height: 1.7;
+}

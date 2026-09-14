@@ -1,0 +1,18 @@
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+
+.contact-info dt {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--color-grey-600);
+}
+
+.contact-info dd {
+  margin: 0 0 var(--space-4);
+  font-size: 1.05rem;
+}
