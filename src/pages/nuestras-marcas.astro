@@ -6,14 +6,24 @@ import brands from '../data/brands.json';
 import '../styles/pages/inner-page.css';
 import '../styles/pages/nuestras-marcas.css';
 
-const areas = ['Medicamentos', 'Salud natural', 'Salud mujer', 'Salud animal', 'Cosméticos'];
+const areas = [
+  { label: 'Medicamentos', icon: '/images/icon-medicamentos.svg' },
+  { label: 'Salud natural', icon: '/images/icon-salud-natural.svg' },
+  { label: 'Salud mujer', icon: '/images/icon-salud-mujer.svg' },
+  { label: 'Salud animal', icon: '/images/icon-salud-animal.svg' },
+  { label: 'Cosméticos', icon: '/images/icon-cosmeticos.svg' },
+];
 ---
 
 <BaseLayout
   title="Nuestras marcas | GSN Farma Labs Group"
   description="Marcas de salud desarrolladas bajo el modelo One Health Care, especializadas en medicamentos, salud natural, salud de la mujer y salud animal."
 >
-  <Hero title="Nuestras marcas" subtitle="Siempre al servicio de la salud y el bienestar" />
+  <Hero
+    title="Nuestras marcas"
+    subtitle="Siempre al servicio de la salud y el bienestar"
+    image="/images/hero-nuestras-marcas.webp"
+  />
 
   <section class="content-section">
     <div class="container">
@@ -23,7 +33,9 @@ const areas = ['Medicamentos', 'Salud natural', 'Salud mujer', 'Salud animal', '
         innovación y visión One Health.
       </p>
       <div class="brands-areas">
-        {areas.map((area) => <span>{area}</span>)}
+        {areas.map((area) => (
+          <span><img src={area.icon} alt="" aria-hidden="true" />{area.label}</span>
+        ))}
       </div>
     </div>
   </section>

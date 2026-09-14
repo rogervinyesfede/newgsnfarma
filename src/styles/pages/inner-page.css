@@ -31,3 +31,48 @@
   gap: var(--space-4);
   margin-top: var(--space-4);
 }
+
+/* Variant amb imatge al costat del text */
+.content-section--split .container {
+  max-width: 1280px;
+}
+
+.content-section__split-inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+.content-section--reverse .content-section__split-inner {
+  flex-direction: column;
+}
+
+.content-section__image {
+  width: 100%;
+}
+
+.content-section__image img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.content-section__text {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .content-section__split-inner {
+    flex-direction: row;
+  }
+
+  .content-section--reverse .content-section__split-inner {
+    flex-direction: row-reverse;
+  }
+
+  .content-section__image,
+  .content-section__text {
+    width: 50%;
+  }
+}

@@ -1,12 +1,13 @@
 .hero {
   --hero-image: linear-gradient(135deg, var(--color-primary), var(--color-grey-600));
+  --hero-image-mobile: var(--hero-image);
   position: relative;
   margin-top: var(--header-height);
   width: 100%;
   aspect-ratio: 390 / 608;
   max-height: 720px;
   overflow: hidden;
-  background: var(--hero-image) center / cover no-repeat;
+  background: var(--hero-image-mobile) center bottom / cover no-repeat;
 }
 
 .hero__overlay {
@@ -48,6 +49,7 @@
 @media (min-width: 768px) {
   .hero {
     aspect-ratio: 1440 / 915;
+    background-image: var(--hero-image);
   }
 
   .hero__content {

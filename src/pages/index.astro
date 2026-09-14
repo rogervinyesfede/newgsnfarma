@@ -9,7 +9,13 @@ import '../styles/pages/home.css';
   title="GSN Farma Labs Group | Laboratorio farmacéutico"
   description="Laboratorio farmacéutico con más de 30 años de experiencia desarrollando soluciones de salud con visión global y ADN farmacéutico bajo el enfoque One Health Care."
 >
-  <Hero title="GSN Farma Labs Group" subtitle="Más de 30 años de experiencia y visión global en salud" />
+  <Hero
+    title="GSN Farma Labs Group"
+    subtitle="Más de 30 años de experiencia y visión global en salud"
+    image="/images/hero-home-desktop.jpg"
+    imageMobile="/images/hero-home-mobile.jpg"
+    textInImage
+  />
 
   <section class="intro-section">
     <div class="container">
@@ -31,7 +37,10 @@ import '../styles/pages/home.css';
     </div>
   </section>
 
-  <section class="about-preview">
+  <section
+    class="about-preview"
+    style="--about-image-mobile: url(/images/about-preview-mobile.webp); --about-image-desktop: url(/images/about-preview-desktop.webp)"
+  >
     <div class="about-preview__overlay"></div>
     <div class="about-preview__content">
       <span class="about-preview__pretitle">¿Quiénes somos?</span>
@@ -44,11 +53,12 @@ import '../styles/pages/home.css';
       <div class="about-preview__logos">
         <div>
           <span class="about-preview__logos-label">Promueve</span>
-          <span>Socialdrive · Generalitat</span>
+          <img src="/images/logo-social.png" alt="Socialdrive" />
+          <img src="/images/logo-generalitat.png" alt="Generalitat de Catalunya" />
         </div>
         <div>
           <span class="about-preview__logos-label">Financia</span>
-          <span>Gobierno de España</span>
+          <img src="/images/logo-espana.png" alt="Gobierno de España" />
         </div>
       </div>
       <a href="/quienes-somos" class="btn btn--outline">Conoce más sobre el grupo</a>
@@ -67,7 +77,9 @@ import '../styles/pages/home.css';
 
       <div class="areas-grid">
         <a href="/servicios" class="areas-grid__card">
-          <div class="areas-grid__card-image"></div>
+          <div class="areas-grid__card-image">
+            <img src="/images/home-areas-servicios.webp" alt="" loading="lazy" />
+          </div>
           <div class="areas-grid__card-body">
             <h3>Servicios</h3>
             <p>
@@ -79,7 +91,9 @@ import '../styles/pages/home.css';
           </div>
         </a>
         <a href="/nuestras-marcas" class="areas-grid__card">
-          <div class="areas-grid__card-image"></div>
+          <div class="areas-grid__card-image">
+            <img src="/images/home-areas-marcas.webp" alt="" loading="lazy" />
+          </div>
           <div class="areas-grid__card-body">
             <h3>Marcas</h3>
             <p>
@@ -91,6 +105,10 @@ import '../styles/pages/home.css';
         </a>
       </div>
     </div>
+  </section>
+
+  <section class="home-prefooter">
+    <img src="/images/home-prefooter.webp" alt="" loading="lazy" />
   </section>
 
   <section class="home-contact">
