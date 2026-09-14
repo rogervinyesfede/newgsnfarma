@@ -1,22 +1,23 @@
 /* ==========================================================================
    Design tokens — GSN Farma Web
-   Estructura idèntica a orissens-web-v2/src/styles/variables.css.
-   Els VALORS (colors, fonts) són placeholders: a substituir pel disseny
-   propi d'aquest projecte.
+   Valors extrets directament de gsnfarma.com (colors Tailwind, tipografia,
+   espaiats) per replicar-ne la composició exacta.
    ========================================================================== */
 
 :root {
-  /* Colors de marca (placeholder — a definir segons disseny) */
-  --color-primary: #2a5fae;
-  --color-primary-light: #eef3fb;
-  --color-accent: #c8a97e;
-  --color-grey-800: #2a2a2a;
-  --color-grey-600: #6b6b6b;
+  /* Colors de marca (extrets de gsnfarma.com) */
+  --color-primary: #1b2435; /* blueGSN — navy, text principal i fons foscos */
+  --color-primary-light: #f4f1ef; /* greyGSN — fons secció clara (footer superior) */
+  --color-accent: #00dbff; /* electricGSN — cian, CTA i elements destacats */
+  --color-grey-800: #1b2435; /* blueGSN */
+  --color-grey-600: #2c638d; /* blue7 — text secundari sobre blanc */
+  --color-soft: #fbfbf8; /* greySoft — fons de cards clares */
+  --color-mobile-menu: #f5f5f0; /* fons del menú mòbil lliscant */
 
-  /* Tipografies (placeholder — a definir segons disseny) */
-  --font-heading: 'Playfair Display', serif;
-  --font-body: 'Lato', sans-serif;
-  --font-script: 'Dancing Script', cursive;
+  /* Tipografies (Google Fonts: IBM Plex Sans + DM Sans) */
+  --font-heading: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-body: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-accent: 'DM Sans', system-ui, sans-serif;
 
   /* Espaiat (base 4px) */
   --space-2: 0.5rem;
@@ -28,18 +29,21 @@
 
   /* Ombres */
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-md: 2px 2px 6px 0px rgba(0, 0, 0, 0.25);
+  --shadow-lg: -4px 0 20px rgba(0, 0, 0, 0.15);
 
   /* Z-index */
-  --z-header: 100;
+  --z-header: 50;
   --z-modal: 200;
-  --z-overlay: 150;
+  --z-overlay: 40;
 
   /* Transicions */
   --transition-fast: 0.15s ease;
   --transition-base: 0.3s ease;
+
+  /* Mides de header (fixes, com a gsnfarma.com) */
+  --header-height: 80px;
 }
 
 /* Breakpoints (no variables, s'usen directament als media queries) */
-/* mòbil: <640px | tablet: 640–1023px | desktop: ≥1024px */
+/* mòbil: <768px | tablet: 768–1023px | desktop: ≥1024px (lg) */

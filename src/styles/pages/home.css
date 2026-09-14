@@ -1,61 +1,193 @@
-.home-hero {
-  padding-block: calc(var(--space-16) * 2) var(--space-16);
-  background: var(--color-primary-light);
+/* ===== Bloc intro (2 columnes: etiqueta + text) ===== */
+.intro-section {
+  padding-block: var(--space-12);
+  background: #fff;
 }
 
-.home-hero h1 {
-  font-size: clamp(2rem, 4vw, 3rem);
-  max-width: 720px;
+.intro-section .container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  align-items: flex-start;
 }
 
-.home-hero p {
-  max-width: 640px;
+.intro-section__label {
+  width: 100%;
+  border-bottom: 2px solid var(--color-primary);
+  padding-bottom: var(--space-2);
 }
 
-.home-about,
-.home-areas,
-.home-contact {
+.intro-section__label p {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+}
+
+.intro-section__content {
+  max-width: 800px;
+}
+
+.intro-section__content p:first-child {
+  font-size: 1.3rem;
+  color: var(--color-grey-600);
+  margin-bottom: var(--space-6);
+}
+
+.intro-section__content p:nth-child(2) {
+  font-size: 1.05rem;
+  color: var(--color-primary);
+  margin-bottom: var(--space-8);
+}
+
+@media (min-width: 768px) {
+  .intro-section {
+    padding-block: var(--space-16);
+  }
+
+  .intro-section .container {
+    flex-direction: row;
+    gap: var(--space-16);
+  }
+
+  .intro-section__label {
+    width: 25%;
+  }
+
+  .intro-section__content {
+    width: 75%;
+  }
+}
+
+/* ===== Bloc "Quiénes somos" (imatge de fons + overlay) ===== */
+.about-preview {
+  position: relative;
+  min-height: 540px;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--color-grey-600), var(--color-primary));
+}
+
+.about-preview__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(27, 36, 53, 0.7) 0%, rgba(27, 36, 53, 0.2) 70%);
+}
+
+.about-preview__content {
+  position: relative;
+  z-index: 10;
+  max-width: 688px;
+  padding: var(--space-8) var(--space-4);
+  color: #fff;
+}
+
+.about-preview__pretitle {
+  display: inline-block;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.85rem;
+  border-bottom: 2px solid currentColor;
+  padding-bottom: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.about-preview__content h2 {
+  color: #fff;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+}
+
+.about-preview__logos {
+  display: flex;
+  gap: var(--space-8);
+  margin-block: var(--space-6);
+  font-size: 0.85rem;
+}
+
+.about-preview__logos-label {
+  display: block;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: var(--space-2);
+  opacity: 0.8;
+}
+
+@media (min-width: 1024px) {
+  .about-preview__content {
+    padding: var(--space-16) var(--space-8);
+  }
+}
+
+/* ===== Àrees de negoci (fons fosc) ===== */
+.areas-section {
+  background: var(--color-primary);
+  color: #fff;
   padding-block: var(--space-16);
 }
 
-.home-about__logos {
-  display: flex;
-  gap: var(--space-12);
-  margin-block: var(--space-6);
-}
-
-.home-about__logos-label {
-  display: block;
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: var(--color-grey-600);
+.areas-section__pretitle {
+  display: inline-block;
+  color: var(--color-accent);
+  border-bottom: 2px solid var(--color-accent);
   text-transform: uppercase;
-  margin-bottom: var(--space-2);
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding-bottom: var(--space-2);
+  margin-bottom: var(--space-8);
 }
 
-.home-areas {
-  background: var(--color-grey-800);
+.areas-section h2 {
   color: #fff;
 }
 
-.home-areas h2 {
-  color: #fff;
+.areas-section > .container > p {
+  max-width: 720px;
 }
 
-.home-areas__grid {
+.areas-grid {
   display: grid;
   gap: var(--space-6);
   margin-top: var(--space-8);
 }
 
-.home-areas__grid article {
-  background: rgba(255, 255, 255, 0.05);
+.areas-grid__card {
+  background: var(--color-soft);
+  color: var(--color-primary);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.areas-grid__card-image {
+  aspect-ratio: 16 / 10;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-grey-600));
+}
+
+.areas-grid__card-body {
   padding: var(--space-6);
-  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  flex: 1;
+}
+
+.areas-grid__card-body h3 {
+  font-size: 1.3rem;
+}
+
+.areas-grid__card-arrow {
+  margin-top: auto;
+  align-self: flex-end;
+  font-size: 1.5rem;
 }
 
 @media (min-width: 768px) {
-  .home-areas__grid {
+  .areas-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+}
+
+/* ===== Contacte ===== */
+.home-contact {
+  padding-block: var(--space-16);
+  background: var(--color-primary-light);
 }

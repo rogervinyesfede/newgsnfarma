@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
 import ContactForm from '../components/ContactForm.astro';
 import '../styles/pages/home.css';
 ---
@@ -8,78 +9,86 @@ import '../styles/pages/home.css';
   title="GSN Farma Labs Group | Laboratorio farmacéutico"
   description="Laboratorio farmacéutico con más de 30 años de experiencia desarrollando soluciones de salud con visión global y ADN farmacéutico bajo el enfoque One Health Care."
 >
-  <section class="home-hero">
+  <Hero title="GSN Farma Labs Group" subtitle="Más de 30 años de experiencia y visión global en salud" />
+
+  <section class="intro-section">
     <div class="container">
-      <h1>GSN FARMA LABS GROUP</h1>
-      <p>
-        GSN Farma Labs Group es un grupo farmacéutico especializado en el desarrollo, fabricación,
-        registro y comercialización de productos regulados de alta calidad y eficacia.
-      </p>
-      <p>
-        Ofrecemos soluciones en <strong>medicamentos, complementos alimenticios, productos sanitarios,
-        cosméticos y biocidas</strong>, cumpliendo en todo momento con los más altos estándares de
-        <strong>calidad, seguridad y trazabilidad.</strong>
-      </p>
-      <a href="/servicios" class="btn btn--primary">Descubre nuestros servicios</a>
+      <div class="intro-section__label">
+        <p>GSN Farma Labs Group</p>
+      </div>
+      <div class="intro-section__content">
+        <p>
+          GSN Farma Labs Group es un grupo farmacéutico especializado en el desarrollo, fabricación,
+          registro y comercialización de productos regulados de alta calidad y eficacia.
+        </p>
+        <p>
+          Ofrecemos soluciones en <b>medicamentos, complementos alimenticios, productos sanitarios,
+          cosméticos y biocidas</b>, cumpliendo en todo momento con los más altos estándares de
+          <b>calidad, seguridad y trazabilidad.</b>
+        </p>
+        <a href="/servicios" class="btn">Descubre nuestros servicios</a>
+      </div>
     </div>
   </section>
 
-  <section class="home-about">
-    <div class="container">
+  <section class="about-preview">
+    <div class="about-preview__overlay"></div>
+    <div class="about-preview__content">
+      <span class="about-preview__pretitle">¿Quiénes somos?</span>
       <h2>Unidos por un compromiso inquebrantable con la salud de las personas.</h2>
       <p>
         GSN Farma Labs Group nace de la unión de GSN Farma Labs y CoetusPharma, ambas empresas
         farmacéuticas con una sólida trayectoria en el desarrollo, registro, fabricación y
         comercialización de productos regulados.
       </p>
-      <p>
-        Con esta unión se suma la amplia experiencia de las dos compañías, permitiéndonos ofrecer una
-        estructura integral altamente especializada, capaz de cubrir todo el ciclo de vida del producto
-        y de dar respuesta a los retos actuales y futuros del sector.
-      </p>
-
-      <div class="home-about__logos">
+      <div class="about-preview__logos">
         <div>
-          <span class="home-about__logos-label">Promueve</span>
-          <p>Socialdrive · Generalitat de Catalunya</p>
+          <span class="about-preview__logos-label">Promueve</span>
+          <span>Socialdrive · Generalitat</span>
         </div>
         <div>
-          <span class="home-about__logos-label">Financia</span>
-          <p>Gobierno de España</p>
+          <span class="about-preview__logos-label">Financia</span>
+          <span>Gobierno de España</span>
         </div>
       </div>
-
-      <a href="/quienes-somos" class="btn">Conoce más sobre el grupo</a>
+      <a href="/quienes-somos" class="btn btn--outline">Conoce más sobre el grupo</a>
     </div>
   </section>
 
-  <section class="home-areas">
+  <section class="areas-section">
     <div class="container">
+      <span class="areas-section__pretitle">Áreas de negocio</span>
       <h2>Así sumamos salud</h2>
       <p>
         GSN Farma Labs Group estructura su actividad en dos grandes áreas de negocio que reflejan su
-        modelo integral y su visión de grupo: los <strong>servicios farmacéuticos</strong> y las
-        <strong>marcas propias</strong>.
+        modelo integral y su visión de grupo: los <b>servicios farmacéuticos</b> y las
+        <b>marcas propias</b>.
       </p>
 
-      <div class="home-areas__grid">
-        <article>
-          <h3>Servicios</h3>
-          <p>
-            Ofrecemos servicios integrales para productos regulados, acompañando cada proyecto a lo
-            largo de todo su ciclo de vida, desde el desarrollo y la fabricación hasta el registro, la
-            calidad y la comercialización.
-          </p>
-          <a href="/servicios" class="btn btn--sm">Ver servicios</a>
-        </article>
-        <article>
-          <h3>Marcas</h3>
-          <p>
-            Desarrollamos y comercializamos marcas propias en los ámbitos de la salud humana y animal,
-            impulsadas por la innovación, el rigor farmacéutico y la visión One Health.
-          </p>
-          <a href="/nuestras-marcas" class="btn btn--sm">Ver marcas</a>
-        </article>
+      <div class="areas-grid">
+        <a href="/servicios" class="areas-grid__card">
+          <div class="areas-grid__card-image"></div>
+          <div class="areas-grid__card-body">
+            <h3>Servicios</h3>
+            <p>
+              Ofrecemos servicios integrales para productos regulados, acompañando cada proyecto a lo
+              largo de todo su ciclo de vida, desde el desarrollo y la fabricación hasta el registro,
+              la calidad y la comercialización.
+            </p>
+            <span class="areas-grid__card-arrow">→</span>
+          </div>
+        </a>
+        <a href="/nuestras-marcas" class="areas-grid__card">
+          <div class="areas-grid__card-image"></div>
+          <div class="areas-grid__card-body">
+            <h3>Marcas</h3>
+            <p>
+              Desarrollamos y comercializamos marcas propias en los ámbitos de la salud humana y
+              animal, impulsadas por la innovación, el rigor farmacéutico y la visión One Health.
+            </p>
+            <span class="areas-grid__card-arrow">→</span>
+          </div>
+        </a>
       </div>
     </div>
   </section>

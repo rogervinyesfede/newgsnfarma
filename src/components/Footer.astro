@@ -11,8 +11,8 @@ const year = new Date().getFullYear();
 ---
 
 <footer class="site-footer">
-  <div class="container site-footer__inner">
-    <div class="site-footer__brand">
+  <div class="site-footer__top">
+    <div class="site-footer__top-inner">
       <span class="site-footer__logo">GSN Farma Labs Group</span>
       <a
         href="https://www.linkedin.com/company/gsn-farma"
@@ -24,14 +24,18 @@ const year = new Date().getFullYear();
         LinkedIn
       </a>
     </div>
+  </div>
 
-    <div class="site-footer__legal">
-      <span>Todos los derechos reservados © {year}</span>
-      <ul>
-        {legalLinks.map((link) => (
-          <li><a href={link.href}>{link.label}</a></li>
-        ))}
-      </ul>
+  <div class="site-footer__bottom">
+    <div class="site-footer__bottom-inner">
+      <p>Todos los derechos reservados © {year}</p>
+      <nav aria-label="Menú legal">
+        <ul>
+          {legalLinks.map((link) => (
+            <li><a href={link.href}>{link.label}</a></li>
+          ))}
+        </ul>
+      </nav>
     </div>
   </div>
 </footer>
