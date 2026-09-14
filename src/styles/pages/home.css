@@ -76,7 +76,7 @@
 .about-preview__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(27, 36, 53, 0.75) 0%, rgba(27, 36, 53, 0.35) 60%, rgba(27, 36, 53, 0.1) 100%);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.75) 45%, rgba(255, 255, 255, 0) 85%);
 }
 
 .about-preview__content {
@@ -84,7 +84,7 @@
   z-index: 10;
   max-width: 688px;
   padding: var(--space-8) var(--space-4);
-  color: #fff;
+  color: var(--color-primary);
 }
 
 .about-preview__pretitle {
@@ -98,7 +98,7 @@
 }
 
 .about-preview__content h2 {
-  color: #fff;
+  color: var(--color-primary);
   font-size: clamp(1.6rem, 3vw, 2.4rem);
 }
 
