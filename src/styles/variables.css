@@ -13,6 +13,11 @@
   --color-grey-600: #2c638d; /* blue7 — text secundari sobre blanc */
   --color-soft: #fbfbf8; /* greySoft — fons de cards clares */
   --color-mobile-menu: #f5f5f0; /* fons del menú mòbil lliscant */
+  --color-blue8: #254a68; /* blue8 — títols h2 sobre fons blanc a pàgines internes */
+  --color-teal: #226777; /* títols h3 de targetes (serveis, marques) */
+  --color-electric3: #aeedff; /* cian clar — línia destacada sobre fons fosc (I+D) */
+  --color-section-grey: #d5d6da; /* fons de secció alterna (quiénes somos) */
+  --color-slate: #3c4353; /* fons de la secció de contacte (home/contacto) */
 
   /* Tipografies (Google Fonts: IBM Plex Sans + DM Sans) */
   --font-heading: 'IBM Plex Sans', system-ui, sans-serif;

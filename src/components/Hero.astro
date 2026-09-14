@@ -3,15 +3,18 @@ import '../styles/components/hero.css';
 
 interface Props {
   title: string;
+  pretitle?: string;
   subtitle?: string;
   image?: string;
   imageMobile?: string;
-  /** El text ja va imprès a la imatge (com al banner d'inici real): el títol
-   * es manté per accessibilitat però visualment amagat. */
+  /** El text ja va imprès a la imatge (banner d'inici real): el títol
+   * es manté per accessibilitat però visualment amagat. Només per a `split=false`. */
   textInImage?: boolean;
+  /** Patró real de les pàgines internes: columna de text (fons fosc) + imatge. */
+  split?: boolean;
 }
 
-const { title, subtitle, image, imageMobile, textInImage = false } = Astro.props;
+const { title, pretitle, subtitle, image, imageMobile, textInImage = false, split = false } = Astro.props;
 const style = [
   image ? `--hero-image: url(${image})` : '',
   imageMobile ? `--hero-image-mobile: url(${imageMobile})` : '',
@@ -20,10 +23,22 @@ const style = [
   .join('; ');
 ---
 
-<section class="hero" style={style || undefined}>
-  {!textInImage && <div class="hero__overlay"></div>}
-  <div class="hero__content">
-    <h1 class={textInImage ? 'sr-only' : undefined}>{title}</h1>
-    {subtitle && <p class={textInImage ? 'sr-only' : undefined}>{subtitle}</p>}
-  </div>
-</section>
+{split ? (
+  <section class="hero-split">
+    <div class="hero-split__text">
+      {pretitle && <span class="hero-split__pretitle">{pretitle}</span>}
+      <h1>{title}</h1>
+    </div>
+    <div class="hero-split__image">
+      {image && <img src={image} alt="" loading="eager" />}
+    </div>
+  </section>
+) : (
+  <section class="hero" style={style || undefined}>
+    {!textInImage && <div class="hero__overlay"></div>}
+    <div class="hero__content">
+      <h1 class={textInImage ? 'sr-only' : undefined}>{title}</h1>
+      {subtitle && <p class={textInImage ? 'sr-only' : undefined}>{subtitle}</p>}
+    </div>
+  </section>
+)}

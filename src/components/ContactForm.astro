@@ -3,12 +3,13 @@ import '../styles/components/contact-form.css';
 
 interface Props {
   submitLabel?: string;
+  dark?: boolean;
 }
 
-const { submitLabel = 'Enviar' } = Astro.props;
+const { submitLabel = 'Enviar', dark = false } = Astro.props;
 ---
 
-<form class="contact-form" name="contacto" method="POST">
+<form class={`contact-form ${dark ? 'contact-form--dark' : ''}`} name="contacto" method="POST">
   <div class="contact-form__row">
     <label>
       Nombre y apellidos
@@ -45,5 +46,5 @@ const { submitLabel = 'Enviar' } = Astro.props;
     He leído y acepto las Condiciones Generales y la <a href="/politica-de-privacidad">Política de privacidad</a>
   </label>
 
-  <button type="submit" class="btn btn--primary">{submitLabel}</button>
+  <button type="submit" class={`btn ${dark ? 'btn--white' : ''}`}>{submitLabel}</button>
 </form>

@@ -28,6 +28,11 @@
   opacity: 1;
 }
 
+.btn--white {
+  background: #fff;
+  color: var(--color-primary);
+}
+
 .btn--sm {
   padding: 10px 20px;
   font-size: 0.85rem;

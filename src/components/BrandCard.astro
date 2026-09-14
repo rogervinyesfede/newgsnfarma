@@ -6,16 +6,23 @@ interface Props {
   category: string;
   description: string;
   url: string;
+  image: string;
+  logo: string;
 }
 
-const { name, category, description, url } = Astro.props;
+const { name, category, description, url, image, logo } = Astro.props;
 ---
 
 <article class="brand-card">
-  <p class="brand-card__category">{category}</p>
-  <h3>{name}</h3>
-  <p>{description}</p>
-  <a href={url} target="_blank" rel="noopener noreferrer" class="btn btn--sm">
-    Visitar {name}
+  <a href={url} target="_blank" rel="noopener noreferrer" class="brand-card__link">
+    <div class="brand-card__image">
+      <img src={image} alt="" loading="lazy" />
+      <span class="brand-card__badge">{category}</span>
+    </div>
+    <div class="brand-card__body">
+      <img src={logo} alt={name} class="brand-card__logo" loading="lazy" />
+      <p>{description}</p>
+      <img class="brand-card__arrow" src="/images/icon-arrow-outward.png" alt="" loading="lazy" />
+    </div>
   </a>
 </article>

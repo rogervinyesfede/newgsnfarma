@@ -1,0 +1,75 @@
+.areas-section {
+  background: var(--color-primary);
+  color: #fff;
+  padding-block: var(--space-16);
+}
+
+.areas-section__pretitle {
+  display: inline-block;
+  color: var(--color-accent);
+  border-bottom: 2px solid var(--color-accent);
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding-bottom: var(--space-2);
+  margin-bottom: var(--space-8);
+}
+
+.areas-section h2 {
+  color: #fff;
+}
+
+.areas-section > .container > p {
+  max-width: 720px;
+}
+
+.areas-grid {
+  display: grid;
+  gap: var(--space-6);
+  margin-top: var(--space-8);
+}
+
+.areas-grid__card {
+  background: var(--color-soft);
+  color: var(--color-primary);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.areas-grid__card-image {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.areas-grid__card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.areas-grid__card-body {
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  flex: 1;
+}
+
+.areas-grid__card-body h3 {
+  font-size: 1.3rem;
+  color: var(--color-teal);
+}
+
+.areas-grid__card-arrow {
+  margin-top: auto;
+  align-self: flex-end;
+  width: 32px;
+  height: 32px;
+}
+
+@media (min-width: 768px) {
+  .areas-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

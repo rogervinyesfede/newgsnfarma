@@ -69,3 +69,13 @@
 .contact-form button {
   align-self: flex-start;
 }
+
+.contact-form--dark label,
+.contact-form--dark legend {
+  color: #fff;
+}
+
+.contact-form--dark input:not([type="checkbox"]):not([type="radio"]),
+.contact-form--dark textarea {
+  background: #fff;
+}

@@ -56,3 +56,64 @@
     padding: 5% 8%;
   }
 }
+
+/* ===== hero-split: patró real de les pàgines internes ===== */
+.hero-split {
+  margin-top: var(--header-height);
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-split__text {
+  background: var(--color-primary);
+  color: #fff;
+  padding: var(--space-12) var(--space-4);
+}
+
+.hero-split__pretitle {
+  display: inline-block;
+  color: var(--color-accent);
+  border-bottom: 2px solid var(--color-accent);
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding-bottom: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.hero-split__text h1 {
+  color: #fff;
+  font-size: clamp(1.8rem, 4vw, 2.75rem);
+  max-width: 520px;
+}
+
+.hero-split__image {
+  width: 100%;
+  height: 280px;
+}
+
+.hero-split__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (min-width: 768px) {
+  .hero-split {
+    flex-direction: row;
+    min-height: 480px;
+  }
+
+  .hero-split__text {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--space-16) var(--space-12);
+  }
+
+  .hero-split__image {
+    width: 50%;
+    height: auto;
+  }
+}

@@ -10,38 +10,42 @@ import '../styles/pages/contacto.css';
   title="Contacto | GSN Farma Labs Group"
   description="Contacta con GSN Farma Labs Group para más información sobre nuestro laboratorio farmacéutico, servicios y soluciones de salud."
 >
-  <Hero title="Contacto" subtitle="Contacta con nosotros" image="/images/hero-contacto.webp" />
-
-  <section class="content-section content-section--split">
-    <div class="container content-section__split-inner">
-      <div class="content-section__image">
-        <img src="/images/contacto-img.webp" alt="" loading="lazy" />
-      </div>
-      <div class="content-section__text">
-        <h2>Cuéntanos en qué podemos ayudarte</h2>
-        <p>Si quieres conocer más o explorar una colaboración, contacta con nosotros.</p>
-        <ContactForm submitLabel="Enviar consulta" />
-      </div>
-    </div>
-  </section>
+  <Hero split pretitle="Contacto" title="Contacta con nosotros" image="/images/hero-contacto.webp" />
 
   <section class="content-section">
     <div class="container">
-      <h2>Información de contacto</h2>
-      <dl class="contact-info">
+      <span class="pretitle">Cuéntanos en qué podemos ayudarte</span>
+      <h2>Si quieres conocer más o explorar una colaboración, contacta con nosotros.</h2>
+      <ContactForm submitLabel="Enviar consulta" />
+    </div>
+  </section>
+
+  <section class="contact-info-section">
+    <div class="contact-info-section__image">
+      <img src="/images/contacto-img.webp" alt="" loading="lazy" />
+    </div>
+    <div class="contact-info-section__list">
+      <div class="contact-info-row">
+        <img src="/images/icon-marker.svg" alt="" aria-hidden="true" />
         <div>
-          <dt><img src="/images/icon-marker.svg" alt="" aria-hidden="true" /> Dirección</dt>
-          <dd>C/ del Llobregat nº 28, Terrassa, Barcelona, 08223</dd>
+          <h3>Dirección</h3>
+          <p>C/ del Llobregat nº 28, Terrassa, Barcelona, 08223</p>
         </div>
+      </div>
+      <div class="contact-info-row">
+        <img src="/images/icon-phone.svg" alt="" aria-hidden="true" />
         <div>
-          <dt><img src="/images/icon-phone.svg" alt="" aria-hidden="true" /> Teléfono</dt>
-          <dd><a href="tel:+34680310655">+34 680 310 655</a></dd>
+          <h3>Teléfono</h3>
+          <p><a href="tel:+34680310655">+34 680 310 655</a></p>
         </div>
+      </div>
+      <div class="contact-info-row">
+        <img src="/images/icon-address.svg" alt="" aria-hidden="true" />
         <div>
-          <dt><img src="/images/icon-address.svg" alt="" aria-hidden="true" /> Correo electrónico</dt>
-          <dd><a href="mailto:info@gsnfarma.com">info@gsnfarma.com</a></dd>
+          <h3>Correo electrónico</h3>
+          <p><a href="mailto:info@gsnfarma.com">info@gsnfarma.com</a></p>
         </div>
-      </dl>
+      </div>
     </div>
   </section>
 </BaseLayout>

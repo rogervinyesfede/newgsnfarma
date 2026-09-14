@@ -1,0 +1,36 @@
+.service-cards {
+  display: grid;
+  gap: var(--space-8);
+  margin-top: var(--space-8);
+}
+
+.service-card {
+  background: var(--color-soft);
+}
+
+.service-card__image {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.service-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.service-card__body {
+  padding: var(--space-6);
+}
+
+.service-card__body h3 {
+  color: var(--color-teal);
+  font-size: 1.4rem;
+  margin-bottom: var(--space-2);
+}
+
+@media (min-width: 900px) {
+  .service-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
