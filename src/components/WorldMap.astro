@@ -1,0 +1,34 @@
+---
+// Mapa del món real (fronteres per país), adaptat de raphaellepuschitz/SVG-World-Map (MIT).
+// Copyright (c) Raphael Lepuschitz — https://github.com/raphaellepuschitz/SVG-World-Map
+// Regions amb presència (accent cian), agrupades per codi de país ISO 3166-1 alpha-2:
+// Latinoamérica, Europa, Oriente Medio, China, Sudeste Asiático.
+import worldMapInner from '../assets/world-map-inner.svg?raw';
+
+interface Props {
+  showLabels?: boolean;
+  dark?: boolean;
+}
+
+const { showLabels = true, dark = false } = Astro.props;
+---
+
+<svg
+  class={`world-map world-map-real${dark ? ' world-map--on-dark' : ''}`}
+  viewBox="0 0 1000 440"
+  xmlns="http://www.w3.org/2000/svg"
+  role="img"
+  aria-label="Mapa del mundo con las regiones donde opera GSN Farma Labs Group"
+>
+  <Fragment set:html={worldMapInner} />
+
+  {showLabels && (
+    <g class="world-map__labels">
+      <text class="world-map__label" x="266" y="315">Latinoamérica</text>
+      <text class="world-map__label" x="479" y="75">Europa</text>
+      <text class="world-map__label" x="592" y="158">Oriente Medio</text>
+      <text class="world-map__label" x="735" y="115">China</text>
+      <text class="world-map__label" x="775" y="240">Sudeste Asiático</text>
+    </g>
+  )}
+</svg>

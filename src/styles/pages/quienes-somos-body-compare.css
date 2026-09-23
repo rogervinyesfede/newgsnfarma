@@ -1,0 +1,242 @@
+/* Bloc temporal de comparació — cos de la pàgina "Quiénes somos" (nova estructura).
+   Eliminar quan es triï la versió definitiva. */
+
+.compare-tag {
+  text-align: center;
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: var(--space-2);
+  margin: 0;
+}
+
+/* ---------- Intro Proposta 2 — 2 columnes de text (sense imatge), estil "nuestras marcas" ----------
+   Marge uniforme entre blocs (50px) — mateix marge-top que la resta de blocs de la pàgina
+   (unió, one health, àrees), sense margin-bottom perquè el següent bloc ja aporta el seu
+   propi marge-top. */
+.qs-intro-2col.block3-d__row--50-50 {
+  margin-top: 40px;
+  margin-bottom: 0;
+}
+
+.qs-intro-2col__text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #4b4b4b;
+  margin: 0 0 var(--space-4);
+}
+
+.qs-intro-2col__text p:last-child {
+  margin-bottom: 0;
+}
+
+@media (min-width: 900px) {
+  .qs-intro-2col.block3-d__row--50-50 .container {
+    align-items: center;
+  }
+
+  .qs-intro-2col.block3-d__row--50-50 .block2-f__text {
+    flex: 0 1 560px;
+    min-width: 380px;
+    padding-top: 0;
+  }
+
+  .qs-intro-2col.block3-d__row--50-50 .block2-f__text h2 {
+    max-width: 560px;
+  }
+
+  .qs-intro-2col__text {
+    flex: 1 1 480px;
+    min-width: 380px;
+    padding-top: 0;
+  }
+}
+
+/* ---------- Unió Proposta 2 — xifres destacades ---------- */
+.qs-union-stats {
+  background: #eeeeec;
+  padding-block: var(--space-16);
+  margin-top: 40px;
+}
+
+.qs-union-stats .container {
+  max-width: 1000px;
+}
+
+.qs-union-stats__intro {
+  text-align: center;
+  max-width: 640px;
+  margin-inline: auto;
+  margin-bottom: var(--space-12);
+}
+
+.qs-union-stats__intro h2 {
+  font-weight: 800;
+  color: var(--color-primary);
+}
+
+.qs-union-stats__intro p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #4b4b4b;
+}
+
+.qs-union-stats__grid {
+  display: grid;
+  gap: var(--space-8);
+}
+
+.qs-union-stats__card {
+  background: #fff;
+  padding: var(--space-8);
+  box-shadow: var(--shadow-md);
+}
+
+.qs-union-stats__number {
+  display: block;
+  text-align: center;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  line-height: 1;
+  color: var(--color-accent);
+  margin-bottom: var(--space-4);
+}
+
+.qs-union-stats__logo {
+  display: block;
+  width: 200px;
+  height: 56px;
+  object-fit: contain;
+  object-position: center bottom;
+  margin: 0 auto var(--space-4);
+}
+
+.qs-union-stats__card p {
+  color: #4b4b4b;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.qs-union-stats__footer {
+  text-align: center;
+  max-width: 720px;
+  margin: var(--space-12) auto 0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #4b4b4b;
+  font-weight: 400;
+}
+
+@media (min-width: 640px) {
+  .qs-union-stats__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ---------- One Health Proposta 4 — imatge + text (estil idèntic al bloc "One Health" de la
+   home: mateixes classes block3-d__row--onehealth, només sobreescrivim el fons a blanc perquè
+   aquí va just després del bloc d'unió (gris) i el marge superior perquè no va enganxat a un hero) ---------- */
+.qs-onehealth-home.block2-f.block3-d__row--onehealth {
+  background: #fff;
+  margin-top: 40px;
+}
+
+@media (min-width: 900px) {
+  .qs-onehealth-home.block2-f.block3-d__row--onehealth .block2-f__text p {
+    width: 540px;
+  }
+}
+
+/* ---------- Àrees de negocio Proposta 2/3 — variants clares (reutilitzen l'accent-line +
+   la graella de targetes del bloc actual, però amb fons clar i targetes destacades) ---------- */
+.qs-areas {
+  padding-block: var(--space-16);
+  margin-top: 40px;
+}
+
+.qs-areas--grey {
+  background: #eeeeec;
+}
+
+.qs-areas .block2-f__accent-line {
+  margin: 0 0 var(--space-4);
+}
+
+.qs-areas h2 {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: 800;
+  color: var(--color-primary);
+  margin: 0 0 var(--space-4);
+}
+
+.qs-areas > .container > p {
+  max-width: 750px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #4b4b4b;
+  margin: 0;
+}
+
+.qs-areas__grid {
+  display: grid;
+  gap: var(--space-6);
+  margin-top: var(--space-8);
+}
+
+.qs-areas__card {
+  background: #fff;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.qs-areas__card-image {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.qs-areas__card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.qs-areas__card-body {
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  flex: 1;
+}
+
+.qs-areas__card-body h3 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--color-teal);
+}
+
+.qs-areas__card-body p {
+  color: #4b4b4b;
+  line-height: 1.6;
+}
+
+.qs-areas__card-body .block2-f__cta {
+  margin-top: auto;
+}
+
+/* Proposta 3 — targetes editorials: sense ombra, vora superior en cian en lloc de caixa */
+.qs-areas__card--editorial {
+  box-shadow: none;
+  border-top: 3px solid var(--color-accent);
+}
+
+@media (min-width: 768px) {
+  .qs-areas__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

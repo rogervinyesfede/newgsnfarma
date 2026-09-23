@@ -1,17 +1,28 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Hero from '../components/Hero.astro';
 import services from '../data/services.json';
 import '../styles/pages/inner-page.css';
-import '../styles/components/service-card.css';
+import '../styles/pages/subpage-hero-compare.css';
+import '../styles/pages/block2.css';
+import '../styles/pages/block3-compare.css';
+import '../styles/pages/servicios-body-compare.css';
 
 const serviceImages: Record<string, string> = {
   'Almacenamiento farmacéutico': '/images/servicios-almacenamiento.jpg',
   'Aseguramiento de la calidad': '/images/servicios-calidad.webp',
   'Acondicionamiento secundario y serialización': '/images/servicios-acondicionamiento.webp',
   'Cámaras climáticas y estudios de estabilidad': '/images/servicios-camaras.webp',
-  'Regulatory Affairs': '/images/servicios-regulatory.webp',
+  'Asuntos regulatorios': '/images/servicios-regulatory.webp',
   'Subvenciones': '/images/servicios-subvenciones.webp',
+};
+
+const serviceIds: Record<string, string> = {
+  'Almacenamiento farmacéutico': 'almacenamiento',
+  'Aseguramiento de la calidad': 'calidad',
+  'Acondicionamiento secundario y serialización': 'acondicionamiento',
+  'Cámaras climáticas y estudios de estabilidad': 'camaras-climaticas',
+  'Asuntos regulatorios': 'regulatorio',
+  'Subvenciones': 'subvenciones',
 };
 ---
 
@@ -19,81 +30,185 @@ const serviceImages: Record<string, string> = {
   title="Servicios farmacéuticos | GSN Farma Labs Group"
   description="Servicios farmacéuticos especializados en desarrollo, fabricación y gestión de productos farmacéuticos y soluciones de salud con altos estándares de calidad."
 >
-  <Hero
-    split
-    pretitle="Nuestros servicios"
-    title="Tu partner global para el desarrollo y la comercialización"
-    image="/images/hero-servicios.webp"
-  />
+  <section class="subpage-hero-e subpage-hero-e--left">
+    <img
+      src="/images/gsn_farma_offices_building.jpg"
+      alt=""
+      loading="eager"
+      style="object-position: center 40%"
+    />
+    <div class="subpage-hero-e__scrim"></div>
+    <div class="subpage-hero-e__inner">
+      <h1>Servicios farmacéuticos</h1>
+    </div>
+  </section>
 
-  <section class="content-section content-section--split">
-    <div class="container content-section__split-inner">
-      <div class="content-section__text">
-        <span class="pretitle">Nuestra fábrica</span>
-        <h2>Nuestra fábrica: garantía de calidad, fiabilidad y capacidad productiva</h2>
+  <section class="srv-union">
+    <div class="container">
+      <div class="srv-union__intro">
+        <h2>Tu partner global en soluciones de salud</h2>
         <p>
-          GSN Farma Labs Group dispone de una planta industrial diseñada para la fabricación de
-          productos regulados bajo los más altos estándares de calidad, seguridad y trazabilidad,
-          garantizando procesos eficientes controlados y escalables.
+          <strong>17.000 m²</strong> dedicados a desarrollo, fabricación, análisis y
+          almacenamiento.
         </p>
       </div>
-      <div class="content-section__image">
+      <div class="srv-union__grid">
+        <a href="#fabricacion" class="srv-union__item">Fabricación</a>
+        <a href="#i-d" class="srv-union__item">I+D</a>
+        <a href="#almacenamiento" class="srv-union__item">Almacenamiento</a>
+        <a href="#calidad" class="srv-union__item">Aseguramiento de calidad</a>
+        <a href="#regulatorio" class="srv-union__item">Asuntos regulatorios</a>
+        <a href="#camaras-climaticas" class="srv-union__item">Cámaras climáticas y estudios de estabilidad</a>
+        <a href="#acondicionamiento" class="srv-union__item">Acondicionamiento secundario y serialización</a>
+        <a href="#subvenciones" class="srv-union__item">Subvenciones</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="fabricacion" class="block2-f block3-d__row--50-50 block3-d__row--onehealth srv-fi--white">
+    <div class="container">
+      <div class="block2-f__image">
         <img src="/images/servicios-fabrica.webp" alt="" loading="lazy" />
       </div>
+      <div class="block2-f__text">
+        <div class="block2-f__accent-line"></div>
+        <h2>Planta de Producción</h2>
+        <p>
+          Fabricación de complementos alimenticios en formas sólidas (comprimidos, cápsulas y
+          doypacks) bajo los más altos estándares de calidad, seguridad y trazabilidad, conforme
+          a normativa GMP e IFS Food Supplements.
+        </p>
+        <p>
+          Ofrecemos un servicio integral y flexible, con desarrollos a medida y formatos
+          adaptados a tu marca, desde el desarrollo hasta el producto final.
+        </p>
+      </div>
     </div>
   </section>
 
-  <section class="content-section content-section--split content-section--wide-image content-section--dark">
-    <div class="container content-section__split-inner">
-      <div class="content-section__image">
+  <section class="srv-capacity">
+    <div class="container">
+      <h2>Capacidad productiva</h2>
+      <div class="srv-capacity__grid">
+        <div class="srv-capacity__item">
+          <span class="srv-capacity__icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8"></circle></svg>
+          </span>
+          <h3>Comprimidos</h3>
+          <strong>22.000.000</strong>
+          <span class="srv-capacity__unit">uds./año</span>
+        </div>
+        <div class="srv-capacity__item">
+          <span class="srv-capacity__icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="9" width="16" height="6" rx="3"></rect><path d="M12 9v6" stroke-linecap="round"></path></svg>
+          </span>
+          <h3>Cápsulas</h3>
+          <strong>22.000.000</strong>
+          <span class="srv-capacity__unit">uds./año</span>
+        </div>
+        <div class="srv-capacity__item">
+          <span class="srv-capacity__icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 3h6v3.5l2 3V21H7V9.5l2-3V3z" stroke-linecap="round" stroke-linejoin="round"></path><path d="M7 13h10" stroke-linecap="round"></path></svg>
+          </span>
+          <h3>Botes pildoreros</h3>
+          <strong>660.000</strong>
+          <span class="srv-capacity__unit">uds./año</span>
+        </div>
+        <div class="srv-capacity__item">
+          <span class="srv-capacity__icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 8c0-2.5 2-4.5 6-4.5s6 2 6 4.5v11a2 2 0 01-2 2H8a2 2 0 01-2-2V8z" stroke-linecap="round" stroke-linejoin="round"></path><path d="M9 3.5v3M15 3.5v3" stroke-linecap="round"></path></svg>
+          </span>
+          <h3>Doypacks</h3>
+          <strong>350.000</strong>
+          <span class="srv-capacity__unit">uds./año</span>
+        </div>
+        <div class="srv-capacity__item">
+          <span class="srv-capacity__icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="1"></rect><path d="M3 10h18M9 4v16M15 4v16"></path></svg>
+          </span>
+          <h3>Blísteres</h3>
+          <strong>2.200.000</strong>
+          <span class="srv-capacity__unit">uds./año</span>
+        </div>
+        <div class="srv-capacity__item">
+          <span class="srv-capacity__icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8l9-5 9 5-9 5-9-5z" stroke-linecap="round" stroke-linejoin="round"></path><path d="M3 8v8l9 5 9-5V8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </span>
+          <h3>Estuches de blísteres</h3>
+          <strong>700.000</strong>
+          <span class="srv-capacity__unit">uds./año</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="i-d" class="block2-f block3-d__row--50-50 block3-d__row--onehealth srv-fi--navy">
+    <div class="container">
+      <div class="block2-f__text">
+        <div class="block2-f__accent-line"></div>
+        <h2>Laboratorio</h2>
+        <p>
+          En el área de I+D combinamos los servicios globales de desarrollo de CoetusPharma con
+          los servicios de desarrollo de producto de GSN Farma, cubriendo tanto I+D galénico
+          (medicamentos y formas farmacéuticas nuevas) como I+D nutricional (complementos
+          alimenticios y productos funcionales).
+        </p>
+        <p>
+          Acompañamos proyectos propios y de terceros desde la fase conceptual hasta su escalado
+          industrial, con planta piloto, ensayos de estabilidad y soporte técnico específico,
+          ofreciendo un enfoque integral, flexible y orientado a resultados.
+        </p>
+      </div>
+      <div class="block2-f__image">
         <img src="/images/servicios-id.webp" alt="" loading="lazy" />
       </div>
-      <div class="content-section__text">
-        <span class="pretitle pretitle--accent">I+D</span>
-        <h2>I+D, dos siglas que definen todo nuestro proceso</h2>
-        <p class="content-section__highlight">
-          Integración de servicios globales y desarrollo de producto.
-        </p>
-        <p>
-          El área de I+D de GSN Farma Labs Group combina los <strong>servicios globales de
-          desarrollo</strong> de CoetusPharma con los <strong>servicios de desarrollo de
-          producto</strong> de GSN FARMA, ofreciendo un enfoque integral, flexible y orientado a
-          resultados.
-        </p>
-        <p>
-          Acompañamos proyectos propios y de terceros en las áreas de medicamentos y complementos
-          alimenticios, desde la fase conceptual hasta su escalado industrial.
-        </p>
+    </div>
+  </section>
+
+  <section class="srv-others">
+    <div class="container">
+      <div class="block2-f__text">
+        <div class="block2-f__accent-line"></div>
+        <h2>Servicios complementarios</h2>
       </div>
     </div>
   </section>
 
-  <section class="content-section content-section--wide">
-    <div class="container">
-      <span class="pretitle">Otros servicios</span>
-      <h2>Servicios complementarios que completan nuestra propuesta integral</h2>
-      <p class="content-section__intro">
-        Además de nuestras capacidades de fabricación e I+D, ofrecemos una serie de servicios
-        especializados que garantizan la calidad, el cumplimiento regulatorio y la correcta gestión
-        del producto a lo largo de todo su ciclo de vida.
-      </p>
-
-      <div class="service-cards">
-        {services.map((service) => (
-          <article class="service-card">
-            <div class="service-card__image">
+  {services.map((service, i) => (
+    <section id={serviceIds[service.title]} class={`content-section content-section--split srv-strip ${i % 2 === 1 ? 'srv-strip--grey' : ''}`}>
+      <div class="container content-section__split-inner">
+        {i % 2 === 0 ? (
+          <>
+            <div class="content-section__image srv-strip__image">
               <img src={serviceImages[service.title]} alt="" loading="lazy" />
             </div>
-            <div class="service-card__body">
+            <div class="content-section__text">
               <h3>{service.title}</h3>
-              <p>{service.description}</p>
-              <ul>
-                {service.items.map((item: string) => <li>{item}</li>)}
-              </ul>
+              {service.description.split('\n').map((line: string) => <p set:html={line} />)}
             </div>
-          </article>
-        ))}
+          </>
+        ) : (
+          <>
+            <div class="content-section__text">
+              <h3>{service.title}</h3>
+              {service.description.split('\n').map((line: string) => <p set:html={line} />)}
+            </div>
+            <div class="content-section__image srv-strip__image">
+              <img src={serviceImages[service.title]} alt="" loading="lazy" />
+            </div>
+          </>
+        )}
       </div>
+    </section>
+  ))}
+
+  <section class="contact-alt contact-alt--navy-soft">
+    <div class="container">
+      <h2>¿Quieres saber más?</h2>
+      <p>
+        Contáctanos para recibir más información sobre nuestros servicios.
+      </p>
+      <a href="/contacto" class="btn btn--outline-white">Contactar</a>
     </div>
   </section>
 </BaseLayout>

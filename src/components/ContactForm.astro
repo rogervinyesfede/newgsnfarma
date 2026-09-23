@@ -12,38 +12,38 @@ const { submitLabel = 'Enviar', dark = false } = Astro.props;
 <form class={`contact-form ${dark ? 'contact-form--dark' : ''}`} name="contacto" method="POST">
   <div class="contact-form__row">
     <label>
-      Nombre y apellidos
+      Nombre y apellidos *
       <input type="text" name="nombre" required />
     </label>
     <label>
       Teléfono
-      <input type="tel" name="telefono" required />
+      <input type="tel" name="telefono" />
+    </label>
+  </div>
+
+  <div class="contact-form__row">
+    <label>
+      Email *
+      <input type="email" name="email" required />
+    </label>
+    <label>
+      Estoy interesado en
+      <select name="interes">
+        <option value="" disabled selected>Selecciona una opción</option>
+        <option value="servicios">Servicios</option>
+        <option value="marcas">Marcas propias</option>
+      </select>
     </label>
   </div>
 
   <label>
-    Email
-    <input type="email" name="email" required />
-  </label>
-
-  <fieldset class="contact-form__interest">
-    <legend>Estoy interesado en</legend>
-    <label class="contact-form__radio">
-      <input type="radio" name="interes" value="servicios" /> Servicios
-    </label>
-    <label class="contact-form__radio">
-      <input type="radio" name="interes" value="marcas" /> Nuestras marcas
-    </label>
-  </fieldset>
-
-  <label>
     Escribe tu mensaje
-    <textarea name="mensaje" rows="5"></textarea>
+    <textarea name="mensaje" rows="8"></textarea>
   </label>
 
   <label class="contact-form__consent">
     <input type="checkbox" name="consentimiento" required />
-    He leído y acepto las Condiciones Generales y la <a href="/politica-de-privacidad">Política de privacidad</a>
+    <span>He leído y acepto la <a href="https://gsnfarma.com/politica-de-privacidad">Política de privacidad</a></span>
   </label>
 
   <button type="submit" class={`btn ${dark ? 'btn--white' : ''}`}>{submitLabel}</button>

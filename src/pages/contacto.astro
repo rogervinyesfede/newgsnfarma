@@ -1,51 +1,63 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Hero from '../components/Hero.astro';
 import ContactForm from '../components/ContactForm.astro';
 import '../styles/pages/inner-page.css';
-import '../styles/pages/contacto.css';
+import '../styles/pages/block3-compare.css';
+import '../styles/pages/subpage-hero-compare.css';
+import '../styles/pages/contact-2col-compare.css';
 ---
 
 <BaseLayout
   title="Contacto | GSN Farma Labs Group"
   description="Contacta con GSN Farma Labs Group para más información sobre nuestro laboratorio farmacéutico, servicios y soluciones de salud."
 >
-  <Hero split pretitle="Contacto" title="Contacta con nosotros" image="/images/hero-contacto.webp" />
-
-  <section class="content-section">
-    <div class="container">
-      <span class="pretitle">Cuéntanos en qué podemos ayudarte</span>
-      <h2>Si quieres conocer más o explorar una colaboración, contacta con nosotros.</h2>
-      <ContactForm submitLabel="Enviar consulta" />
+  <section class="subpage-hero-e subpage-hero-e--left">
+    <img src="/images/gsn_farma_offices_hall.jpg" alt="" loading="eager" />
+    <div class="subpage-hero-e__scrim"></div>
+    <div class="subpage-hero-e__inner">
+      <h1>Contacta con nosotros</h1>
     </div>
   </section>
 
-  <section class="contact-info-section">
-    <div class="contact-info-section__image">
-      <img src="/images/contacto-img.webp" alt="" loading="lazy" />
+  <section class="contact-2col contact-2col--f1">
+    <div class="contact-2col__info">
+      <div class="contact-2col__info-inner">
+        <div class="contact-2col__info-row">
+          <img src="/images/icon-marker.svg" alt="" aria-hidden="true" />
+          <div>
+            <h3>Dirección</h3>
+            <p>C/ del Llobregat nº 28, Terrassa, Barcelona, 08223</p>
+          </div>
+        </div>
+        <div class="contact-2col__info-row">
+          <img src="/images/icon-phone.svg" alt="" aria-hidden="true" />
+          <div>
+            <h3>Información general</h3>
+            <p><a href="tel:+34680310655">+34 680 310 655</a></p>
+          </div>
+        </div>
+        <div class="contact-2col__info-row">
+          <img src="/images/icon-phone.svg" alt="" aria-hidden="true" />
+          <div>
+            <h3>Farmacovigilancia</h3>
+            <p><a href="tel:+34680310655">+34 680 310 655</a></p>
+          </div>
+        </div>
+        <div class="contact-2col__info-row">
+          <img src="/images/icon-address.svg" alt="" aria-hidden="true" />
+          <div>
+            <h3>Correo electrónico</h3>
+            <p><a href="mailto:info@gsnfarma.com">info@gsnfarma.com</a></p>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="contact-info-section__list">
-      <div class="contact-info-row">
-        <img src="/images/icon-marker.svg" alt="" aria-hidden="true" />
-        <div>
-          <h3>Dirección</h3>
-          <p>C/ del Llobregat nº 28, Terrassa, Barcelona, 08223</p>
-        </div>
-      </div>
-      <div class="contact-info-row">
-        <img src="/images/icon-phone.svg" alt="" aria-hidden="true" />
-        <div>
-          <h3>Teléfono</h3>
-          <p><a href="tel:+34680310655">+34 680 310 655</a></p>
-        </div>
-      </div>
-      <div class="contact-info-row">
-        <img src="/images/icon-address.svg" alt="" aria-hidden="true" />
-        <div>
-          <h3>Correo electrónico</h3>
-          <p><a href="mailto:info@gsnfarma.com">info@gsnfarma.com</a></p>
-        </div>
+    <div class="contact-2col__form">
+      <div class="contact-2col__form-inner">
+        <p>Si quieres conocer más o explorar una colaboración, contacta con nosotros.</p>
+        <ContactForm submitLabel="Enviar" />
       </div>
     </div>
   </section>
+
 </BaseLayout>

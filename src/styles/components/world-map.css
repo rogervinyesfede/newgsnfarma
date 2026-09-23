@@ -1,0 +1,170 @@
+.world-map {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.world-map__label {
+  font-family: var(--font-heading, inherit);
+  font-weight: 700;
+  font-size: 15px;
+  fill: var(--color-primary);
+  text-anchor: middle;
+  paint-order: stroke;
+  stroke: #fff;
+  stroke-width: 3px;
+}
+
+/* Variant per a fons foscos (navy): etiquetes en blanc */
+.world-map--on-dark .world-map__label {
+  fill: #fff;
+  stroke: var(--color-primary);
+}
+
+/* ---------- Mapa real (fronteres per país) ---------- */
+.world-map-real #World,
+.world-map-real #Ocean {
+  fill: transparent;
+}
+
+.world-map-real path {
+  fill: #d5d6da;
+  stroke: #fff;
+  stroke-width: 0.4px;
+}
+
+.world-map-real circle {
+  display: none;
+}
+
+/* Antàrtida: queda molt distorsionada amb aquesta projecció, no aporta valor */
+.world-map-real #AQ {
+  display: none;
+}
+
+/* Regions amb presència de GSN Farma Labs Group (codis de país ISO 3166-1 alpha-2) */
+
+/* latam */
+.world-map-real #MX path,
+.world-map-real #GT path,
+.world-map-real #BZ path,
+.world-map-real #SV path,
+.world-map-real #HN path,
+.world-map-real #NI path,
+.world-map-real #CR path,
+.world-map-real #PA path,
+.world-map-real #CU path,
+.world-map-real #DO path,
+.world-map-real #HT path,
+.world-map-real #JM path,
+.world-map-real #PR path,
+.world-map-real #TT path,
+.world-map-real #BB path,
+.world-map-real #GD path,
+.world-map-real #LC path,
+.world-map-real #VC path,
+.world-map-real #AG path,
+.world-map-real #DM path,
+.world-map-real #KN path,
+.world-map-real #BS path,
+.world-map-real #CO path,
+.world-map-real #VE path,
+.world-map-real #GY path,
+.world-map-real #SR path,
+.world-map-real #GF path,
+.world-map-real #EC path,
+.world-map-real #PE path,
+.world-map-real #BR path,
+.world-map-real #BO path,
+.world-map-real #PY path,
+.world-map-real #UY path,
+.world-map-real #AR path,
+.world-map-real #CL path,
+/* europa */
+.world-map-real #AD path,
+.world-map-real #AL path,
+.world-map-real #AT path,
+.world-map-real #BA path,
+.world-map-real #BE path,
+.world-map-real #BG path,
+.world-map-real #BY path,
+.world-map-real #CH path,
+.world-map-real #CY path,
+.world-map-real #CZ path,
+.world-map-real #DE path,
+.world-map-real #DK path,
+.world-map-real #EE path,
+.world-map-real #ES path,
+.world-map-real #FI path,
+.world-map-real #FR path,
+.world-map-real #GB path,
+.world-map-real #GR path,
+.world-map-real #HR path,
+.world-map-real #HU path,
+.world-map-real #IE path,
+.world-map-real #IS path,
+.world-map-real #IT path,
+.world-map-real #LI path,
+.world-map-real #LT path,
+.world-map-real #LU path,
+.world-map-real #LV path,
+.world-map-real #MC path,
+.world-map-real #MD path,
+.world-map-real #ME path,
+.world-map-real #MK path,
+.world-map-real #MT path,
+.world-map-real #NL path,
+.world-map-real #NO path,
+.world-map-real #PL path,
+.world-map-real #PT path,
+.world-map-real #RO path,
+.world-map-real #RS path,
+.world-map-real #SE path,
+.world-map-real #SI path,
+.world-map-real #SK path,
+.world-map-real #SM path,
+.world-map-real #UA path,
+.world-map-real #VA path,
+/* oriente medio */
+.world-map-real #TR path,
+.world-map-real #SY path,
+.world-map-real #IQ path,
+.world-map-real #IR path,
+.world-map-real #JO path,
+.world-map-real #LB path,
+.world-map-real #IL path,
+.world-map-real #PS path,
+.world-map-real #SA path,
+.world-map-real #YE path,
+.world-map-real #OM path,
+.world-map-real #AE path,
+.world-map-real #QA path,
+.world-map-real #BH path,
+.world-map-real #KW path,
+/* china */
+.world-map-real #CN path,
+/* sudeste asiatico */
+.world-map-real #TH path,
+.world-map-real #VN path,
+.world-map-real #KH path,
+.world-map-real #LA path,
+.world-map-real #MM path,
+.world-map-real #MY path,
+.world-map-real #SG path,
+.world-map-real #ID path,
+.world-map-real #PH path,
+.world-map-real #BN path,
+.world-map-real #TL path {
+  fill: var(--color-accent);
+}
+
+/* Variant per a fons foscos (navy): resta del mapa translúcid, oceà transparent */
+.world-map--on-dark #World,
+.world-map--on-dark #Ocean {
+  fill: rgba(255, 255, 255, 0.06);
+}
+
+.world-map--on-dark.world-map-real path {
+  fill: rgba(255, 255, 255, 0.15);
+  stroke: rgba(255, 255, 255, 0.25);
+}

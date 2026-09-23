@@ -1,0 +1,332 @@
+/* Bloc temporal de comparació — àrees de negoci (2 propostes noves + l'actual).
+   Eliminar quan es triï la versió definitiva. */
+
+.compare-tag {
+  display: inline-block;
+  font-family: monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  color: #888;
+  border: 1px dashed #ccc;
+  padding: 2px 10px;
+  margin: var(--space-6) auto 0;
+  text-align: center;
+}
+
+.compare-tag-wrap {
+  text-align: center;
+}
+
+/* ---------- Footer — proposta alternativa (inspiració Noucor) ---------- */
+.footer-alt {
+  background: #eeeeec;
+  padding: var(--space-12) var(--space-4);
+}
+
+.footer-alt__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.footer-alt__logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.footer-alt__logo img {
+  width: 291px;
+  height: auto;
+}
+
+.footer-alt__social {
+  display: inline-flex;
+  margin-left: var(--space-4);
+}
+
+.footer-alt__social img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+.footer-alt__social:hover {
+  opacity: 0.8;
+}
+
+.footer-alt__info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.footer-alt__col h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin: 0 0 var(--space-2);
+}
+
+.footer-alt__col p {
+  font-size: 18px;
+  color: #555;
+  margin: 0;
+}
+
+.footer-alt__col--address p {
+  max-width: 220px;
+  margin-left: auto;
+}
+
+@media (min-width: 900px) {
+  .footer-alt__inner {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-12);
+  }
+
+  .footer-alt__logo {
+    flex: 0 0 auto;
+  }
+
+  .footer-alt__info {
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: var(--space-16);
+    margin-left: auto;
+  }
+
+  .footer-alt__col {
+    flex: 0 0 auto;
+    text-align: right;
+  }
+}
+
+/* ---------- Finançament — logos (inspiració Noucor) ---------- */
+.funding {
+  background: #fff;
+  padding: var(--space-16) var(--space-4);
+}
+
+.funding__intro {
+  text-align: center;
+  font-size: 18px;
+  line-height: 28.8px;
+  color: #555;
+  margin: 0 0 var(--space-8);
+}
+
+.funding__groups {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-10);
+}
+
+.funding__group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.funding__logos {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.funding__logos img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+@media (min-width: 768px) {
+  .funding__groups {
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--space-16);
+  }
+}
+
+/* ---------- Contacte — franja navy (decidida, ja no és comparació) ---------- */
+.contact-alt .container {
+  max-width: 700px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-alt h2 {
+  font-size: 44px;
+  line-height: 55px;
+  font-weight: 800;
+  margin: 0 0 var(--space-4);
+}
+
+.contact-alt p {
+  font-size: 18px;
+  line-height: 28.8px;
+  margin: 0 0 var(--space-8);
+  max-width: 560px;
+}
+
+/* Navy amb degradat subtil i més aire (padding superior/inferior) */
+.contact-alt--navy-soft {
+  background: linear-gradient(135deg, var(--color-primary), #2c3e56);
+  padding: calc(var(--space-16) + var(--space-8)) var(--space-4);
+  margin-top: 64px;
+  color: #fff;
+}
+
+.contact-alt--navy-soft h2 {
+  color: #fff;
+}
+
+.contact-alt--navy-soft p {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ---------- D · 2 files imatge+text alternades (estil Adalvo) ---------- */
+.block3-d {
+  background: #fff;
+}
+
+.block2-f.block3-d__row--onehealth {
+  background: #eeeeec;
+}
+
+.block3-d__row--onehealth .block2-f__image {
+  margin-top: var(--space-12);
+  margin-bottom: var(--space-12);
+}
+
+/* Separació vertical consistent entre els 3 blocs (One Health / Servicios / Marcas):
+   fixem padding vertical a 0 i controlem la separació només amb margin-top, perquè
+   el padding-block heretat de .block2-f feia que la separació real variés entre files */
+.block2-f.block3-d__row--50-50 {
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 64px;
+}
+
+/* One Health enganxat directament al hero, sense el marge superior de les altres files */
+.block2-f.block3-d__row--onehealth {
+  margin-top: 0;
+}
+
+/* Imatge vertical i marges/espais a l'estil Adalvo (només per a la proposta D) */
+.block3-d .block2-f__image {
+  max-width: 340px;
+  height: 460px;
+}
+
+@media (min-width: 900px) {
+  .block3-d .block2-f .container {
+    align-items: flex-start;
+    gap: var(--space-16);
+  }
+
+  .block3-d .block2-f__image {
+    flex: 0 0 34%;
+    max-width: none;
+    height: 560px;
+  }
+
+  .block3-d .block2-f__text {
+    padding-top: var(--space-2);
+  }
+
+  .block3-d .block2-f__cta {
+    margin-top: var(--space-4);
+  }
+
+  /* Prova: container real del header (1440px, marges 16/24px) en lloc del
+     .container genèric (1280px) — i files centrades dins d'aquest espai */
+  .block2-f.block3-d__row--50-50 .container {
+    max-width: 1440px;
+    padding-inline: var(--space-4) var(--space-6);
+    align-items: flex-start;
+    gap: var(--space-16);
+    justify-content: center;
+  }
+
+  .block3-d__row--50-50 .block2-f__image {
+    flex: 0 0 516px;
+    height: 550px;
+  }
+
+  .block3-d__row--50-50 .block2-f__image img {
+    object-fit: fill;
+  }
+
+  .block3-d__row--50-50 .block2-f__text {
+    flex: 0 1 480px;
+    padding-top: 54px;
+  }
+
+  /* Prova: mateixa mida de títol que "Meet our team" a Adalvo (52px / line-height 65px) */
+  .block3-d__row--50-50 .block2-f__text h2 {
+    font-size: 44px;
+    line-height: 55px;
+    max-width: 300px;
+    margin-bottom: 25px;
+  }
+
+  /* Prova: només al bloc One Health, títol forçat a 2 línies ("One Health:" / "el
+     propósito que nos guía") — calen columna i títol més amples perquè la 2a línia
+     no torni a partir-se (515px és el que ocupa "el propósito que nos guía") */
+  .block3-d__row--onehealth .block2-f__text {
+    flex-basis: 560px;
+  }
+
+  .block2-f.block3-d__row--onehealth .block2-f__text {
+    padding-top: 120px;
+  }
+
+  .block3-d__row--onehealth .block2-f__text h2 {
+    max-width: 540px;
+  }
+
+  .block2-f.block3-d__row--onehealth .block2-f__text p {
+    width: 400px;
+  }
+
+  /* Paràgraf a 400px d'ample, alineat a l'esquerra amb el títol (sense sagnia:
+     amb el títol a 2 línies, la sagnia trencava la coherència visual) */
+  .block3-d__row--50-50 .block2-f__text p {
+    width: 400px;
+    font-size: 18px;
+    line-height: 28.8px;
+  }
+
+  .block3-d__row--50-50 .block2-f__cta span:last-child {
+    font-size: 18px;
+  }
+
+  /* Aquesta regla ja existia a .block3-d .block2-f__cta, però només s'aplicava
+     quan la fila estava dins el wrapper .block3-d (no és el cas del bloc One
+     Health) — la repetim aquí de manera robusta perquè sigui igual a totes 3 */
+  .block2-f.block3-d__row--50-50 .block2-f__cta {
+    margin-top: var(--space-4);
+  }
+
+}
+
+/* ---------- D compacte · Servicios/Marcas amb imatges més baixes (bloc més estret) ---------- */
+@media (min-width: 900px) {
+  .block3-d--compact .block3-d__row--50-50 .block2-f__image {
+    flex: 0 0 516px;
+    height: 425px;
+  }
+
+  .block3-d--compact .block3-d__row--50-50 .block2-f__text {
+    padding-top: 20px;
+  }
+}
+

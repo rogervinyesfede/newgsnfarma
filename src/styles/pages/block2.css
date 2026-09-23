@@ -1,0 +1,114 @@
+/* Bloc "Un nuevo grupo farmacéutico" — estil Adalvo (2 columnes) */
+
+.block2-f {
+  background: #fff;
+  padding: var(--space-16) var(--space-4);
+}
+
+.block2-f .container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+.block2-f__image {
+  width: 100%;
+  max-width: 480px;
+  height: 320px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.block2-f__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.block2-f__text {
+  text-align: center;
+}
+
+.block2-f__accent-line {
+  width: 40px;
+  height: 3px;
+  background: var(--color-accent);
+  margin: 0 auto var(--space-4);
+}
+
+.block2-f__text h2 {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--color-primary);
+  margin: 0 0 var(--space-4);
+}
+
+.block2-f__text p {
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #6b6b6b;
+  margin: 0 0 var(--space-6);
+}
+
+.block2-f__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-4);
+  justify-content: center;
+  text-decoration: none;
+}
+
+.block2-f__cta-icon {
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary-light);
+  box-shadow: 0 8px 20px rgba(27, 36, 53, 0.12);
+  flex-shrink: 0;
+}
+
+.block2-f__cta span:last-child {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--color-primary);
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  transition: border-color var(--transition-base, 0.3s ease);
+}
+
+.block2-f__cta:hover span:last-child {
+  border-bottom-color: var(--color-primary);
+}
+
+@media (min-width: 900px) {
+  .block2-f .container {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+  }
+
+  .block2-f__image {
+    flex: 0 0 42%;
+    height: 420px;
+    max-width: none;
+  }
+
+  .block2-f__text {
+    flex: 1;
+    text-align: left;
+  }
+
+  .block2-f__accent-line {
+    margin: 0 0 var(--space-4);
+  }
+
+  .block2-f__cta {
+    justify-content: flex-start;
+  }
+}

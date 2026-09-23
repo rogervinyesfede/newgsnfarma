@@ -1,0 +1,266 @@
+/* Bloc temporal de comparació — cos de la pàgina "Servicios".
+   Eliminar quan es triï la versió definitiva. */
+
+.compare-tag {
+  text-align: center;
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: var(--space-2);
+  margin: 0;
+}
+
+/* ---------- Índex de serveis — estil bloc "Unión" de quienes somos (text centrat + graella 2 files) ---------- */
+.srv-union {
+  background: #eeeeec;
+  padding-block: var(--space-16);
+  margin-top: 0;
+}
+
+.srv-union .container {
+  max-width: 1000px;
+}
+
+.srv-union__intro {
+  text-align: center;
+  max-width: 640px;
+  margin-inline: auto;
+  margin-bottom: var(--space-12);
+}
+
+.srv-union__intro h2 {
+  font-weight: 800;
+  color: var(--color-primary);
+  margin: 0 0 var(--space-4);
+}
+
+.srv-union__intro p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #4b4b4b;
+  margin: 0;
+}
+
+.srv-union__intro p strong {
+  color: var(--color-blue8);
+}
+
+.srv-union__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+
+.srv-union__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #fff;
+  box-shadow: var(--shadow-md);
+  padding: var(--space-4);
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: transform var(--transition-base, 0.3s ease);
+}
+
+.srv-union__item:hover {
+  transform: translateY(-2px);
+}
+
+@media (min-width: 640px) {
+  .srv-union__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ---------- Fabricación + I+D — contrast (Fabricación clar / I+D fosc), estil "onehealth" ----------
+   Especificitat reforçada (.block2-f.block3-d__row--onehealth.srv-fi--*) perquè guanyi a la regla
+   base .block2-f.block3-d__row--onehealth { background: #eeeeec } de block3-compare.css. */
+.block2-f.block3-d__row--onehealth.srv-fi--white,
+.block2-f.block3-d__row--onehealth.srv-fi--navy {
+  margin-top: 40px;
+}
+
+.block2-f.block3-d__row--onehealth.srv-fi--white {
+  background: #fff;
+}
+
+.block2-f.block3-d__row--onehealth.srv-fi--navy {
+  background: var(--color-primary);
+}
+
+.srv-fi--navy .block2-f__accent-line {
+  background: var(--color-accent);
+}
+
+.srv-fi--navy .block2-f__text h2 {
+  color: #fff;
+}
+
+.srv-fi--navy .block2-f__text p {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.srv-fi--navy .block2-f__text strong {
+  color: #fff;
+}
+
+@media (min-width: 900px) {
+  .block2-f.block3-d__row--onehealth.srv-fi--white .block2-f__text p,
+  .block2-f.block3-d__row--onehealth.srv-fi--navy .block2-f__text p {
+    width: 540px;
+  }
+}
+
+/* ---------- Marge uniforme entre blocs (40px, mateix criteri que "Quiénes somos") ---------- */
+.content-section--wide {
+  margin-top: 40px;
+}
+
+/* ---------- Fábrica — capacitat productiva (xifra gran) ---------- */
+.srv-capacity {
+  background: #eeeeec;
+  padding-block: var(--space-12);
+  margin-top: 40px;
+}
+
+.srv-capacity h2 {
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-weight: 800;
+  color: var(--color-primary);
+  margin: 0 0 var(--space-8);
+}
+
+/* Alinear amb el container del bloc "Planta de Producción" (block2-f), que a partir de
+   900px fa servir max-width:1440px i padding-inline asimètric (16px/24px) en lloc del
+   .container genèric (1280px, padding simètric) */
+@media (min-width: 900px) {
+  .srv-capacity .container {
+    max-width: 1440px;
+    padding-inline: var(--space-4) var(--space-6);
+  }
+
+  /* A la fila imatge+text de dalt, justify-content:center centra el conjunt
+     imatge(516px) + gap(64px) + text(560px, per l'override --onehealth) = 1140px
+     dins del container. Repliquem exactament aquest mateix desplaçament (mateixa
+     fórmula que fa servir flexbox) perquè el títol comenci on comença la imatge. */
+  .srv-capacity h2 {
+    padding-left: calc((100% - 1140px) / 2);
+  }
+}
+
+/* La graella d'icones es centra de forma independent, amb els mateixos marges
+   als 2 laterals (no segueix l'alineació amb la imatge del títol). */
+.srv-capacity__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  max-width: 1100px;
+  margin-inline: auto;
+}
+
+.srv-capacity__item {
+  text-align: center;
+}
+
+.srv-capacity__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--color-primary);
+  box-shadow: var(--shadow-md);
+  margin-bottom: var(--space-4);
+}
+
+.srv-capacity__item h3 {
+  font-size: 0.9rem;
+  line-height: 1.3;
+  min-height: 2.6em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #4b4b4b;
+  margin: 0 0 var(--space-2);
+}
+
+.srv-capacity__item strong {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--color-accent);
+  line-height: 1.2;
+}
+
+.srv-capacity__unit {
+  font-size: 0.85rem;
+  color: #4b4b4b;
+}
+
+@media (min-width: 768px) {
+  .srv-capacity__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1100px) {
+  .srv-capacity__grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+/* ---------- Otros servicios — títol ---------- */
+.srv-others {
+  background: #fff;
+  padding-block: var(--space-12);
+  margin-top: 40px;
+}
+
+/* ---------- Otros servicios — franges horitzontals compactes, estil "Nuestras marcas" ---------- */
+.srv-strip {
+  padding-block: var(--space-8);
+}
+
+.srv-strip--grey {
+  background: #eeeeec;
+}
+
+.srv-strip__image img {
+  aspect-ratio: 16 / 9;
+}
+
+.srv-strip .content-section__text h3 {
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  font-weight: 800;
+  color: var(--color-primary);
+  margin: 0 0 var(--space-4);
+}
+
+.srv-strip .content-section__text p {
+  color: #4b4b4b;
+  line-height: 1.6;
+}
+
+@media (min-width: 768px) {
+  .srv-strip .content-section__image {
+    width: 40%;
+  }
+
+  .srv-strip .content-section__text {
+    width: 60%;
+  }
+}
+

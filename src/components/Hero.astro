@@ -7,14 +7,39 @@ interface Props {
   subtitle?: string;
   image?: string;
   imageMobile?: string;
+  /** Vídeo de fons opcional (només per a `split=false`). `image` s'utilitza com a poster. */
+  video?: string;
   /** El text ja va imprès a la imatge (banner d'inici real): el títol
    * es manté per accessibilitat però visualment amagat. Només per a `split=false`. */
   textInImage?: boolean;
   /** Patró real de les pàgines internes: columna de text (fons fosc) + imatge. */
   split?: boolean;
+  /** El hero arriba fins dalt de tot i el header (transparent) queda superposat. Només a la home. */
+  overlapHeader?: boolean;
+  /** CTA opcional centrat a sota del claim (patró vídeo, a l'estil Orissens). Només per a `video`. */
+  ctaLabel?: string;
+  ctaHref?: string;
+  /** Títol i subtítol una mica més grans. Només per a `video`. */
+  largeText?: boolean;
+  /** CTA amb vora blanca i sense fons, en lloc del cian. Només per a `video`. */
+  ctaOutline?: boolean;
 }
 
-const { title, pretitle, subtitle, image, imageMobile, textInImage = false, split = false } = Astro.props;
+const {
+  title,
+  pretitle,
+  subtitle,
+  image,
+  imageMobile,
+  video,
+  textInImage = false,
+  split = false,
+  overlapHeader = false,
+  ctaLabel,
+  ctaHref,
+  largeText = false,
+  ctaOutline = false,
+} = Astro.props;
 const style = [
   image ? `--hero-image: url(${image})` : '',
   imageMobile ? `--hero-image-mobile: url(${imageMobile})` : '',
@@ -34,11 +59,20 @@ const style = [
     </div>
   </section>
 ) : (
-  <section class="hero" style={style || undefined}>
+  <section class={`hero${overlapHeader ? ' hero--overlap' : ''}`} style={style || undefined}>
+    {video && (
+      <video class="hero__video" autoplay muted loop playsinline poster={image} aria-hidden="true">
+        <source src={video} type="video/mp4" />
+      </video>
+    )}
+    {video && <div class="hero__fade-top" aria-hidden="true"></div>}
     {!textInImage && <div class="hero__overlay"></div>}
-    <div class="hero__content">
+    <div class={`hero__content${video ? ' hero__content--video' : ''}${video && largeText ? ' hero__content--lg' : ''}`}>
       <h1 class={textInImage ? 'sr-only' : undefined}>{title}</h1>
       {subtitle && <p class={textInImage ? 'sr-only' : undefined}>{subtitle}</p>}
+      {video && ctaLabel && ctaHref && (
+        <a href={ctaHref} class={`btn${ctaOutline ? ' btn--outline-white' : ''}`}>{ctaLabel}</a>
+      )}
     </div>
   </section>
 )}

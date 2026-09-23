@@ -4,9 +4,15 @@
   left: 0;
   right: 0;
   z-index: var(--z-header);
+  background: transparent;
+  box-shadow: none;
+  min-height: var(--header-height);
+  transition: background var(--transition-base, 0.3s ease), box-shadow var(--transition-base, 0.3s ease);
+}
+
+.site-header.is-scrolled {
   background: #fff;
   box-shadow: var(--shadow-md);
-  min-height: var(--header-height);
 }
 
 .site-header__inner {
@@ -14,6 +20,7 @@
   margin-inline: auto;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   height: var(--header-height);
   padding-inline: var(--space-4) var(--space-6);
 }
@@ -21,22 +28,26 @@
 .site-header__logo {
   flex-shrink: 0;
   display: block;
-  max-width: 16rem;
 }
 
 .site-header__logo img {
   display: block;
-  max-width: 100%;
-  height: 40px;
+  height: 30px;
   width: auto;
   object-fit: contain;
+  filter: brightness(0) invert(1);
+  transition: filter var(--transition-base, 0.3s ease);
 }
 
-.site-header__center {
-  margin-left: var(--space-8);
-  flex: 1;
+.site-header.is-scrolled .site-header__logo img {
+  filter: none;
+}
+
+.site-header__right {
+  flex-shrink: 0;
   display: flex;
   align-items: center;
+  gap: var(--space-8);
 }
 
 .site-header__nav {
@@ -45,16 +56,31 @@
 
 .site-header__nav ul {
   display: flex;
-  gap: var(--space-12);
+  gap: var(--space-8);
 }
 
 .site-header__nav a {
-  font-weight: 300;
-  font-size: 0.95rem;
+  font-weight: 700;
+  font-size: 1.05rem;
   text-transform: uppercase;
   letter-spacing: 0.03em;
+  color: #fff;
+  padding: var(--space-2) var(--space-2) 6px;
+  border-bottom: 2px solid transparent;
+  transition: color var(--transition-base, 0.3s ease);
+}
+
+.site-header__nav a:hover {
+  text-decoration: none;
+  border-bottom-color: #fff;
+}
+
+.site-header.is-scrolled .site-header__nav a {
   color: var(--color-primary);
-  padding: var(--space-2) var(--space-2);
+}
+
+.site-header.is-scrolled .site-header__nav a:hover {
+  border-bottom-color: var(--color-primary);
 }
 
 .site-header__actions {
@@ -62,12 +88,94 @@
   display: flex;
   align-items: center;
   gap: var(--space-4);
-  margin-left: auto;
+}
+
+.site-header__divider {
+  display: none;
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 400;
+  transition: color var(--transition-base, 0.3s ease);
+}
+
+.site-header.is-scrolled .site-header__divider {
+  color: rgba(27, 36, 53, 0.25);
+}
+
+.site-header__lang-wrap {
+  position: relative;
 }
 
 .site-header__lang {
   display: none;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  padding: var(--space-2);
+  transition: color var(--transition-base, 0.3s ease);
+}
+
+.site-header.is-scrolled .site-header__lang {
   color: var(--color-primary);
+}
+
+.site-header__lang svg {
+  transition: transform var(--transition-base, 0.3s ease);
+}
+
+.site-header__lang-wrap.is-open .site-header__lang svg,
+.site-header__lang-wrap:hover .site-header__lang svg {
+  transform: rotate(180deg);
+}
+
+.site-header__lang-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  min-width: 64px;
+  margin-top: var(--space-2);
+  background: #fff;
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity var(--transition-base, 0.3s ease), transform var(--transition-base, 0.3s ease);
+}
+
+.site-header__lang-wrap.is-open .site-header__lang-dropdown,
+.site-header__lang-wrap:hover .site-header__lang-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Petit pont invisible perquè el cursor pugui passar del botó al desplegable
+   sense que es tanqui pel forat del margin-top */
+.site-header__lang-wrap::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: var(--space-2);
+}
+
+.site-header__lang-dropdown li a {
+  display: block;
+  padding: var(--space-2) var(--space-4);
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  color: var(--color-primary);
+}
+
+.site-header__lang-dropdown li a:hover {
+  background: var(--color-primary-light);
 }
 
 .site-header__toggle {
@@ -82,6 +190,11 @@
 .site-header__toggle span {
   width: 22px;
   height: 2px;
+  background: #fff;
+  transition: background var(--transition-base, 0.3s ease);
+}
+
+.site-header.is-scrolled .site-header__toggle span {
   background: var(--color-primary);
 }
 
@@ -140,6 +253,10 @@
 @media (min-width: 1024px) {
   .site-header__nav {
     display: flex;
+  }
+
+  .site-header__divider {
+    display: inline-block;
   }
 
   .site-header__lang {

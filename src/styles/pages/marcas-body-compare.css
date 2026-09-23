@@ -1,0 +1,222 @@
+/* Bloc temporal de comparació — cos de la pàgina "Nuestras marcas"
+   (introducció + llistat de marques). Eliminar quan es triï la versió definitiva. */
+
+.compare-tag {
+  text-align: center;
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: var(--space-2);
+  margin: 0;
+}
+
+/* ---------- Intro — Bloc de 2 columnes sense imatge (claim + text) ----------
+   Reutilitza literalment .block2-f.block3-d__row--50-50 (el mateix patró de
+   "Servicios farmacéuticos" a la home) perquè la columna del claim comenci
+   exactament a la mateixa posició. La columna de text (.marcas-intro-2col__text)
+   s'eixampla per sobre de l'ample de la imatge de la home (516px) per reduir
+   el nombre de línies, i comparteix el mateix padding-top que la columna del
+   claim perquè quedin alineades per dalt. Marges superior/inferior reduïts
+   respecte a l'original de la home (64px) i simètrics entre ells. */
+.marcas-intro-2col.block3-d__row--50-50 {
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-8);
+}
+
+.marcas-intro-2col__text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #4b4b4b;
+  margin: 0;
+}
+
+@media (min-width: 900px) {
+  .marcas-intro-2col.block3-d__row--50-50 .container {
+    align-items: center;
+  }
+
+  .marcas-intro-2col.block3-d__row--50-50 .block2-f__text {
+    min-width: 380px;
+    padding-top: 0;
+  }
+
+  .marcas-intro-2col.block3-d__row--50-50 .block2-f__text h2 {
+    max-width: 460px;
+  }
+
+  .marcas-intro-2col__text {
+    flex: 1 1 700px;
+    min-width: 420px;
+    padding-top: 0;
+  }
+}
+
+/* ---------- Franja "5 marcas, un mismo compromiso farmacéutico" ---------- */
+.marcas-strip-4 {
+  background: var(--color-primary-light);
+  padding-block: var(--space-6);
+}
+
+.marcas-strip-4__line1 {
+  margin: 0 0 var(--space-2);
+  font-weight: 800;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  color: var(--color-primary);
+}
+
+.marcas-strip-4__number {
+  color: #00a8c2;
+}
+
+.marcas-strip-4__text {
+  margin: 0;
+  font-weight: 600;
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  color: var(--color-primary);
+}
+
+/* ---------- Llistat de marques — blocs alternats a pantalla completa (editorial) ----------
+   Compacte: padding vertical reduït i imatge més estreta (40%) amb un
+   aspect-ratio més panoràmic, perquè cada marca ocupi menys alçada i calgui
+   menys scroll per veure-les totes. */
+.marcas-b__row {
+  padding-block: var(--space-8);
+}
+
+.marcas-b__row--grey {
+  background: #eeeeec;
+}
+
+.marcas-b__image img {
+  aspect-ratio: 16 / 9;
+}
+
+.marcas-b__category {
+  color: var(--color-teal);
+}
+
+.marcas-b__logo {
+  max-width: 320px;
+  max-height: 120px;
+  width: auto;
+  height: auto;
+  margin-bottom: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .marcas-b__row .content-section__image {
+    width: 40%;
+  }
+
+  .marcas-b__row .content-section__text {
+    width: 60%;
+  }
+}
+
+/* ---------- CTA com a <button> (marques "gated", ex. Medicamentos) ---------- */
+button.block2-f__cta {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+/* ---------- Popup d'accés restringit (marques "gated", ex. Medicamentos) ---------- */
+.brand-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+}
+
+.brand-gate[hidden] {
+  display: none;
+}
+
+.brand-gate__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(27, 36, 53, 0.6);
+}
+
+.brand-gate__card {
+  position: relative;
+  background: #fff;
+  max-width: 644px;
+  width: 100%;
+  padding: var(--space-8) var(--space-6);
+  border-radius: 4px;
+  box-shadow: var(--shadow-md);
+  text-align: center;
+}
+
+.brand-gate__title {
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: var(--color-primary);
+  margin: 0 0 var(--space-4);
+}
+
+.brand-gate__text {
+  color: #4b4b4b;
+  line-height: 1.6;
+  margin: 0 0 var(--space-6);
+}
+
+.brand-gate__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.brand-gate__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2) var(--space-4);
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity var(--transition-base, 0.3s ease);
+}
+
+.brand-gate__btn--primary {
+  background: var(--color-primary);
+  color: #fff;
+  border: 1px solid var(--color-primary);
+}
+
+.brand-gate__btn--primary:hover {
+  opacity: 0.9;
+}
+
+.brand-gate__btn--secondary {
+  background: none;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+}
+
+.brand-gate__btn--secondary:hover {
+  background: var(--color-primary-light);
+}
+
+@media (min-width: 480px) {
+  .brand-gate__actions {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .brand-gate__btn {
+    flex: 1 1 auto;
+  }
+}
+

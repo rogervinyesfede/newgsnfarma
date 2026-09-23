@@ -1,65 +1,152 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Hero from '../components/Hero.astro';
-import BrandCard from '../components/BrandCard.astro';
 import brands from '../data/brands.json';
 import '../styles/pages/inner-page.css';
-import '../styles/pages/nuestras-marcas.css';
-
-const areas = [
-  { label: 'Medicamentos', icon: '/images/icon-medicamentos.svg' },
-  { label: 'Salud natural', icon: '/images/icon-salud-natural.svg' },
-  { label: 'Salud mujer', icon: '/images/icon-salud-mujer.svg' },
-  { label: 'Salud animal', icon: '/images/icon-salud-animal.svg' },
-  { label: 'Cosméticos', icon: '/images/icon-cosmeticos.svg' },
-];
+import '../styles/pages/block2.css';
+import '../styles/pages/block3-compare.css';
+import '../styles/pages/subpage-hero-compare.css';
+import '../styles/pages/marcas-body-compare.css';
 ---
 
 <BaseLayout
   title="Nuestras marcas | GSN Farma Labs Group"
   description="Marcas de salud desarrolladas bajo el modelo One Health Care, especializadas en medicamentos, salud natural, salud de la mujer y salud animal."
 >
-  <Hero
-    split
-    pretitle="Nuestras marcas"
-    title="Siempre al servicio de la salud y el bienestar"
-    image="/images/hero-nuestras-marcas.webp"
-  />
+  <section class="subpage-hero-e subpage-hero-e--left">
+    <img
+      src="/images/gsn_farma_brands.jpg"
+      alt=""
+      loading="eager"
+      style="object-position: center 40%"
+    />
+    <div class="subpage-hero-e__scrim"></div>
+    <div class="subpage-hero-e__inner">
+      <h1>Marcas con compromiso farmacéutico</h1>
+    </div>
+  </section>
 
-  <section class="content-section content-section--wide">
+  {/* ===== COMPARATIVA TEMPORAL — bloc introductori (2 columnes sense imatge + franja de claim) ===== */}
+
+  <section class="block2-f block3-d__row--50-50 marcas-intro-2col">
     <div class="container">
-      <h2>Áreas de especialización</h2>
-      <p class="content-section__intro">
-        GSN Farma Labs Group desarrolla y comercializa un portafolio de marcas propias en los
-        ámbitos de salud natural, salud animal y medicamentos, integrando conocimiento farmacéutico,
-        innovación y visión One Health.
+      <div class="block2-f__text">
+        <div class="block2-f__accent-line"></div>
+        <h2>Siempre al servicio de la salud y el bienestar</h2>
+      </div>
+      <div class="marcas-intro-2col__text">
+        <p>
+          Desarrollamos y comercializamos un portafolio de marcas propias en los ámbitos de
+          <strong>salud natural</strong>, <strong>salud animal</strong> y <strong>medicamentos</strong>,
+          integrando conocimiento farmacéutico, innovación y visión <strong>One Health</strong>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {/* ===== COMPARATIVA TEMPORAL — cos de la pàgina ===== */}
+
+  {brands.map((brand, i) => (
+    <section class={`content-section content-section--split marcas-b__row ${i % 2 === 0 ? 'marcas-b__row--grey' : ''}`}>
+      <div class="container content-section__split-inner">
+        {i % 2 === 0 ? (
+          <>
+            <div class="content-section__image marcas-b__image">
+              <img src={brand.image} alt="" loading="lazy" />
+            </div>
+            <div class="content-section__text">
+              <span class="pretitle marcas-b__category">{brand.category}</span>
+              <img src={brand.logo} alt={brand.name} class="marcas-b__logo" loading="lazy" />
+              <p>{brand.description}</p>
+              {brand.gated ? (
+                <button type="button" class="block2-f__cta" data-gate-trigger>
+                  <span class="block2-f__cta-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1b2435" stroke-width="2.4"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                  </span>
+                  <span>{brand.ctaLabel ?? 'Visitar sitio'}</span>
+                </button>
+              ) : (
+                <a href={brand.url} target="_blank" rel="noopener noreferrer" class="block2-f__cta">
+                  <span class="block2-f__cta-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1b2435" stroke-width="2.4"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                  </span>
+                  <span>{brand.ctaLabel ?? 'Visitar sitio'}</span>
+                </a>
+              )}
+            </div>
+          </>
+        ) : (
+          <>
+            <div class="content-section__text">
+              <span class="pretitle marcas-b__category">{brand.category}</span>
+              <img src={brand.logo} alt={brand.name} class="marcas-b__logo" loading="lazy" />
+              <p>{brand.description}</p>
+              {brand.gated ? (
+                <button type="button" class="block2-f__cta" data-gate-trigger>
+                  <span class="block2-f__cta-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1b2435" stroke-width="2.4"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                  </span>
+                  <span>{brand.ctaLabel ?? 'Visitar sitio'}</span>
+                </button>
+              ) : (
+                <a href={brand.url} target="_blank" rel="noopener noreferrer" class="block2-f__cta">
+                  <span class="block2-f__cta-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1b2435" stroke-width="2.4"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                  </span>
+                  <span>{brand.ctaLabel ?? 'Visitar sitio'}</span>
+                </a>
+              )}
+            </div>
+            <div class="content-section__image marcas-b__image">
+              <img src={brand.image} alt="" loading="lazy" />
+            </div>
+          </>
+        )}
+      </div>
+    </section>
+  ))}
+
+  {/* ===== Popup d'accés restringit (marques amb "gated": true, ex. Medicamentos) ===== */}
+
+  <div class="brand-gate" data-gate-modal hidden>
+    <div class="brand-gate__overlay" data-gate-close></div>
+    <div class="brand-gate__card" role="dialog" aria-modal="true" aria-labelledby="brand-gate-title">
+      <h3 id="brand-gate-title" class="brand-gate__title">Acceso profesional</h3>
+      <p class="brand-gate__text">
+        La información que has solicitado visualizar está dirigida exclusivamente al profesional
+        sanitario facultado para prescribir o dispensar, por lo que se requiere una formación
+        especializada para su correcta interpretación.
       </p>
-      <div class="areas-icons">
-        {areas.map((area) => (
-          <div class="areas-icons__item">
-            <img src={area.icon} alt="" loading="lazy" />
-            <p>{area.label}</p>
-          </div>
-        ))}
+      <div class="brand-gate__actions">
+        <a href="#" class="brand-gate__btn brand-gate__btn--primary">Soy profesional sanitario</a>
+        <button type="button" class="brand-gate__btn brand-gate__btn--secondary" data-gate-close>
+          No soy profesional sanitario
+        </button>
       </div>
     </div>
-  </section>
+  </div>
 
-  <section class="content-section content-section--wide">
-    <div class="container">
-      <h2>Marcas con propósito</h2>
-      <div class="brands-grid">
-        {brands.map((brand) => (
-          <BrandCard
-            name={brand.name}
-            category={brand.category}
-            description={brand.description}
-            url={brand.url}
-            image={brand.image}
-            logo={brand.logo}
-          />
-        ))}
-      </div>
-    </div>
-  </section>
+  <script>
+    const modal = document.querySelector('[data-gate-modal]');
+    const triggers = document.querySelectorAll('[data-gate-trigger]');
+    const closers = document.querySelectorAll('[data-gate-close]');
+
+    function openGate() {
+      modal?.removeAttribute('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeGate() {
+      modal?.setAttribute('hidden', '');
+      document.body.style.overflow = '';
+    }
+
+    triggers.forEach((el) => el.addEventListener('click', openGate));
+    closers.forEach((el) => el.addEventListener('click', closeGate));
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeGate();
+    });
+  </script>
+
+  {/* ===== FI COMPARATIVA TEMPORAL ===== */}
 </BaseLayout>

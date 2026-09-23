@@ -1,89 +1,159 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Hero from '../components/Hero.astro';
-import BusinessAreas from '../components/BusinessAreas.astro';
 import '../styles/pages/inner-page.css';
+import '../styles/pages/block2.css';
+import '../styles/pages/block3-compare.css';
+import '../styles/pages/subpage-hero-compare.css';
+import '../styles/pages/quienes-somos-body-compare.css';
 ---
 
 <BaseLayout
   title="Quiénes somos | GSN Farma Labs Group"
   description="Laboratorio farmacéutico con visión global y más de 30 años de experiencia en desarrollo y fabricación de productos y servicios de salud."
 >
-  <Hero
-    split
-    pretitle="¿Quiénes somos?"
-    title="Un nuevo grupo con ADN farmacéutico y visión global"
-    image="/images/hero-quienes-somos.webp"
-  />
+  <section class="subpage-hero-e subpage-hero-e--left">
+    <img
+      src="/images/gsn_farma_offices_building3.jpg"
+      alt=""
+      loading="eager"
+      style="object-position: center 45%"
+    />
+    <div class="subpage-hero-e__scrim"></div>
+    <div class="subpage-hero-e__inner">
+      <h1>Un nuevo grupo con ADN farmacéutico y visión global</h1>
+    </div>
+  </section>
 
-  <section class="content-section content-section--split">
-    <div class="container content-section__split-inner">
-      <div class="content-section__text">
-        <span class="pretitle">GSN Farma Labs Group</span>
-        <h2>Sumamos experiencia, sumamos especialización, sumamos salud.</h2>
-        <p>
-          GSN Farma Labs Group ofrece una estructura integral capaz de desarrollar productos
-          regulados (medicamentos, complementos alimenticios, productos sanitarios, cosméticos y
-          biocidas), desde la fabricación hasta el registro y la comercialización, todo bajo los más
-          altos estándares de calidad, seguridad y trazabilidad.
-        </p>
+  {/* ===== 1. Introducció ===== */}
+
+  <section class="block2-f block3-d__row--50-50 qs-intro-2col">
+    <div class="container">
+      <div class="block2-f__text">
+        <div class="block2-f__accent-line"></div>
+        <h2>Sumamos experiencia, sumamos especialización, sumamos salud</h2>
       </div>
-      <div class="content-section__image">
-        <img src="/images/quienes-somos-diagonal.webp" alt="" loading="lazy" />
+      <div class="qs-intro-2col__text">
+        <p>
+          Somos un grupo farmacéutico con más de 30 años de experiencia, visión global en salud y
+          ADN farmacéutico.
+        </p>
+        <p>
+          Disponemos de una estructura integral capaz de desarrollar, registrar, fabricar y
+          comercializar productos regulados (medicamentos, complementos alimenticios, productos
+          sanitarios y dermocosmética), todo bajo los más altos estándares de calidad, seguridad y
+          trazabilidad.
+        </p>
       </div>
     </div>
   </section>
 
-  <section class="content-section content-section--split content-section--wide-image content-section--grey">
-    <div class="container content-section__split-inner">
-      <div class="content-section__image">
-        <img src="/images/quienes-somos-block2.webp" alt="" loading="lazy" />
-      </div>
-      <div class="content-section__text">
-        <span class="pretitle">Unión</span>
+  {/* ===== 2. Unión Coetus + GSN ===== */}
+
+  <section class="qs-union-stats">
+    <div class="container">
+      <div class="qs-union-stats__intro">
         <h2>Una unión que suma experiencia y especialización</h2>
-        <p>Nacemos de la unión de dos compañías con trayectorias complementarias:</p>
-        <ul>
-          <li>
-            <strong>GSN Farma Labs</strong>, con más de 30 años de experiencia en el desarrollo,
-            registro, fabricación y comercialización de productos regulados, con una visión One
-            Health.
-          </li>
-          <li>
-            <strong>CoetusPharma</strong>, con más de 20 años de especialización en medicamentos,
-            con proyección internacional y un sólido conocimiento regulatorio en mercados altamente
-            exigentes.
-          </li>
-        </ul>
+      </div>
+      <div class="qs-union-stats__grid">
+        <div class="qs-union-stats__card">
+          <span class="qs-union-stats__number">30+</span>
+          <img src="/images/gsn_farma_logo_cropped.png" alt="GSN Farma Labs" class="qs-union-stats__logo" loading="lazy" />
+          <p>
+            Más de 30 años de experiencia en el desarrollo, registro, fabricación y
+            comercialización de productos de salud humana y animal.
+          </p>
+        </div>
+        <div class="qs-union-stats__card">
+          <span class="qs-union-stats__number">20+</span>
+          <img src="/images/coetus_logo.png" alt="CoetusPharma" class="qs-union-stats__logo" loading="lazy" />
+          <p>
+            Más de 20 años especializado en desarrollo, registro y comercialización de
+            medicamentos con proyección internacional.
+          </p>
+        </div>
+      </div>
+      <p class="qs-union-stats__footer">
+        Juntos formamos un grupo farmacéutico integral, combinando infraestructura industrial,
+        conocimiento farmacéutico y construcción de marcas con propósito.
+      </p>
+    </div>
+  </section>
+
+  {/* ===== 3. Misión / propósito / One Health ===== */}
+
+  <section class="block2-f block3-d__row--50-50 block3-d__row--onehealth qs-onehealth-home">
+    <div class="container">
+      <div class="block2-f__image">
+        <img src="/images/about-preview-desktop.webp" alt="" loading="lazy" />
+      </div>
+      <div class="block2-f__text">
+        <div class="block2-f__accent-line"></div>
+        <h2>One Health:<br />el propósito que nos guía</h2>
         <p>
-          La unión de ambas da lugar a un grupo farmacéutico con una estructura integral, capaz de
-          acompañar el producto a lo largo de todo su ciclo de vida.
+          Trabajamos bajo los más altos estándares de calidad y adoptamos el modelo
+          <strong>One Health</strong> como visión transversal: una salud integrada, sostenible y
+          conectada entre personas, animales y entorno.
+        </p>
+        <p>
+          Porque creemos que la salud de las personas, los animales y el medio ambiente está
+          profundamente conectada, ofrecemos soluciones integrales que anticipan, previenen y
+          controlan los grandes retos sanitarios globales, con el objetivo de
+          <strong>un planeta más sano, resiliente y seguro para todos.</strong>
         </p>
       </div>
     </div>
   </section>
 
-  <section
-    class="photo-overlay-section"
-    style="--photo-image: url(/images/quienes-somos-mobile.webp)"
-  >
-    <div class="photo-overlay-section__scrim"></div>
-    <div class="container photo-overlay-section__content">
-      <span class="pretitle pretitle--accent">Nuestro propósito</span>
-      <h2>One Health: la filosofía que guía nuestro compromiso</h2>
+  {/* ===== 4. Áreas de negocio ===== */}
+
+  <section class="qs-areas qs-areas--grey">
+    <div class="container">
+      <div class="block2-f__accent-line"></div>
+      <h2>Así sumamos salud</h2>
       <p>
-        Porque creemos que la salud de las personas, los animales y el medio ambiente está
-        profundamente conectada, integramos en nuestra visión el enfoque único de
-        <strong>One Health</strong>.
+        GSN Farma Labs Group estructura su actividad en dos grandes áreas de negocio que reflejan
+        su modelo integral y su visión de grupo: los <strong>servicios farmacéuticos</strong> y
+        las <strong>marcas propias</strong>.
       </p>
-      <p>Así, ofrecemos soluciones integrales para todos.</p>
-      <p>
-        Soluciones que anticipan, previenen y controlan los grandes retos sanitarios globales,
-        impulsando un futuro donde la prevención, la innovación y la sostenibilidad avanzan juntas
-        hacia un objetivo común: <strong>un planeta más sano, resiliente y seguro para todos.</strong>
-      </p>
+      <div class="qs-areas__grid">
+        <div class="qs-areas__card qs-areas__card--editorial">
+          <div class="qs-areas__card-image">
+            <img src="/images/home-areas-servicios.webp" alt="" loading="lazy" />
+          </div>
+          <div class="qs-areas__card-body">
+            <h3>Servicios farmacéuticos</h3>
+            <p>
+              Unidad industrial para ofrecer servicios integrales en desarrollo, fabricación,
+              aseguramiento de calidad, asuntos regulatorios y logística para productos regulados.
+            </p>
+            <a href="/servicios" class="block2-f__cta">
+              <span class="block2-f__cta-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1b2435" stroke-width="2.4"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              </span>
+              <span>Ver todos los servicios</span>
+            </a>
+          </div>
+        </div>
+        <div class="qs-areas__card qs-areas__card--editorial">
+          <div class="qs-areas__card-image">
+            <img src="/images/areas-marcas.webp" alt="" loading="lazy" />
+          </div>
+          <div class="qs-areas__card-body">
+            <h3>Marcas propias</h3>
+            <p>
+              Desarrollamos y comercializamos un portafolio de salud transversal, con medicamentos
+              y productos de salud humana y animal, impulsados por la innovación y el rigor
+              farmacéutico.
+            </p>
+            <a href="/nuestras-marcas" class="block2-f__cta">
+              <span class="block2-f__cta-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1b2435" stroke-width="2.4"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              </span>
+              <span>Ver todas las marcas</span>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
-
-  <BusinessAreas />
 </BaseLayout>

@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WorldMap from '../components/WorldMap.astro';
+import '../styles/pages/inner-page.css';
+import '../styles/pages/subpage-hero-compare.css';
+import '../styles/pages/block3-compare.css';
+import '../styles/components/world-map.css';
+import '../styles/pages/internacional-body-compare.css';
+---
+
+<BaseLayout
+  title="Internacional | GSN Farma Labs Group"
+  description="Presencia internacional de GSN Farma Labs Group."
+>
+  <section class="subpage-hero-e subpage-hero-e--left">
+    <img
+      src="/images/gsn_farma_offices_building3.jpg"
+      alt=""
+      loading="eager"
+      style="object-position: center 45%"
+    />
+    <div class="subpage-hero-e__scrim"></div>
+    <div class="subpage-hero-e__inner">
+      <h1>Presencia Global</h1>
+    </div>
+  </section>
+
+  <section class="intl-title">
+    <div class="container">
+      <div class="intl-title__intro">
+        <h2>GSN FARMA LABS GROUP<br />en el mundo</h2>
+        <p>
+          Tu partner global en soluciones de salud, con capacidad y presencia para operar en
+          mercados de todo el mundo.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="intl-map intl-map--split">
+    <div class="container intl-map__split-inner">
+      <div class="intl-map__frame">
+        <WorldMap showLabels={false} />
+      </div>
+      <div class="intl-map__list-col">
+        <div class="block2-f__accent-line"></div>
+        <h2>Regiones y países donde operamos</h2>
+        <ul class="intl-map__list">
+          <li>Europa</li>
+          <li>Oriente Medio</li>
+          <li>China</li>
+          <li>Sudeste Asiático</li>
+          <li>Latinoamérica</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container intl-cards">
+      <a href="#" class="intl-cards__item">
+        <span>Medicamentos internacional</span>
+        <svg class="intl-cards__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 6 15 12 9 18" stroke-linecap="round" stroke-linejoin="round"></polyline></svg>
+      </a>
+      <a href="#" class="intl-cards__item">
+        <span>Productos Naturales internacional</span>
+        <svg class="intl-cards__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 6 15 12 9 18" stroke-linecap="round" stroke-linejoin="round"></polyline></svg>
+      </a>
+    </div>
+  </section>
+
+  <section class="contact-alt contact-alt--navy-soft">
+    <div class="container">
+      <h2>¿Hablamos?</h2>
+      <p>
+        Contáctanos si estás interesado en explorar oportunidades de colaboración a nivel
+        internacional.
+      </p>
+      <a href="/contacto" class="btn btn--outline-white">Contactar</a>
+    </div>
+  </section>
+</BaseLayout>

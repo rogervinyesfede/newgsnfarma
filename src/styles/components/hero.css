@@ -10,6 +10,29 @@
   background: var(--hero-image-mobile) center bottom / cover no-repeat;
 }
 
+.hero__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.hero--overlap {
+  margin-top: 0;
+}
+
+.hero__fade-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 180px;
+  background: linear-gradient(180deg, rgba(16, 20, 28, 0.55) 0%, transparent 100%);
+  pointer-events: none;
+}
+
 .hero__overlay {
   position: absolute;
   inset: 0;
@@ -55,6 +78,39 @@
   .hero__content {
     padding: 5% 8%;
   }
+}
+
+/* ===== hero__content--video: claim centrat a baix (patró vídeo, estil Orissens) ===== */
+.hero__content--video {
+  inset: auto 0 12% 0;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  padding: 0 var(--space-4);
+}
+
+.hero__content--video h1 {
+  text-align: center;
+  text-transform: none;
+  font-size: clamp(1.6rem, 4vw, 2.6rem);
+  font-weight: 700;
+  max-width: 700px;
+  margin: 0 auto var(--space-2);
+}
+
+.hero__content--video.hero__content--lg h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+}
+
+.hero__content--video.hero__content--lg p {
+  font-size: 1.3rem;
+}
+
+.hero__content--video p {
+  text-align: center;
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto var(--space-6);
 }
 
 /* ===== hero-split: patró real de les pàgines internes ===== */

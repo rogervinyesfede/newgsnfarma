@@ -1,0 +1,147 @@
+/* Bloc temporal de comparació — cos de la pàgina "Internacional".
+   Eliminar quan es triï la versió definitiva. */
+
+.compare-tag {
+  text-align: center;
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: var(--space-2);
+  margin: 0;
+}
+
+/* ---------- Títol — mateix estil que el primer bloc de "Servicios" (centrat, fons gris, enganxat a la capçalera) ---------- */
+.intl-title {
+  background: #fff;
+  padding-block: var(--space-16);
+  margin-top: 0;
+}
+
+.intl-title__intro {
+  text-align: center;
+  max-width: 640px;
+  margin-inline: auto;
+}
+
+.intl-title__intro h2 {
+  font-weight: 800;
+  color: var(--color-primary);
+  margin: 0 0 var(--space-4);
+}
+
+.intl-title__intro p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #4b4b4b;
+  margin: 0;
+}
+
+.intl-title__intro p strong {
+  color: var(--color-blue8);
+}
+
+/* ---------- Mapa — Proposta B: mapa + llista de regions (2 columnes) ---------- */
+.intl-map {
+  padding-block: var(--space-16);
+  margin-top: 40px;
+}
+
+.intl-map__frame {
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+.intl-map--split {
+  background: #eeeeec;
+}
+
+.intl-map__split-inner {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: var(--space-8);
+}
+
+.intl-map__split-inner .intl-map__frame {
+  flex: 1 1 auto;
+  max-width: none;
+  margin-inline: 0;
+}
+
+.intl-map__list-col {
+  flex: 0 1 380px;
+}
+
+.intl-map__list-col h2 {
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-weight: 800;
+  color: var(--color-primary);
+  margin: 0 0 var(--space-6);
+}
+
+.intl-map__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.intl-map__list li {
+  padding: var(--space-3, var(--space-2)) 0;
+  border-bottom: 1px solid rgba(27, 36, 53, 0.15);
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+@media (min-width: 900px) {
+  .intl-map__split-inner {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+/* Targetes d'accés (vademècum internacional) */
+.intl-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  margin-top: var(--space-10, var(--space-8));
+}
+
+.intl-cards__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  background: var(--color-primary);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: var(--space-4) var(--space-6);
+  transition: background-color var(--transition-base, 0.3s ease);
+}
+
+.intl-cards__item:hover {
+  background: var(--color-blue8, #16324f);
+}
+
+.intl-cards__icon {
+  flex-shrink: 0;
+  color: var(--color-accent);
+  transition: transform var(--transition-base, 0.3s ease);
+}
+
+.intl-cards__item:hover .intl-cards__icon {
+  transform: translateX(4px);
+}
+
+@media (min-width: 640px) {
+  .intl-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+

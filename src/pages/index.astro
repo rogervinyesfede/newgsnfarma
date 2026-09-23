@@ -1,9 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
-import ContactForm from '../components/ContactForm.astro';
-import BusinessAreas from '../components/BusinessAreas.astro';
-import '../styles/pages/home.css';
+import '../styles/pages/block2.css';
+import '../styles/pages/block3-compare.css';
 ---
 
 <BaseLayout
@@ -11,89 +10,149 @@ import '../styles/pages/home.css';
   description="Laboratorio farmacéutico con más de 30 años de experiencia desarrollando soluciones de salud con visión global y ADN farmacéutico bajo el enfoque One Health Care."
 >
   <Hero
-    title="GSN Farma Labs Group"
+    title="Un nuevo grupo farmacéutico"
     subtitle="Más de 30 años de experiencia y visión global en salud"
-    image="/images/hero-home-desktop.jpg"
-    imageMobile="/images/hero-home-mobile.jpg"
-    textInImage
+    image="/images/hero-video-frame.jpg"
+    imageMobile="/images/hero-video-frame.jpg"
+    video="/videos/video_gsn_farma.mp4"
+    overlapHeader
+    ctaLabel="Conócenos"
+    ctaHref="/quienes-somos"
+    largeText
+    ctaOutline
   />
 
-  <section class="intro-section">
+  <section class="block2-f block3-d__row--50-50 block3-d__row--onehealth">
     <div class="container">
-      <div class="intro-section__label">
-        <p>GSN Farma Labs Group</p>
+      <div class="block2-f__image">
+        <img src="/images/gsn_farma_offices3.jpg" alt="Oficinas de GSN Farma Labs Group" loading="lazy" />
       </div>
-      <div class="intro-section__content">
+      <div class="block2-f__text">
+        <div class="block2-f__accent-line"></div>
+        <h2>One Health:<br />el propósito que nos guía</h2>
+        <p>La salud de las personas, los animales y el entorno está profundamente conectada.</p>
         <p>
-          GSN Farma Labs Group es un grupo farmacéutico especializado en el desarrollo, fabricación,
-          registro y comercialización de productos regulados de alta calidad y eficacia.
+          Desarrollamos, fabricamos y comercializamos productos regulados con agilidad y rigor
+          técnico, ofreciendo una salud integrada y sostenible.
         </p>
-        <p>
-          Ofrecemos soluciones en <b>medicamentos, complementos alimenticios, productos sanitarios,
-          cosméticos y biocidas</b>, cumpliendo en todo momento con los más altos estándares de
-          <b>calidad, seguridad y trazabilidad.</b>
-        </p>
-        <a href="/servicios" class="btn">Descubre nuestros servicios</a>
+        <a href="/quienes-somos" class="block2-f__cta">
+          <span class="block2-f__cta-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1b2435" stroke-width="2.4"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </span>
+          <span>Conoce más sobre el grupo</span>
+        </a>
       </div>
     </div>
   </section>
 
-  <section
-    class="about-preview"
-    style="--about-image-mobile: url(/images/about-preview-mobile.webp); --about-image-desktop: url(/images/about-preview-desktop.webp)"
-  >
-    <div class="about-preview__heading">
-      <span class="about-preview__pretitle">¿Quiénes somos?</span>
-      <h2>Unidos por un compromiso inquebrantable con la salud de las personas.</h2>
-    </div>
-
-    <div class="about-preview__panel">
-      <p>
-        GSN Farma Labs Group nace de la unión de GSN Farma Labs y CoetusPharma, ambas empresas
-        farmacéuticas con una sólida trayectoria en el desarrollo, registro, fabricación y
-        comercialización de productos regulados.
-      </p>
-      <p>
-        Con esta unión se suma la amplia experiencia de las dos compañías, permitiéndonos ofrecer
-        una estructura integral altamente especializada, capaz de cubrir todo el ciclo de vida del
-        producto y de dar respuesta a los retos actuales y futuros del sector.
-      </p>
-      <div class="about-preview__logos">
-        <div>
-          <span class="about-preview__logos-label">Promueve</span>
-          <div class="about-preview__logos-row">
-            <img src="/images/logo-social.png" alt="Socialdrive" />
-            <img src="/images/logo-generalitat.png" alt="Generalitat de Catalunya" />
-          </div>
+  <section class="block3-d block3-d--compact">
+    <section class="block2-f block3-d__row--50-50">
+      <div class="container">
+        <div class="block2-f__text">
+          <div class="block2-f__accent-line"></div>
+          <h2>Servicios farmacéuticos</h2>
+          <p>
+            Unidad industrial para ofrecer servicios integrales en desarrollo, fabricación,
+            aseguramiento de calidad, asuntos regulatorios y logística para productos regulados.
+          </p>
+          <a href="/servicios" class="block2-f__cta">
+            <span class="block2-f__cta-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1b2435" stroke-width="2.4"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </span>
+            <span>Ver todos los servicios</span>
+          </a>
         </div>
-        <div>
-          <span class="about-preview__logos-label">Financia</span>
-          <div class="about-preview__logos-row">
-            <img src="/images/logo-espana.png" alt="Gobierno de España" />
-          </div>
+        <div class="block2-f__image">
+          <img src="/images/servicios.jpg" alt="" loading="lazy" />
         </div>
       </div>
-      <a href="/quienes-somos" class="btn">Conoce más sobre el grupo</a>
-    </div>
+    </section>
+
+    <section class="block2-f block3-d__row--50-50">
+      <div class="container">
+        <div class="block2-f__image">
+          <img src="/images/marcas.jpg" alt="" loading="lazy" />
+        </div>
+        <div class="block2-f__text">
+          <div class="block2-f__accent-line"></div>
+          <h2>Marcas propias</h2>
+          <p>
+            Desarrollamos y comercializamos un portafolio de salud transversal, con medicamentos y
+            productos de salud humana y animal, impulsados por la innovación y el rigor
+            farmacéutico.
+          </p>
+          <a href="/nuestras-marcas" class="block2-f__cta">
+            <span class="block2-f__cta-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1b2435" stroke-width="2.4"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </span>
+            <span>Ver todas las marcas</span>
+          </a>
+        </div>
+      </div>
+    </section>
   </section>
 
-  <BusinessAreas />
+  {/* ===== FI COMPARATIVA TEMPORAL ===== */}
 
-  <section class="home-contact">
-    <div class="home-contact__form">
+  <section class="contact-alt contact-alt--navy-soft">
+    <div class="container">
       <h2>¿Hablamos?</h2>
       <p>
-        En GSN Farma Labs Group trabajamos como partner estratégico para impulsar soluciones en salud
-        con visión a largo plazo.
+        En GSN Farma Labs Group trabajamos como partner estratégico para impulsar soluciones en
+        salud con visión a largo plazo.
       </p>
-      <p>
-        Si deseas ampliar información o explorar una posible colaboración para que te acompañemos en
-        todo momento, ponte en contacto con nosotros.
-      </p>
-      <ContactForm dark />
-    </div>
-    <div class="home-contact__image">
-      <img src="/images/home-prefooter.webp" alt="" loading="lazy" />
+      <a href="/contacto" class="btn btn--outline-white">Contactar</a>
     </div>
   </section>
+
+  <section class="funding">
+    <div class="container">
+      <p class="funding__intro">Proyecto promovido y financiado por</p>
+      <div class="funding__groups">
+        <div class="funding__group">
+          <div class="funding__logos">
+            <img src="/images/logo-social.png" alt="Economía Social" loading="lazy" />
+            <img src="/images/logo-generalitat.png" alt="Generalitat de Catalunya" loading="lazy" />
+          </div>
+        </div>
+        <div class="funding__group">
+          <div class="funding__logos">
+            <img src="/images/logo-espana.png" alt="Ministerio de Trabajo y Economía Social — SEPE" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="footer-alt">
+    <div class="container footer-alt__inner">
+      <div class="footer-alt__logo">
+        <img src="/images/logo-gsn.svg" alt="GSN Farma Labs Group" />
+        <a
+          href="https://www.linkedin.com/company/gsn-farma"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="footer-alt__social"
+          aria-label="LinkedIn de GSN Farma Labs Group"
+        >
+          <img src="/images/icon-linkedin.svg" alt="" aria-hidden="true" />
+        </a>
+      </div>
+      <div class="footer-alt__info">
+        <div class="footer-alt__col">
+          <h3>Información general</h3>
+          <p>+34 680 310 655</p>
+        </div>
+        <div class="footer-alt__col">
+          <h3>Farmacovigilancia</h3>
+          <p>+34 680 310 655</p>
+        </div>
+        <div class="footer-alt__col footer-alt__col--address">
+          <h3>Oficinas centrales y fábrica</h3>
+          <p>C/ del Llobregat nº 28, Terrassa, Barcelona, 08223</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </BaseLayout>
