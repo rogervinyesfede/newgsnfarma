@@ -27,6 +27,19 @@
   display: block;
 }
 
+/* Variant: fon la imatge amb el fons de la secció (sense requadre visible) */
+.block2-f__image--blend {
+  border-radius: 0;
+  overflow: visible;
+  background: none;
+}
+
+.block2-f__image--blend img {
+  object-fit: contain;
+  -webkit-mask-image: radial-gradient(ellipse 68% 72% at center, #000 55%, transparent 100%);
+  mask-image: radial-gradient(ellipse 68% 72% at center, #000 55%, transparent 100%);
+}
+
 .block2-f__text {
   text-align: center;
 }
