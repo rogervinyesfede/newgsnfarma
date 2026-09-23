@@ -27,6 +27,17 @@
   display: block;
 }
 
+/* Menys intensitat de color perquè la foto no competeixi amb el fons.
+   La foto de "Marcas propias" surt de sèrie més saturada que la de "Servicios", per això
+   porta un factor de desaturació més fort — així totes dues acaben amb un to semblant. */
+.block2-f__image--muted img {
+  filter: saturate(0.65) brightness(1.08) contrast(0.95);
+}
+
+.block2-f__image--muted-strong img {
+  filter: saturate(0.46) brightness(1.1) contrast(0.95);
+}
+
 /* Variant: fon la imatge amb el fons de la secció (sense requadre visible) */
 .block2-f__image--blend {
   border-radius: 0;
