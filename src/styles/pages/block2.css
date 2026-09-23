@@ -36,8 +36,8 @@
 
 .block2-f__image--blend img {
   object-fit: contain;
-  -webkit-mask-image: radial-gradient(ellipse 68% 72% at center, #000 55%, transparent 100%);
-  mask-image: radial-gradient(ellipse 68% 72% at center, #000 55%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 62% 50% at center, #000 20%, rgba(0, 0, 0, 0.6) 50%, transparent 85%);
+  mask-image: radial-gradient(ellipse 62% 50% at center, #000 20%, rgba(0, 0, 0, 0.6) 50%, transparent 85%);
 }
 
 .block2-f__text {
