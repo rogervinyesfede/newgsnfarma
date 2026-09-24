@@ -4,6 +4,7 @@ import '../styles/base.css';
 import '../styles/layout.css';
 import '../styles/components/buttons.css';
 import Header from '../components/Header.astro';
+import FooterInfo from '../components/FooterInfo.astro';
 import Footer from '../components/Footer.astro';
 
 interface Props {
@@ -40,6 +41,7 @@ const { title, description = '', noindex = false, transparentHeader = false } = 
     <main>
       <slot />
     </main>
+    <FooterInfo />
     <Footer />
   </body>
 </html>

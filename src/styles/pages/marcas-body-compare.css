@@ -13,45 +13,85 @@
   margin: 0;
 }
 
-/* ---------- Intro — Bloc de 2 columnes sense imatge (claim + text) ----------
-   Reutilitza literalment .block2-f.block3-d__row--50-50 (el mateix patró de
-   "Servicios farmacéuticos" a la home) perquè la columna del claim comenci
-   exactament a la mateixa posició. La columna de text (.marcas-intro-2col__text)
-   s'eixampla per sobre de l'ample de la imatge de la home (516px) per reduir
-   el nombre de línies, i comparteix el mateix padding-top que la columna del
-   claim perquè quedin alineades per dalt. Marges superior/inferior reduïts
-   respecte a l'original de la home (64px) i simètrics entre ells. */
-.marcas-intro-2col.block3-d__row--50-50 {
-  margin-top: var(--space-8);
-  margin-bottom: var(--space-8);
+/* ---------- Intro — centrada (mateix estil que ".intl-title" a Internacional) ---------- */
+.marcas-intro-centered {
+  background: #fff;
+  padding-block: var(--space-16);
 }
 
-.marcas-intro-2col__text p {
+.marcas-intro-centered__inner {
+  text-align: center;
+  max-width: 950px;
+  margin-inline: auto;
+}
+
+.marcas-intro-centered__inner h2 {
+  font-weight: 800;
+  color: var(--color-primary);
+  margin: 0 0 var(--space-4);
+}
+
+.marcas-intro-centered__inner p {
   font-size: 1.1rem;
   line-height: 1.6;
   color: #4b4b4b;
   margin: 0;
 }
 
-@media (min-width: 900px) {
-  .marcas-intro-2col.block3-d__row--50-50 .container {
-    align-items: center;
-  }
+.marcas-intro-centered__inner p strong {
+  color: var(--color-blue8);
+}
 
-  .marcas-intro-2col.block3-d__row--50-50 .block2-f__text {
-    min-width: 380px;
-    padding-top: 0;
-  }
+.marcas-intro-logos {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 35px;
+  width: 100%;
+  margin-top: var(--space-8);
+}
 
-  .marcas-intro-2col.block3-d__row--50-50 .block2-f__text h2 {
-    max-width: 460px;
-  }
+/* La caixa de cada logo s'ajusta exactament al contingut (flex:0 0 auto,
+   amplada auto), no a un ample fix: així el "gap" és la separació visual
+   real entre logos, sense marge blanc extra per als logos amb un aspect
+   ratio més ample (abans quedaven centrats dins una caixa massa gran). */
+.marcas-intro-logos__link {
+  flex: 0 0 auto;
+  display: block;
+  line-height: 0;
+  opacity: 1;
+  transition: opacity var(--transition-base, 0.3s ease);
+}
 
-  .marcas-intro-2col__text {
-    flex: 1 1 700px;
-    min-width: 420px;
-    padding-top: 0;
-  }
+.marcas-intro-logos__link:hover {
+  opacity: 0.7;
+}
+
+.marcas-intro-logos img {
+  width: auto;
+  height: 32px;
+  object-fit: contain;
+}
+
+.marcas-intro-logos a:nth-child(1) img {
+  height: 14px;
+}
+
+.marcas-intro-logos a:nth-child(3) img {
+  height: 20px;
+}
+
+.marcas-intro-logos a:nth-child(4) img {
+  height: 25px;
+}
+
+.marcas-intro-logos a:nth-child(5) img {
+  height: 19px;
+}
+
+.block2-f__accent-line--centered {
+  margin-inline: auto;
 }
 
 /* ---------- Franja "5 marcas, un mismo compromiso farmacéutico" ---------- */
@@ -84,6 +124,7 @@
    menys scroll per veure-les totes. */
 .marcas-b__row {
   padding-block: var(--space-8);
+  scroll-margin-top: var(--header-height);
 }
 
 .marcas-b__row--grey {
@@ -114,6 +155,89 @@
   .marcas-b__row .content-section__text {
     width: 60%;
   }
+
+  /* Totes les franjes amb la mateixa alçada, encara que el contingut
+     (text o imatge reduïda) sigui més curt en alguna d'elles */
+  .marcas-b__row .content-section__split-inner {
+    min-height: 330px;
+  }
+}
+
+/* Imatge de Medicamentos, 1/3 més petita — la columna manté el mateix espai,
+   només la imatge en si es redueix i queda centrada dins d'aquest espai */
+.marcas-b__row--medicamentos .content-section__image img {
+  width: 66.667%;
+  margin-inline: auto;
+  display: block;
+}
+
+/* Medicamentos, GSN, Esenta: columna de text (a la dreta) desplaçada
+   una mica cap a la dreta */
+.marcas-b__row--medicamentos .content-section__text,
+#marca-gsn .content-section__text,
+#marca-esenta .content-section__text {
+  padding-left: var(--space-6);
+}
+
+/* Medicamentos: logo un 15% més petit (320x120 -> 231x87) */
+.marcas-b__row--medicamentos .marcas-b__logo {
+  max-width: 231px;
+  max-height: 87px;
+}
+
+/* Orissens: logo un 10% més gran i després un 15% + 15% + 10% + 10% més petit (229x86 -> 206x77) */
+.marcas-b__row--orissens .marcas-b__logo {
+  max-width: 206px;
+  max-height: 77px;
+}
+
+/* GSN: logo un 30% + 25% + 10% més petit (168x63 -> 151x57) */
+#marca-gsn .marcas-b__logo {
+  max-width: 151px;
+  max-height: 57px;
+}
+
+/* Nakama: logo un 25% + 10% més petit (240x90 -> 216x81) */
+#marca-nakama .marcas-b__logo {
+  max-width: 216px;
+  max-height: 81px;
+}
+
+/* Esenta: logo un 25% + 20% + 15% + 15% més petit (163x61 -> 139x52) */
+#marca-esenta .marcas-b__logo {
+  max-width: 139px;
+  max-height: 52px;
+}
+
+/* Medicamentos/Orissens: CTA amb més separació respecte al logo */
+.marcas-b__row--refined .block2-f__cta {
+  margin-top: var(--space-4);
+}
+
+/* ---------- Etiqueta Medicamentos/Orissens — pastilla (badge) ---------- */
+.marcas-b__row--refined .marcas-b__category.marcas-label--a {
+  display: inline-block;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 14px;
+  color: #fff;
+  background: var(--color-teal);
+  border-bottom: none;
+  padding: var(--space-2) var(--space-4);
+  border-radius: 999px;
+  margin-top: -12px;
+  margin-bottom: var(--space-8);
+}
+
+/* ---------- Totes les files de marques — etiqueta, text i CTA a 18px ---------- */
+.marcas-b__row .marcas-b__category,
+.marcas-b__row .content-section__text > p,
+.marcas-b__row .block2-f__cta span:last-child {
+  font-size: 18px;
+}
+
+.marcas-b__row--refined .block2-f__cta span:last-child {
+  font-size: 17px;
 }
 
 /* ---------- CTA com a <button> (marques "gated", ex. Medicamentos) ---------- */

@@ -2,7 +2,7 @@
   {
     "name": "Medicamentos",
     "category": "Medicamentos",
-    "description": "Desarrollamos y registramos medicamentos no sujetos a prescripción médica.",
+    "description": "Desarrollamos y registramos medicamentos no sujetos a prescripción médica.\nUn portafolio en expansión.",
     "url": "#",
     "ctaLabel": "Ver listado de productos",
     "image": "/images/medicamentos.jpg",
@@ -12,25 +12,25 @@
   {
     "name": "Orissens",
     "category": "Salud de la mujer",
-    "description": "Una marca nacida en la farmacia, que recupera el origen natural del cuidado femenino con fórmulas específicas basadas en la ciencia, desarrolladas con máxima seguridad, eficacia y rigor farmacéutico. Creada para acompañar a la mujer en cada etapa de su vida.",
+    "description": "Salud de la mujer en cada etapa de su vida.\nCompromiso con la salud de la mujer, la farmacia y la ciencia.",
     "url": "https://www.orissens.com/",
     "ctaLabel": "Visitar la web de Orissens Woman",
-    "image": "/images/brand-orissens.webp",
+    "image": "/images/brands_orissens.jpg",
     "logo": "/images/brand-orissens-logo.png"
   },
   {
     "name": "GSN",
     "category": "Salud natural",
-    "description": "Complementos alimenticios con ingredientes de origen natural y de alta calidad, formulados bajo los principios de simplicidad, efectividad y evidencia científica, para acompañar el bienestar diario.",
+    "description": "Empieza a cuidarte, nosotros te acompañamos\nGSN te ofrece un cuidado fácil y esencial de la salud.",
     "url": "https://gsn.es/",
     "ctaLabel": "Visitar la web de GSN",
-    "image": "/images/brand-gsn.webp",
+    "image": "/images/brands_gsn.jpg",
     "logo": "/images/brand-gsn-logo.png"
   },
   {
     "name": "Nakama",
     "category": "Salud animal",
-    "description": "Soluciones seguras y eficaces para el bienestar de las mascotas, con un enfoque ético, responsable y basado en la evidencia, orientado a mejorar su salud y calidad de vida.",
+    "description": "La marca de salud natural para mascotas, exclusiva de farmacias.\nCuidarlos es un compromiso compartido.",
     "url": "https://www.nakamanimals.com/",
     "ctaLabel": "Visitar la web de Nakama",
     "image": "/images/brand-nakama.jpg",
@@ -39,7 +39,7 @@
   {
     "name": "Esenta",
     "category": "Salud natural",
-    "description": "Una alternativa saludable al agua embotellada y de grifo mediante tecnología de ósmosis inversa clínicamente probada, diseñada para mejorar el bienestar diario de las personas.",
+    "description": "Esenta es agua en su forma más pura.\nNo es solo un sistema de ósmosis inversa; es una revolución en la forma en que entendemos la salud.",
     "url": "https://www.esenta.es/",
     "ctaLabel": "Visitar la web de Esenta",
     "image": "/images/brand-esenta.webp",

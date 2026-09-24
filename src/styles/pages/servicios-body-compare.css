@@ -13,11 +13,17 @@
   margin: 0;
 }
 
-/* ---------- Índex de serveis — estil bloc "Unión" de quienes somos (text centrat + graella 2 files) ---------- */
+/* ---------- Índex de serveis — estil bloc "Unión" de quienes somos (text centrat + graella 2 files) ----------
+   Fons blanc, línia blava introductòria i marges, seguint el mateix estil
+   que el primer bloc de "Nuestras marcas" i "Internacional". */
 .srv-union {
-  background: #eeeeec;
+  background: #fff;
   padding-block: var(--space-16);
   margin-top: 0;
+}
+
+.srv-union__intro .block2-f__accent-line {
+  margin-inline: auto;
 }
 
 .srv-union .container {
@@ -88,7 +94,18 @@
 }
 
 .block2-f.block3-d__row--onehealth.srv-fi--white {
-  background: #fff;
+  background: #eeeeec;
+}
+
+/* Menys separació respecte al bloc "Capacidad productiva" (mateix fons
+   gris): queden més junts entre ells */
+#fabricacion {
+  padding-bottom: 0;
+}
+
+/* Sense separació entre "Capacidad productiva" i "Laboratorio" */
+#i-d {
+  margin-top: 0;
 }
 
 .block2-f.block3-d__row--onehealth.srv-fi--navy {
@@ -123,35 +140,31 @@
   margin-top: 40px;
 }
 
-/* ---------- Fábrica — capacitat productiva (xifra gran) ---------- */
+/* ---------- Fábrica — capacitat productiva (xifra gran) ----------
+   Sense marge respecte al bloc anterior (Planta de Producción): mateix
+   fons gris als dos, queden integrats com un únic bloc visual. */
 .srv-capacity {
   background: #eeeeec;
-  padding-block: var(--space-12);
-  margin-top: 40px;
+  padding-top: 4px;
+  padding-bottom: var(--space-12);
+  margin-top: 0;
 }
 
 .srv-capacity h2 {
-  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-size: 32px;
   font-weight: 800;
   color: var(--color-primary);
   margin: 0 0 var(--space-8);
+  text-align: center;
 }
 
-/* Alinear amb el container del bloc "Planta de Producción" (block2-f), que a partir de
-   900px fa servir max-width:1440px i padding-inline asimètric (16px/24px) en lloc del
-   .container genèric (1280px, padding simètric) */
+/* Prova: "Capacidad productiva" centrat a sobre la graella d'icones
+   (mateixa amplada/centrat que .srv-capacity__grid), en lloc d'alineat
+   amb la imatge del bloc de dalt. */
 @media (min-width: 900px) {
   .srv-capacity .container {
     max-width: 1440px;
     padding-inline: var(--space-4) var(--space-6);
-  }
-
-  /* A la fila imatge+text de dalt, justify-content:center centra el conjunt
-     imatge(516px) + gap(64px) + text(560px, per l'override --onehealth) = 1140px
-     dins del container. Repliquem exactament aquest mateix desplaçament (mateixa
-     fórmula que fa servir flexbox) perquè el títol comenci on comença la imatge. */
-  .srv-capacity h2 {
-    padding-left: calc((100% - 1140px) / 2);
   }
 }
 
@@ -222,11 +235,25 @@
   }
 }
 
-/* ---------- Otros servicios — títol ---------- */
+/* ---------- Otros servicios — títol ----------
+   Prova: centrat i amb la mateixa mida de títol que "Planta de Producción" (44px). */
 .srv-others {
   background: #fff;
   padding-block: var(--space-12);
   margin-top: 40px;
+}
+
+.srv-others .block2-f__text {
+  text-align: center;
+}
+
+.srv-others .block2-f__accent-line {
+  margin-inline: auto;
+}
+
+.srv-others h2 {
+  font-size: 44px;
+  line-height: 55px;
 }
 
 /* ---------- Otros servicios — franges horitzontals compactes, estil "Nuestras marcas" ---------- */
@@ -262,5 +289,10 @@
   .srv-strip .content-section__text {
     width: 60%;
   }
+}
+
+/* Sense separació entre el bloc de Subvenciones i el bloc de contacte */
+#subvenciones + .contact-alt--navy-soft {
+  margin-top: 0;
 }
 

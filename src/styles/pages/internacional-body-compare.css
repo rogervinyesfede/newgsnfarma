@@ -22,7 +22,13 @@
 
 .intl-title__intro {
   text-align: center;
-  max-width: 640px;
+  max-width: 950px;
+  margin-inline: auto;
+}
+
+/* La línia blava ha d'estar centrada també a partir de 900px, on
+   .block2-f__accent-line passa a alinear-se a l'esquerra per defecte */
+.intl-title__intro .block2-f__accent-line {
   margin-inline: auto;
 }
 
@@ -46,7 +52,12 @@
 /* ---------- Mapa — Proposta B: mapa + llista de regions (2 columnes) ---------- */
 .intl-map {
   padding-block: var(--space-16);
-  margin-top: 40px;
+  margin-top: 0;
+}
+
+/* El bloc "¿Hablamos?" queda enganxat al bloc anterior, sense marge */
+.intl-map + .contact-alt--navy-soft {
+  margin-top: 0;
 }
 
 .intl-map__frame {

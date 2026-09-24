@@ -25,28 +25,33 @@ import '../styles/pages/marcas-body-compare.css';
     </div>
   </section>
 
-  {/* ===== COMPARATIVA TEMPORAL — bloc introductori (2 columnes sense imatge + franja de claim) ===== */}
-
-  <section class="block2-f block3-d__row--50-50 marcas-intro-2col">
+  <section class="marcas-intro-centered">
     <div class="container">
-      <div class="block2-f__text">
-        <div class="block2-f__accent-line"></div>
-        <h2>Siempre al servicio de la salud y el bienestar</h2>
-      </div>
-      <div class="marcas-intro-2col__text">
+      <div class="marcas-intro-centered__inner">
+        <div class="block2-f__accent-line block2-f__accent-line--centered"></div>
+        <h2>Siempre al servicio de la<br />salud y el bienestar</h2>
         <p>
           Desarrollamos y comercializamos un portafolio de marcas propias en los ámbitos de
           <strong>salud natural</strong>, <strong>salud animal</strong> y <strong>medicamentos</strong>,
           integrando conocimiento farmacéutico, innovación y visión <strong>One Health</strong>.
         </p>
+        <div class="marcas-intro-logos">
+          {brands.map((brand) => (
+            <a href={`#marca-${brand.name.toLowerCase()}`} class="marcas-intro-logos__link" aria-label={brand.name}>
+              <img src={brand.logo} alt={brand.name} loading="lazy" />
+            </a>
+          ))}
+        </div>
       </div>
     </div>
   </section>
 
   {/* ===== COMPARATIVA TEMPORAL — cos de la pàgina ===== */}
 
-  {brands.map((brand, i) => (
-    <section class={`content-section content-section--split marcas-b__row ${i % 2 === 0 ? 'marcas-b__row--grey' : ''}`}>
+  {brands.map((brand, i) => {
+    const isRefined = ['Medicamentos', 'Orissens', 'GSN', 'Nakama', 'Esenta'].includes(brand.name);
+    return (
+    <section id={`marca-${brand.name.toLowerCase()}`} class={`content-section content-section--split marcas-b__row ${i % 2 === 0 ? 'marcas-b__row--grey' : ''} ${isRefined ? 'marcas-b__row--refined' : ''} ${brand.name === 'Medicamentos' ? 'marcas-b__row--medicamentos' : ''} ${brand.name === 'Orissens' ? 'marcas-b__row--orissens' : ''}`}>
       <div class="container content-section__split-inner">
         {i % 2 === 0 ? (
           <>
@@ -54,9 +59,9 @@ import '../styles/pages/marcas-body-compare.css';
               <img src={brand.image} alt="" loading="lazy" />
             </div>
             <div class="content-section__text">
-              <span class="pretitle marcas-b__category">{brand.category}</span>
+              <span class={`pretitle marcas-b__category ${isRefined ? 'marcas-label--a' : ''}`}>{brand.category}</span>
               <img src={brand.logo} alt={brand.name} class="marcas-b__logo" loading="lazy" />
-              <p>{brand.description}</p>
+              <p>{brand.description.split('\n').map((line, idx) => (idx > 0 ? <><br />{line}</> : line))}</p>
               {brand.gated ? (
                 <button type="button" class="block2-f__cta" data-gate-trigger>
                   <span class="block2-f__cta-icon">
@@ -77,9 +82,9 @@ import '../styles/pages/marcas-body-compare.css';
         ) : (
           <>
             <div class="content-section__text">
-              <span class="pretitle marcas-b__category">{brand.category}</span>
+              <span class={`pretitle marcas-b__category ${isRefined ? 'marcas-label--a' : ''}`}>{brand.category}</span>
               <img src={brand.logo} alt={brand.name} class="marcas-b__logo" loading="lazy" />
-              <p>{brand.description}</p>
+              <p>{brand.description.split('\n').map((line, idx) => (idx > 0 ? <><br />{line}</> : line))}</p>
               {brand.gated ? (
                 <button type="button" class="block2-f__cta" data-gate-trigger>
                   <span class="block2-f__cta-icon">
@@ -103,7 +108,8 @@ import '../styles/pages/marcas-body-compare.css';
         )}
       </div>
     </section>
-  ))}
+    );
+  })}
 
   {/* ===== Popup d'accés restringit (marques amb "gated": true, ex. Medicamentos) ===== */}
 

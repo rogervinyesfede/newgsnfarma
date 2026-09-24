@@ -17,93 +17,6 @@
   text-align: center;
 }
 
-/* ---------- Footer — proposta alternativa (inspiració Noucor) ---------- */
-.footer-alt {
-  background: #eeeeec;
-  padding: var(--space-12) var(--space-4);
-}
-
-.footer-alt__inner {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-8);
-}
-
-.footer-alt__logo {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--space-4);
-}
-
-.footer-alt__logo img {
-  width: 291px;
-  height: auto;
-}
-
-.footer-alt__social {
-  display: inline-flex;
-  margin-left: var(--space-4);
-}
-
-.footer-alt__social img {
-  width: 42px;
-  height: 42px;
-  object-fit: contain;
-}
-
-.footer-alt__social:hover {
-  opacity: 0.8;
-}
-
-.footer-alt__info {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-6);
-}
-
-.footer-alt__col h3 {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--color-primary);
-  margin: 0 0 var(--space-2);
-}
-
-.footer-alt__col p {
-  font-size: 18px;
-  color: #555;
-  margin: 0;
-}
-
-.footer-alt__col--address p {
-  margin-left: auto;
-}
-
-@media (min-width: 900px) {
-  .footer-alt__inner {
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: var(--space-12);
-  }
-
-  .footer-alt__logo {
-    flex: 0 0 auto;
-  }
-
-  .footer-alt__info {
-    flex-direction: row;
-    justify-content: flex-end;
-    gap: var(--space-16);
-    margin-left: auto;
-  }
-
-  .footer-alt__col {
-    flex: 0 0 auto;
-    text-align: right;
-  }
-}
-
 /* ---------- Finançament — logos (inspiració Noucor) ---------- */
 .funding {
   background: #fff;
@@ -301,15 +214,23 @@
     margin-bottom: 25px;
   }
 
+  /* One Health: la imatge (550px) és molt més alta que el text (2 paràgrafs curts),
+     i amb align-items:flex-start (regla general de .block3-d__row--50-50) el text
+     quedava enganxat a dalt i deixava un buit enorme a sota, molt més gran que el
+     marge de dalt. Centrem verticalment només aquesta fila perquè quedi equilibrat. */
+  .block2-f.block3-d__row--onehealth .container {
+    align-items: center;
+  }
+
+  .block2-f.block3-d__row--onehealth .block2-f__text {
+    padding-top: 0;
+  }
+
   /* Prova: només al bloc One Health, títol forçat a 2 línies ("One Health:" / "el
      propósito que nos guía") — calen columna i títol més amples perquè la 2a línia
      no torni a partir-se (515px és el que ocupa "el propósito que nos guía") */
   .block3-d__row--onehealth .block2-f__text {
     flex-basis: 560px;
-  }
-
-  .block2-f.block3-d__row--onehealth .block2-f__text {
-    padding-top: 120px;
   }
 
   .block3-d__row--onehealth .block2-f__text h2 {
