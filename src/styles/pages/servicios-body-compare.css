@@ -38,13 +38,14 @@
 }
 
 .srv-union__intro h2 {
+  font-size: 40px;
   font-weight: 800;
   color: var(--color-primary);
   margin: 0 0 var(--space-4);
 }
 
 .srv-union__intro p {
-  font-size: 1.1rem;
+  font-size: 17px;
   line-height: 1.6;
   color: #4b4b4b;
   margin: 0;
@@ -128,6 +129,11 @@
   color: #fff;
 }
 
+.srv-fi--white .block2-f__text p,
+.srv-fi--navy .block2-f__text p {
+  font-size: 17px;
+}
+
 @media (min-width: 900px) {
   .block2-f.block3-d__row--onehealth.srv-fi--white .block2-f__text p,
   .block2-f.block3-d__row--onehealth.srv-fi--navy .block2-f__text p {
@@ -151,7 +157,7 @@
 }
 
 .srv-capacity h2 {
-  font-size: 32px;
+  font-size: 30px;
   font-weight: 800;
   color: var(--color-primary);
   margin: 0 0 var(--space-8);
@@ -236,7 +242,7 @@
 }
 
 /* ---------- Otros servicios — títol ----------
-   Prova: centrat i amb la mateixa mida de títol que "Planta de Producción" (44px). */
+   Centrat i amb la mateixa mida de títol que la resta de blocs (40px). */
 .srv-others {
   background: #fff;
   padding-block: var(--space-12);
@@ -252,8 +258,8 @@
 }
 
 .srv-others h2 {
-  font-size: 44px;
-  line-height: 55px;
+  font-size: 40px;
+  line-height: 50px;
 }
 
 /* ---------- Otros servicios — franges horitzontals compactes, estil "Nuestras marcas" ---------- */
@@ -270,13 +276,14 @@
 }
 
 .srv-strip .content-section__text h3 {
-  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  font-size: 30px;
   font-weight: 800;
   color: var(--color-primary);
   margin: 0 0 var(--space-4);
 }
 
 .srv-strip .content-section__text p {
+  font-size: 17px;
   color: #4b4b4b;
   line-height: 1.6;
 }
@@ -292,7 +299,7 @@
 }
 
 /* Sense separació entre el bloc de Subvenciones i el bloc de contacte */
-#subvenciones + .contact-alt--navy-soft {
+#subvenciones + .contact-alt--photo {
   margin-top: 0;
 }
 

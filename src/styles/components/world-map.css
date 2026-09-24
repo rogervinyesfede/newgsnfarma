@@ -74,7 +74,6 @@
 .world-map-real #GF path,
 .world-map-real #EC path,
 .world-map-real #PE path,
-.world-map-real #BR path,
 .world-map-real #BO path,
 .world-map-real #PY path,
 .world-map-real #UY path,
@@ -154,7 +153,10 @@
 .world-map-real #ID path,
 .world-map-real #PH path,
 .world-map-real #BN path,
-.world-map-real #TL path {
+.world-map-real #TL path,
+/* oceania */
+.world-map-real #AU path,
+.world-map-real #NZ path {
   fill: var(--color-accent);
 }
 

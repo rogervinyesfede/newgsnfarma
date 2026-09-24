@@ -1,0 +1,26 @@
+/* Bloc temporal de comparació — cos de la pàgina "Home".
+   Eliminar quan es triï la versió definitiva. */
+
+/* Els títols H2 (One Health, Servicios Farmacéuticos, Marcas Propias,
+   ¿Hablamos?) ja són 40px globalment, veure block3-compare.css */
+
+/* Prova: CTA "Conoce más sobre el grupo" / "Ver todos los servicios" /
+   "Ver todas las marcas" a 16px, només a la Home. */
+.block3-d__row--50-50 .block2-f__cta span:last-child {
+  font-size: 16px;
+}
+
+/* Prova: text descriptiu sota One Health / Servicios Farmacéuticos /
+   Marcas Propias a 17px, només a la Home. */
+.block3-d__row--50-50 .block2-f__text p {
+  font-size: 17px;
+}
+
+/* "Proyecto promovido con la colaboración de:" a 17px, només a la Home. */
+.funding__intro {
+  font-size: 17px;
+}
+
+/* El text descriptiu del bloc "¿Hablamos?" ja és 17px globalment,
+   veure .contact-alt--photo p a block3-compare.css */
+

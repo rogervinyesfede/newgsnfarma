@@ -75,8 +75,8 @@
 }
 
 .contact-alt h2 {
-  font-size: 44px;
-  line-height: 55px;
+  font-size: 40px;
+  line-height: 50px;
   font-weight: 800;
   margin: 0 0 var(--space-4);
 }
@@ -121,6 +121,7 @@
 }
 
 .contact-alt--photo p {
+  font-size: 17px;
   color: rgba(255, 255, 255, 0.75);
 }
 
@@ -206,10 +207,9 @@
     padding-top: 54px;
   }
 
-  /* Prova: mateixa mida de títol que "Meet our team" a Adalvo (52px / line-height 65px) */
   .block3-d__row--50-50 .block2-f__text h2 {
-    font-size: 44px;
-    line-height: 55px;
+    font-size: 40px;
+    line-height: 50px;
     max-width: 300px;
     margin-bottom: 25px;
   }
