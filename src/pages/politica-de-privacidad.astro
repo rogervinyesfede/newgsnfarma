@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Hero from '../components/Hero.astro';
+import '../styles/pages/subpage-hero-compare.css';
 import '../styles/pages/legal.css';
 ---
 
@@ -9,151 +9,425 @@ import '../styles/pages/legal.css';
   description="Información sobre cómo GSN Farma Labs Group gestiona y protege los datos personales conforme a la normativa vigente."
   noindex
 >
-  <Hero split title="Política de privacidad" image="/images/hero-legal.webp" />
+  <section class="legal-hero">
+    <div class="subpage-hero-e__inner">
+      <h1>Política de privacidad</h1>
+    </div>
+  </section>
 
   <section class="legal-content">
     <div class="container">
+      <p class="legal-content__updated"><strong>Última actualización:</strong> 30 de julio de 2026</p>
+
       <p>
-        Esta política de privacidad establece la forma en que se van a gestionar los datos personales
-        que el interesado nos facilite, bien sea a través del correo electrónico, formularios web, o
-        por cualquier otro medio.
+        <strong>GSN FARMA LABS, S.L.U.</strong> (en adelante, &ldquo;<strong>GSN FARMA</strong>&rdquo;)
+        con NIF B10958932 y domicilio a estos efectos en Calle del Llobregat nº 28, C.P. 08223
+        Terrassa (Barcelona), manifiesta que es el responsable del tratamiento de los datos recogidos
+        en el sitio web www.gsnfarma.com (en adelante, la &ldquo;<strong>Web</strong>&rdquo;) de
+        acuerdo con las obligaciones previstas en el Reglamento (UE) 2016/679 General de Protección de
+        Datos (en adelante, el &ldquo;<strong>RGPD</strong>&rdquo;), la Ley Orgánica 3/2018, de 5 de
+        diciembre, de Protección de Datos Personales y de Garantía de los Derechos Digitales (en
+        adelante, la &ldquo;<strong>LOPDGDD</strong>&rdquo;) y la Ley 34/2002, de 11 de julio, de
+        Servicios de la Sociedad de la Información y de Comercio Electrónico (en adelante, la
+        &ldquo;<strong>LSSICE</strong>&rdquo;).
       </p>
       <p>
-        A efectos de lo previsto en el Artículo 13 del Reglamento (UE) 2016/679 del Parlamento Europeo
-        y del Consejo, relativo a la protección de las personas físicas en lo que respecta al
-        tratamiento de datos personales, se informa de manera clara y transparente de los datos del
-        responsable de esta web:
+        La cumplimentación de todos los datos solicitados como obligatorios a través de la Web es
+        necesaria para lograr una óptima prestación de los servicios puestos a disposición del
+        Usuario. De no facilitarse todos los datos requeridos por GSN FARMA no se garantiza que la
+        información y servicios facilitados puedan prestarse, se presten correctamente o se ajusten a
+        las necesidades del Usuario.
+      </p>
+      <p>
+        El término Usuario/s se emplea aquí para referirse a todas las personas mayores de edad que
+        accedan a la Web.
       </p>
 
-      <h2>Datos identificativos y de contacto del responsable del tratamiento</h2>
+      <h3>Información básica relativa al tratamiento de datos</h3>
+      <table>
+        <tbody>
+          <tr>
+            <th>Responsable del Tratamiento</th>
+            <td>GSN FARMA LABS, S.L.U.</td>
+          </tr>
+          <tr>
+            <th>Finalidad del tratamiento</th>
+            <td>Contacto / Uso de cookies</td>
+          </tr>
+          <tr>
+            <th>Legitimación del tratamiento</th>
+            <td>
+              El tratamiento de sus datos puede estar basado en el consentimiento expreso del
+              interesado, manifestado mediante una acción afirmativa clara, como es la marcación de la
+              casilla de aceptación de la Política de Privacidad antes del envío de cualquier
+              formulario en el sitio web de GSN FARMA.
+            </td>
+          </tr>
+          <tr>
+            <th>Destinatarios</th>
+            <td>
+              No se cederán datos a terceros, salvo a nuestros colaboradores necesarios para la
+              prestación del servicio o por obligación legal.
+            </td>
+          </tr>
+          <tr>
+            <th>Derechos</th>
+            <td>
+              Acceso, rectificación, supresión, oposición, limitación del tratamiento, portabilidad de
+              datos, a no ser objeto de decisiones individuales automatizadas, a revocar el
+              consentimiento prestado, así como presentar una reclamación ante la Agencia Española de
+              Protección de Datos, si lo estima oportuno.
+            </td>
+          </tr>
+          <tr>
+            <th>Información adicional</th>
+            <td>Puede consultar información detallada sobre la protección de sus datos, a continuación.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Información detallada sobre el tratamiento de datos</h3>
+
+      <h2>1. Identidad y datos de contacto del Responsable del Tratamiento</h2>
+      <p>
+        En los términos de la normativa de protección de datos aplicable y, en especial, del
+        Reglamento (UE) 2016/679, del Parlamento Europeo y del Consejo, de 27 de abril de 2016,
+        relativo a la protección de las personas físicas en lo que respecta al tratamiento de datos
+        personales y a la libre circulación de estos datos y de la Ley Orgánica 3/2018, de 5 de
+        diciembre, de Protección de Datos Personales y de garantía de los derechos digitales, el
+        Responsable del Tratamiento es:
+      </p>
+      <table>
+        <tbody>
+          <tr>
+            <th>Responsable del Tratamiento</th>
+            <td>GSN FARMA LABS, S.L.U.</td>
+          </tr>
+          <tr>
+            <th>Domicilio</th>
+            <td>Calle del Llobregat nº 28, C.P. 08223 Terrassa (Barcelona)</td>
+          </tr>
+          <tr>
+            <th>Teléfono</th>
+            <td>+34 680 310 655</td>
+          </tr>
+          <tr>
+            <th>Correo electrónico de contacto</th>
+            <td><a href="mailto:info@gsnfarma.com">info@gsnfarma.com</a></td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        GSN FARMA ha designado un Delegado de Protección de Datos a quien puede contactarse a través
+        del correo electrónico dpo@gsnfarma.com.
+      </p>
+
+      <h2>2. Cumplimiento de la normativa aplicable</h2>
+      <p>
+        GSN FARMA ha adecuado la Web al RGPD y a la LOPDGDD. Para ello ha puesto en práctica aquellas
+        políticas, medios y procedimientos técnicos y organizativos para garantizar y proteger la
+        confidencialidad, integridad y disponibilidad de sus datos de carácter personal.
+      </p>
+      <p>
+        La transmisión de datos por parte del usuario de los servicios de GSN FARMA (en adelante, el
+        &ldquo;<strong>Usuario</strong>&rdquo;) a través de la Web, se realiza de manera voluntaria y
+        siendo este informado de forma previa al tratamiento del uso y de las finalidades del mismo.
+      </p>
+
+      <h2>3. Principios que aplicamos a su información personal</h2>
+      <p>
+        Los datos suministrados a GSN FARMA por diferentes medios, formularios de contacto on-line u
+        off-line o cualquier otro procedimiento utilizado para la recogida de sus datos, se tratarán
+        de acuerdo con la normativa de protección de datos vigente, y con la única finalidad de
+        prestar el servicio que se le haya informado.
+      </p>
+      <p>
+        En el tratamiento de sus datos de carácter personal aplicamos los siguientes principios que se
+        ajustan a las exigencias del RGPD:
+      </p>
       <ul>
-        <li>Denominación Social: GSN FARMA LABS, S.L.U.</li>
-        <li>Domicilio social: C/ del Llobregat nº 28, C.P. 08223 – Terrassa (Barcelona)</li>
-        <li>CIF: B10958932</li>
-        <li>Tel. +34 91 691 90 47</li>
+        <li>
+          <strong>Principio de licitud, lealtad y transparencia:</strong> Siempre vamos a contar con una base legal
+          para el tratamiento de sus datos personales para uno o varios fines específicos que le
+          informaremos previamente con absoluta transparencia. GSN FARMA le informa que únicamente se
+          recoge aquella información necesaria para alcanzar la finalidad del tratamiento y únicamente
+          se trataran los datos que haya prestado para la/s finalidad/es para la/s cual/es se le
+          informó.
+        </li>
+        <li>
+          <strong>Principio de minimización de datos:</strong> Sólo vamos a solicitarle los datos estrictamente
+          necesarios en relación con los fines informados.
+        </li>
+        <li>
+          <strong>Principio de limitación del plazo de conservación:</strong> Los datos de carácter personal se
+          conservarán durante el tiempo estrictamente necesario hasta que termine la finalidad para la
+          cual fueron recogidos y siempre que se mantenga la causa que legitimó el tratamiento de
+          estos datos personales. Finalizada la causa que legitimó el tratamiento, los datos
+          personales serán conservados debidamente bloqueados durante el plazo de prescripción de las
+          acciones que pudieran derivarse de la relación mantenida entre las partes y/o los plazos de
+          conservación previstos legalmente.
+        </li>
+        <li>
+          <strong>Principio de integridad:</strong> Sus datos serán tratados de tal manera que se garantice una
+          seguridad adecuada de los datos personales y se garantice la confidencialidad. Debe saber
+          que tomamos todas las precauciones necesarias para evitar el acceso no autorizado o uso
+          indebido de los datos por parte de terceros.
+        </li>
+        <li>
+          <strong>Principio de confidencialidad:</strong> GSN FARMA, en su condición de responsable del tratamiento,
+          garantiza la confidencialidad en el tratamiento de todos los datos de carácter personal del
+          Usuario a los que tenga acceso. El responsable del tratamiento, como cualquier otra persona
+          que intervenga en cualquier fase del tratamiento, está sometido al más estricto secreto
+          profesional, con un especial compromiso de adoptar los niveles de protección y las medidas
+          necesarias, tanto técnicas como organizativas, para garantizar la seguridad de los datos de
+          carácter personal y evitar su alteración, mal uso, pérdida, robo, tratamiento o acceso no
+          autorizado.
+        </li>
+        <li>
+          <strong>Principio de exactitud de los datos:</strong> Toda la información que el Usuario facilite a GSN
+          FARMA debe ser veraz y será el único responsable de las manifestaciones falsas o inexactas
+          que realice y de los perjuicios que cause a GSN FARMA o a terceros.
+        </li>
       </ul>
-
-      <h2>Finalidades de tratamiento de los datos de carácter personal</h2>
       <p>
-        Se requieren datos personales para la realización de consultas a través de nuestro formulario
-        de contacto, así como para la contratación de nuestros servicios a través del correspondiente
-        formulario de reservas.
+        GSN FARMA se reserva el derecho a excluir de los servicios a todo Usuario que haya facilitado
+        datos falsos, sin perjuicio de otras acciones legales que procedan.
+      </p>
+
+      <h2>4. Tratamiento de datos personales</h2>
+      <h3>4.1. Recogida y tratamiento de datos personales</h3>
+      <p>
+        Al facilitarnos sus datos a través de la Web o por cualquier otro medio, el Usuario garantiza
+        que éstos son verdaderos, exactos, completos y actualizados, responsabilizándose de cualquier
+        daño o perjuicio, directo o indirecto, que pudiera ocasionarse como consecuencia del
+        incumplimiento de tal obligación.
       </p>
       <p>
-        Los usuarios que acceden al sitio web corporativo y voluntariamente proporcionan información
-        personal para navegar por el sitio o utilizar algún servicio que requiera la comunicación de
-        datos a LA EMPRESA, quedan informados de las siguientes finalidades de tratamiento de los
-        datos de carácter personal de los usuarios, que LA EMPRESA podrá llevar a cabo:
+        En caso de que facilite a GSN FARMA datos de terceros, el Usuario debe contar con el
+        consentimiento de estos y comprometerse a trasladarles la información contenida en esta
+        Política, eximiendo a GSN FARMA de cualquier responsabilidad en este sentido. No obstante,
+        GSN FARMA podrá llevar a cabo las verificaciones para constatar este hecho, adoptando las
+        medidas de diligencia debida que correspondan, conforme a la normativa de protección de
+        datos.
+      </p>
+
+      <h3>4.2. Finalidades del tratamiento</h3>
+      <p>Las finalidades de los tratamientos que realiza GSN FARMA de los datos personales del Usuario son:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Tratamiento de datos</th>
+            <th>Finalidad del tratamiento</th>
+            <th>Base jurídica del tratamiento</th>
+            <th>Periodo de conservación</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Contacto</td>
+            <td>
+              Dar respuesta a las solicitudes de contacto realizadas por los Usuarios en el formulario
+              correspondiente del sitio Web.
+            </td>
+            <td>Consentimiento del interesado.</td>
+            <td>
+              Los datos se conservarán 12 meses tras las consultas realizadas o hasta que el
+              interesado ejerza la revocación de su consentimiento.
+            </td>
+          </tr>
+          <tr>
+            <td>Uso de cookies</td>
+            <td>Analizar la navegación del usuario y garantizar el correcto funcionamiento de la Web.</td>
+            <td>Consentimiento del interesado.</td>
+            <td>
+              En función de la duración de la cookie. Ver
+              <a href="https://gsnfarma.com/politica-de-cookies">Política de Cookies</a> en el pie de
+              la Web.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>4.3. Categoría de datos y de interesados</h3>
+      <p>
+        Atendiendo a las finalidades mencionadas, GSN FARMA recoge y trata las siguientes categorías de
+        datos de los Usuarios:
       </p>
       <ul>
-        <li>Para prestar nuestros servicios de compra de productos al por mayor a usuarios registrados.</li>
-        <li>Llevar a cabo la gestión comercial y administrativa de los datos facilitados.</li>
-        <li>Facturar a los clientes los servicios prestados.</li>
+        <li>Datos identificativos: nombre, apellidos, dirección de correo electrónico y número de teléfono.</li>
         <li>
-          Formulario de contacto y/o información: Cuando el usuario utiliza los servicios habilitados
-          al efecto para contactar con LA EMPRESA (a través de formularios, teléfono, o correo
-          electrónico), LA EMPRESA tratará sus datos personales para atender y gestionar la
-          contestación de la comunicación realizada por el usuario.
+          También, a través de las cookies recogemos determinada información vinculada a la navegación
+          del Usuario. Su tratamiento y finalidades está explicado en nuestra
+          <a href="https://gsnfarma.com/politica-de-cookies">Política de Cookies</a> en el pie de la
+          Web.
         </li>
       </ul>
       <p>
-        El envío de datos de carácter personal es obligatorio para contactar y realizar operaciones
-        comerciales con LA EMPRESA. Asimismo, el no facilitar los datos personales solicitados o el no
-        aceptar la presente política de protección de datos supone la imposibilidad de procesar las
-        solicitudes realizadas a través del presente sitio web.
+        Los datos personales recogidos pertenecen a la/s siguiente/s categoría/s de interesados:
+        Usuario Web.
       </p>
       <p>
-        Los datos personales proporcionados se conservarán mientras el interesado no solicite su
-        supresión o cancelación y siempre que resulten adecuados, pertinentes y limitados a lo
-        necesario para los fines para los que sean tratados. En este caso, los datos proporcionados se
-        conservarán mientras se mantenga la relación contractual, o durante el periodo necesario para
-        cumplir con las obligaciones legales. Se garantiza un tratamiento de datos leal y transparente.
-      </p>
-      <p>
-        Utilizamos las cuentas de Facebook, Twitter e Instagram para informar sobre nuestras
-        actividades e interactuar con nuestros seguidores. El acceso y uso de las páginas oficiales de
-        LA EMPRESA, está sujeto al cumplimiento de las condiciones establecidas por los titulares de la
-        plataforma del servicio de las referidas redes sociales.
+        En relación con las consultas o solicitudes realizadas mediante los formularios de recogida de
+        datos disponibles en la Web, se permite al Usuario explicar brevemente el motivo de la consulta
+        o el contacto. Tenga en cuenta que GSN FARMA no responderá ninguna consulta personal, excepto
+        las estrictamente establecidas por la legislación vigente. En ninguna circunstancia el Usuario
+        comunicará datos de categorías especiales (por ejemplo: datos de salud, religión, etc.) a
+        través de los formularios habilitados en la Web. En caso de hacerlo, el Usuario exime de toda
+        responsabilidad a GSN FARMA. En el supuesto de que se remitan consultas o contenidos
+        inadecuados, GSN FARMA procederá a su eliminación.
       </p>
 
-      <h2>Legitimación o base jurídica del tratamiento</h2>
-      <p>
-        La base jurídica para el tratamiento de los datos recogidos a través del sitio web por LA
-        EMPRESA, será la siguiente:
-      </p>
+      <h3>4.4. Decisiones individuales automatizadas, incluida la elaboración de perfiles</h3>
+      <p>No se prevé la adopción de decisiones individuales automatizadas, incluida la elaboración de perfiles.</p>
+
+      <h2>5. Tratamiento de los datos por terceros y cesión</h2>
+      <p>Dependiendo de los fines para los que se recogen datos personales, sus datos personales podrán ser tratados por:</p>
       <ul>
         <li>
-          En el caso de la recogida de datos a través de los canales de contacto habilitados en el
-          sitio web, incluidos los formularios de contacto y reservas, la base jurídica para el
-          tratamiento de los datos es la de recabar el consentimiento del interesado o usuario para el
-          tratamiento de sus datos.
+          Personal autorizado de GSN FARMA o sus representantes actuando en su nombre, sujetos a la
+          normativa de protección de datos vigente que resulte de aplicación.
         </li>
         <li>
-          Para ello, en cada formulario se incluirá un check-box en el que se solicitará dicho
-          consentimiento, informando de la existencia del aviso legal y de la presente política de
-          privacidad y facilitando el acceso a ambas.
+          Administraciones, Autoridades y Organismos Públicos, incluidos Juzgados y Tribunales, cuando
+          así lo exija la normativa aplicable.
         </li>
         <li>
-          En el caso en que exista una relación contractual o pre-contractual entre LA EMPRESA y el
-          usuario, la base jurídica para el tratamiento de los datos facilitados estará legitimado en
-          dicha relación, de modo que solo se recabarán los datos necesarios para sustentar dichas
-          relaciones comerciales y contractuales.
+          Terceros proveedores de servicios externos que GSN FARMA contrate y que tengan la condición
+          de encargado del tratamiento (proveedores de servicios IT que procesan información,
+          almacenamiento de datos, mantenimiento de soporte a bases de datos, mailing, software y
+          aplicaciones). Todo ello solo después de llevar a cabo las medidas necesarias para asegurar
+          que podemos compartir dicha información y tras haber suscrito un contrato de tratamiento de
+          datos con nuestros encargados del tratamiento, en cumplimiento de la normativa de protección
+          de datos.
         </li>
       </ul>
-
-      <h2>Cesiones de los datos personales del usuario a terceros</h2>
-      <p>En ningún caso cederemos tus datos a terceros sin informarte previamente y requerirte tu consentimiento.</p>
       <p>
-        La EMPRESA informa al usuario de que cualquier cesión de datos que deba realizar, será puesta
-        en su conocimiento informándole de modo expreso, preciso e inequívoco de los destinatarios de
-        la información, de la finalidad a que se destinarán los datos, y de la naturaleza de los datos
-        cedidos y, en su caso, cuando la legislación lo establezca, previamente se solicitará el
-        consentimiento explícito, inequívoco, específico e informado al usuario.
+        Si existe una venta, una fusión, consolidación, cambio en el control societario, transferencia
+        sustancial de activos, reorganización o liquidación de GSN FARMA, a nuestra discreción,
+        podremos transferir, vender o asignar la información recabada en la Web a una o más partes
+        relevantes.
       </p>
 
-      <h2>Ejercicio de derechos de acceso, rectificación, cancelación o supresión, oposición, limitación al tratamiento y portabilidad</h2>
+      <h2>6. Medidas de seguridad</h2>
       <p>
-        Le informamos que los derechos de acceso, rectificación, supresión, limitación de tratamiento,
-        u oposición al tratamiento, así como el derecho a la portabilidad de los datos podrán ser
-        ejercitados ante el Responsable del tratamiento por cualquier medio sujeto en derecho,
-        acompañando de copia de documento oficial que le identifique dirigiéndose a la dirección
-        social de la empresa, o enviando un mensaje al correo electrónico de contacto, según los
-        términos que la normativa aplicable establece.
+        GSN FARMA adopta los niveles de seguridad requeridos por el RGPD adecuados a la naturaleza de
+        los datos que son objeto de tratamiento en cada momento por su actividad. En este sentido,
+        utiliza técnicas de cifrado que no permiten a un tercero rastrear la identidad del Usuario que
+        interactúa con nuestros servicios. Asimismo, también podrá llevar a cabo técnicas seguras de
+        anonimización de los datos personales que trata para llevar a cabo su actividad. No obstante,
+        la seguridad técnica en un medio como Internet no es inexpugnable y pueden existir actuaciones
+        dolosas de terceros, si bien GSN FARMA pone a su alcance los medios para evitar dichas
+        actuaciones.
+      </p>
+
+      <h2>7. Transferencia internacional de datos</h2>
+      <p>
+        No cedemos los datos personales del Usuario a terceros fuera de la Unión Europea. En caso de
+        realizarse transferencias internacionales de datos, se tomarán todas las medidas técnicas y
+        organizativas adecuadas para garantizar la seguridad de los datos.
+      </p>
+
+      <h2>8. Derechos de los interesados y su ejercicio</h2>
+      <p>De conformidad con el RGPD y la LOPDGDD, los Usuarios pueden ejercer los siguientes derechos:</p>
+      <ul>
+        <li><strong>Derecho de acceso:</strong> El Usuario podrá preguntar a GSN FARMA si está tratando sus datos y, en caso afirmativo, acceder a los mismos.</li>
+        <li><strong>Derecho de rectificación:</strong> El Usuario podrá solicitar la rectificación de los datos si éstos son inexactos o incompletos.</li>
+        <li>
+          <strong>Derecho a solicitar la supresión de sus datos, cuando sea posible.</strong> En
+          cualquier caso, en el momento en que el Usuario ejerza este derecho, todos los datos
+          personales vinculados a su cuenta, así como la información y contenidos que se integren en
+          su perfil se darán de baja y permanecerán bloqueados hasta que finalice el plazo legal
+          previsto.
+        </li>
+        <li><strong>Derecho a solicitar la limitación de su tratamiento:</strong> En este caso únicamente los conservaremos para el ejercicio o la defensa de reclamaciones.</li>
+        <li><strong>Derecho a oponerse al tratamiento:</strong> GSN FARMA dejará de tratar los datos personales, con la excepción que deban seguir tratándose por motivos de interés legítimo imperioso o para el ejercicio o defensa de posibles reclamaciones.</li>
+        <li><strong>Derecho a la portabilidad de los datos:</strong> En caso de que el Usuario quiera que sus datos sean tratados por otro responsable del tratamiento, GSN FARMA le facilitará el traspaso de sus datos al nuevo responsable en caso de que ambos dispongan de los medios técnicos necesarios para ello.</li>
+        <li><strong>Derecho a no ser objeto de una decisión basada únicamente en el tratamiento automatizado de sus datos personales.</strong></li>
+        <li><strong>Derecho a revocar el consentimiento:</strong> Si el Usuario hubiese otorgado el consentimiento para alguna finalidad específica, podrá retirar el mismo cuando lo desee, sin que ello afecte a la licitud del tratamiento basado en el consentimiento previo a su retirada.</li>
+        <li>
+          <strong>Derecho a presentar una reclamación ante la Agencia Española de Protección de
+          Datos:</strong> Si considera que se ha cometido una infracción de la legislación en materia
+          de protección de datos respecto al tratamiento de sus datos personales
+          (<a href="https://www.aepd.es">www.aepd.es</a>).
+        </li>
+      </ul>
+      <p>
+        Para ejercer sus derechos, puede utilizar los modelos y formularios disponibles en la página
+        oficial de la Agencia Española de Protección de Datos
+        (<a href="https://www.aepd.es/es/derechos-y-deberes/conoce-tus-derechos">https://www.aepd.es/es/derechos-y-deberes/conoce-tus-derechos</a>),
+        y dirigirse por escrito al
+        domicilio de GSN FARMA o a la dirección de correo electrónico dpo@gsnfarma.com, REF:
+        &ldquo;Protección de Datos&rdquo;.
+      </p>
+
+      <h2>9. Consentimiento del Usuario</h2>
+      <p>
+        El Usuario manifiesta haber leído y aceptado expresamente la presente Política de Privacidad,
+        cuando la base jurídica del tratamiento sea su consentimiento. Puede retirar el consentimiento
+        en cualquier momento. La retirada del consentimiento no afectará a la licitud del tratamiento
+        previo a su retirada.
       </p>
       <p>
-        Si considera que el tratamiento no se ajusta a la normativa vigente, podrá presentar una
-        reclamación ante la autoridad de control en agpd.es.
+        El Usuario se obliga a mantener indemne a GSN FARMA ante cualquier posible reclamación, multa
+        o sanción que pueda venir obligada a soportar como consecuencia del incumplimiento por parte
+        del Usuario del deber descrito en este párrafo.
+      </p>
+
+      <h2>10. Enlaces a otros sitios web</h2>
+      <p>
+        Esta Web contiene enlaces o vínculos a otros sitios web no gestionados por GSN FARMA, de forma
+        que, GSN FARMA no ejerce ningún control sobre estos, ni responde de la información a la cual
+        tienen acceso. Rogamos que visite estos sitios web directamente para obtener información sobre
+        su política de privacidad, en la cual se proporciona información sobre la protección de sus
+        datos, la seguridad, la obtención de datos y las disposiciones relativas a la transmisión de
+        los datos.
       </p>
       <p>
-        La solicitud deberá contener nombre, apellidos del interesado, copia del DNI y, en los casos que
-        se admita, de la persona que lo represente, así como documento acreditativo de la
-        representación, petición en que se concreta la solicitud, domicilio a efectos de
-        notificaciones, fecha y firma del solicitante y documentos acreditativos de la petición que
-        formula.
+        En caso de seguirnos en nuestras redes sociales, revise sus políticas de privacidad para
+        obtener información sobre cómo tratan y comparten sus datos personales, puesto que GSN FARMA no
+        ejerce ningún control sobre ellos ni tiene ningún tipo de responsabilidad respecto a la
+        información a la cual tienen acceso estas webs.
+      </p>
+
+      <h2>11. Cambios en la política de privacidad</h2>
+      <p>
+        Solo utilizaremos datos de carácter personal según lo establecido en la Política de Privacidad
+        que esté en vigor en el momento en que se recaben dichos datos.
       </p>
       <p>
-        Si la solicitud no reúne los requisitos especificados se requerirá su subsanación. Respecto al
-        derecho de acceso, únicamente se denegará cuando la solicitud sea formulada por persona distinta
-        del afectado. No se exigirá contraprestación alguna por el ejercicio de los derechos.
+        GSN FARMA se reserva el derecho a modificar en cualquier momento esta Política de Privacidad
+        con efecto desde la fecha de publicación de tales modificaciones en la Web, por lo que se
+        recomienda visitarla cada vez que se acceda a la misma. De todos modos, si en algún momento
+        decidimos tratar datos personales de modo diferente a lo que se declaró en el momento de su
+        obtención, se informará de ello al Usuario, recogiendo su consentimiento en caso de resultar
+        necesario.
       </p>
       <p>
-        En el caso de que se haya otorgado el consentimiento para alguna finalidad específica, se puede
-        ejercitar el derecho a retirar dicho consentimiento en cualquier momento, sin que ello afecte a
-        la licitud del tratamiento basado en el consentimiento previo a su retirada.
+        En caso de que cualquier cláusula de la presente Política de Privacidad fuera anulada o
+        considerada nula, el resto de las condiciones no se verán afectadas, conservando plenamente su
+        validez y vigencia, en atención a la normativa vigente de aplicación en cada momento.
+      </p>
+
+      <h2>12. Legislación aplicable</h2>
+      <p>
+        La privacidad de toda la información facilitada, tanto por el Usuario por medio de los
+        diferentes formularios de solicitud de datos personales, como la accesible a través de la Web,
+        está regulada por la normativa de protección de datos vigente, en especial, por el RGPD y por
+        la LOPDGDD.
+      </p>
+
+      <h2>13. Cookies</h2>
+      <p>
+        El acceso a la Web puede implicar la utilización de cookies. Las cookies son pequeñas
+        cantidades de información que se almacenan en el navegador utilizado por cada usuario para que
+        el servidor recuerde cierta información que posteriormente pueda utilizar. Esta información
+        permite identificarle a usted como un usuario concreto y permite guardar sus preferencias
+        personales, así como información técnica sobre el uso y operatividad de la Web.
       </p>
       <p>
-        El usuario queda informado del derecho que le asiste a presentar una reclamación ante la
-        Agencia Española de Protección de Datos (AEPD) y/o solicitar su tutela, en particular, cuando
-        el usuario considere que no ha obtenido satisfacción por parte de LA EMPRESA, en el ejercicio
-        de sus derechos, a través de la sede electrónica de su portal web (www.agpd.es).
-      </p>
-      <p>
-        LA EMPRESA se reserva el derecho de modificar su política de protección de datos de acuerdo a
-        su criterio, o a causa de un cambio legislativo, jurisprudencial o en la práctica empresarial.
-      </p>
-      <p>
-        Si LA EMPRESA incluyese alguna modificación, el nuevo texto será publicado en este mismo sitio
-        web, donde el Usuario podrá tener conocimiento de la política de protección de datos actual.
+        Para más información, puede consultar nuestra
+        <a href="https://gsnfarma.com/politica-de-cookies">Política de Cookies</a> en el pie de la
+        Web.
       </p>
     </div>
   </section>

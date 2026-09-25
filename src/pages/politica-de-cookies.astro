@@ -1,93 +1,174 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Hero from '../components/Hero.astro';
+import '../styles/pages/subpage-hero-compare.css';
 import '../styles/pages/legal.css';
 ---
 
 <BaseLayout
   title="Política de cookies | GSN Farma Labs Group"
-  description="Información sobre el uso de cookies en la web de GSN Farma Labs Group y cómo puedes configurar tus preferencias."
+  description="Información sobre el uso de cookies en el sitio web de GSN Farma Labs Group y cómo gestionarlas."
   noindex
 >
-  <Hero split title="Política de cookies" image="/images/hero-legal.webp" />
+  <section class="legal-hero">
+    <div class="subpage-hero-e__inner">
+      <h1>Política de cookies</h1>
+    </div>
+  </section>
 
   <section class="legal-content">
     <div class="container">
+      <p class="legal-content__updated"><strong>Última actualización:</strong> 30 de julio de 2026</p>
+
       <p>
-        Una cookie es un pequeño fichero que se envía a su ordenador y que se guarda en el disco duro.
-        Las cookies se emplean para que nuestro sistema pueda seguir sus pasos en una sesión de compra.
-        Si no acepta el uso de cookies, no podrá utilizar de forma correcta esta web.
+        <strong>GSN FARMA LABS, S.L.U.</strong> (en adelante, &ldquo;<strong>GSN FARMA</strong>&rdquo;)
+        con NIF B10958932 y domicilio a estos efectos en Calle del Llobregat nº 28, C.P. 08223
+        Terrassa (Barcelona), mediante esta Política de Cookies, demuestra el compromiso adquirido con
+        la legislación vigente sobre el uso de las cookies, proporcionando información para que los
+        usuarios puedan comprender qué tipo de cookies se utilizan y bajo qué finalidad, con el
+        objetivo de proporcionar transparencia en cuanto a los datos tratados sobre la navegación en
+        nuestro sitio web www.gsnfarma.com (en adelante, la &ldquo;<strong>Web</strong>&rdquo;).
+      </p>
+      <p>
+        Esta política se revisa periódicamente para asegurar su vigencia, por lo que puede ser
+        modificada. Le recomendamos que la visite con regularidad para estar informado de cualquier
+        actualización al respecto.
       </p>
 
-      <h2>¿Qué cookies utilizamos?</h2>
-      <p><strong>Cookies de registro:</strong></p>
+      <h2>1. ¿Qué son las cookies?</h2>
       <p>
-        Las cookies de registro se generan una vez que el Usuario se ha registrado o posteriormente ha
-        abierto su sesión, y se utilizan para identificarle en los servicios con los siguientes
-        objetivos:
+        Las cookies son pequeños archivos de datos que se reciben en el terminal desde la Web
+        visitada y se usan para registrar ciertas interacciones de la navegación en la misma,
+        almacenando datos que podrán ser actualizados y recuperados. Estos archivos se almacenan en
+        el dispositivo que esté usando el usuario y contienen datos; los <em>web beacons</em>,
+        píxeles u otros archivos similares también pueden hacer lo mismo. Utilizamos el término
+        &ldquo;cookies&rdquo; en esta política para referirse a todos los archivos que recopilan
+        información de esta manera.
+      </p>
+
+      <h2>2. ¿Por qué utilizamos cookies?</h2>
+      <p>
+        GSN FARMA utiliza cookies estrictamente necesarias y esenciales para que usted utilice
+        nuestra Web y le permita moverse libremente, pueda utilizar nuestras áreas seguras, pueda
+        personalizar las distintas opciones, etc.
+      </p>
+      <p>
+        Además, GSN FARMA utiliza cookies que recogen datos relativos al análisis de uso de la Web.
+        Éstas se utilizan para ayudar a mejorar el servicio al usuario, midiendo el uso y el
+        rendimiento de la Web, para optimizarla y personalizarla.
+      </p>
+      <p>
+        En la Web se utilizan o pueden utilizar enlaces que permitan un vínculo con otros sitios web.
+        GSN FARMA no controla las cookies utilizadas por estos sitios web externos. Para más
+        información sobre las cookies de estos sitios web ajenos, aconsejamos revisar sus propias
+        políticas de cookies.
+      </p>
+
+      <h2>3. ¿Qué tipo de cookies utilizamos?</h2>
+      <p>
+        <strong>Cookies técnicas:</strong> Son aquellas cookies imprescindibles y estrictamente
+        necesarias para el correcto funcionamiento de la Web y la utilización de las diferentes
+        opciones y servicios que ofrece la misma. Por ejemplo, las que sirven para el mantenimiento
+        de la sesión, la gestión del tiempo de respuesta, el rendimiento o validación de opciones, la
+        utilización de elementos de seguridad, para compartir contenido con redes sociales, etc.
+      </p>
+      <p>
+        <strong>Cookies de preferencias o personalización:</strong> Son cookies que permiten
+        personalizar la experiencia del usuario al interactuar con la Web, como, por ejemplo, el
+        idioma o el contenido y aspecto de la Web en función de sus preferencias, el dispositivo o la
+        región.
+      </p>
+      <p>
+        <strong>Cookies analíticas:</strong> Son las cookies utilizadas para elaborar perfiles de
+        navegación y poder conocer las preferencias del usuario con la finalidad de mejorar la oferta
+        de productos y servicios.
+      </p>
+      <p>
+        <strong>Cookies de publicidad comportamental:</strong> Son cookies que permiten almacenar
+        información de los usuarios para desarrollar un perfil específico y mostrarle publicidad en
+        base al mismo.
+      </p>
+
+      <h2>4. ¿Qué pasa si acepto la Política de Cookies?</h2>
+      <p>
+        Para cumplir con la legislación vigente, tenemos que pedir su permiso para gestionar cookies.
+        Si decide no autorizar el tratamiento indicándonos su no conformidad, sólo usaríamos las
+        cookies técnicas, puesto que son imprescindibles para la navegación por nuestra Web. En este
+        caso, no almacenaríamos ninguna otra cookie más.
+      </p>
+      <p>
+        Aceptando nuestra Política de Cookies nos permite mejorar la Web para ofrecerle un acceso
+        óptimo y darle un servicio más eficaz y personalizado. Le informamos que en el caso de
+        bloquear o no aceptar la instalación de cookies, pero seguir navegando por la Web, es posible
+        que ciertos servicios no estén disponibles sin la utilización de éstas o que no pueda acceder
+        a determinados servicios ni tampoco aprovechar por completo todo lo que la Web le ofrece.
+      </p>
+
+      <h2>5. ¿Cómo puedo deshabilitar las cookies?</h2>
+      <p>
+        Puede retirar su consentimiento relacionado con el uso de las pulsando el botón que aparece
+        en la parte inferior izquierda de la pantalla. Cuando pulse este botón, se abrirá nuevamente
+        el banner de cookies, con su panel de configuración, para que pueda gestionar sus
+        preferencias, así como optar por rechazar o aceptar el uso de cookies.
+      </p>
+      <p>
+        Adicionalmente, le informamos que todos los navegadores permiten hacer cambios para
+        desactivar la configuración de las cookies. Este es el motivo por el que la mayoría de los
+        navegadores ofrecen la posibilidad de administrar las cookies, para obtener un control más
+        preciso sobre la privacidad.
+      </p>
+      <p>
+        Tenga en cuenta que, si rechaza o borra las cookies de navegación de la Web, no podremos
+        mantener sus preferencias, algunas características de la Web no estarán operativas, no
+        podremos ofrecerle servicios personalizados y cada vez que vaya a navegar por nuestra Web
+        tendremos que solicitarle de nuevo su autorización para el uso de cookies.
+      </p>
+      <p>
+        Si aun así decide modificar la configuración de su acceso a la Web, le informamos que es
+        posible eliminar las cookies o impedir que se registre esta información en su equipo en
+        cualquier momento mediante la modificación de los parámetros de configuración de su
+        navegador:
       </p>
       <ul>
         <li>
-          Mantener al Usuario identificado de forma que, si cierra un Servicio, el navegador o el
-          ordenador y en otro momento u otro día vuelve a entrar en dicho Servicio, seguirá
-          identificado, facilitando así su navegación sin tener que volver a identificarse. Esta
-          funcionalidad se puede suprimir si el Usuario pulsa la funcionalidad "cerrar sesión", de
-          forma que esta Cookie se elimina y la próxima vez que entre en el Servicio el Usuario tendrá
-          que iniciar sesión para estar identificado.
+          <a href="https://support.google.com/accounts/answer/61416?hl=es&co=GENIE.Platform%3DDesktop">Configuración de cookies de Google Chrome</a>
         </li>
-      </ul>
-
-      <p><strong>Cookies de analítica:</strong></p>
-      <p>Los cookies de analítica se generan con los siguientes objetivos:</p>
-      <ul>
         <li>
-          Permitir la identificación anónima de los Usuarios navegantes a través de la "Cookie"
-          (identifica navegadores y dispositivos, no personas) y por lo tanto la contabilización
-          aproximada del número de visitantes y su tendencia en el tiempo.
+          <a href="https://support.apple.com/es-es/guide/safari/sfri11471/mac">Configuración de cookies de Safari</a>
         </li>
-        <li>Identificar de forma anónima los contenidos más visitados y por lo tanto más atractivos para los Usuarios.</li>
-        <li>Saber si el Usuario que está accediendo es nuevo o repite visita.</li>
+        <li>
+          <a href="https://support.mozilla.org/es/kb/Deshabilitar%20cookies%20de%20terceros">Configuración de cookies de Firefox</a>
+        </li>
+        <li>
+          <a href="https://support.microsoft.com/es-es/microsoft-edge/eliminar-las-cookies-en-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09">Configuración de cookies de Microsoft Edge</a>
+        </li>
       </ul>
-
-      <h2>Propiedad intelectual e industrial</h2>
       <p>
-        El sitio web, incluyendo a título enunciativo pero no limitativo su programación, edición,
-        compilación y demás elementos necesarios para su funcionamiento, los diseños, logotipos, texto
-        y/o gráficos son propiedad de GSN o en su caso dispone de licencia o autorización expresa por
-        parte de los autores. Todos los contenidos del sitio web se encuentran debidamente protegidos
-        por la normativa de propiedad intelectual e industrial, así como inscritos en los registros
-        públicos correspondientes.
-      </p>
-      <p>
-        Independientemente de la finalidad para la que fueran destinados, la reproducción total o
-        parcial, uso, explotación, distribución y comercialización, requiere en todo caso de la
-        autorización escrita previa por parte de GSN. Cualquier uso no autorizado previamente por parte
-        de GSN será considerado un incumplimiento grave de los derechos de propiedad intelectual o
-        industrial del autor.
-      </p>
-      <p>
-        El usuario y/o visitante del portal web se compromete a respetar estos derechos y, en
-        consecuencia, a no copiar, reproducir, modificar, distribuir, transmitir, publicar, exhibir o
-        representar ninguno de los referidos contenidos del portal web mediante medios distintos a los
-        habilitados por el mismo al efecto, o de los que se utilicen legítimamente en Internet y hayan
-        sido autorizados previamente, de forma expresa y por escrito por GSN. Además, se compromete a
-        no hacer ninguna otra actividad que pudiera infringir los derechos de propiedad intelectual de
-        GSN, o de los usuarios del portal web.
+        Estos navegadores están sometidos a actualizaciones o modificaciones, por lo que no podemos
+        garantizar que se ajusten completamente a la versión de su navegador. También puede ser que
+        utilice otro navegador diferente a los contemplados en los enlaces anteriores. Para evitar
+        estos desajustes, puede acceder directamente desde las opciones de su navegador que se
+        encuentra generalmente en el menú de &ldquo;Opciones&rdquo;, en la sección de
+        &ldquo;Privacidad&rdquo;. Para más información, consulte la ayuda de su navegador.
       </p>
 
-      <h2>Cláusula de salvaguardia</h2>
+      <h2>6. Cambios en la Política de Cookies</h2>
+      <p>Esta política es efectiva a partir de la fecha de publicación indicada en el encabezamiento.</p>
       <p>
-        La posible invalidez o ineficacia de una o varias cláusulas de las presentes condiciones
-        generales, debida a cualquier causa, no determinará la invalidez o la ineficacia de su
-        conjunto, que permanecerá vigente y eficaz para todas las demás cláusulas.
+        Cualquier cambio que GSN FARMA realice en esta Política de Cookies se publicará en la Web. Si
+        los cambios son significativos, podremos notificárselo por correo electrónico o indicar
+        claramente en la página de inicio de la Web que la política se ha actualizado.
       </p>
 
-      <h2>Legislación y jurisdicción</h2>
+      <h2>7. Información adicional</h2>
       <p>
-        Estas condiciones se regirán o interpretarán conforme a la legislación española en aquello que
-        no esté expresamente establecido. GSN y el usuario acuerdan someter cualquier controversia que
-        pudiera suscitarse de la prestación de los productos o servicios objeto de estas Condiciones, a
-        los Juzgados y Tribunales de Parla.
+        Si tiene una consulta relacionada con el procesamiento de sus datos personales o el
+        funcionamiento de las cookies en la Web, puede ponerse en contacto con GSN FARMA a través de
+        correo electrónico a la dirección <a href="mailto:info@gsnfarma.com">info@gsnfarma.com</a>.
+      </p>
+      <p>
+        Para obtener más información sobre el tratamiento de sus datos personales, puede consultar
+        nuestra <a href="https://gsnfarma.com/politica-de-privacidad">Política de Privacidad</a> en el
+        pie de la Web.
       </p>
     </div>
   </section>

@@ -35,7 +35,7 @@
 }
 
 .contact-2col__info-row h3 {
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 700;
   margin: 0 0 var(--space-2);
   color: var(--color-primary);
@@ -44,7 +44,7 @@
 .contact-2col__info-row p,
 .contact-2col__info-row a {
   margin: 0;
-  font-size: 18px;
+  font-size: 17px;
   color: #555;
 }
 
@@ -63,7 +63,7 @@
 
 .contact-2col__form-inner > p {
   margin: 0 0 var(--space-6);
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 700;
   color: var(--color-primary);
 }
@@ -101,7 +101,25 @@
 
 /* ---------- F1: columna dreta amb fons gris clar (fidel a Galenicum) ---------- */
 .contact-2col--f1 .contact-2col__form {
+  position: relative;
   background: #eeeeec;
+}
+
+/* El fons gris ha d'arribar fins a la vora dreta real de la finestra (igual
+   que el footer), no aturar-se al límit del container de 1440px. La secció
+   està centrada amb `margin-inline: auto`, així que calculem exactament
+   quant sobra a la dreta (la meitat de l'espai que queda fora del
+   container) + el padding-right propi del container, i estirem un
+   pseudo-element fins allà. */
+.contact-2col--f1 .contact-2col__form::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: calc(-1 * (var(--space-6) + max(0px, (100vw - 1440px)) / 2));
+  background: #eeeeec;
+  z-index: -1;
 }
 
 .contact-2col--f1 {

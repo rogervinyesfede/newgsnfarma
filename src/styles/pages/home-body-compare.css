@@ -24,3 +24,21 @@
 /* El text descriptiu del bloc "¿Hablamos?" ja és 17px globalment,
    veure .contact-alt--photo p a block3-compare.css */
 
+/* El bloc de funding encara feia servir el .container genèric (1280px,
+   marges simètrics) en lloc del container real del header/blocs (1440px,
+   marges 16/24px) — l'alineem amb la resta de la pàgina. */
+.funding .container {
+  max-width: 1440px;
+  padding-inline: var(--space-4) var(--space-6);
+}
+
+/* Alinea el títol de "Marcas Propias" amb el de "One Health": totes dues
+   files tenen la imatge a l'esquerra i el text a la dreta, però com que la
+   fila es centra sencera (imatge + gap + text) dins el container, la
+   columna de text més estreta de Marcas (480px) feia que tot el bloc
+   quedés desplaçat respecte a One Health (560px). Ampliem la columna de
+   Marcas al mateix ample perquè totes dues comencin al mateix punt. */
+.block3-d.block3-d--compact > .block2-f:nth-child(2) .block2-f__text {
+  flex-basis: 560px;
+}
+

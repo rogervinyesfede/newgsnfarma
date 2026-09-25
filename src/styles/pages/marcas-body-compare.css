@@ -26,13 +26,14 @@
 }
 
 .marcas-intro-centered__inner h2 {
+  font-size: 40px;
   font-weight: 800;
   color: var(--color-primary);
   margin: 0 0 var(--space-4);
 }
 
 .marcas-intro-centered__inner p {
-  font-size: 1.1rem;
+  font-size: 17px;
   line-height: 1.6;
   color: #4b4b4b;
   margin: 0;
@@ -219,7 +220,7 @@
   display: inline-block;
   text-transform: uppercase;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 13px;
   color: #fff;
   background: var(--color-teal);
   border-bottom: none;
@@ -229,15 +230,18 @@
   margin-bottom: var(--space-8);
 }
 
-/* ---------- Totes les files de marques — etiqueta, text i CTA a 18px ---------- */
+/* ---------- Totes les files de marques — etiqueta i CTA a 18px, text a 17px ---------- */
 .marcas-b__row .marcas-b__category,
-.marcas-b__row .content-section__text > p,
 .marcas-b__row .block2-f__cta span:last-child {
   font-size: 18px;
 }
 
-.marcas-b__row--refined .block2-f__cta span:last-child {
+.marcas-b__row .content-section__text > p {
   font-size: 17px;
+}
+
+.marcas-b__row--refined .block2-f__cta span:last-child {
+  font-size: 16px;
 }
 
 /* ---------- CTA com a <button> (marques "gated", ex. Medicamentos) ---------- */

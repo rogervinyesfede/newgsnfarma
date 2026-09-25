@@ -82,7 +82,7 @@
 }
 
 .contact-alt p {
-  font-size: 18px;
+  font-size: 17px;
   line-height: 28.8px;
   margin: 0 0 var(--space-8);
   max-width: 560px;
@@ -258,6 +258,30 @@
      Health) — la repetim aquí de manera robusta perquè sigui igual a totes 3 */
   .block2-f.block3-d__row--50-50 .block2-f__cta {
     margin-top: var(--space-4);
+  }
+
+  /* Imatge One Health (Home / Quiénes somos): retallada baix i dreta,
+     sense tocar esquerra. El que "sobra" en desaparèixer baix i dreta
+     queda com a fons (gris de la fila), en lloc de fer zoom per tornar a
+     omplir l'espai original del bloc. Centrem verticalment la imatge dins
+     la seva caixa (en lloc d'ancorar-la a dalt): com que la fila ja
+     centra tota la caixa respecte el text, ancorar-la a dalt sumava els
+     dos marges de sota (el de centrat de la fila + el de la caixa) i en
+     resultava un marge inferior molt més gran que el superior. Centrant-la
+     dins la caixa, els dos marges (superior i inferior) queden iguals. */
+  .onehealth-image {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .block3-d__row--50-50 .block2-f__image.onehealth-image img {
+    width: 493px;
+    height: 494px;
+    object-fit: cover;
+    object-position: 0% 0%;
+    border-radius: 4px;
+    filter: saturate(0.65) brightness(1.08) contrast(0.95);
   }
 
 }
