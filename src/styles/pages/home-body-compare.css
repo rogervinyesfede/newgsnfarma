@@ -46,55 +46,40 @@
    estàndard (text una mica més llarg que a la resta de blocs). Cal aquesta
    especificitat (2 classes sobre el mateix element + .block2-f__text) per
    guanyar a la regla .block3-d__row--50-50 .block2-f__text p{width:400px}
-   de block3-compare.css. */
-.block3-d__row--onehealth.onehealth-wide-text .block2-f__text p {
-  width: 450px;
+   de block3-compare.css. Nomès a partir de 900px: sense el media query,
+   el px fix es mantenia també en mòbil i el text desbordava la pantalla. */
+@media (min-width: 900px) {
+  .block3-d__row--onehealth.onehealth-wide-text .block2-f__text p {
+    width: 450px;
+  }
 }
 
-/* ===== COMPARATIVA TEMPORAL — ordre mòbil dels blocs One Health/Servicios/Marcas =====
-   Només per visualitzar-ho en mòbil (<900px); a partir d'aquí, invisible.
-   Eliminar quan es triï un ordre definitiu. */
-.mobile-order-proposal {
-  display: none;
-}
-
+/* Mòbil (<900px): ordre unificat als 3 blocs (One Health / Servicios /
+   Marcas) — títol, imatge, descripció, cta — triat després de comparar-lo
+   amb l'alternativa (títol/descripció/cta/imatge). Independent de l'ordre
+   en desktop, que ve donat pel DOM (imatge-text o text-imatge alternats).
+   "Desmuntem" el bloc de text (display:contents) perquè el títol pugui
+   quedar per davant de la imatge tot i ser-ne normalment un germà més
+   endins de l'arbre. */
 @media (max-width: 899px) {
-  .mobile-order-proposal {
-    display: block;
-  }
-
-  /* Proposta A: títol → descripció → cta → imatge (l'ordre ja intern del
-     bloc de text es manté; només cal passar-lo davant de la imatge) */
-  .mobile-order-a .block2-f__text {
-    order: 1;
-  }
-
-  .mobile-order-a .block2-f__image {
-    order: 2;
-  }
-
-  /* Proposta B: títol → imatge → descripció → cta.
-     "Desmuntem" el bloc de text (display:contents) perquè el títol i la
-     imatge, que normalment són germans a nivells diferents, puguin
-     intercalar-se com a elements independents del mateix flex. */
-  .mobile-order-b .block2-f__text {
+  .block3-d__row--50-50 .block2-f__text {
     display: contents;
   }
 
-  .mobile-order-b .block2-f__accent-line,
-  .mobile-order-b .block2-f__text h2 {
+  .block3-d__row--50-50 .block2-f__accent-line,
+  .block3-d__row--50-50 .block2-f__text h2 {
     order: 1;
   }
 
-  .mobile-order-b .block2-f__image {
+  .block3-d__row--50-50 .block2-f__image {
     order: 2;
   }
 
-  .mobile-order-b .block2-f__text p {
+  .block3-d__row--50-50 .block2-f__text p {
     order: 3;
   }
 
-  .mobile-order-b .block2-f__cta {
+  .block3-d__row--50-50 .block2-f__cta {
     order: 4;
   }
 }

@@ -9,6 +9,8 @@ interface Props {
   imageMobile?: string;
   /** Vídeo de fons opcional (només per a `split=false`). `image` s'utilitza com a poster. */
   video?: string;
+  /** Variant vertical/optimitzada del vídeo, servida per sota de 768px. */
+  videoMobile?: string;
   /** El text ja va imprès a la imatge (banner d'inici real): el títol
    * es manté per accessibilitat però visualment amagat. Només per a `split=false`. */
   textInImage?: boolean;
@@ -32,6 +34,7 @@ const {
   image,
   imageMobile,
   video,
+  videoMobile,
   textInImage = false,
   split = false,
   overlapHeader = false,
@@ -61,7 +64,8 @@ const style = [
 ) : (
   <section class={`hero${overlapHeader ? ' hero--overlap' : ''}`} style={style || undefined}>
     {video && (
-      <video class="hero__video" autoplay muted loop playsinline poster={image} aria-hidden="true">
+      <video class="hero__video" autoplay muted loop playsinline preload="auto" poster={image} aria-hidden="true">
+        {videoMobile && <source src={videoMobile} type="video/mp4" media="(max-width: 767px)" />}
         <source src={video} type="video/mp4" />
       </video>
     )}
