@@ -26,7 +26,8 @@
 }
 
 .site-header__logo {
-  flex-shrink: 0;
+  flex-shrink: 1;
+  min-width: 0;
   display: block;
 }
 
@@ -34,9 +35,20 @@
   display: block;
   height: 30px;
   width: auto;
+  max-width: 100%;
   object-fit: contain;
   filter: brightness(0) invert(1);
   transition: filter var(--transition-base, 0.3s ease);
+}
+
+/* Per sota d'aquest punt el logo (wordmark molt ample) més el botó
+   d'hamburguesa no caben junts a l'amplada de pantalla amb l'alçada de
+   30px: el logo desbordava el header i empenyia el botó fora de la
+   pantalla, deixant la navegació mòbil inaccessible. */
+@media (max-width: 1023px) {
+  .site-header__logo img {
+    height: 18px;
+  }
 }
 
 .site-header.is-scrolled .site-header__logo img {
