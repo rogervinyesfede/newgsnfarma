@@ -49,6 +49,15 @@
   .site-header__logo img {
     height: 24px;
   }
+
+  /* El selector d'idioma (botó) ja està amagat (display:none) en mòbil,
+     però el seu contenidor .lang-wrap seguia comptant per al gap de
+     .site-header__actions — 16px reservats per a un element buit. Amagant
+     també el contenidor recuperem aquest espai per fer més gran el botó
+     d'hamburguesa sense haver de tocar el logo. */
+  .site-header__lang-wrap {
+    display: none;
+  }
 }
 
 .site-header.is-scrolled .site-header__logo img {
@@ -193,14 +202,18 @@
 .site-header__toggle {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 5px;
+  width: 42px;
+  height: 42px;
   background: none;
   border: none;
-  padding: var(--space-2);
+  padding: 0;
 }
 
 .site-header__toggle span {
-  width: 22px;
+  width: 24px;
   height: 2px;
   background: #fff;
   transition: background var(--transition-base, 0.3s ease);

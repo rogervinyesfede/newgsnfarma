@@ -29,6 +29,29 @@
   color: #fff;
 }
 
+/* Mòbil: enllaços legals abans que el copyright i tot centrat (inspiració
+   Noucor), sense afectar l'ordre ni l'alineació esquerra/dreta que ja té
+   la versió desktop en fila. */
+@media (max-width: 767px) {
+  .site-footer__bottom-inner {
+    text-align: center;
+  }
+
+  .site-footer__bottom-inner p {
+    order: 2;
+  }
+
+  .site-footer__bottom-inner nav {
+    order: 1;
+  }
+
+  .site-footer__bottom-inner nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3, 12px);
+  }
+}
+
 @media (min-width: 768px) {
   .site-footer__bottom-inner {
     flex-direction: row;
@@ -102,6 +125,27 @@
 
 .footer-alt__col--address p {
   margin-left: auto;
+}
+
+/* Mòbil/tablet: tot centrat (inspiració Noucor), sense afectar la versió
+   desktop en fila (logo a l'esquerra, columnes alineades a la dreta). */
+@media (max-width: 899px) {
+  .footer-alt__inner {
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-alt__logo {
+    align-items: center;
+  }
+
+  .footer-alt__social {
+    margin-left: 0;
+  }
+
+  .footer-alt__info {
+    align-items: center;
+  }
 }
 
 @media (min-width: 900px) {

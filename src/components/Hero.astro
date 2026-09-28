@@ -64,10 +64,18 @@ const style = [
 ) : (
   <section class={`hero${overlapHeader ? ' hero--overlap' : ''}`} style={style || undefined}>
     {video && (
-      <video class="hero__video" autoplay muted loop playsinline preload="auto" poster={image} aria-hidden="true">
-        {videoMobile && <source src={videoMobile} type="video/mp4" media="(max-width: 767px)" />}
-        <source src={video} type="video/mp4" />
-      </video>
+      <video
+        class="hero__video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+        poster={image}
+        aria-hidden="true"
+        data-src-desktop={video}
+        data-src-mobile={videoMobile || video}
+      ></video>
     )}
     {video && <div class="hero__fade-top" aria-hidden="true"></div>}
     {!textInImage && <div class="hero__overlay"></div>}
@@ -79,4 +87,22 @@ const style = [
       )}
     </div>
   </section>
+)}
+
+{video && (
+  <script>
+    // El navegador ignora sovint l'atribut `media` a <source> dins <video>
+    // (a diferència de <picture>), així que triem la font per JS: evita
+    // que es descarreguin totes dues i garanteix que el mòbil rep sempre
+    // la variant lleugera.
+    document.querySelectorAll('.hero__video[data-src-desktop]').forEach((el) => {
+      const isMobile = window.matchMedia('(max-width: 767px)').matches;
+      const src = isMobile ? el.dataset.srcMobile : el.dataset.srcDesktop;
+      if (src && el.getAttribute('src') !== src) {
+        el.src = src;
+        el.load();
+        el.play().catch(() => {});
+      }
+    });
+  </script>
 )}

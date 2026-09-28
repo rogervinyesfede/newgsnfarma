@@ -84,3 +84,49 @@
   }
 }
 
+/* Mòbil (<768px, el mateix punt de tall que ja fa servir hero.css): al
+   Hero de vídeo, títol/subtítol més petits i lleugers, sense CTA, i el
+   bloc de text una mica més avall dins la imatge. Calen les dues classes
+   (.hero__content--video.hero__content--lg) per guanyar a la regla
+   equivalent de hero.css, que és la que aplica ara mateix a la Home. */
+@media (max-width: 767px) {
+  .hero__content--video {
+    inset: auto 0 6% 0;
+  }
+
+  .hero__content--video.hero__content--lg h1 {
+    font-size: 30px;
+    font-weight: 600;
+  }
+
+  .hero__content--video.hero__content--lg p {
+    font-size: 20px;
+    font-weight: 300;
+  }
+
+  /* Prova: en lloc d'amagar el CTA, el tornem a mostrar com a simple
+     enllaç de text ("Conócenos ›"), sense requadre ni majúscules. */
+  .hero__content--video .btn {
+    display: inline-block;
+    background: none;
+    border: none;
+    padding: 0;
+    border-radius: 0;
+    font-size: 16px;
+    font-weight: 200;
+    text-transform: none;
+    letter-spacing: normal;
+    color: #fff;
+  }
+
+  .hero__content--video .btn:hover {
+    opacity: 0.8;
+  }
+
+  .hero__content--video .btn::after {
+    content: ' \203A';
+    margin-left: var(--space-1, 4px);
+    font-weight: 400;
+  }
+}
+
