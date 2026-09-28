@@ -47,7 +47,7 @@
    pantalla, deixant la navegació mòbil inaccessible. */
 @media (max-width: 1023px) {
   .site-header__logo img {
-    height: 18px;
+    height: 24px;
   }
 }
 
