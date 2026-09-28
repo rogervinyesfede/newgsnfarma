@@ -42,3 +42,12 @@
   flex-basis: 560px;
 }
 
+/* Al bloc de One Health de la Home, paràgrafs a 450px enlloc dels 400px
+   estàndard (text una mica més llarg que a la resta de blocs). Cal aquesta
+   especificitat (2 classes sobre el mateix element + .block2-f__text) per
+   guanyar a la regla .block3-d__row--50-50 .block2-f__text p{width:400px}
+   de block3-compare.css. */
+.block3-d__row--onehealth.onehealth-wide-text .block2-f__text p {
+  width: 450px;
+}
+

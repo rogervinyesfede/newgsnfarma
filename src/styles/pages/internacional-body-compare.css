@@ -157,3 +157,11 @@
   }
 }
 
+/* Proposta de 3 CTA's: 2 columnes fins que hi hagi espai per a les 3
+   seguides (evita que la 3a quedi sola i descentrada en una fila pròpia). */
+@media (min-width: 900px) {
+  .intl-cards--3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
