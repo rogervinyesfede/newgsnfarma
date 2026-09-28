@@ -113,55 +113,83 @@
   }
 }
 
-/* Targetes d'accés (vademècum internacional) */
-.intl-cards {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-4);
-  margin-top: var(--space-10, var(--space-8));
+/* ---------- Catàleg internacional — intro de text + llista d'opcions ---------- */
+.intl-catalog {
+  background: #fff;
+  padding-block: var(--space-16);
 }
 
-.intl-cards__item {
+.intl-catalog__inner {
+  max-width: 700px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.intl-catalog__inner .block2-f__accent-line {
+  margin-inline: auto;
+}
+
+.intl-catalog__intro {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--color-primary);
+  margin: 0 0 var(--space-6);
+}
+
+.intl-catalog__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* En línia, separades per una barra vertical */
+.intl-catalog__list--bar {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: var(--space-4);
-  background: var(--color-primary);
-  color: #fff;
-  text-decoration: none;
+}
+
+.intl-catalog__list--bar li {
+  padding-right: var(--space-4);
+  border-right: 1px solid rgba(27, 36, 53, 0.2);
+}
+
+.intl-catalog__list--bar li:last-child {
+  padding-right: 0;
+  border-right: none;
+}
+
+.intl-catalog__list--bar a {
+  font-size: 17px;
   font-weight: 700;
-  font-size: 0.95rem;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  padding: var(--space-4) var(--space-6);
-  transition: background-color var(--transition-base, 0.3s ease);
+  color: var(--color-primary);
+  text-decoration: underline;
 }
 
-.intl-cards__item:hover {
-  background: var(--color-blue8, #16324f);
+.intl-catalog__list--bar a:hover {
+  color: var(--color-blue8);
 }
 
-.intl-cards__icon {
+/* Cada enllaç porta una icona de descàrrega davant del text perquè quedi
+   clar que és un fitxer descarregable, sense canviar l'estructura
+   horitzontal de la llista. */
+.intl-catalog__list--bar-download a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-color var(--transition-base, 0.3s ease);
+}
+
+.intl-catalog__list--bar-download a:hover {
+  color: var(--color-blue8);
+  border-bottom-color: var(--color-blue8);
+}
+
+.intl-catalog__list--bar-download svg {
   flex-shrink: 0;
   color: var(--color-accent);
-  transition: transform var(--transition-base, 0.3s ease);
-}
-
-.intl-cards__item:hover .intl-cards__icon {
-  transform: translateX(4px);
-}
-
-@media (min-width: 640px) {
-  .intl-cards {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* Proposta de 3 CTA's: 2 columnes fins que hi hagi espai per a les 3
-   seguides (evita que la 3a quedi sola i descentrada en una fila pròpia). */
-@media (min-width: 900px) {
-  .intl-cards--3 {
-    grid-template-columns: repeat(3, 1fr);
-  }
 }
 
