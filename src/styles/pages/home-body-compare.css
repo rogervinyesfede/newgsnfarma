@@ -51,3 +51,51 @@
   width: 450px;
 }
 
+/* ===== COMPARATIVA TEMPORAL — ordre mòbil dels blocs One Health/Servicios/Marcas =====
+   Només per visualitzar-ho en mòbil (<900px); a partir d'aquí, invisible.
+   Eliminar quan es triï un ordre definitiu. */
+.mobile-order-proposal {
+  display: none;
+}
+
+@media (max-width: 899px) {
+  .mobile-order-proposal {
+    display: block;
+  }
+
+  /* Proposta A: títol → descripció → cta → imatge (l'ordre ja intern del
+     bloc de text es manté; només cal passar-lo davant de la imatge) */
+  .mobile-order-a .block2-f__text {
+    order: 1;
+  }
+
+  .mobile-order-a .block2-f__image {
+    order: 2;
+  }
+
+  /* Proposta B: títol → imatge → descripció → cta.
+     "Desmuntem" el bloc de text (display:contents) perquè el títol i la
+     imatge, que normalment són germans a nivells diferents, puguin
+     intercalar-se com a elements independents del mateix flex. */
+  .mobile-order-b .block2-f__text {
+    display: contents;
+  }
+
+  .mobile-order-b .block2-f__accent-line,
+  .mobile-order-b .block2-f__text h2 {
+    order: 1;
+  }
+
+  .mobile-order-b .block2-f__image {
+    order: 2;
+  }
+
+  .mobile-order-b .block2-f__text p {
+    order: 3;
+  }
+
+  .mobile-order-b .block2-f__cta {
+    order: 4;
+  }
+}
+
