@@ -223,14 +223,34 @@
   background: var(--color-primary);
 }
 
-/* Menú mòbil: pantalla completa (inspiració Grupo Indukern) */
+/* Menú mòbil: pantalla completa (inspiració Grupo Indukern), desplegat per
+   sota de la capçalera (inspiració Noucor) perquè el logo quedi sempre
+   visible. Forcem l'estil "sòlid" de la capçalera mentre el menú és obert
+   (encara que la pàgina no hagi fet scroll) perquè el logo es vegi net
+   contra un fons blanc, i no transparent sobre el vídeo/imatge de fons. */
 body.nav-open {
   overflow: hidden;
 }
 
+body.nav-open .site-header {
+  background: #fff;
+  box-shadow: var(--shadow-md);
+}
+
+body.nav-open .site-header__logo img {
+  filter: none;
+}
+
+body.nav-open .site-header__toggle span {
+  background: var(--color-primary);
+}
+
 .mobile-nav-overlay {
   position: fixed;
-  inset: 0;
+  top: var(--header-height);
+  left: 0;
+  right: 0;
+  bottom: 0;
   background: rgba(0, 0, 0, 0.4);
   z-index: 40;
   opacity: 0;
@@ -243,9 +263,16 @@ body.nav-open {
   pointer-events: auto;
 }
 
+/* Comença per sota de la capçalera (en lloc d'inset:0) perquè el logo i la
+   capçalera quedin sempre visibles per sobre del menú desplegat, a l'estil
+   Noucor. El header es força a l'estil "sòlid" mentre el menú és obert
+   (regles més avall) perquè el logo es vegi net contra el fons fosc. */
 .mobile-nav {
   position: fixed;
-  inset: 0;
+  top: var(--header-height);
+  left: 0;
+  right: 0;
+  bottom: 0;
   z-index: var(--z-header);
   display: flex;
   flex-direction: column;
@@ -292,7 +319,7 @@ body.nav-open {
 .mobile-nav__list a {
   display: block;
   font-weight: 700;
-  font-size: 1.3rem;
+  font-size: 18px;
   text-transform: uppercase;
   letter-spacing: 0.02em;
   color: #fff;

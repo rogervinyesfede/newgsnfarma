@@ -10,6 +10,20 @@
   font-size: 16px;
 }
 
+/* Fletxa "›" com a <span> real (no ::after) perquè NO hereti el
+   subratllat del CTA: un pseudo-element generat sempre queda "dins" de la
+   caixa del seu element pare i la línia de text-decoration del pare el
+   travessa igualment, encara que al ::after se li posi text-decoration:none
+   — només un element germà (fora de la caixa subratllada) evita la línia.
+   Amagada per defecte (desktop no mostra fletxa); es mostra només en mòbil.
+   Al DOM va ABANS que l'span del text (perquè aquest darrer conservi el
+   :last-child de qui depenen els estils base del CTA — font-weight, color,
+   subratllat...) i es reordena visualment DESPRÉS del text amb `order`. */
+.block3-d__row--50-50 .block2-f__cta-arrow {
+  display: none;
+  order: 1;
+}
+
 /* Prova: text descriptiu sota One Health / Servicios Farmacéuticos /
    Marcas Propias a 17px, només a la Home. */
 .block3-d__row--50-50 .block2-f__text p {
@@ -113,10 +127,16 @@
     text-underline-offset: 3px;
   }
 
-  .block3-d__row--50-50 .block2-f__cta span:last-child::after {
-    content: ' \203A';
-    margin-left: var(--space-1, 4px);
+  /* La fletxa "›" com a <span> real germà (veure regla base més amunt):
+     visible només en mòbil, sense subratllat. .block2-f__cta és un flex
+     amb gap: var(--space-4) (16px) entre fills — com que ara la fletxa
+     n'és un (l'icona veïna està amagada), calia un marge negatiu per
+     tornar-la a deixar enganxada al text (4px) en lloc dels 16px del gap. */
+  .block3-d__row--50-50 .block2-f__cta-arrow {
+    display: inline;
+    margin-left: calc(var(--space-1, 4px) - var(--space-4));
     font-weight: 400;
+    text-decoration: none;
   }
 
   .block3-d__row--50-50 .block2-f__cta:hover {
@@ -131,45 +151,99 @@
     padding-bottom: var(--space-8);
   }
 
-  /* One Health (Home, mòbil): separació uniforme de 32px (el "gap" del
-     container) entre línia blava / títol / imatge / paràgraf 1 / cta,
-     traient els marges propis de cada element que abans s'hi sumaven.
-     El salt entre paràgraf 1 i 2 es deixa tal com estava (un simple canvi
-     de paràgraf, no els 32px generals). */
-  .block3-d__row--onehealth .block2-f__accent-line {
+  /* Servicios/Marcas: padding-top i padding-bottom de 32px (com One
+     Health), però SENSE marge extra entre caixes (regla de sota,
+     margin-top:0) — la caixa comença enganxada a la caixa anterior. Així
+     "final del fons gris/blanc anterior -> línia blava d'aquest bloc" fa
+     32px net (el seu propi padding-top), exactament igual que "final del
+     vídeo hero -> línia de One Health". Si a més hi afegíssim el
+     margin-top de 32px, s'acumularia amb el padding-top i quedarien 64px
+     en lloc de 32px. */
+  .block3-d.block3-d--compact > section {
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-8);
+  }
+
+  /* Els 3 blocs (One Health / Servicios / Marcas): separació uniforme de
+     32px (el "gap" del container) entre línia blava / títol / imatge /
+     paràgraf / cta, traient els marges propis de cada element que abans
+     s'hi sumaven. A One Health, el salt entre paràgraf 1 i 2 es deixa tal
+     com estava (un simple canvi de paràgraf, no els 32px generals; veure
+     regla pròpia més amunt). */
+  .block3-d__row--50-50 .block2-f__accent-line {
     margin-bottom: 0;
   }
 
-  .block3-d__row--onehealth .block2-f__text h2 {
+  .block3-d__row--50-50 .block2-f__text h2 {
+    margin-bottom: 0;
+  }
+
+  .block3-d__row--50-50 .block2-f__image {
+    margin-top: 0;
     margin-bottom: 0;
   }
 
   /* Especificitat extra (.onehealth-wide-text) necessària per guanyar a
      .block3-d__row--onehealth .block2-f__image { margin-top/bottom: var(--space-12) }
-     de block3-compare.css: mateixa especificitat (2 classes), i Astro/Vite
-     acaben posant aquell bundle en un <style> inline que es carrega després
-     del nostre <link>, així que sense el reforç aquí perdíem l'empat. */
+     de block3-compare.css: mateixa especificitat (2 classes) que la regla
+     general d'aquí sobre, i Astro/Vite acaben posant aquell bundle en un
+     <style> inline que es carrega després del nostre <link>, així que
+     sense aquest reforç perdíem l'empat només a One Health (Servicios/
+     Marcas no tenen cap regla competidora, per això no els cal). */
   .block3-d__row--onehealth.onehealth-wide-text .block2-f__image {
     margin-top: 0;
     margin-bottom: 0;
   }
 
-  .block3-d__row--onehealth .block2-f__text p:last-of-type {
+  .block3-d__row--50-50 .block2-f__text p:last-of-type {
     margin-bottom: 0;
   }
 
-  /* Final del bloc One Health -> inici de "Servicios Farmacéuticos": 32px
-     enlloc dels 64px que fan servir la resta de blocs. Només afecta la
-     primera fila (Servicios); Marcas conserva els 64px. */
-  .block3-d.block3-d--compact > section:first-child {
-    margin-top: var(--space-8);
+  /* Servicios i Marcas van enganxats (margin-top:0) al bloc anterior: el
+     padding-bottom d'aquell (32px) ja fa de separació, igual que One
+     Health queda enganxat al hero i és el seu propi padding-top qui
+     aporta l'aire. Sense això, s'hi sumaria el margin-top per defecte de
+     64px de .block2-f.block3-d__row--50-50. */
+  .block3-d.block3-d--compact > section {
+    margin-top: 0;
   }
 
-  /* Prova: imatge horitzontal a One Health (one_health_gsnfarma_mb.jpg,
-     311x200 nativa) enlloc de la vertical/quadrada de 320px d'alçada. */
-  .block3-d__row--onehealth.onehealth-wide-text .onehealth-image {
+  /* Imatges horitzontals (311x200 natiu) enlloc de les verticals/altes
+     originals, als 3 blocs. */
+  .block3-d__row--onehealth.onehealth-wide-text .onehealth-image,
+  .block3-d.block3-d--compact .block2-f__image {
     height: auto;
     aspect-ratio: 311 / 200;
+  }
+
+  /* Títol "Marcas Propias" en una sola línia (el <br> del HTML és per a
+     l'ordenació desktop imatge/text). Només aquest títol, no el de One
+     Health, que sí conserva el seu salt de línia. */
+  .block3-d.block3-d--compact > section:nth-child(2) h2 br {
+    display: none;
+  }
+
+  /* Franja "Proyecto promovido con la colaboración de:": els 3 logos en
+     una única línia (per defecte .funding__groups és flex-direction:column
+     fins als 768px, apilant els 2 grups). Reduïm també els gaps i l'alçada
+     dels logos perquè hi càpiguen els 3 dins l'ample disponible (~303px). */
+  .funding__groups {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: var(--space-4);
+  }
+
+  .funding__group {
+    flex-direction: row;
+  }
+
+  .funding__logos {
+    gap: var(--space-4);
+  }
+
+  .funding__logos img {
+    height: 22px;
   }
 }
 
@@ -213,6 +287,37 @@
   }
 
   .hero__content--video .btn::after {
+    content: ' \203A';
+    margin-left: var(--space-1, 4px);
+    font-weight: 400;
+  }
+
+  /* Bloc "¿Hablamos?": mateix tractament que el Hero (títol 30px/600, CTA
+     com a simple enllaç de text "Contactar ›" en lloc de botó amb
+     requadre), per donar simetria entre l'inici i el final de la Home. */
+  .contact-alt h2 {
+    font-size: 30px;
+    font-weight: 600;
+  }
+
+  .contact-alt .btn {
+    display: inline-block;
+    background: none;
+    border: none;
+    padding: 0;
+    border-radius: 0;
+    font-size: 17px;
+    font-weight: 300;
+    text-transform: none;
+    letter-spacing: normal;
+    color: #fff;
+  }
+
+  .contact-alt .btn:hover {
+    opacity: 0.8;
+  }
+
+  .contact-alt .btn::after {
     content: ' \203A';
     margin-left: var(--space-1, 4px);
     font-weight: 400;
