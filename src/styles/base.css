@@ -10,6 +10,11 @@
 
 html {
   scroll-behavior: smooth;
+  /* Reserva sempre l'espai de la barra de scroll vertical perquè la
+     pàgina no es desplaci uns píxels en obrir el menú mòbil (que posa
+     overflow:hidden al body i, sense això, la barra desapareix i el
+     contingut "guanya" el seu ample). */
+  scrollbar-gutter: stable;
 }
 
 body {
