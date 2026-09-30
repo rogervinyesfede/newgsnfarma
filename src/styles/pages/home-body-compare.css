@@ -227,22 +227,25 @@
      una única línia (per defecte .funding__groups és flex-direction:column
      fins als 768px, apilant els 2 grups). Reduïm també els gaps i l'alçada
      dels logos perquè hi càpiguen els 3 dins l'ample disponible (~303px). */
-  .funding__groups {
+  /* Especificitat extra (prefix .funding) necessària per guanyar a les
+     regles base de block3-compare.css: mateixa especificitat si no, i en
+     producció (bundle de Vite) el seu <style> es carrega després. */
+  .funding .funding__groups {
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
     gap: var(--space-4);
   }
 
-  .funding__group {
+  .funding .funding__group {
     flex-direction: row;
   }
 
-  .funding__logos {
+  .funding .funding__logos {
     gap: var(--space-4);
   }
 
-  .funding__logos img {
+  .funding .funding__logos img {
     height: 22px;
   }
 }
@@ -294,8 +297,11 @@
 
   /* Bloc "¿Hablamos?": mateix tractament que el Hero (títol 30px/600, CTA
      com a simple enllaç de text "Contactar ›" en lloc de botó amb
-     requadre), per donar simetria entre l'inici i el final de la Home. */
-  .contact-alt h2 {
+     requadre), per donar simetria entre l'inici i el final de la Home.
+     Especificitat extra (.contact-alt.contact-alt--photo) necessària per
+     guanyar a .contact-alt h2 de block3-compare.css (mateixa especificitat
+     si no, i en producció el seu bundle es carrega després). */
+  .contact-alt.contact-alt--photo h2 {
     font-size: 30px;
     font-weight: 600;
   }
