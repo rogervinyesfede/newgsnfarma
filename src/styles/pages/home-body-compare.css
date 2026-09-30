@@ -130,6 +130,15 @@
     text-underline-offset: 3px;
   }
 
+  /* PROVA: als 3 CTAs (One Health, Servicios, Marcas), text a 16px en
+     negreta i sense subratllar (enlloc de 17px/300 subratllat). */
+  .block3-d__row--onehealth.onehealth-wide-text .block2-f__cta span:last-child,
+  .block3-d.block3-d--compact .block2-f__cta span:last-child {
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
   /* La fletxa "›" com a <span> real germà (veure regla base més amunt):
      visible només en mòbil, sense subratllat. .block2-f__cta és un flex
      amb gap: var(--space-4) (16px) entre fills — com que ara la fletxa
@@ -196,12 +205,47 @@
      sense aquest reforç perdíem l'empat només a One Health (Servicios/
      Marcas no tenen cap regla competidora, per això no els cal). */
   .block3-d__row--onehealth.onehealth-wide-text .block2-f__image {
-    margin-top: 0;
+    margin-top: -4px;
     margin-bottom: 0;
   }
 
   .block3-d__row--50-50 .block2-f__text p:last-of-type {
     margin-bottom: 0;
+  }
+
+  /* PROVA: només al bloc One Health, 4 separacions a 28px enlloc de 32px.
+     El gap del container és de 32px (--space-8); per baixar-ne una
+     concreta a 28px apliquem -4px de marge negatiu a l'element que la
+     tanca, sense tocar el gap general (que també regeix altres blocs). */
+  .block3-d__row--onehealth .block2-f__text h2 {
+    margin-top: -4px;
+  }
+
+  .block3-d__row--onehealth .block2-f__text p:first-of-type {
+    margin-top: -4px;
+  }
+
+  .block3-d__row--onehealth .block2-f__cta {
+    margin-top: -4px;
+  }
+
+  /* PROVA: el mateix que a One Health (32px -> 28px en 4 separacions),
+     ara també a Servicios i Marcas. Com que aquests 2 blocs només tenen
+     1 paràgraf, no cal cap regla per al salt entre paràgrafs. */
+  .block3-d.block3-d--compact .block2-f__text h2 {
+    margin-top: -4px;
+  }
+
+  .block3-d.block3-d--compact .block2-f__image {
+    margin-top: -4px;
+  }
+
+  .block3-d.block3-d--compact .block2-f__text p {
+    margin-top: -4px;
+  }
+
+  .block3-d.block3-d--compact .block2-f__cta {
+    margin-top: -4px;
   }
 
   /* Servicios i Marcas van enganxats (margin-top:0) al bloc anterior: el
