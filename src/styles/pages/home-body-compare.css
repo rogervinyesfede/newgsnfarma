@@ -122,6 +122,50 @@
   .block3-d__row--50-50 .block2-f__cta:hover {
     opacity: 0.8;
   }
+
+  /* One Health continua enganxat al hero (margin-top:0, mateix fons gris
+     continu), però calia baixar una mica la línia blava perquè no quedés
+     totalment enganxada a la vora superior del bloc. */
+  .block2-f.block3-d__row--onehealth.onehealth-wide-text {
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-8);
+  }
+
+  /* One Health (Home, mòbil): separació uniforme de 32px (el "gap" del
+     container) entre línia blava / títol / imatge / paràgraf 1 / cta,
+     traient els marges propis de cada element que abans s'hi sumaven.
+     El salt entre paràgraf 1 i 2 es deixa tal com estava (un simple canvi
+     de paràgraf, no els 32px generals). */
+  .block3-d__row--onehealth .block2-f__accent-line {
+    margin-bottom: 0;
+  }
+
+  .block3-d__row--onehealth .block2-f__text h2 {
+    margin-bottom: 0;
+  }
+
+  .block3-d__row--onehealth .block2-f__image {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .block3-d__row--onehealth .block2-f__text p:last-of-type {
+    margin-bottom: 0;
+  }
+
+  /* Final del bloc One Health -> inici de "Servicios Farmacéuticos": 32px
+     enlloc dels 64px que fan servir la resta de blocs. Només afecta la
+     primera fila (Servicios); Marcas conserva els 64px. */
+  .block3-d.block3-d--compact > section:first-child {
+    margin-top: var(--space-8);
+  }
+
+  /* Prova: imatge horitzontal a One Health (one_health_gsnfarma_mb.jpg,
+     311x200 nativa) enlloc de la vertical/quadrada de 320px d'alçada. */
+  .block3-d__row--onehealth.onehealth-wide-text .onehealth-image {
+    height: auto;
+    aspect-ratio: 311 / 200;
+  }
 }
 
 /* Mòbil (<768px, el mateix punt de tall que ja fa servir hero.css): al
