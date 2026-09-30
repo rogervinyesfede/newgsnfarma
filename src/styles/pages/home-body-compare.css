@@ -144,7 +144,12 @@
     margin-bottom: 0;
   }
 
-  .block3-d__row--onehealth .block2-f__image {
+  /* Especificitat extra (.onehealth-wide-text) necessària per guanyar a
+     .block3-d__row--onehealth .block2-f__image { margin-top/bottom: var(--space-12) }
+     de block3-compare.css: mateixa especificitat (2 classes), i Astro/Vite
+     acaben posant aquell bundle en un <style> inline que es carrega després
+     del nostre <link>, així que sense el reforç aquí perdíem l'empat. */
+  .block3-d__row--onehealth.onehealth-wide-text .block2-f__image {
     margin-top: 0;
     margin-bottom: 0;
   }
