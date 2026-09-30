@@ -82,6 +82,46 @@
   .block3-d__row--50-50 .block2-f__cta {
     order: 4;
   }
+
+  /* One Health és l'únic dels 3 blocs amb 2 paràgrafs. En desmuntar el
+     bloc de text (display:contents, regla de dalt), els paràgrafs passen
+     a ser fills directes del flex .container i l'espai entre ELLS DOS ja
+     no ve del seu propi margin, sinó del "gap" del container (32px) —
+     per això calia una imatge de reduir-lo aquí, amb marge negatiu, en
+     lloc de tocar el gap general (que també separa títol/imatge/cta). */
+  .block3-d__row--onehealth .block2-f__text p:not(:last-of-type) {
+    margin-bottom: 0;
+  }
+
+  .block3-d__row--onehealth .block2-f__text p:last-of-type {
+    margin-top: calc(var(--space-2) - var(--space-8));
+  }
+
+  /* CTA "Conoce más..." / "Ver todos..." / "Ver todas...": mateix estil
+     que el CTA del Hero de vídeo (text + fletxa al darrere, sense la
+     icona en requadre). */
+  .block3-d__row--50-50 .block2-f__cta-icon {
+    display: none;
+  }
+
+  .block3-d__row--50-50 .block2-f__cta span:last-child {
+    font-size: 17px;
+    font-weight: 300;
+    border-bottom: none;
+    padding-bottom: 0;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .block3-d__row--50-50 .block2-f__cta span:last-child::after {
+    content: ' \203A';
+    margin-left: var(--space-1, 4px);
+    font-weight: 400;
+  }
+
+  .block3-d__row--50-50 .block2-f__cta:hover {
+    opacity: 0.8;
+  }
 }
 
 /* Mòbil (<768px, el mateix punt de tall que ja fa servir hero.css): al

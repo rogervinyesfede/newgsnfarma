@@ -14,10 +14,10 @@ import '../styles/pages/marcas-body-compare.css';
 >
   <section class="subpage-hero-e subpage-hero-e--left">
     <img
-      src="/images/gsn_farma_brands.jpg"
+      src="/images/gsn_farma_our_brands_header2.jpg"
       alt=""
       loading="eager"
-      style="object-position: center 40%"
+      style="object-position: center 18%"
     />
     <div class="subpage-hero-e__scrim"></div>
     <div class="subpage-hero-e__inner">
@@ -49,7 +49,7 @@ import '../styles/pages/marcas-body-compare.css';
   {/* ===== COMPARATIVA TEMPORAL — cos de la pàgina ===== */}
 
   {brands.map((brand, i) => {
-    const isRefined = ['Medicamentos', 'Orissens', 'GSN', 'Nakama', 'Esenta'].includes(brand.name);
+    const isRefined = ['Medicamentos', 'Orissens', 'GSN', 'Nakama', 'Herbaldi'].includes(brand.name);
     return (
     <section id={`marca-${brand.name.toLowerCase()}`} class={`content-section content-section--split marcas-b__row ${i % 2 === 0 ? 'marcas-b__row--grey' : ''} ${isRefined ? 'marcas-b__row--refined' : ''} ${brand.name === 'Medicamentos' ? 'marcas-b__row--medicamentos' : ''} ${brand.name === 'Orissens' ? 'marcas-b__row--orissens' : ''}`}>
       <div class="container content-section__split-inner">
@@ -69,14 +69,14 @@ import '../styles/pages/marcas-body-compare.css';
                   </span>
                   <span>{brand.ctaLabel ?? 'Visitar sitio'}</span>
                 </button>
-              ) : (
+              ) : brand.url ? (
                 <a href={brand.url} target="_blank" rel="noopener noreferrer" class="block2-f__cta">
                   <span class="block2-f__cta-icon">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1b2435" stroke-width="2.4"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
                   </span>
                   <span>{brand.ctaLabel ?? 'Visitar sitio'}</span>
                 </a>
-              )}
+              ) : null}
             </div>
           </>
         ) : (
@@ -92,14 +92,14 @@ import '../styles/pages/marcas-body-compare.css';
                   </span>
                   <span>{brand.ctaLabel ?? 'Visitar sitio'}</span>
                 </button>
-              ) : (
+              ) : brand.url ? (
                 <a href={brand.url} target="_blank" rel="noopener noreferrer" class="block2-f__cta">
                   <span class="block2-f__cta-icon">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1b2435" stroke-width="2.4"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
                   </span>
                   <span>{brand.ctaLabel ?? 'Visitar sitio'}</span>
                 </a>
-              )}
+              ) : null}
             </div>
             <div class="content-section__image marcas-b__image">
               <img src={brand.image} alt="" loading="lazy" />

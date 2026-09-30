@@ -176,8 +176,12 @@
   background: #eeeeec;
 }
 
+/* Títol i subtítol centrats, seguint la mateixa lògica que la resta de
+   blocs amb intro centrada (p. ex. "Una unión que suma..."): l'accent-line
+   i el paràgraf es centren amb margin-inline:auto, sense afectar el grid
+   de targetes que hi ha a sota. */
 .qs-areas .block2-f__accent-line {
-  margin: 0 0 var(--space-4);
+  margin: 0 auto var(--space-4);
 }
 
 .qs-areas h2 {
@@ -185,6 +189,7 @@
   font-weight: 800;
   color: var(--color-primary);
   margin: 0 0 var(--space-4);
+  text-align: center;
 }
 
 @media (min-width: 900px) {
@@ -199,7 +204,8 @@
   font-size: 17px;
   line-height: 1.6;
   color: #4b4b4b;
-  margin: 0;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .qs-areas__grid {

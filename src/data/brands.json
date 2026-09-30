@@ -1,15 +1,5 @@
 [
   {
-    "name": "Medicamentos",
-    "category": "Medicamentos",
-    "description": "Desarrollamos y registramos medicamentos no sujetos a prescripción médica.\nUn portafolio en expansión.",
-    "url": "#",
-    "ctaLabel": "Ver listado de productos",
-    "image": "/images/medicamentos.jpg",
-    "logo": "/images/gsn_farma_logo_cropped.png",
-    "gated": true
-  },
-  {
     "name": "Orissens",
     "category": "Salud de la mujer",
     "description": "Salud de la mujer en cada etapa de su vida.\nCompromiso con la salud de la mujer, la farmacia y la ciencia.",
@@ -37,12 +27,20 @@
     "logo": "/images/brand-nakama-logo.png"
   },
   {
-    "name": "Esenta",
+    "name": "Herbaldi",
     "category": "Salud natural",
-    "description": "Esenta es agua en su forma más pura.\nNo es solo un sistema de ósmosis inversa; es una revolución en la forma en que entendemos la salud.",
-    "url": "https://www.esenta.es/",
-    "ctaLabel": "Visitar la web de Esenta",
-    "image": "/images/brand-esenta.webp",
-    "logo": "/images/brand-esenta-logo.png"
+    "description": "Soluciones y complementos a base de plantas para el bienestar diario.",
+    "image": "/images/brand_herbaldi.jpg",
+    "logo": "/images/logo_herbaldi.png"
+  },
+  {
+    "name": "Medicamentos",
+    "category": "Medicamentos",
+    "description": "Desarrollamos y registramos medicamentos no sujetos a prescripción médica.\nUn portafolio en expansión.",
+    "url": "#",
+    "ctaLabel": "Ver listado de productos",
+    "image": "/images/medicamentos.jpg",
+    "logo": "/images/logo_gsnfarma.png",
+    "gated": true
   }
 ]

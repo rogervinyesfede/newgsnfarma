@@ -75,20 +75,25 @@
   object-fit: contain;
 }
 
-.marcas-intro-logos a:nth-child(1) img {
-  height: 14px;
-}
-
-.marcas-intro-logos a:nth-child(3) img {
+/* Aquestes mides van lligades a la POSICIÓ (nth-child), no al nom de la
+   marca — si es reordena la llista de marques cal actualitzar aquest bloc
+   perquè cada logo mantingui la seva alçada pròpia. Ordre actual: 1 Orissens
+   (32px per defecte, sense regla pròpia), 2 GSN, 3 Nakama, 4 Herbaldi
+   (mateixa alçada que tenia Esenta), 5 Medicamentos. */
+.marcas-intro-logos a:nth-child(2) img {
   height: 20px;
 }
 
-.marcas-intro-logos a:nth-child(4) img {
+.marcas-intro-logos a:nth-child(3) img {
   height: 25px;
 }
 
-.marcas-intro-logos a:nth-child(5) img {
+.marcas-intro-logos a:nth-child(4) img {
   height: 19px;
+}
+
+.marcas-intro-logos a:nth-child(5) img {
+  height: 14px;
 }
 
 .block2-f__accent-line--centered {
@@ -172,11 +177,11 @@
   display: block;
 }
 
-/* Medicamentos, GSN, Esenta: columna de text (a la dreta) desplaçada
+/* Medicamentos, GSN, Herbaldi: columna de text (a la dreta) desplaçada
    una mica cap a la dreta */
 .marcas-b__row--medicamentos .content-section__text,
 #marca-gsn .content-section__text,
-#marca-esenta .content-section__text {
+#marca-herbaldi .content-section__text {
   padding-left: var(--space-6);
 }
 
@@ -204,10 +209,11 @@
   max-height: 81px;
 }
 
-/* Esenta: logo un 25% + 20% + 15% + 15% més petit (163x61 -> 139x52) */
-#marca-esenta .marcas-b__logo {
-  max-width: 139px;
-  max-height: 52px;
+/* Herbaldi: logo un 30% + 15% més petit (320x120 -> 224x84 -> 190x71). Només
+   afecta el logo de la franja; el de la franja de logos de dalt no es toca. */
+#marca-herbaldi .marcas-b__logo {
+  max-width: 190px;
+  max-height: 71px;
 }
 
 /* Medicamentos/Orissens: CTA amb més separació respecte al logo */
@@ -222,7 +228,7 @@
   font-weight: 700;
   font-size: 13px;
   color: #fff;
-  background: var(--color-teal);
+  background: var(--color-primary);
   border-bottom: none;
   padding: var(--space-2) var(--space-4);
   border-radius: 999px;

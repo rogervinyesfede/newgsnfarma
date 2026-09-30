@@ -223,7 +223,11 @@
   background: var(--color-primary);
 }
 
-/* Menú mòbil: panell lliscant des de la dreta */
+/* Menú mòbil: pantalla completa (inspiració Grupo Indukern) */
+body.nav-open {
+  overflow: hidden;
+}
+
 .mobile-nav-overlay {
   position: fixed;
   inset: 0;
@@ -241,38 +245,95 @@
 
 .mobile-nav {
   position: fixed;
-  top: var(--header-height);
-  right: 0;
-  width: 75%;
-  max-width: 380px;
-  height: calc(100% - var(--header-height));
-  background: var(--color-mobile-menu);
-  box-shadow: var(--shadow-lg);
+  inset: 0;
   z-index: var(--z-header);
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-6) var(--space-6) var(--space-8);
+  background-image: linear-gradient(160deg, rgba(37, 74, 104, 0.92) 0%, rgba(27, 36, 53, 0.94) 55%, rgba(10, 14, 22, 0.96) 100%),
+    url('/images/gsn_farma_offices_building3.jpg');
+  background-size: cover;
+  background-position: center 45%;
+  background-repeat: no-repeat;
   overflow-y: auto;
-  transform: translateX(100%);
-  transition: transform var(--transition-base);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-12px);
+  transition: opacity var(--transition-base), transform var(--transition-base), visibility 0s linear var(--transition-base);
 }
 
 .mobile-nav.is-open {
-  transform: translateX(0);
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: opacity var(--transition-base), transform var(--transition-base);
 }
 
-.mobile-nav ul {
-  padding: var(--space-6) var(--space-8);
+.mobile-nav__close {
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  background: none;
+  border: none;
+  color: #fff;
+  flex-shrink: 0;
+  margin-bottom: var(--space-8);
+}
+
+.mobile-nav__list {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
+  gap: var(--space-6);
 }
 
-.mobile-nav a {
+.mobile-nav__list a {
   display: block;
-  padding: var(--space-2) var(--space-4);
-  font-weight: 600;
-  font-size: 0.9rem;
+  font-weight: 700;
+  font-size: 1.3rem;
   text-transform: uppercase;
-  letter-spacing: 0.03em;
-  color: var(--color-grey-600);
+  letter-spacing: 0.02em;
+  color: #fff;
+}
+
+.mobile-nav__lang {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-top: auto;
+  padding-top: var(--space-6);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+}
+
+.mobile-nav__lang > * {
+  position: relative;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.mobile-nav__lang > *:not(:first-child) {
+  padding-left: var(--space-4);
+}
+
+.mobile-nav__lang > *:not(:first-child)::before {
+  content: '|';
+  position: absolute;
+  left: 0;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.mobile-nav__lang .is-active {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.mobile-nav__lang a:hover {
+  color: #fff;
 }
 
 @media (min-width: 1024px) {
