@@ -30,8 +30,11 @@
   font-size: 17px;
 }
 
-/* "Proyecto promovido con la colaboración de:" a 17px, només a la Home. */
-.funding__intro {
+/* "Proyecto promovido con la colaboración de:" a 17px, només a la Home.
+   Especificitat extra (.funding) necessària per guanyar a .funding__intro
+   de block3-compare.css: mateixa especificitat si no, i en producció
+   (bundle de Vite) el seu <style> es carrega després. */
+.funding .funding__intro {
   font-size: 17px;
 }
 
