@@ -169,14 +169,6 @@
   }
 }
 
-/* Imatge de Medicamentos, 1/3 més petita — la columna manté el mateix espai,
-   només la imatge en si es redueix i queda centrada dins d'aquest espai */
-.marcas-b__row--medicamentos .content-section__image img {
-  width: 66.667%;
-  margin-inline: auto;
-  display: block;
-}
-
 /* Medicamentos, GSN, Herbaldi: columna de text (a la dreta) desplaçada
    una mica cap a la dreta */
 .marcas-b__row--medicamentos .content-section__text,

@@ -35,7 +35,7 @@
    de block3-compare.css: mateixa especificitat si no, i en producció
    (bundle de Vite) el seu <style> es carrega després. */
 .funding .funding__intro {
-  font-size: 17px;
+  font-size: 15px;
 }
 
 /* El text descriptiu del bloc "¿Hablamos?" ja és 17px globalment,
@@ -280,22 +280,23 @@
     display: none;
   }
 
-  /* Franja "Proyecto promovido con la colaboración de:": els 3 logos en
-     una única línia (per defecte .funding__groups és flex-direction:column
-     fins als 768px, apilant els 2 grups). Reduïm també els gaps i l'alçada
-     dels logos perquè hi càpiguen els 3 dins l'ample disponible (~303px). */
-  /* Especificitat extra (prefix .funding) necessària per guanyar a les
+  /* Franja de finançament (2 columnes, 3 logos cadascuna): reduïm gaps i
+     alçada dels logos perquè hi càpiguen bé dins l'ample disponible.
+     Especificitat extra (prefix .funding) necessària per guanyar a les
      regles base de block3-compare.css: mateixa especificitat si no, i en
      producció (bundle de Vite) el seu <style> es carrega després. */
-  .funding .funding__groups {
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    gap: var(--space-4);
+  .funding .funding__columns {
+    gap: var(--space-8);
   }
 
-  .funding .funding__group {
-    flex-direction: row;
+  /* El text llarg de la 2a columna ("Proyecto Estratégico...") no cap en
+     una sola línia dins l'ample d'un mòbil sense reduir-lo a una mida
+     il·legible (~9px): permetem que faci 2 línies aquí (desktop es manté
+     en 1 línia, prou ample per encabir-lo) amb una mida més petita i
+     llegible. */
+  .funding .funding__intro {
+    white-space: normal;
+    font-size: 14px;
   }
 
   .funding .funding__logos {
