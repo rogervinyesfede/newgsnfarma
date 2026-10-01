@@ -1,0 +1,185 @@
+/* ============================================================
+   PROPOSTA — franja de logos: graella de targetes (foto de fons +
+   logo + fletxa), inspirada en uriach.com/es. La fletxa és un enllaç
+   directe a la franja de la marca corresponent, més avall a la
+   pàgina. Només desktop (>=1024px); en mòbil queda amagada del tot.
+   ============================================================ */
+
+.marcas-logos-alt-wrapper {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .marcas-logos-alt-wrapper {
+    display: block;
+  }
+
+  /* La franja original de logos (marcas-body-compare.css) queda
+     substituïda per aquesta graella només a desktop; en mòbil es
+     manté tal com estava (no forma part d'aquesta prova). Especificitat
+     extra (2 classes) perquè guanyi sempre a la regla base (1 classe),
+     independentment de l'ordre de bundling en producció. */
+  .marcas-intro-centered__inner .marcas-intro-logos {
+    display: none;
+  }
+}
+
+/* padding-top:0 perquè s'integri amb el bloc de text de sobre (que ja
+   té el seu propi padding-bottom): sense això, els dos padding-block de
+   var(--space-16) se sumaven i es veia com un bloc separat. */
+.marcas-logos-alt {
+  padding-top: 0;
+  padding-bottom: var(--space-16);
+  background: #fff;
+  text-align: center;
+}
+
+.marcas-logos-alt .compare-tag {
+  margin-bottom: var(--space-8);
+}
+
+.marcas-alt-a__grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-6);
+}
+
+.marcas-alt-a__card {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.marcas-alt-a__card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(27, 36, 53, 0.15) 0%, rgba(27, 36, 53, 0.6) 100%);
+  transition: background var(--transition-base, 0.3s ease);
+}
+
+.marcas-alt-a__card:hover::before {
+  background: linear-gradient(180deg, rgba(27, 36, 53, 0.4) 0%, rgba(27, 36, 53, 0.8) 100%);
+}
+
+.marcas-alt-a__logo {
+  position: relative;
+  z-index: 1;
+  max-width: 70%;
+  max-height: 56px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.marcas-alt-a__arrow {
+  position: absolute;
+  z-index: 1;
+  bottom: var(--space-4);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: 1.5px solid rgba(255, 255, 255, 0.8);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  line-height: 1;
+  transition: transform var(--transition-base, 0.3s ease), background var(--transition-base, 0.3s ease), color var(--transition-base, 0.3s ease);
+}
+
+.marcas-alt-a__card:hover .marcas-alt-a__arrow {
+  background: #fff;
+  color: var(--color-primary);
+  transform: translateX(-50%) translateY(2px);
+}
+
+/* GSN: logo un 15% + 15% + 15% més petit (56px -> 48px -> 41px -> 35px) */
+.marcas-alt-a__logo--gsn {
+  max-height: 35px;
+}
+
+
+/* Prova: logo a dalt centrat enlloc de al mig de la targeta. Es desplaça
+   l'enquadre de la imatge de fons cap avall (object-position més baix)
+   perquè la zona de dalt, on va el logo, quedi més neta i uniforme. */
+.marcas-alt-a__card--logo-top {
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: var(--space-6);
+  background-position: center 75%;
+}
+
+/* Logo amb els colors originals (com a les franges de marca de més
+   avall) enlloc de forçar-lo blanc. */
+.marcas-alt-a__logo--natural {
+  filter: none;
+}
+
+/* ============================================================
+   PROVA — franja de marca a 50/50 amb marge lateral (només Orissens)
+   ============================================================ */
+.marcas-b__row--50-50-margin .compare-tag {
+  margin-bottom: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  /* Reduïm el 40/60 habitual a 50/50 per a aquesta franja de prova.
+     Especificitat extra (.marcas-b__row.marcas-b__row--50-50-margin, 3
+     classes) necessària per guanyar sempre a .marcas-b__row
+     .content-section__image (2 classes) de marcas-body-compare.css —
+     mateixa especificitat si no, i en producció (bundle de Vite) l'ordre
+     de càrrega no és fiable. */
+  .marcas-b__row.marcas-b__row--50-50-margin .content-section__image {
+    width: 50%;
+  }
+
+  .marcas-b__row.marcas-b__row--50-50-margin .content-section__text {
+    width: 50%;
+  }
+
+  /* Marge lateral visible: en lloc dels 16px del .container genèric,
+     deixem un marge més ampli (40px) a banda i banda de les 2 columnes,
+     i separació entre imatge i text a 48px (--space-12). */
+  .marcas-b__row--50-50-margin .container.content-section__split-inner {
+    max-width: 1100px;
+    padding-inline: 24px;
+    gap: 64px;
+  }
+}
+
+/* Nakama: aquesta franja de prova no té id="marca-nakama", així que la
+   regla #marca-nakama .marcas-b__logo (marcas-body-compare.css) no li
+   arriba. Repliquem la mateixa mida (216x81) perquè el logo es mantingui
+   igual que a la franja original. */
+.marcas-b__row--nakama.marcas-b__row--50-50-margin .marcas-b__logo {
+  max-width: 216px;
+  max-height: 81px;
+}
+
+/* GSN: mateix motiu que Nakama — sense id="marca-gsn", repliquem la
+   mida (151x57) perquè el logo es mantingui igual que a la franja original. */
+.marcas-b__row--gsn.marcas-b__row--50-50-margin .marcas-b__logo {
+  max-width: 151px;
+  max-height: 57px;
+}
+
+/* Herbaldi: mateix motiu — repliquem la mida (190x71) de la franja original. */
+.marcas-b__row--herbaldi.marcas-b__row--50-50-margin .marcas-b__logo {
+  max-width: 190px;
+  max-height: 71px;
+}
+

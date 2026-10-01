@@ -204,3 +204,18 @@
   text-align: left;
 }
 
+/* PROVA — mòbil, només pàgina Contacto: capçalera més baixa (300px -> 200px)
+   i H1 igualat al del hero de vídeo de la home (28px/800). Especificitat
+   extra (.subpage-hero-e--contacto, 2a classe) perquè no afecti les altres
+   pàgines que reutilitzen .subpage-hero-e (Nuestras marcas, Quiénes somos...). */
+@media (max-width: 899px) {
+  .subpage-hero-e--contacto {
+    height: 200px;
+  }
+
+  .subpage-hero-e--contacto h1 {
+    font-size: 28px;
+    font-weight: 800;
+  }
+}
+

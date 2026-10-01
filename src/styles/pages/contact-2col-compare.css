@@ -169,3 +169,77 @@
   background: var(--color-primary);
   color: #fff;
 }
+
+/* PROVA — mòbil: formulari abans que la informació de contacte (és el que
+   l'usuari vol fer servir primer), i el fons gris del formulari estirat
+   fins a la vora esquerra real del viewport (abans només s'estirava a la
+   dreta; a mòbil, amb una sola columna, calia fer-ho també a l'esquerra). */
+@media (max-width: 899px) {
+  .contact-2col__form {
+    order: -1;
+  }
+
+  .contact-2col--f1 .contact-2col__form::before {
+    left: calc(-1 * var(--space-4));
+  }
+
+  /* Capçalera -> paràgraf "Si quieres conocer más...": igualat als 32px
+     (--space-8) que hi ha a la home entre el hero i la línia blava.
+     Especificitat extra (.contact-2col--f1 .contact-2col__form, 2 classes)
+     perquè guanyi sempre al padding-top de la regla base (.contact-2col__form,
+     1 classe), independentment de l'ordre de bundling en producció. */
+  .contact-2col--f1 .contact-2col__form {
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-8);
+  }
+
+  /* Final del bloc del formulari -> títol "Dirección": 64px -> 32px. */
+  .contact-2col--f1 .contact-2col__info {
+    padding-top: var(--space-8);
+  }
+
+  /* PROVA: files d'informació (Dirección, Información general...) centrades,
+     amb la icona a sobre del text enlloc d'al costat (al costat + centrat
+     quedava descompensat perquè la icona no s'alinea amb el centre del text). */
+  .contact-2col--f1 .contact-2col__info-row {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .contact-2col--f1 .contact-2col__info-row img {
+    margin-top: 0;
+  }
+
+  /* La franja "footer-alt" (logo + LinkedIn + Información general/
+     Farmacovigilancia/Oficinas) repeteix dades que ja surten a dalt
+     d'aquesta pàgina: a mòbil no té sentit duplicar-ho. Escopat amb
+     :has() perquè només afecti Contacto (.contact-2col--f1 és exclusiu
+     d'aquesta pàgina) i no les altres pàgines que també reutilitzen
+     .footer-alt via BaseLayout. */
+  body:has(.contact-2col--f1) .footer-alt {
+    display: none;
+  }
+}
+
+/* El LinkedIn que hi havia al footer-alt (ara amagat a mòbil en aquesta
+   pàgina) es trasllada aquí, just després de "Correo electrónico", perquè
+   no desaparegui l'enllaç. Amagat per defecte (a desktop ja hi és, al
+   footer-alt). */
+.contact-2col__social {
+  display: none;
+}
+
+@media (max-width: 899px) {
+  .contact-2col--f1 .contact-2col__social {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--space-2);
+  }
+
+  .contact-2col--f1 .contact-2col__social img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+  }
+}
