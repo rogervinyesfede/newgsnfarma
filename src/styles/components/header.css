@@ -37,8 +37,6 @@
   width: auto;
   max-width: 100%;
   object-fit: contain;
-  filter: brightness(0) invert(1);
-  transition: filter var(--transition-base, 0.3s ease);
 }
 
 /* Per sota d'aquest punt el logo (wordmark molt ample) més el botó
@@ -58,10 +56,6 @@
   .site-header__lang-wrap {
     display: none;
   }
-}
-
-.site-header.is-scrolled .site-header__logo img {
-  filter: none;
 }
 
 .site-header__right {
@@ -235,10 +229,6 @@ body.nav-open {
 body.nav-open .site-header {
   background: #fff;
   box-shadow: var(--shadow-md);
-}
-
-body.nav-open .site-header__logo img {
-  filter: none;
 }
 
 body.nav-open .site-header__toggle span {

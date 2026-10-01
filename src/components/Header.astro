@@ -21,7 +21,11 @@ const navItems = [
 <header class={`site-header${overlap ? '' : ' is-scrolled'}`} id="site-header">
   <div class="site-header__inner">
     <a href="/" class="site-header__logo" aria-label="Ir a la página de inicio">
-      <img src="/images/gsn_farma_labs_group_logo.png" alt="GSN Farma Labs Group" />
+      <img
+        id="site-header-logo-img"
+        src={overlap ? '/images/gsn_farma_labs_group_logo_white.png' : '/images/gsn_farma_labs_group_logo.png'}
+        alt="GSN Farma Labs Group"
+      />
     </a>
 
     <div class="site-header__right">
@@ -106,6 +110,7 @@ const navItems = [
     overlay?.classList.remove('is-open');
     toggle?.setAttribute('aria-expanded', 'false');
     document.body.classList.remove('nav-open');
+    updateLogo();
   }
 
   toggle?.addEventListener('click', () => {
@@ -113,6 +118,7 @@ const navItems = [
     overlay?.classList.toggle('is-open', !!isOpen);
     toggle.setAttribute('aria-expanded', String(!!isOpen));
     document.body.classList.toggle('nav-open', !!isOpen);
+    updateLogo();
   });
 
   closeBtn?.addEventListener('click', closeNav);
@@ -137,12 +143,34 @@ const navItems = [
     }
   });
 
+  // Logo blanc (fitxer a part, no filtre CSS) quan el header és transparent
+  // sobre el vídeo/foto; logo amb els colors originals quan el header és
+  // sòlid o quan el menú mòbil és obert. Es feia amb un filter:brightness(0)
+  // invert(1), però en fer-ne un transition en scroll el navegador promovia
+  // la imatge a una capa composta i la reescalava amb una qualitat diferent,
+  // fent que les lletres fines de "LABS GROUP" es veiessin lleugerament
+  // diferents (més toves/esborrallades) respecte a les pàgines que ja
+  // neixen amb el logo en color (sense haver passat mai pel filtre).
+  const logoImg = document.getElementById('site-header-logo-img');
+  const LOGO_WHITE = '/images/gsn_farma_labs_group_logo_white.png';
+  const LOGO_COLOR = '/images/gsn_farma_labs_group_logo.png';
+
+  function updateLogo() {
+    if (!logoImg || !header) return;
+    const showWhite = !header.classList.contains('is-scrolled') && !document.body.classList.contains('nav-open');
+    const nextSrc = showWhite ? LOGO_WHITE : LOGO_COLOR;
+    if (!logoImg.src.endsWith(nextSrc)) {
+      logoImg.src = nextSrc;
+    }
+  }
+
   // El header ja neix "is-scrolled" (sòlid) a totes les pàgines excepte la home,
   // on comença transparent sobre el vídeo i es torna sòlid en fer scroll.
   if (header && !header.classList.contains('is-scrolled')) {
     const THRESHOLD = 60;
     const updateHeader = () => {
       header.classList.toggle('is-scrolled', window.scrollY > THRESHOLD);
+      updateLogo();
     };
     updateHeader();
     window.addEventListener('scroll', updateHeader, { passive: true });
