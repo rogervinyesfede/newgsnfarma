@@ -329,9 +329,7 @@ body.nav-open .site-header__toggle span {
   display: flex;
   align-items: center;
   gap: var(--space-4);
-  margin-top: auto;
-  padding-top: var(--space-6);
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: var(--space-6);
   font-weight: 700;
   font-size: 0.9rem;
   letter-spacing: 0.05em;
@@ -361,6 +359,27 @@ body.nav-open .site-header__toggle span {
 
 .mobile-nav__lang a:hover {
   color: #fff;
+}
+
+/* PROVA: LinkedIn al peu del menú mòbil, agrupat amb el selector d'idioma
+   (ara just a sobre) sota la mateixa línia divisòria. Icona forçada a
+   blanc (filter) perquè el SVG original és navy i, sobre el fons fosc
+   del menú, quedaria invisible. */
+.mobile-nav__social {
+  display: inline-flex;
+  margin-top: auto;
+  padding-top: var(--space-6);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.mobile-nav__social img {
+  width: 42px;
+  height: 42px;
+  filter: brightness(0) invert(1);
+}
+
+.mobile-nav__social:hover {
+  opacity: 0.8;
 }
 
 @media (min-width: 1024px) {

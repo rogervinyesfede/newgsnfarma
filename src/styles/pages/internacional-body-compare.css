@@ -193,3 +193,126 @@
   color: var(--color-accent);
 }
 
+/* PROVA — mòbil: títols igualats a 28px/800, mateix criteri que a la
+   resta del lloc (Home, Contacto). Especificitat extra perquè guanyi
+   sempre a la mida base (40px / clamp), independentment de l'ordre de
+   bundling en producció. */
+@media (max-width: 899px) {
+  .intl-title .intl-title__intro h2 {
+    font-size: 28px;
+    font-weight: 800;
+  }
+
+  .intl-map .intl-map__list-col h2 {
+    font-size: 22px;
+    font-weight: 800;
+  }
+
+  /* Capçalera -> línia blava: 64px -> 32px, igual que a la home (hero ->
+     línia blava del bloc One Health). La resta de transicions (entre
+     blocs: 0px; bloc anterior -> "¿Hablamos?": 64px) ja coincidien amb
+     el patró de la home, no calia tocar-les. */
+  .intl-title {
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-8);
+  }
+
+  /* Línia blava -> títol: 16px -> 28px, igual que als altres 2 blocs
+     (Regiones y países, Catálogo) i que a la home. */
+  .intl-title__intro .block2-f__accent-line {
+    margin-bottom: 28px;
+  }
+
+  /* PROVA: el mapa ocupa tot l'ample de la pantalla (sagna fora dels
+     marges laterals del .container, 16px a cada costat), en lloc de
+     quedar-se dins l'amplada de text com la llista de regions. */
+  .intl-map__split-inner .intl-map__frame {
+    width: calc(100% + var(--space-4) * 2);
+    max-width: none;
+    margin-inline: calc(-1 * var(--space-4));
+  }
+
+  /* Bloc "Regiones y países...": inici -> línia blava 64px -> 32px, i
+     línia blava -> títol 16px -> 28px (només aquí; no toca la línia
+     blava del bloc de dalt ni la del catàleg). */
+  .intl-map {
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-8);
+  }
+
+  .intl-map__list-col .block2-f__accent-line {
+    margin-bottom: 28px;
+  }
+
+  /* .intl-map__list-col{flex:0 1 380px} és un flex-basis pensat per la
+     fila d'escriptori (380px d'AMPLE). A mòbil, .intl-map__split-inner
+     passa a column-reverse i aquest mateix 380px s'interpreta com a
+     ALÇADA mínima de la columna, deixant ~38px buits sota "Latinoamérica"
+     abans del gap real cap al mapa (32px + 38px = 70px en lloc de 32px).
+     flex-basis:auto treu aquesta alçada forçada i deixa que la columna
+     es dimensioni pel seu contingut real. */
+  .intl-map__split-inner .intl-map__list-col {
+    flex-basis: auto;
+  }
+
+  /* Final del bloc del mapa -> línia blava del catàleg: 64px -> 32px
+     (64 de padding-bottom del mapa + 0 de marge ja no calia tocar el
+     catàleg, només reduir aquest padding). */
+  .intl-catalog {
+    padding-top: var(--space-8);
+  }
+
+  .intl-catalog .block2-f__accent-line {
+    margin-bottom: 28px;
+  }
+
+  /* "Salud animal" -> bloc "¿Hablamos?": 96px -> 64px. El marge superior
+     de "¿Hablamos?" (32px, ja igualat amb la home) es manté intacte;
+     només reduïm el padding-bottom del catàleg (64px -> 32px: 32+32=64). */
+  .intl-catalog {
+    padding-bottom: var(--space-8);
+  }
+}
+
+/* Bloc "¿Hablamos?": mateix component que a la Home (.contact-alt--photo),
+   però aquesta pàgina no importa home-body-compare.css, així que encara
+   tenia la mida/padding de desktop (40px, 96px) en mòbil. Repliquem aquí
+   exactament el mateix ajust (28px/800, padding 96px->64px, marge
+   64px->32px, CTA com a enllaç de text) perquè quedi igual a totes dues
+   pàgines. */
+@media (max-width: 767px) {
+  .contact-alt.contact-alt--photo h2 {
+    font-size: 28px;
+    font-weight: 800;
+  }
+
+  .contact-alt.contact-alt--photo {
+    padding-top: var(--space-16);
+    padding-bottom: var(--space-16);
+    margin-top: var(--space-8);
+  }
+
+  .contact-alt .btn {
+    display: inline-block;
+    background: none;
+    border: none;
+    padding: 0;
+    border-radius: 0;
+    font-size: 17px;
+    font-weight: 300;
+    text-transform: none;
+    letter-spacing: normal;
+    color: #fff;
+  }
+
+  .contact-alt .btn:hover {
+    opacity: 0.8;
+  }
+
+  .contact-alt .btn::after {
+    content: ' \203A';
+    margin-left: var(--space-1, 4px);
+    font-weight: 400;
+  }
+}
+
