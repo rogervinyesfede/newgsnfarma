@@ -17,6 +17,15 @@
   margin: 0;
 }
 
+/* Mòbil (<900px): H1 igualat al de la resta de capçaleres (28px/800). Va
+   DESPRÉS de la regla base: mateixa especificitat, guanya la que va darrere. */
+@media (max-width: 899px) {
+  .legal-hero h1 {
+    font-size: 28px;
+    font-weight: 800;
+  }
+}
+
 .legal-content {
   padding-block: var(--space-16);
 }

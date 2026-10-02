@@ -427,6 +427,9 @@ button.block2-f__cta {
   .marcas-b__row .marcas-b__header .marcas-b__logo,
   .marcas-b__row .marcas-b__header .marcas-b__category.pretitle {
     margin: 0;
+    /* PROVA: pastilla 13px/700 -> 12px/600 només en mòbil */
+    font-size: 12px;
+    font-weight: 600;
   }
 
   .marcas-b__row .content-section__image {

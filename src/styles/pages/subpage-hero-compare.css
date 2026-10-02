@@ -222,7 +222,7 @@
   .subpage-hero-e--nuestras-marcas,
   .subpage-hero-e--quienes-somos,
   .subpage-hero-e--servicios {
-    height: 200px;
+    height: 180px; /* PROVA: 200px -> 180px */
   }
 
   .subpage-hero-e--contacto h1,
