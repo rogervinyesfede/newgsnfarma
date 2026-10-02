@@ -1172,264 +1172,11 @@
   }
 }
 
-/* ============================================================
-   PROVES MÒBIL del primer bloc (títol "Grupo farmacéutico con más de 30
-   años..." i subtítol). Només <900px; a desktop queden amagades perquè les
-   seccions .qs-prop ja són display:none. La secció actual
-   (.qs-intro-centered) no es toca. Una presentació: el text en tres files amb
-   icona. Eliminar les que no es triïn.
-   ============================================================ */
+/* Etiqueta "ACTUAL" dins del primer bloc actual (només <900px; a desktop
+   .qs-prop-tag ja és display:none). */
 @media (max-width: 899px) {
-  /* L'etiqueta "ACTUAL" dins la secció actual */
   .qs-intro-centered .qs-prop-tag {
     margin-bottom: var(--space-6);
-  }
-
-  .qs-prop.qs-in {
-    background: #fff;
-  }
-
-  /* ---- PRIMER BLOC 3 — Tres files amb icona ---- */
-  .qs-prop.qs-in--rows {
-    background: #eeeeec;
-  }
-
-  .qs-prop.qs-in--rows h2 {
-    margin: 0 0 28px;
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 1.25;
-    color: var(--color-primary);
-    text-align: center;
-  }
-
-  .qs-in__rows {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .qs-in__row {
-    display: flex;
-    align-items: flex-start;
-    gap: var(--space-4);
-    padding: 20px;
-    border-radius: 16px;
-    background: #fff;
-    box-shadow: 0 8px 24px rgba(27, 36, 53, 0.08);
-  }
-
-  .qs-in__icon {
-    flex: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 48px;
-    height: 48px;
-    border-radius: 14px;
-    background: rgba(0, 219, 255, 0.16);
-    color: var(--color-accent-dark);
-  }
-
-  .qs-in .qs-in__row h3 {
-    margin: 0 0 4px;
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--color-primary);
-  }
-
-  .qs-in .qs-in__row p {
-    margin: 0;
-    font-size: 17px;
-    line-height: 1.5;
-    color: #4b4b4b;
-  }
-}
-
-/* ============================================================
-   PROVES MÒBIL de la capçalera (imatge + títol). Només <900px; a desktop
-   queden amagades perquè les seccions .qs-prop ja són display:none. La
-   capçalera actual (.subpage-hero-e) no es toca. Tres presentacions: hero
-   alt i immersiu, fulla blanca que puja sobre la imatge i capçalera
-   centrada amb cantonades arrodonides. Eliminar les que no es triïn.
-   ============================================================ */
-@media (max-width: 899px) {
-  .qs-prop.qs-hp {
-    padding: 0;
-    background: #fff;
-  }
-
-  .qs-hp__tagrow {
-    padding-block: var(--space-6) var(--space-4);
-  }
-
-  .qs-hp .compare-tag {
-    margin: 0;
-  }
-
-  .qs-hp__title {
-    margin: 0;
-  }
-
-  .qs-hp__title span {
-    display: block;
-  }
-
-  .qs-hp__hero {
-    position: relative;
-    display: flex;
-    align-items: flex-end;
-    overflow: hidden;
-  }
-
-  .qs-hp__hero img,
-  .qs-hp__img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 40%;
-    display: block;
-  }
-
-  .qs-hp__hero img {
-    position: absolute;
-    inset: 0;
-  }
-
-  .qs-hp__hero::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-  }
-
-  .qs-hp__content {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    padding: 0 var(--space-4) 28px;
-  }
-
-  /* ---- CAPÇALERA 1 — Hero alt i immersiu ---- */
-  .qs-hp--immersive .qs-hp__hero {
-    height: 380px;
-  }
-
-  .qs-hp--immersive .qs-hp__hero::after {
-    background: linear-gradient(180deg, rgba(27, 36, 53, 0.15) 0%, rgba(27, 36, 53, 0.2) 35%, rgba(27, 36, 53, 0.92) 100%);
-  }
-
-  .qs-hp--immersive .qs-hp__content {
-    align-items: flex-start;
-  }
-
-  .qs-hp__kicker {
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--color-accent);
-  }
-
-  /* Mida fluida: "Sumamos experiencia," ocupa ~10,7 x la mida de la lletra i no
-     s'ha de partir en dues línies en cap mòbil (320-430px). */
-  .qs-hp--immersive .qs-hp__title {
-    font-size: clamp(26px, 8.3vw, 34px);
-    font-weight: 800;
-    line-height: 1.1;
-    color: #fff;
-  }
-
-  .qs-hp__cue {
-    position: absolute;
-    z-index: 1;
-    right: var(--space-4);
-    bottom: 28px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border: 1.5px solid rgba(255, 255, 255, 0.7);
-    border-radius: 50%;
-    color: #fff;
-  }
-
-  /* ---- CAPÇALERA 2 — Fulla blanca que puja sobre la imatge ---- */
-  .qs-hp--sheet .qs-hp__img {
-    height: 280px;
-  }
-
-  .qs-hp__sheet {
-    position: relative;
-    z-index: 1;
-    margin-top: -32px;
-    padding: 28px var(--space-4) 28px;
-    border-radius: 28px 28px 0 0;
-    background: #fff;
-  }
-
-  .qs-hp__bar {
-    display: block;
-    width: 48px;
-    height: 4px;
-    margin-bottom: 16px;
-    border-radius: 2px;
-    background: var(--color-accent);
-  }
-
-  .qs-hp--sheet .qs-hp__title {
-    font-size: clamp(26px, 8.3vw, 32px);
-    font-weight: 800;
-    line-height: 1.12;
-    color: var(--color-primary);
-  }
-
-  .qs-hp--sheet .qs-hp__title span:last-child {
-    color: var(--color-accent-dark);
-  }
-
-  /* ---- CAPÇALERA 3 — Centrada, amb cantonades inferiors arrodonides ---- */
-  .qs-hp--round .qs-hp__hero {
-    align-items: center;
-    height: 320px;
-    border-radius: 0 0 32px 32px;
-  }
-
-  .qs-hp--round .qs-hp__hero::after {
-    background: linear-gradient(180deg, rgba(27, 36, 53, 0.55) 0%, rgba(27, 36, 53, 0.82) 100%);
-  }
-
-  .qs-hp--round .qs-hp__content {
-    align-items: center;
-    gap: 16px;
-    padding-bottom: 0;
-    text-align: center;
-  }
-
-  .qs-hp__pill {
-    padding: 6px 14px;
-    border: 1px solid rgba(0, 219, 255, 0.7);
-    border-radius: 999px;
-    background: rgba(27, 36, 53, 0.35);
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--color-accent);
-  }
-
-  .qs-hp--round .qs-hp__title {
-    font-size: clamp(26px, 8.3vw, 32px);
-    font-weight: 800;
-    line-height: 1.12;
-    color: #fff;
-  }
-
-  .qs-hp--round .qs-hp__title span:last-child {
-    color: var(--color-accent);
   }
 }
 
@@ -1488,68 +1235,14 @@
     text-align: left;
   }
 
-  .qs-cb__img img,
-  .qs-cb__hero > img {
+  .qs-cb__img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
   }
 
-  /* ---- COMBINADA 1 — Pòster ---- */
-  .qs-cb__hero {
-    position: relative;
-    display: flex;
-    align-items: flex-end;
-    min-height: 760px;
-    overflow: hidden;
-  }
-
-  /* La foto és un 120% més alta que el pòster i va ancorada a baix: així el
-     rètol "GSN FARMA" queda a la part de dalt, sencer i per sobre del bloc de
-     text (amb un 140% el rètol feia més ample que la pantalla i es tallava). */
-  .qs-cb__hero > img {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 120%;
-    object-position: 84% bottom;
-  }
-
-  .qs-cb__hero::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(27, 36, 53, 0.05) 0%, rgba(27, 36, 53, 0.5) 38%, rgba(27, 36, 53, 0.95) 62%);
-  }
-
-  .qs-cb__content {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    width: 100%;
-    padding: 0 var(--space-4) 32px;
-  }
-
-  .qs-cb--poster .qs-cb__title {
-    color: #fff;
-  }
-
-  .qs-cb--poster .qs-cb__title span:last-child {
-    color: var(--color-accent);
-  }
-
-  .qs-cb--poster .qs-cb__sub {
-    color: #fff;
-  }
-
-  .qs-cb--poster .qs-cb__text {
-    color: rgba(255, 255, 255, 0.85);
-  }
-
-  /* ---- COMBINADA 2 — Fulla blanca ---- */
+  /* ---- COMBINADES 2B i 2C — Fulla blanca (regles base compartides) ---- */
   .qs-cb--sheet .qs-cb__img {
     height: 260px;
   }
@@ -1584,56 +1277,48 @@
     color: #4b4b4b;
   }
 
-  /* ---- COMBINADA 3 — Panell navy ---- */
-  .qs-prop.qs-cb--navy {
-    background: var(--color-primary);
+  /* ---- COMBINADA 2B — com la 2, amb la línia blava entre el títol i el
+     subtítol (substitueix el filet gris que separava els dos) ---- */
+  .qs-cb--sheet-mid .qs-cb__sub {
+    padding-top: 0;
+    border-top: 0;
   }
 
-  .qs-cb--navy .compare-tag {
-    background: #fff;
+  /* 2B: "sumamos salud" en el mateix color fosc que "Sumamos experiencia," (el
+     navy de la marca, que es veu negre), en lloc del cian fosc de la 2. */
+  .qs-cb--sheet-mid .qs-cb__title span:last-child {
     color: var(--color-primary);
   }
 
-  .qs-cb--navy .qs-cb__tagrow {
-    background: #fff;
+  /* ---- COMBINADES 2B amb la imatge més baixa (220px i 180px d'alt; la 2B
+     original en fa 260). La foto va centrada, així que el rètol "GSN FARMA" es
+     continua veient per sobre de la fulla blanca. ---- */
+  .qs-cb--sheet.qs-cb--img220 .qs-cb__img {
+    height: 220px;
   }
 
-  .qs-cb--navy .qs-cb__img {
-    position: relative;
-    height: 300px;
+  .qs-cb--sheet.qs-cb--img180 .qs-cb__img {
+    height: 180px;
   }
 
-  .qs-cb--navy .qs-cb__img::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(27, 36, 53, 0) 30%, var(--color-primary) 100%);
+  /* ---- COMBINADA 2C — com la 2B, amb el subtítol i el paràgraf sobre fons navy ---- */
+  .qs-cb--sheet .qs-cb__sheet--title {
+    padding-bottom: 24px;
   }
 
-  .qs-cb__panel {
+  .qs-cb__navytext {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    margin-top: -48px;
-    padding: 0 var(--space-4) 36px;
-    position: relative;
-    z-index: 1;
+    padding: 28px var(--space-4) 36px;
     background: var(--color-primary);
   }
 
-  .qs-cb--navy .qs-cb__title {
+  .qs-cb--sheet.qs-cb--sheet-navy .qs-cb__sub {
     color: #fff;
   }
 
-  .qs-cb--navy .qs-cb__title span:last-child {
-    color: var(--color-accent);
-  }
-
-  .qs-cb--navy .qs-cb__sub {
-    color: #fff;
-  }
-
-  .qs-cb--navy .qs-cb__text {
-    color: rgba(255, 255, 255, 0.82);
+  .qs-cb--sheet.qs-cb--sheet-navy .qs-cb__text {
+    color: rgba(255, 255, 255, 0.85);
   }
 }

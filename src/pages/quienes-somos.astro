@@ -77,89 +77,60 @@ const areasIntro = 'GSN Farma Labs Group estructura su actividad en dos grandes 
     </div>
   </section>
 
-  {/* ===== PROVES MÒBIL de la capçalera (només <900px) ===== */}
-
-  {/* CAPÇALERA 1 — Hero alt i immersiu: etiqueta, títol gran i indicador de scroll */}
-  <section class="qs-prop qs-hp qs-hp--immersive">
-    <div class="container qs-hp__tagrow">
-      <p class="compare-tag">PROVA MÒBIL CAPÇALERA 1 · Hero alt i immersiu amb títol gran</p>
-    </div>
-    <div class="qs-hp__hero">
-      <img src={hero.img} alt="" loading="lazy" />
-      <div class="qs-hp__content">
-        <span class="qs-hp__kicker">Quiénes somos</span>
-        <p class="qs-hp__title"><span>{hero.l1}</span><span>{hero.l2}</span></p>
-      </div>
-      <span class="qs-hp__cue" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></span>
-    </div>
-  </section>
-
-  {/* CAPÇALERA 2 — Imatge i una fulla blanca arrodonida que puja per sobre amb el títol */}
-  <section class="qs-prop qs-hp qs-hp--sheet">
-    <div class="container qs-hp__tagrow">
-      <p class="compare-tag">PROVA MÒBIL CAPÇALERA 2 · Fulla blanca que puja sobre la imatge</p>
-    </div>
-    <div class="qs-hp__img"><img src={hero.img} alt="" loading="lazy" /></div>
-    <div class="qs-hp__sheet">
-      <span class="qs-hp__bar" aria-hidden="true"></span>
-      <p class="qs-hp__title"><span>{hero.l1}</span><span>{hero.l2}</span></p>
-    </div>
-  </section>
-
-  {/* CAPÇALERA 3 — Centrada, amb píndola i la segona línia en cian, cantonades inferiors arrodonides */}
-  <section class="qs-prop qs-hp qs-hp--round">
-    <div class="container qs-hp__tagrow">
-      <p class="compare-tag">PROVA MÒBIL CAPÇALERA 3 · Centrada, amb cantonades inferiors arrodonides</p>
-    </div>
-    <div class="qs-hp__hero">
-      <img src={hero.img} alt="" loading="lazy" />
-      <div class="qs-hp__content">
-        <span class="qs-hp__pill">Quiénes somos</span>
-        <p class="qs-hp__title"><span>{hero.l1}</span><span>{hero.l2}</span></p>
-      </div>
-    </div>
-  </section>
-
   {/* ===== PROVES MÒBIL COMBINADES: capçalera (imatge + títol) + primer bloc (títol + subtítol) en una sola peça (només <900px) ===== */}
 
-  {/* COMBINADA 1 — Pòster: tot el text a sobre de la imatge */}
-  <section class="qs-prop qs-cb qs-cb--poster">
+  {/* COMBINADA 2B — Igual que la 2, però la línia blava va entre el títol i el subtítol */}
+  <section class="qs-prop qs-cb qs-cb--sheet qs-cb--sheet-mid">
     <div class="container qs-cb__tagrow">
-      <p class="compare-tag">PROVA MÒBIL COMBINADA 1 · Pòster: tot el text sobre la imatge</p>
-    </div>
-    <div class="qs-cb__hero">
-      <img src={hero.img} alt="" loading="lazy" />
-      <div class="qs-cb__content">
-        <p class="qs-cb__title"><span>{hero.l1}</span><span>{hero.l2}</span></p>
-        <span class="qs-cb__bar" aria-hidden="true"></span>
-        <h2 class="qs-cb__sub">{intro.h2}</h2>
-        <p class="qs-cb__text">{intro.p}</p>
-      </div>
-    </div>
-  </section>
-
-  {/* COMBINADA 2 — Fulla blanca que puja sobre la imatge i conté el títol, el subtítol i el text */}
-  <section class="qs-prop qs-cb qs-cb--sheet">
-    <div class="container qs-cb__tagrow">
-      <p class="compare-tag">PROVA MÒBIL COMBINADA 2 · Fulla blanca amb tot el text</p>
+      <p class="compare-tag">PROVA MÒBIL COMBINADA 2B · Fulla blanca, amb la línia blava entre el títol i el subtítol</p>
     </div>
     <div class="qs-cb__img"><img src={hero.img} alt="" loading="lazy" /></div>
     <div class="qs-cb__sheet">
-      <span class="qs-cb__bar" aria-hidden="true"></span>
       <p class="qs-cb__title"><span>{hero.l1}</span><span>{hero.l2}</span></p>
+      <span class="qs-cb__bar" aria-hidden="true"></span>
       <h2 class="qs-cb__sub">{intro.h2}</h2>
       <p class="qs-cb__text">{intro.p}</p>
     </div>
   </section>
 
-  {/* COMBINADA 3 — La imatge es fon amb un panell navy continu amb tot el text */}
-  <section class="qs-prop qs-cb qs-cb--navy">
+  {/* COMBINADA 2B · imatge de 220px — igual que la 2B, amb la imatge més baixa */}
+  <section class="qs-prop qs-cb qs-cb--sheet qs-cb--sheet-mid qs-cb--img220">
     <div class="container qs-cb__tagrow">
-      <p class="compare-tag">PROVA MÒBIL COMBINADA 3 · La imatge es fon amb un panell navy</p>
+      <p class="compare-tag">PROVA MÒBIL COMBINADA 2B · Igual, amb la imatge de 220px d'alt</p>
     </div>
     <div class="qs-cb__img"><img src={hero.img} alt="" loading="lazy" /></div>
-    <div class="qs-cb__panel">
+    <div class="qs-cb__sheet">
       <p class="qs-cb__title"><span>{hero.l1}</span><span>{hero.l2}</span></p>
+      <span class="qs-cb__bar" aria-hidden="true"></span>
+      <h2 class="qs-cb__sub">{intro.h2}</h2>
+      <p class="qs-cb__text">{intro.p}</p>
+    </div>
+  </section>
+
+  {/* COMBINADA 2B · imatge de 180px — igual que la 2B, amb la imatge més baixa */}
+  <section class="qs-prop qs-cb qs-cb--sheet qs-cb--sheet-mid qs-cb--img180">
+    <div class="container qs-cb__tagrow">
+      <p class="compare-tag">PROVA MÒBIL COMBINADA 2B · Igual, amb la imatge de 180px d'alt</p>
+    </div>
+    <div class="qs-cb__img"><img src={hero.img} alt="" loading="lazy" /></div>
+    <div class="qs-cb__sheet">
+      <p class="qs-cb__title"><span>{hero.l1}</span><span>{hero.l2}</span></p>
+      <span class="qs-cb__bar" aria-hidden="true"></span>
+      <h2 class="qs-cb__sub">{intro.h2}</h2>
+      <p class="qs-cb__text">{intro.p}</p>
+    </div>
+  </section>
+
+  {/* COMBINADA 2C — Igual que la 2B, però el text (subtítol i paràgraf) va sobre un fons navy */}
+  <section class="qs-prop qs-cb qs-cb--sheet qs-cb--sheet-mid qs-cb--sheet-navy">
+    <div class="container qs-cb__tagrow">
+      <p class="compare-tag">PROVA MÒBIL COMBINADA 2C · Fulla blanca amb el títol i el text sobre fons navy</p>
+    </div>
+    <div class="qs-cb__img"><img src={hero.img} alt="" loading="lazy" /></div>
+    <div class="qs-cb__sheet qs-cb__sheet--title">
+      <p class="qs-cb__title"><span>{hero.l1}</span><span>{hero.l2}</span></p>
+    </div>
+    <div class="qs-cb__navytext">
       <span class="qs-cb__bar" aria-hidden="true"></span>
       <h2 class="qs-cb__sub">{intro.h2}</h2>
       <p class="qs-cb__text">{intro.p}</p>
@@ -180,30 +151,6 @@ const areasIntro = 'GSN Farma Labs Group estructura su actividad en dos grandes 
           sanitarios y dermocosmética), todo bajo los más altos estándares de calidad, seguridad y
           trazabilidad.
         </p>
-      </div>
-    </div>
-  </section>
-
-  {/* ===== PROVES MÒBIL del primer bloc (només <900px) ===== */}
-
-  {/* PRIMER BLOC 3 — El text partit en 3 files amb icona (estructura, productes, estàndards) */}
-  <section class="qs-prop qs-in qs-in--rows">
-    <div class="container">
-      <p class="compare-tag">PROVA MÒBIL PRIMER BLOC 3 · Text en 3 files amb icona</p>
-      <h2>{intro.h2}</h2>
-      <div class="qs-in__rows">
-        <div class="qs-in__row">
-          <span class="qs-in__icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5 9-5z"></path><path d="M3 13l9 5 9-5"></path></svg></span>
-          <div><h3>Estructura integral</h3><p>Capaz de desarrollar, registrar, fabricar y comercializar productos regulados.</p></div>
-        </div>
-        <div class="qs-in__row">
-          <span class="qs-in__icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8.5" width="18" height="7" rx="3.5"></rect><path d="M12 8.5v7"></path></svg></span>
-          <div><h3>Productos regulados</h3><p>Medicamentos, complementos alimenticios, productos sanitarios y dermocosmética.</p></div>
-        </div>
-        <div class="qs-in__row">
-          <span class="qs-in__icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.2 7.8-8 9-4.8-1.2-8-4.5-8-9V6l8-3z"></path><path d="M8.5 12.5l2.5 2.5 4.5-5"></path></svg></span>
-          <div><h3>Los más altos estándares</h3><p>De calidad, seguridad y trazabilidad.</p></div>
-        </div>
       </div>
     </div>
   </section>
