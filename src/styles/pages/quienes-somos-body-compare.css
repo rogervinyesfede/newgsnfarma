@@ -107,7 +107,7 @@
   font-weight: 800;
   font-size: clamp(2.5rem, 6vw, 3.5rem);
   line-height: 1;
-  color: var(--color-accent);
+  color: var(--color-accent-dark); /* PROVA: abans var(--color-accent) (#00dbff) */
   margin-bottom: var(--space-4);
 }
 
@@ -264,5 +264,162 @@
 @media (min-width: 768px) {
   .qs-areas__grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ============================================================
+   MÒBIL (<900px) — mateixos criteris que la resta de pàgines
+   (Home, Internacional, Nuestras marcas, Contacto):
+   - Títols de bloc 28px/800; títols secundaris (targetes) 22px/800;
+     paràgrafs 17px; CTA com a la Home (sense icona en requadre, 16px
+     negreta i fletxa "›").
+   - Blocs: 32px de padding a dalt i a baix i 0 de marge entre ells.
+   - Línia blava -> títol 28px; entre elements apilats 28px; entre
+     paràgrafs consecutius 8px; títol -> paràgraf d'una intro 16px.
+   Va al final del fitxer i amb especificitat reforçada perquè guanyi a
+   les regles base d'aquí i dels CSS compartits, independentment de
+   l'ordre de bundling en producció.
+   ============================================================ */
+
+/* La fletxa "›" del CTA només es mostra en mòbil (va ABANS del media
+   query: mateixa especificitat que la regla de mòbil, guanya la darrera). */
+.qs-areas .block2-f__cta-arrow {
+  display: none;
+}
+
+@media (max-width: 899px) {
+  /* ---- 1. Intro ---- */
+  .qs-intro-centered {
+    padding-block: var(--space-8);
+  }
+
+  .qs-intro-centered .qs-intro-centered__inner .block2-f__accent-line {
+    margin-bottom: 28px;
+  }
+
+  .qs-intro-centered .qs-intro-centered__inner h2 {
+    font-size: 28px;
+    font-weight: 800;
+  }
+
+  /* ---- 2. Unión Coetus + GSN ---- */
+  .qs-union-stats {
+    padding-block: var(--space-8);
+  }
+
+  .qs-union-stats .qs-union-stats__intro {
+    margin-bottom: 28px;
+  }
+
+  .qs-union-stats .qs-union-stats__intro h2 {
+    font-size: 28px;
+    font-weight: 800;
+  }
+
+  .qs-union-stats .qs-union-stats__grid {
+    gap: 28px;
+  }
+
+  .qs-union-stats .qs-union-stats__card p {
+    font-size: 17px;
+  }
+
+  .qs-union-stats .qs-union-stats__footer {
+    margin-top: 28px;
+  }
+
+  /* ---- 3. One Health ---- */
+  .qs-onehealth-home.block2-f.block3-d__row--onehealth {
+    margin-top: 0;
+    padding-block: var(--space-8);
+  }
+
+  .qs-onehealth-home.block2-f.block3-d__row--onehealth .container {
+    gap: 28px;
+  }
+
+  .qs-onehealth-home.block2-f.block3-d__row--onehealth .block2-f__image {
+    margin: 0;
+  }
+
+  .qs-onehealth-home.block2-f.block3-d__row--onehealth .block2-f__accent-line {
+    margin-bottom: 28px;
+  }
+
+  .qs-onehealth-home.block2-f.block3-d__row--onehealth .block2-f__text h2 {
+    font-size: 28px;
+    font-weight: 800;
+    margin: 0 0 28px;
+  }
+
+  .qs-onehealth-home.block2-f.block3-d__row--onehealth .block2-f__text p {
+    margin: 0 0 8px;
+  }
+
+  .qs-onehealth-home.block2-f.block3-d__row--onehealth .block2-f__text p:last-of-type {
+    margin-bottom: 0;
+  }
+
+  /* ---- 4. Áreas de negocio ---- */
+  .qs-areas.qs-areas--grey {
+    margin-top: 0;
+    padding-block: var(--space-8);
+  }
+
+  .qs-areas.qs-areas--grey .block2-f__accent-line {
+    margin-bottom: 28px;
+  }
+
+  .qs-areas.qs-areas--grey > .container > h2 {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 16px;
+  }
+
+  .qs-areas.qs-areas--grey .qs-areas__grid {
+    margin-top: 28px;
+    gap: 28px;
+  }
+
+  .qs-areas.qs-areas--grey .qs-areas__card-body {
+    gap: 16px;
+  }
+
+  /* Marges propis a 0: la separació entre títol, text i CTA la fa només el
+     gap de 16px de .qs-areas__card-body (si no, se sumen). */
+  .qs-areas.qs-areas--grey .qs-areas__card-body h3 {
+    font-size: 22px;
+    font-weight: 800;
+    margin: 0;
+  }
+
+  .qs-areas.qs-areas--grey .qs-areas__card-body p {
+    font-size: 17px;
+    margin: 0;
+  }
+
+  /* CTA de les targetes com a la Home en mòbil: sense icona en requadre,
+     16px negreta i fletxa "›" a 4px del text (el gap de 16px del CTA es
+     compensa amb un marge negatiu). Text -> CTA: 28px (16 de gap + 12). */
+  .qs-areas.qs-areas--grey .qs-areas__card-body .block2-f__cta {
+    margin-top: 12px;
+    justify-content: flex-start;
+  }
+
+  .qs-areas.qs-areas--grey .block2-f__cta-icon {
+    display: none;
+  }
+
+  .qs-areas.qs-areas--grey .block2-f__cta-arrow {
+    display: inline;
+    order: 1;
+    margin-left: calc(var(--space-1, 4px) - var(--space-4));
+    font-weight: 400;
+    font-size: 16px;
+    text-decoration: none;
+  }
+
+  .qs-areas.qs-areas--grey .block2-f__cta:hover {
+    opacity: 0.8;
   }
 }

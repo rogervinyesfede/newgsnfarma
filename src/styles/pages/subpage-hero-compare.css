@@ -255,3 +255,22 @@
   }
 }
 
+/* Quiénes somos: mateixa foto i mateix problema, però el títol hi fa 2
+   línies (més alt). Un % fix no serveix: el rètol quedava a alçades molt
+   diferents segons l'ample del mòbil (tallat per dalt a 430px, xocant a 320px).
+   Per això l'enquadrament es calcula amb l'ample (vw): el rètol "GSN FARMA" és
+   al 44% de l'alçada de la foto, que a mòbil fa 0,949 x vw d'alt; el
+   desplaçament (0,44 x 0,949 x vw = 41,76vw, menys 12px) deixa el rètol sempre
+   a 12px del cantó superior, per sobre del títol. Límit <=540px (el títol de
+   2 línies arriba a ~270px d'ample i el rètol no hi deixa de xocar fins a
+   ~530px); per sobre, 45% de sempre. */
+.subpage-hero-e--quienes-somos img {
+  object-position: center 45%;
+}
+
+@media (max-width: 540px) {
+  .subpage-hero-e--quienes-somos img {
+    object-position: 50% calc(12px - 41.76vw);
+  }
+}
+

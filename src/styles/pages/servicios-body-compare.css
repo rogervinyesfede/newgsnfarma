@@ -220,7 +220,7 @@
   font-family: var(--font-heading);
   font-size: 1.6rem;
   font-weight: 800;
-  color: var(--color-accent);
+  color: var(--color-accent-dark);
   line-height: 1.2;
 }
 
@@ -275,6 +275,13 @@
   aspect-ratio: 16 / 9;
 }
 
+/* Les franges usen <picture> (versió pròpia per a mòbil en alguns serveis):
+   no ha de generar caixa pròpia, a cap ample, perquè la <img> es comporti
+   igual que abans. */
+.srv-strip__image picture {
+  display: contents;
+}
+
 .srv-strip .content-section__text h3 {
   font-size: 30px;
   font-weight: 800;
@@ -303,3 +310,275 @@
   margin-top: 0;
 }
 
+
+/* Planta de Producción i Laboratorio usen <picture> (versió pròpia per a
+   mòbil). <picture> no ha de generar caixa pròpia, a cap ample: així la <img>
+   es comporta exactament igual que abans (omple la caixa .block2-f__image). */
+.srv-fi--white .block2-f__image picture,
+.srv-fi--navy .block2-f__image picture {
+  display: contents;
+}
+
+/* ============================================================
+   MÒBIL (<900px) — mateixos criteris que la resta de pàgines
+   (Home, Internacional, Nuestras marcas, Contacto, Quiénes somos):
+   - Títols de bloc 28px/800; títols secundaris (cada servei) 22px/800;
+     paràgrafs 17px.
+   - Blocs: 32px de padding a dalt i a baix i 0 de marge entre ells.
+   - Línia blava -> títol 28px; entre elements apilats 28px; entre
+     paràgrafs consecutius 8px; títol -> paràgraf 16px (intros i
+     franges de servei).
+   Va al final del fitxer i amb especificitat reforçada perquè guanyi a
+   les regles base d'aquí i dels CSS compartits, independentment de
+   l'ordre de bundling en producció.
+   ============================================================ */
+@media (max-width: 899px) {
+  /* ---- Índex de serveis ---- */
+  .srv-union {
+    padding-block: var(--space-8);
+  }
+
+  .srv-union .srv-union__intro .block2-f__accent-line {
+    margin-bottom: 28px;
+  }
+
+  .srv-union .srv-union__intro h2 {
+    font-size: 28px;
+    font-weight: 800;
+  }
+
+  .srv-union .srv-union__intro {
+    margin-bottom: 28px;
+  }
+
+  /* ---- Planta de Producción (#fabricacion) i Laboratorio (#i-d) ----
+     Mateix tractament que el bloc One Health de Quiénes somos. Fabricación
+     manté el padding-bottom:0 (queda integrat amb "Capacidad productiva",
+     mateix fons gris) i #i-d el margin-top:0, tal com ja estaven. */
+  /* padding-inline:0 -> els marges laterals els dona només el .container
+     (16px), com a la resta de la pàgina. La secció .block2-f hi afegia 16px
+     més (32px en total), i la imatge i el text quedaven més estrets que els
+     de les franges, de l'índex i de la capacitat. */
+  .block2-f.block3-d__row--onehealth.srv-fi--white,
+  .block2-f.block3-d__row--onehealth.srv-fi--navy {
+    margin-top: 0;
+    padding-top: var(--space-8);
+    padding-inline: 0;
+  }
+
+  .block2-f.block3-d__row--onehealth.srv-fi--navy {
+    padding-bottom: var(--space-8);
+  }
+
+  .srv-fi--white .container,
+  .srv-fi--navy .container {
+    gap: 28px;
+  }
+
+  /* Ordre a mòbil (igual que els blocs de la Home): línia blava, títol,
+     imatge i text, tant a Planta de Producción (imatge primera al DOM) com a
+     Laboratorio (text primer al DOM). El bloc de text es "desmunta"
+     (display:contents) perquè línia, títol i paràgrafs passin a ser fills
+     directes del .container flex i es puguin reordenar amb `order`. Tota la
+     separació la fa el gap de 28px del container: es treuen els marges propis
+     d'aquests elements, i entre paràgrafs consecutius es deixa a 8px
+     (28 de gap - 20 de marge negatiu). */
+  .block2-f.srv-fi--white .block2-f__text,
+  .block2-f.srv-fi--navy .block2-f__text {
+    display: contents;
+  }
+
+  .block2-f.srv-fi--white .block2-f__accent-line,
+  .block2-f.srv-fi--navy .block2-f__accent-line {
+    order: 1;
+    margin: 0;
+  }
+
+  .block2-f.srv-fi--white .block2-f__text h2,
+  .block2-f.srv-fi--navy .block2-f__text h2 {
+    order: 1;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .srv-fi--white .block2-f__image,
+  .srv-fi--navy .block2-f__image {
+    order: 2;
+    margin: 0;
+  }
+
+  /* Imatges de Planta de Producción i Laboratorio a mòbil: versions
+     pròpies (gsn_farma_factory_mb / gsn_farma_lab_mb, 1200x700) mostrades
+     senceres, sense retall: l'alçada la dona la proporció de la imatge
+     (1200/700) i no els 320px fixos d'abans. */
+  .block2-f.srv-fi--white .block2-f__image,
+  .block2-f.srv-fi--navy .block2-f__image {
+    height: auto;
+    aspect-ratio: 1200 / 700;
+  }
+
+  .block2-f.srv-fi--white .block2-f__text p,
+  .block2-f.srv-fi--navy .block2-f__text p {
+    order: 3;
+    margin: 0;
+  }
+
+  .block2-f.srv-fi--white .block2-f__text p + p,
+  .block2-f.srv-fi--navy .block2-f__text p + p {
+    margin-top: -20px;
+  }
+
+  /* ---- Capacidad productiva ---- */
+  .srv-capacity {
+    padding-top: 28px;
+    padding-bottom: var(--space-8);
+  }
+
+  .srv-capacity h2 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 28px;
+  }
+
+  .srv-capacity .srv-capacity__item strong {
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  .srv-capacity .srv-capacity__grid {
+    gap: 28px;
+  }
+
+  /* ---- Servicios especializados (títol) ---- */
+  .srv-others {
+    margin-top: 0;
+    padding-top: var(--space-8);
+    padding-bottom: 0;
+  }
+
+  .srv-others .block2-f__accent-line {
+    margin-bottom: 28px;
+  }
+
+  .srv-others h2 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 0;
+  }
+
+  /* Títol -> primera franja: 28px (el padding-top de la franja era 32px). */
+  .srv-others + .srv-strip {
+    padding-top: 28px;
+  }
+
+  /* ---- Franges de servei ---- */
+  .srv-strip .content-section__split-inner {
+    gap: 28px;
+  }
+
+  .srv-strip .content-section__text h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 16px;
+  }
+
+  .srv-strip .content-section__text p {
+    margin: 0 0 8px;
+  }
+
+  .srv-strip .content-section__text p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* ---- Capacidad productiva: 2 columnes a mòbil (a 768px+ ja són 3 i 6) ---- */
+@media (max-width: 767px) {
+  .srv-capacity .srv-capacity__grid {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: var(--space-4);
+    row-gap: 28px;
+  }
+}
+
+/* ---- Franges de servei a mòbil (<768px): ordre títol, imatge, descripció,
+   tot centrat. Mateix truc que a Nuestras marcas: .content-section__text
+   passa a display:contents perquè el títol i els paràgrafs siguin fills
+   directes del .content-section__split-inner i es puguin reordenar amb
+   `order` (el DOM alterna imatge/text segons la franja, a desktop segueix
+   igual). Separació de 28px entre títol, imatge i text la fa el gap del
+   contenidor (28px, regla de dalt); entre paràgrafs consecutius, 8px. ---- */
+@media (max-width: 767px) {
+  /* Imatges amb versió pròpia per a mòbil (1200x500, proporció 2,4:1):
+     es veuen senceres, sense retallar-les a 16:9. */
+  .srv-strip .srv-strip__image--mb img {
+    aspect-ratio: 1200 / 500;
+  }
+
+  .srv-strip .content-section__text {
+    display: contents;
+  }
+
+  .srv-strip .content-section__text h3 {
+    order: 1;
+    width: 100%;
+    margin: 0;
+    text-align: center;
+  }
+
+  .srv-strip .content-section__image {
+    order: 2;
+  }
+
+  .srv-strip .content-section__text p {
+    order: 3;
+    width: 100%;
+    margin: 0;
+    text-align: center;
+  }
+
+  .srv-strip .content-section__text p + p {
+    margin-top: -20px;
+  }
+}
+
+/* "¿Quieres saber más?" — igual que el bloc "¿Hablamos?" de la Home en mòbil
+   (aquest fitxer no importa els seus CSS): títol 28px/800, padding 96px ->
+   64px i CTA com a enllaç de text amb "›". Única diferència amb la Home: sense
+   marge superior (queda enganxat a la franja de Subvenciones, regla amb id de
+   més amunt), a mòbil i a desktop. */
+@media (max-width: 767px) {
+  .contact-alt.contact-alt--photo h2 {
+    font-size: 28px;
+    font-weight: 800;
+  }
+
+  .contact-alt.contact-alt--photo {
+    padding-top: var(--space-16);
+    padding-bottom: var(--space-16);
+  }
+
+  .contact-alt .btn {
+    display: inline-block;
+    background: none;
+    border: none;
+    padding: 0;
+    border-radius: 0;
+    font-size: 17px;
+    font-weight: 300;
+    text-transform: none;
+    letter-spacing: normal;
+    color: #fff;
+  }
+
+  .contact-alt .btn:hover {
+    opacity: 0.8;
+  }
+
+  .contact-alt .btn::after {
+    content: ' \203A';
+    margin-left: var(--space-1, 4px);
+    font-weight: 400;
+  }
+}
