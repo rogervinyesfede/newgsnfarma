@@ -6,12 +6,12 @@ import '../styles/pages/block3-compare.css';
 import '../styles/pages/subpage-hero-compare.css';
 import '../styles/pages/quienes-somos-body-compare.css';
 
-// PROVES MÒBIL de "Así sumamos salud": les 3 propostes comparteixen aquestes dades
-// (les mateixes que la secció actual, que es manté sense canvis).
+// Dades dels blocs de mòbil (.qs-m*). Els blocs de desktop porten el seu text directament al marcat.
 const areas = [
   {
     title: 'Servicios Farmacéuticos',
     img: '/images/about_services.jpg',
+    imgMb: '/images/about_services_mb.jpg',
     alt: 'Científica trabajando con microscopio en el laboratorio',
     muted: 'block2-f__image--muted',
     text: 'Unidad industrial con 17.000 m² para ofrecer servicios integrales en desarrollo, fabricación, aseguramiento de calidad, asuntos regulatorios y logística para productos regulados.',
@@ -21,6 +21,7 @@ const areas = [
   {
     title: 'Marcas Propias',
     img: '/images/about_brands.jpg',
+    imgMb: '/images/about_brands_mb.jpg',
     alt: 'Mano sosteniendo iconos de productos de salud, representando el portafolio de marcas propias',
     muted: 'block2-f__image--muted block2-f__image--muted-strong',
     text: 'Desarrollamos y comercializamos un portafolio de salud transversal, con medicamentos y productos de salud humana y animal, impulsados por la innovación y el rigor farmacéutico.',
@@ -28,16 +29,14 @@ const areas = [
     cta: 'Ver todas las marcas',
   },
 ];
-// PROVES MÒBIL del bloc "Una unión que suma...": dades idèntiques a les de la secció actual.
 const union = {
   title: 'Una unión que suma experiencia y especialización',
   items: [
     { n: '30+', logo: '/images/gsn_farma_logo_cropped.png', alt: 'GSN Farma Labs', text: 'Más de 30 años de experiencia en el desarrollo, registro, fabricación y comercialización de productos de salud humana y animal.' },
-    { n: '20+', logo: '/images/coetus_logo.png', alt: 'CoetusPharma', text: 'Más de 20 años especializado en desarrollo, registro y comercialización de medicamentos con proyección internacional.' },
+    { n: '20+', logo: '/images/coetus_logo_cropped.png', alt: 'CoetusPharma', text: 'Más de 20 años especializado en desarrollo, registro y comercialización de medicamentos con proyección internacional.' },
   ],
   footer: 'Juntos formamos un grupo farmacéutico integral, combinando infraestructura industrial, conocimiento farmacéutico y construcción de marcas con propósito.',
 };
-// PROVES MÒBIL del bloc One Health: mateix contingut que la secció actual (que es manté).
 const oh = {
   title: 'One Health:<br />el propósito que nos guía',
   p1: 'Trabajamos bajo los más altos estándares de calidad y adoptamos el modelo <strong>One Health</strong> como visión transversal: una salud integrada, sostenible y conectada entre personas, animales y entorno.',
@@ -45,9 +44,6 @@ const oh = {
   img: '/images/one_health_gsnfarma4.jpg',
   alt: 'Familia con su mascota en casa y manos sosteniendo una planta, símbolo del enfoque One Health',
 };
-// PROVES MÒBIL del primer bloc (títol "Grupo farmacéutico con más de 30 años..."): mateix contingut que la
-// secció actual (que es manté).
-// PROVES MÒBIL de la capçalera (imatge + títol): mateix contingut que la capçalera actual (que es manté).
 const hero = {
   l1: 'Sumamos experiencia,',
   l2: 'sumamos salud',
@@ -71,69 +67,22 @@ const areasIntro = 'GSN Farma Labs Group estructura su actividad en dos grandes 
       loading="eager"
     />
     <div class="subpage-hero-e__scrim"></div>
-    <p class="compare-tag subpage-hero-e__tag qs-prop-tag">ACTUAL · capçalera de 180px</p>
     <div class="subpage-hero-e__inner">
-      <h1>Sumamos experiencia,<br class="br-mobile" /> sumamos salud</h1>
+      <h1>Sumamos experiencia, sumamos salud</h1>
     </div>
   </section>
 
-  {/* ===== PROVES MÒBIL COMBINADES: capçalera (imatge + títol) + primer bloc (títol + subtítol) en una sola peça (només <900px) ===== */}
+  {/* ===== Capçalera + primer bloc, versió MÒBIL (<900px): imatge, títol de pàgina, línia blava, subtítol i text
+       en una sola peça. A mòbil substitueix la capçalera i el primer bloc de sota (que s'amaguen); a desktop
+       només es veuen aquests dos i aquesta peça queda amagada. ===== */}
 
-  {/* COMBINADA 2B — Igual que la 2, però la línia blava va entre el títol i el subtítol */}
-  <section class="qs-prop qs-cb qs-cb--sheet qs-cb--sheet-mid">
-    <div class="container qs-cb__tagrow">
-      <p class="compare-tag">PROVA MÒBIL COMBINADA 2B · Fulla blanca, amb la línia blava entre el títol i el subtítol</p>
-    </div>
-    <div class="qs-cb__img"><img src={hero.img} alt="" loading="lazy" /></div>
-    <div class="qs-cb__sheet">
-      <p class="qs-cb__title"><span>{hero.l1}</span><span>{hero.l2}</span></p>
-      <span class="qs-cb__bar" aria-hidden="true"></span>
-      <h2 class="qs-cb__sub">{intro.h2}</h2>
-      <p class="qs-cb__text">{intro.p}</p>
-    </div>
-  </section>
-
-  {/* COMBINADA 2B · imatge de 220px — igual que la 2B, amb la imatge més baixa */}
-  <section class="qs-prop qs-cb qs-cb--sheet qs-cb--sheet-mid qs-cb--img220">
-    <div class="container qs-cb__tagrow">
-      <p class="compare-tag">PROVA MÒBIL COMBINADA 2B · Igual, amb la imatge de 220px d'alt</p>
-    </div>
-    <div class="qs-cb__img"><img src={hero.img} alt="" loading="lazy" /></div>
-    <div class="qs-cb__sheet">
-      <p class="qs-cb__title"><span>{hero.l1}</span><span>{hero.l2}</span></p>
-      <span class="qs-cb__bar" aria-hidden="true"></span>
-      <h2 class="qs-cb__sub">{intro.h2}</h2>
-      <p class="qs-cb__text">{intro.p}</p>
-    </div>
-  </section>
-
-  {/* COMBINADA 2B · imatge de 180px — igual que la 2B, amb la imatge més baixa */}
-  <section class="qs-prop qs-cb qs-cb--sheet qs-cb--sheet-mid qs-cb--img180">
-    <div class="container qs-cb__tagrow">
-      <p class="compare-tag">PROVA MÒBIL COMBINADA 2B · Igual, amb la imatge de 180px d'alt</p>
-    </div>
-    <div class="qs-cb__img"><img src={hero.img} alt="" loading="lazy" /></div>
-    <div class="qs-cb__sheet">
-      <p class="qs-cb__title"><span>{hero.l1}</span><span>{hero.l2}</span></p>
-      <span class="qs-cb__bar" aria-hidden="true"></span>
-      <h2 class="qs-cb__sub">{intro.h2}</h2>
-      <p class="qs-cb__text">{intro.p}</p>
-    </div>
-  </section>
-
-  {/* COMBINADA 2C — Igual que la 2B, però el text (subtítol i paràgraf) va sobre un fons navy */}
-  <section class="qs-prop qs-cb qs-cb--sheet qs-cb--sheet-mid qs-cb--sheet-navy">
-    <div class="container qs-cb__tagrow">
-      <p class="compare-tag">PROVA MÒBIL COMBINADA 2C · Fulla blanca amb el títol i el text sobre fons navy</p>
-    </div>
-    <div class="qs-cb__img"><img src={hero.img} alt="" loading="lazy" /></div>
-    <div class="qs-cb__sheet qs-cb__sheet--title">
-      <p class="qs-cb__title"><span>{hero.l1}</span><span>{hero.l2}</span></p>
-    </div>
-    <div class="qs-cb__navytext">
-      <span class="qs-cb__bar" aria-hidden="true"></span>
-      <h2 class="qs-cb__sub">{intro.h2}</h2>
-      <p class="qs-cb__text">{intro.p}</p>
+  <section class="qs-mhero">
+    <div class="qs-mhero__img"><img src={hero.img} alt="" loading="eager" /></div>
+    <div class="qs-mhero__sheet">
+      <h1 class="qs-mhero__title"><span>{hero.l1}</span><span>{hero.l2}</span></h1>
+      <span class="qs-mhero__bar" aria-hidden="true"></span>
+      <h2 class="qs-mhero__sub">{intro.h2}</h2>
+      <p class="qs-mhero__text">{intro.p}</p>
     </div>
   </section>
 
@@ -142,7 +91,6 @@ const areasIntro = 'GSN Farma Labs Group estructura su actividad en dos grandes 
   <section class="qs-intro-centered">
     <div class="container">
       <div class="qs-intro-centered__inner">
-        <p class="compare-tag qs-prop-tag">ACTUAL · línia blava, títol i text centrats</p>
         <div class="block2-f__accent-line block2-f__accent-line--centered"></div>
         <h2>Grupo farmacéutico con más de 30 años de experiencia, visión global y ADN farmacéutico</h2>
         <p>
@@ -159,7 +107,6 @@ const areasIntro = 'GSN Farma Labs Group estructura su actividad en dos grandes 
 
   <section class="qs-union-stats">
     <div class="container">
-      <p class="compare-tag qs-prop-tag">ACTUAL · targetes blanques amb el text a l'esquerra</p>
       <div class="qs-union-stats__intro">
         <h2>Una unión que suma experiencia y especialización</h2>
       </div>
@@ -188,75 +135,12 @@ const areasIntro = 'GSN Farma Labs Group estructura su actividad en dos grandes 
     </div>
   </section>
 
-  {/* ===== PROVES MÒBIL del bloc "Una unión que suma..." (només <900px) ===== */}
+  {/* ===== "Una unión que suma...", versió MÒBIL (<900px): línia de temps amb el logo al costat del número, sobre
+       fons gris. A mòbil substitueix la secció de sota (.qs-union-stats, que s'amaga); a desktop és al revés. ===== */}
 
-  {/* UNIÓ 2 — Banda navy amb xifres grans en cian (el logo en blanc) */}
-  <section class="qs-prop qs-un qs-un--band">
+  <section class="qs-munio">
     <div class="container">
-      <p class="compare-tag">PROVA MÒBIL UNIÓ 2 · Banda navy amb xifres grans</p>
-      <h2 class="qs-un__title">{union.title}</h2>
-      <div class="qs-band">
-        {union.items.map((it) => (
-          <div class="qs-band__row">
-            <span class="qs-band__num">{it.n}</span>
-            <div class="qs-band__body">
-              <img class="qs-band__logo" src={it.logo} alt={it.alt} loading="lazy" />
-              <p>{it.text}</p>
-            </div>
-          </div>
-        ))}
-        <p class="qs-band__footer">{union.footer}</p>
-      </div>
-    </div>
-  </section>
-
-  {/* UNIÓ 2B — Igual que la 2, però amb el fons gris actual i els números en el color actual (#00829C) */}
-  <section class="qs-prop qs-un qs-un--band qs-un--band-light">
-    <div class="container">
-      <p class="compare-tag">PROVA MÒBIL UNIÓ 2B · Xifres grans amb el fons i el color actuals</p>
-      <h2 class="qs-un__title">{union.title}</h2>
-      <div class="qs-band">
-        {union.items.map((it) => (
-          <div class="qs-band__row">
-            <span class="qs-band__num">{it.n}</span>
-            <div class="qs-band__body">
-              <img class="qs-band__logo" src={it.logo} alt={it.alt} loading="lazy" />
-              <p>{it.text}</p>
-            </div>
-          </div>
-        ))}
-        <p class="qs-band__footer">{union.footer}</p>
-      </div>
-    </div>
-  </section>
-
-  {/* UNIÓ 3 — Línia de temps vertical que acaba en el grup */}
-  <section class="qs-prop qs-un qs-un--timeline">
-    <div class="container">
-      <p class="compare-tag">PROVA MÒBIL UNIÓ 3 · Línia de temps vertical</p>
-      <h2 class="qs-un__title">{union.title}</h2>
-      <ol class="qs-tl">
-        {union.items.map((it) => (
-          <li class="qs-tl__item">
-            <span class="qs-tl__dot" aria-hidden="true"></span>
-            <span class="qs-tl__num">{it.n}</span>
-            <img class="qs-tl__logo" src={it.logo} alt={it.alt} loading="lazy" />
-            <p>{it.text}</p>
-          </li>
-        ))}
-        <li class="qs-tl__item qs-tl__item--end">
-          <span class="qs-tl__dot qs-tl__dot--end" aria-hidden="true"></span>
-          <p>{union.footer}</p>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  {/* UNIÓ 3B — Igual que la 3, però el logo de cada empresa va al costat del número */}
-  <section class="qs-prop qs-un qs-un--timeline qs-un--timeline-inline">
-    <div class="container">
-      <p class="compare-tag">PROVA MÒBIL UNIÓ 3B · Línia de temps amb el logo al costat del número</p>
-      <h2 class="qs-un__title">{union.title}</h2>
+      <h2 class="qs-munio__title">{union.title}</h2>
       <ol class="qs-tl qs-tl--inline">
         {union.items.map((it) => (
           <li class="qs-tl__item">
@@ -280,12 +164,8 @@ const areasIntro = 'GSN Farma Labs Group estructura su actividad en dos grandes 
 
   <section class="block2-f block3-d__row--50-50 block3-d__row--onehealth qs-onehealth-home">
     <div class="container">
-      <p class="compare-tag qs-prop-tag">ACTUAL · títol, imatge i text centrats</p>
       <div class="block2-f__image block2-f__image--muted onehealth-image">
-        <picture>
-          <source media="(max-width: 899px)" srcset="/images/one_health_gsnfarma_mb.jpg" />
-          <img src="/images/one_health_gsnfarma4.jpg" alt="Familia con su mascota en casa y manos sosteniendo una planta, símbolo del enfoque One Health" loading="lazy" />
-        </picture>
+        <img src="/images/one_health_gsnfarma4.jpg" alt="Familia con su mascota en casa y manos sosteniendo una planta, símbolo del enfoque One Health" loading="lazy" />
       </div>
       <div class="block2-f__text">
         <div class="block2-f__accent-line"></div>
@@ -305,34 +185,20 @@ const areasIntro = 'GSN Farma Labs Group estructura su actividad en dos grandes 
     </div>
   </section>
 
-  {/* ===== PROVES MÒBIL del bloc One Health (només <900px) ===== */}
+  {/* ===== One Health, versió MÒBIL (<900px): foto amb el títol i la línia blava a sobre i una fulla blanca arrodonida
+       amb el text. A mòbil substitueix el bloc de sobre (.qs-onehealth-home, que s'amaga); a desktop és al revés. ===== */}
 
-  {/* ONE HEALTH 1 — Imatge a pantalla completa amb el títol a sobre; text a sota, a l'esquerra */}
-  <section class="qs-prop qs-oh qs-oh--hero">
-    <div class="container qs-oh__tagrow">
-      <p class="compare-tag">PROVA MÒBIL ONE HEALTH 1 · Imatge a pantalla completa amb el títol a sobre</p>
-    </div>
-    <div class="qs-oh__hero">
+  <section class="qs-moh">
+    <div class="qs-moh__photo">
       <img src={oh.img} alt={oh.alt} loading="lazy" />
-      <h2 set:html={oh.title}></h2>
-    </div>
-    <div class="container qs-oh__body">
-      <p class="qs-oh__lead" set:html={oh.p1}></p>
-      <p set:html={oh.p2}></p>
-    </div>
-  </section>
-
-  {/* ONE HEALTH 3 — Targeta superposada sobre la imatge */}
-  <section class="qs-prop qs-oh qs-oh--overlap">
-    <div class="container">
-      <p class="compare-tag">PROVA MÒBIL ONE HEALTH 3 · Targeta superposada sobre la imatge</p>
-      <div class="qs-oh__photo"><img src={oh.img} alt={oh.alt} loading="lazy" /></div>
-      <div class="qs-oh__card">
-        <div class="block2-f__accent-line"></div>
+      <div class="qs-moh__over">
         <h2 set:html={oh.title}></h2>
-        <p set:html={oh.p1}></p>
-        <p set:html={oh.p2}></p>
+        <span class="qs-moh__bar" aria-hidden="true"></span>
       </div>
+    </div>
+    <div class="qs-moh__sheet">
+      <p class="qs-moh__lead" set:html={oh.p1}></p>
+      <p set:html={oh.p2}></p>
     </div>
   </section>
 
@@ -340,7 +206,6 @@ const areasIntro = 'GSN Farma Labs Group estructura su actividad en dos grandes 
 
   <section class="qs-areas qs-areas--grey">
     <div class="container">
-      <p class="compare-tag qs-prop-tag">ACTUAL · targetes amb ombra i text a l'esquerra</p>
       <div class="block2-f__accent-line"></div>
       <h2>Así sumamos salud</h2>
       <p>
@@ -364,7 +229,6 @@ const areasIntro = 'GSN Farma Labs Group estructura su actividad en dos grandes 
               <span class="block2-f__cta-icon">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1b2435" stroke-width="2.4"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
               </span>
-              <span class="block2-f__cta-arrow" aria-hidden="true">›</span>
               <span>Ver todos los servicios</span>
             </a>
           </div>
@@ -384,7 +248,6 @@ const areasIntro = 'GSN Farma Labs Group estructura su actividad en dos grandes 
               <span class="block2-f__cta-icon">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1b2435" stroke-width="2.4"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
               </span>
-              <span class="block2-f__cta-arrow" aria-hidden="true">›</span>
               <span>Ver todas las marcas</span>
             </a>
           </div>
@@ -393,145 +256,32 @@ const areasIntro = 'GSN Farma Labs Group estructura su actividad en dos grandes 
     </div>
   </section>
 
-  {/* ===== PROVES MÒBIL — 3 presentacions alternatives de "Así sumamos salud" (només <900px) ===== */}
+  {/* ===== "Así sumamos salud", versió MÒBIL (<900px): tancament navy amb cantonades superiors arrodonides, introducció
+       a l'esquerra amb la línia blava i dues targetes immersives amb el CTA en text amb ">". A mòbil substitueix el bloc
+       de sobre (.qs-areas, que s'amaga); a desktop és al revés. ===== */}
 
-  {/* PROVA 2 — Franges alternes gris/blanc, a tot l'ample (estil Servicios i Nuestras marcas) */}
-  <section class="qs-prop qs-prop--strips-intro">
-    <div class="container">
-      <p class="compare-tag">PROVA MÒBIL 2 · Franges alternes gris/blanc (estil Servicios i Nuestras marcas)</p>
-      <div class="qs-prop__intro">
-        <div class="block2-f__accent-line"></div>
-        <h2>Así sumamos salud</h2>
-        <p set:html={areasIntro}></p>
-      </div>
+  <section class="qs-mas">
+    <div class="container qs-mas__intro">
+      <h2>Así sumamos salud</h2>
+      <span class="qs-mas__bar" aria-hidden="true"></span>
+      <p set:html={areasIntro}></p>
     </div>
-  </section>
-  {areas.map((a, i) => (
-    <section class={`qs-prop qs-prop--strip ${i % 2 === 1 ? 'qs-prop--strip-grey' : ''}`}>
-      <div class="container">
-        <article class="qs-prop__item">
-          <h3>{a.title}</h3>
-          <div class={`qs-prop__img ${a.muted}`}><img src={a.img} alt={a.alt} loading="lazy" /></div>
-          <p>{a.text}</p>
-          <a href={a.href} class="block2-f__cta">
-              <span class="block2-f__cta-icon">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1b2435" stroke-width="2.4"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-              </span>
-              <span class="block2-f__cta-arrow" aria-hidden="true">›</span>
-              <span>{a.cta}</span>
-            </a>
-        </article>
-      </div>
-    </section>
-  ))}
-
-  {/* PROVA 3 — Banner amb el títol sobre la imatge (estil capçalera de pàgina), text i CTA a sota */}
-  <section class="qs-prop qs-prop--banner">
-    <div class="container">
-      <p class="compare-tag">PROVA MÒBIL 3 · Banner amb el títol sobre la imatge (estil capçalera)</p>
-      <div class="qs-prop__intro">
-        <div class="block2-f__accent-line"></div>
-        <h2>Así sumamos salud</h2>
-        <p set:html={areasIntro}></p>
-      </div>
+    <div class="container qs-mas__cards">
       {areas.map((a) => (
-        <article class="qs-prop__item">
-          <div class={`qs-prop__banner ${a.muted}`}>
-            <img src={a.img} alt={a.alt} loading="lazy" />
-            <h3>{a.title}</h3>
-          </div>
-          <p>{a.text}</p>
-          <a href={a.href} class="block2-f__cta">
-              <span class="block2-f__cta-icon">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1b2435" stroke-width="2.4"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-              </span>
-              <span class="block2-f__cta-arrow" aria-hidden="true">›</span>
-              <span>{a.cta}</span>
-            </a>
-        </article>
-      ))}
-    </div>
-  </section>
-
-  {/* PROVA 3B — Igual que la 3 (títol sobre la imatge), però cada àrea dins d'una targeta */}
-  <section class="qs-prop qs-prop--banner-cards">
-    <div class="container">
-      <p class="compare-tag">PROVA MÒBIL 3B · Banner amb el títol sobre la imatge, en targetes</p>
-      <div class="qs-prop__intro">
-        <div class="block2-f__accent-line"></div>
-        <h2>Así sumamos salud</h2>
-        <p set:html={areasIntro}></p>
-      </div>
-      <div class="qs-prop__cards">
-        {areas.map((a) => (
-          <article class="qs-prop__card">
-            <div class={`qs-prop__banner ${a.muted}`}>
+        <a class="qs-mas__card" href={a.href}>
+          <span class={`qs-mas__img ${a.muted}`}>
+            <picture>
+              <source media="(max-width: 767px)" srcset={a.imgMb} />
               <img src={a.img} alt={a.alt} loading="lazy" />
-              <h3>{a.title}</h3>
-            </div>
-            <div class="qs-prop__card-body">
-              <p>{a.text}</p>
-              <a href={a.href} class="block2-f__cta">
-                <span class="block2-f__cta-icon">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1b2435" stroke-width="2.4"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                </span>
-                <span class="block2-f__cta-arrow" aria-hidden="true">›</span>
-                <span>{a.cta}</span>
-              </a>
-            </div>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  {/* ===== PROVES MÒBIL NOVES (4 i 4B): propostes modernes, independents de la resta de pàgines ===== */}
-
-  {/* PROVA 4 — Targetes immersives: imatge gran i el text a sobre, botó en píndola */}
-  <section class="qs-prop qs-prop--immersive">
-    <div class="container">
-      <p class="compare-tag">PROVA MÒBIL 4 · Targetes immersives (imatge gran amb el text a sobre)</p>
-      <div class="qs-prop__intro">
-        <div class="block2-f__accent-line"></div>
-        <h2>Así sumamos salud</h2>
-        <p set:html={areasIntro}></p>
-      </div>
-      <div class="qs-im-list">
-        {areas.map((a) => (
-          <a class="qs-im" href={a.href}>
-            <span class={`qs-im__img ${a.muted}`}><img src={a.img} alt={a.alt} loading="lazy" /></span>
-            <span class="qs-im__body">
-              <h3>{a.title}</h3>
-              <p>{a.text}</p>
-              <span class="qs-pill">{a.cta} <span class="qs-pill__arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></span>
-            </span>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  {/* PROVA 4B — Igual que la 4, però el CTA és un enllaç de text amb ">" (sense requadres) */}
-  <section class="qs-prop qs-prop--immersive qs-prop--immersive-link">
-    <div class="container">
-      <p class="compare-tag">PROVA MÒBIL 4B · Targetes immersives, amb el CTA en estil "›" (sense requadres)</p>
-      <div class="qs-prop__intro">
-        <div class="block2-f__accent-line"></div>
-        <h2>Así sumamos salud</h2>
-        <p set:html={areasIntro}></p>
-      </div>
-      <div class="qs-im-list">
-        {areas.map((a) => (
-          <a class="qs-im" href={a.href}>
-            <span class={`qs-im__img ${a.muted}`}><img src={a.img} alt={a.alt} loading="lazy" /></span>
-            <span class="qs-im__body">
-              <h3>{a.title}</h3>
-              <p>{a.text}</p>
-              <span class="qs-im__link">{a.cta}<span class="qs-im__link-arrow" aria-hidden="true">›</span></span>
-            </span>
-          </a>
-        ))}
-      </div>
+            </picture>
+          </span>
+          <span class="qs-mas__body">
+            <h3>{a.title}</h3>
+            <p>{a.text}</p>
+            <span class="qs-mas__link">{a.cta}<span class="qs-mas__link-arrow" aria-hidden="true">›</span></span>
+          </span>
+        </a>
+      ))}
     </div>
   </section>
 

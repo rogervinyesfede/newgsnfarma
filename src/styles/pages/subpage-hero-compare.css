@@ -204,38 +204,26 @@
   text-align: left;
 }
 
-/* Salt de línia només per a mòbil (<900px) dins d'un H1 de capçalera: a
-   desktop queda amagat i el text es reparteix sol. Ha d'anar ABANS del media
-   query: mateixa especificitat, i guanya la regla que va després. */
-.subpage-hero-e .br-mobile {
-  display: none;
-}
-
-/* PROVA — mòbil, pàgines Contacto, Internacional, Nuestras marcas, Quiénes
-   somos i Servicios: capçalera més baixa (300px -> 200px) i H1 igualat al del
-   hero de vídeo de la home (28px/800). Cada pàgina té la seva classe
-   (.subpage-hero-e--xxx, 2a classe) perquè no afecti les altres pàgines que
-   reutilitzen .subpage-hero-e (polítiques legals...). */
+/* Mòbil, pàgines Contacto, Internacional, Nuestras marcas i Servicios:
+   capçalera més baixa (300px -> 180px) i H1 igualat al del hero de vídeo de la
+   home (28px/800). Cada pàgina té la seva classe (.subpage-hero-e--xxx, 2a
+   classe) perquè no afecti les altres pàgines que reutilitzen .subpage-hero-e
+   (polítiques legals...). Quiénes somos té a mòbil la seva pròpia capçalera
+   (.qs-mhero) i aquesta s'hi amaga. */
 @media (max-width: 899px) {
   .subpage-hero-e--contacto,
   .subpage-hero-e--internacional,
   .subpage-hero-e--nuestras-marcas,
-  .subpage-hero-e--quienes-somos,
   .subpage-hero-e--servicios {
-    height: 180px; /* PROVA: 200px -> 180px */
+    height: 180px;
   }
 
   .subpage-hero-e--contacto h1,
   .subpage-hero-e--internacional h1,
   .subpage-hero-e--nuestras-marcas h1,
-  .subpage-hero-e--quienes-somos h1,
   .subpage-hero-e--servicios h1 {
     font-size: 28px;
     font-weight: 800;
-  }
-
-  .subpage-hero-e .br-mobile {
-    display: inline;
   }
 }
 
@@ -255,22 +243,8 @@
   }
 }
 
-/* Quiénes somos: mateixa foto i mateix problema, però el títol hi fa 2
-   línies (més alt). Un % fix no serveix: el rètol quedava a alçades molt
-   diferents segons l'ample del mòbil (tallat per dalt a 430px, xocant a 320px).
-   Per això l'enquadrament es calcula amb l'ample (vw): el rètol "GSN FARMA" és
-   al 44% de l'alçada de la foto, que a mòbil fa 0,949 x vw d'alt; el
-   desplaçament (0,44 x 0,949 x vw = 41,76vw, menys 12px) deixa el rètol sempre
-   a 12px del cantó superior, per sobre del títol. Límit <=540px (el títol de
-   2 línies arriba a ~270px d'ample i el rètol no hi deixa de xocar fins a
-   ~530px); per sobre, 45% de sempre. */
+/* Quiénes somos (desktop): enquadrament de la foto. A mòbil no s'usa. */
 .subpage-hero-e--quienes-somos img {
   object-position: center 45%;
-}
-
-@media (max-width: 540px) {
-  .subpage-hero-e--quienes-somos img {
-    object-position: 50% calc(12px - 41.76vw);
-  }
 }
 

@@ -1,17 +1,7 @@
-/* Bloc temporal de comparació — cos de la pàgina "Quiénes somos" (nova estructura).
-   Eliminar quan es triï la versió definitiva. */
-
-.compare-tag {
-  text-align: center;
-  background: var(--color-primary);
-  color: #fff;
-  font-weight: 700;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: var(--space-2);
-  margin: 0;
-}
+/* Cos de la pàgina "Quiénes somos".
+   Desktop (>=900px): blocs .qs-intro-centered, .qs-union-stats, .qs-onehealth-home i .qs-areas.
+   Mòbil (<900px): aquests blocs s'amaguen i els substitueixen .qs-mhero, .qs-munio, .qs-moh i
+   .qs-mas (al final del fitxer), cadascun amb el seu display:none per defecte. */
 
 /* ---------- Intro — centrada, estil "Nuestras marcas"/"Internacional" ---------- */
 .qs-intro-centered {
@@ -53,7 +43,7 @@
 }
 
 
-/* ---------- Unió Proposta 2 — xifres destacades ---------- */
+/* ---------- Unió — xifres destacades (desktop) ---------- */
 .qs-union-stats {
   background: #eeeeec;
   padding-block: var(--space-16);
@@ -107,7 +97,7 @@
   font-weight: 800;
   font-size: clamp(2.5rem, 6vw, 3.5rem);
   line-height: 1;
-  color: var(--color-accent-dark); /* PROVA: abans var(--color-accent) (#00dbff) */
+  color: var(--color-accent-dark);
   margin-bottom: var(--space-4);
 }
 
@@ -143,7 +133,7 @@
   }
 }
 
-/* ---------- One Health Proposta 4 — imatge + text (estil idèntic al bloc "One Health" de la
+/* ---------- One Health (desktop) — imatge + text (estil idèntic al bloc "One Health" de la
    home: mateixes classes block3-d__row--onehealth, només sobreescrivim el fons a blanc perquè
    aquí va just després del bloc d'unió (gris) i el marge superior perquè no va enganxat a un hero) ---------- */
 .qs-onehealth-home.block2-f.block3-d__row--onehealth {
@@ -165,7 +155,7 @@
   }
 }
 
-/* ---------- Àrees de negocio Proposta 2/3 — variants clares (reutilitzen l'accent-line +
+/* ---------- Àrees de negocio (desktop) — variants clares (reutilitzen l'accent-line +
    la graella de targetes del bloc actual, però amb fons clar i targetes destacades) ---------- */
 .qs-areas {
   padding-block: var(--space-16);
@@ -268,615 +258,125 @@
 }
 
 /* ============================================================
-   MÒBIL (<900px) — mateixos criteris que la resta de pàgines
-   (Home, Internacional, Nuestras marcas, Contacto):
-   - Títols de bloc 28px/800; títols secundaris (targetes) 22px/800;
-     paràgrafs 17px; CTA com a la Home (sense icona en requadre, 16px
-     negreta i fletxa "›").
-   - Blocs: 32px de padding a dalt i a baix i 0 de marge entre ells.
-   - Línia blava -> títol 28px; entre elements apilats 28px; entre
-     paràgrafs consecutius 8px; títol -> paràgraf d'una intro 16px.
-   Va al final del fitxer i amb especificitat reforçada perquè guanyi a
-   les regles base d'aquí i dels CSS compartits, independentment de
-   l'ordre de bundling en producció.
+   Capçalera + primer bloc en MÒBIL (<900px): una sola peça (.qs-mhero) —
+   imatge de 220px i una fulla blanca arrodonida que li puja 32px per sobre,
+   amb el títol de pàgina, la línia blava, el subtítol i el text, tot alineat
+   a l'esquerra. A mòbil substitueix la capçalera (.subpage-hero-e) i el
+   primer bloc (.qs-intro-centered), que s'amaguen; a desktop és al revés.
    ============================================================ */
-
-/* La imatge de One Health usa <picture> (versió pròpia per a mòbil, la mateixa
-   que la Home): no ha de generar caixa pròpia perquè la <img> es comporti
-   igual que abans a tots els amples. */
-.qs-onehealth-home .block2-f__image picture {
-  display: contents;
-}
-
-/* La fletxa "›" del CTA només es mostra en mòbil (va ABANS del media
-   query: mateixa especificitat que la regla de mòbil, guanya la darrera). */
-.qs-areas .block2-f__cta-arrow {
+.qs-mhero {
   display: none;
 }
 
 @media (max-width: 899px) {
-  /* ---- 1. Intro ---- */
-  .qs-intro-centered {
-    padding-block: var(--space-8);
-  }
-
-  .qs-intro-centered .qs-intro-centered__inner .block2-f__accent-line {
-    margin-bottom: 28px;
-  }
-
-  .qs-intro-centered .qs-intro-centered__inner h2 {
-    font-size: 28px;
-    font-weight: 800;
-  }
-
-  /* ---- 2. Unión Coetus + GSN ---- */
-  .qs-union-stats {
-    padding-block: var(--space-8);
-  }
-
-  .qs-union-stats .qs-union-stats__intro {
-    margin-bottom: 28px;
-  }
-
-  .qs-union-stats .qs-union-stats__intro h2 {
-    font-size: 24px;
-    font-weight: 700;
-  }
-
-  .qs-union-stats .qs-union-stats__grid {
-    gap: 28px;
-  }
-
-  .qs-union-stats .qs-union-stats__card p {
-    font-size: 17px;
-    text-align: center;
-  }
-
-  .qs-union-stats .qs-union-stats__footer {
-    margin-top: 28px;
-  }
-
-  /* ---- 3. One Health ----
-     Ordre a mòbil (com els blocs de la Home i de Servicios): línia blava,
-     títol, imatge i text. La imatge és al DOM abans del text, així que el bloc
-     de text es "desmunta" (display:contents) perquè línia, títol i paràgrafs
-     siguin fills directes del .container flex i es puguin reordenar amb
-     `order`. Tota la separació la fa el gap de 28px del container (sense
-     marges propis); entre paràgrafs consecutius, 8px (28 - 20 de marge
-     negatiu). La imatge és la de la Home (one_health_gsnfarma_mb, 311x200):
-     proporció 311/200 en lloc dels 320px fixos. padding-inline:0 -> marges
-     laterals de 16px (només els del .container), com la resta de la pàgina. */
-  .qs-onehealth-home.block2-f.block3-d__row--onehealth {
-    margin-top: 0;
-    padding-block: var(--space-8);
-    padding-inline: 0;
-  }
-
-  .qs-onehealth-home.block2-f.block3-d__row--onehealth .container {
-    gap: 28px;
-  }
-
-  .qs-onehealth-home.block2-f.block3-d__row--onehealth .block2-f__text {
-    display: contents;
-  }
-
-  .qs-onehealth-home.block2-f.block3-d__row--onehealth .block2-f__accent-line {
-    order: 1;
-    margin: 0;
-  }
-
-  .qs-onehealth-home.block2-f.block3-d__row--onehealth .block2-f__text h2 {
-    order: 1;
-    font-size: 24px;
-    font-weight: 700;
-    margin: 0;
-  }
-
-  .qs-onehealth-home.block2-f.block3-d__row--onehealth .block2-f__image {
-    order: 2;
-    margin: 0;
-    height: auto;
-    aspect-ratio: 311 / 200;
-  }
-
-  .qs-onehealth-home.block2-f.block3-d__row--onehealth .block2-f__text p {
-    order: 3;
-    margin: 0;
-  }
-
-  .qs-onehealth-home.block2-f.block3-d__row--onehealth .block2-f__text p + p {
-    margin-top: -20px;
-  }
-
-  /* ---- 4. Áreas de negocio ---- */
-  .qs-areas.qs-areas--grey {
-    margin-top: 0;
-    padding-block: var(--space-8);
-  }
-
-  .qs-areas.qs-areas--grey .block2-f__accent-line {
-    margin-bottom: 28px;
-  }
-
-  .qs-areas.qs-areas--grey > .container > h2 {
-    font-size: 24px;
-    font-weight: 700;
-    margin-bottom: 16px;
-  }
-
-  .qs-areas.qs-areas--grey .qs-areas__grid {
-    margin-top: 28px;
-    gap: 28px;
-  }
-
-  .qs-areas.qs-areas--grey .qs-areas__card-body {
-    gap: 16px;
-  }
-
-  /* Marges propis a 0: la separació entre títol, text i CTA la fa només el
-     gap de 16px de .qs-areas__card-body (si no, se sumen). */
-  .qs-areas.qs-areas--grey .qs-areas__card-body h3 {
-    font-size: 22px;
-    font-weight: 800;
-    margin: 0;
-    text-align: center;
-  }
-
-  .qs-areas.qs-areas--grey .qs-areas__card-body p {
-    font-size: 17px;
-    margin: 0;
-    text-align: center;
-  }
-
-  /* CTA de les targetes com a la Home en mòbil: sense icona en requadre,
-     16px negreta i fletxa "›" a 4px del text (el gap de 16px del CTA es
-     compensa amb un marge negatiu). Text -> CTA: 28px (16 de gap + 12). */
-  .qs-areas.qs-areas--grey .qs-areas__card-body .block2-f__cta {
-    margin-top: 12px;
-    justify-content: center;
-  }
-
-  .qs-areas.qs-areas--grey .block2-f__cta-icon {
+  section.subpage-hero-e.subpage-hero-e--quienes-somos,
+  section.qs-intro-centered {
     display: none;
   }
 
-  .qs-areas.qs-areas--grey .block2-f__cta-arrow {
-    display: inline;
-    order: 1;
-    margin-left: calc(var(--space-1, 4px) - var(--space-4));
-    font-weight: 400;
-    font-size: 16px;
-    text-decoration: none;
-  }
-
-  .qs-areas.qs-areas--grey .block2-f__cta:hover {
-    opacity: 0.8;
-  }
-}
-
-/* ============================================================
-   PROVES MÒBIL — 3 presentacions alternatives de "Así sumamos salud"
-   (Servicios Farmacéuticos / Marcas Propias). Només es veuen per sota de
-   900px; a desktop queden amagades i no afecten res. La secció actual
-   (.qs-areas) es manté sense canvis. Eliminar quan es triï la definitiva.
-   Mides com a la resta de pàgines en mòbil: títol de bloc 24px/700,
-   text 17px, CTA com a la Home (16px negreta + "›"), 28px entre elements.
-   ============================================================ */
-.qs-prop,
-.qs-prop-tag {
-  display: none;
-}
-
-@media (max-width: 899px) {
-  .qs-prop-tag {
+  .qs-mhero {
     display: block;
-    margin-bottom: var(--space-6);
+    margin-top: var(--header-height);
+    background: #fff;
   }
 
-  .qs-prop {
+  .qs-mhero__img {
+    height: 220px;
+  }
+
+  .qs-mhero__img img {
     display: block;
-    background: #eeeeec;
-    padding-block: var(--space-8);
-  }
-
-  .qs-prop .compare-tag {
-    margin-bottom: var(--space-6);
-  }
-
-  /* Intro (línia blava, títol, text): igual que la secció actual */
-  .qs-prop .qs-prop__intro {
-    text-align: center;
-    margin-bottom: 28px;
-  }
-
-  .qs-prop .qs-prop__intro .block2-f__accent-line {
-    margin: 0 auto 28px;
-  }
-
-  .qs-prop .qs-prop__intro h2 {
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--color-primary);
-    margin: 0 0 16px;
-  }
-
-  .qs-prop .qs-prop__intro p {
-    font-size: 17px;
-    line-height: 1.6;
-    color: #4b4b4b;
-    margin: 0;
-  }
-
-  /* Cada àrea: columna centrada, 28px entre elements */
-  .qs-prop .qs-prop__item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 28px;
-  }
-
-  .qs-prop .qs-prop__item + .qs-prop__item {
-    margin-top: 64px;
-  }
-
-  .qs-prop .qs-prop__item h3 {
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--color-primary);
-    margin: 0;
-  }
-
-  .qs-prop .qs-prop__img {
-    width: 100%;
-    aspect-ratio: 16 / 10;
-    border-radius: 4px;
-    overflow: hidden;
-  }
-
-  .qs-prop .qs-prop__img img,
-  .qs-prop .qs-prop__banner img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
   }
 
-  .qs-prop .qs-prop__item p {
-    font-size: 17px;
-    line-height: 1.6;
-    color: #4b4b4b;
-    margin: 0;
-  }
-
-  /* CTA com a la Home en mòbil */
-  .qs-prop .block2-f__cta {
-    justify-content: center;
-  }
-
-  .qs-prop .block2-f__cta-icon {
-    display: none;
-  }
-
-  .qs-prop .block2-f__cta-arrow {
-    display: inline;
-    order: 1;
-    margin-left: calc(var(--space-1, 4px) - var(--space-4));
-    font-weight: 400;
-    font-size: 16px;
-  }
-
-  .qs-prop .block2-f__cta span:last-child {
-    font-size: 16px;
-    font-weight: 700;
-  }
-
-  /* PROVA 2 — la intro va en una franja pròpia i cada àrea en la seva,
-     alternant blanc i gris a tot l'ample (com les franges de Servicios) */
-  .qs-prop--strips-intro .qs-prop__intro {
-    margin-bottom: 0;
-  }
-
-  .qs-prop--strip {
-    background: #fff;
-  }
-
-  .qs-prop--strip.qs-prop--strip-grey {
-    background: #eeeeec;
-  }
-
-  /* PROVA 3 — banner amb el títol sobre la imatge (com la capçalera de pàgina) */
-  .qs-prop .qs-prop__banner {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16 / 10;
-    border-radius: 4px;
-    overflow: hidden;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-  }
-
-  .qs-prop .qs-prop__banner img {
-    position: absolute;
-    inset: 0;
-  }
-
-  .qs-prop .qs-prop__banner::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(27, 36, 53, 0) 35%, rgba(27, 36, 53, 0.78) 100%);
-  }
-
-  .qs-prop .qs-prop__banner h3 {
+  .qs-mhero__sheet {
     position: relative;
     z-index: 1;
-    margin: 0;
-    font-size: 24px;
-    font-weight: 700;
-    color: #fff;
-    padding: 0 var(--space-4) 20px;
-  }
-}
-
-/* ============================================================
-   PROVES MÒBIL 4 (i 4B) — propostes modernes (només <900px; a desktop
-   queden amagades perquè les seccions .qs-prop ja són display:none).
-   Llenguatge propi: cantonades arrodonides (20px), ombres suaus, botó en
-   píndola navy amb cercle cian amb fletxa. Eliminar les que no es triïn.
-   ============================================================ */
-@media (max-width: 899px) {
-  /* Botó en píndola compartit */
-  .qs-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    padding: 6px 6px 6px 20px;
-    border-radius: 999px;
-    background: var(--color-primary);
-    color: #fff;
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 1.2;
-    text-decoration: none;
-  }
-
-  .qs-pill__arrow {
-    flex: none;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: var(--color-accent);
-    color: var(--color-primary);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  /* ---- PROVA 4 — Targetes immersives ---- */
-  .qs-prop.qs-prop--immersive {
-    background: #fff;
-  }
-
-  .qs-im-list {
     display: flex;
     flex-direction: column;
     gap: 16px;
+    margin-top: -32px;
+    padding: 28px var(--space-4) 32px;
+    border-radius: 28px 28px 0 0;
+    background: #fff;
   }
 
-  .qs-im {
-    position: relative;
-    display: flex;
-    align-items: flex-end;
-    min-height: 540px;
-    border-radius: 20px;
-    overflow: hidden;
-    color: #fff;
-    text-decoration: none;
+  /* Mida fluida: "Sumamos experiencia," ocupa ~10,7 x la mida de la lletra i no
+     s'ha de partir en dues línies en cap mòbil (320-430px). */
+  .qs-mhero .qs-mhero__title {
+    margin: 0;
+    font-size: clamp(26px, 8.3vw, 32px);
+    font-weight: 800;
+    line-height: 1.12;
+    color: var(--color-primary);
     text-align: left;
   }
 
-  .qs-im__img {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-  }
-
-  .qs-im__img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  .qs-mhero__title span {
     display: block;
   }
 
-  .qs-im::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    background: linear-gradient(180deg, rgba(27, 36, 53, 0) 20%, rgba(27, 36, 53, 0.9) 68%);
-  }
-
-  .qs-im__body {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-    padding: 24px;
-  }
-
-  .qs-im .qs-im__body h3 {
-    margin: 0;
-    font-size: 24px;
-    font-weight: 700;
-    color: #fff;
-  }
-
-  .qs-im .qs-im__body p {
-    margin: 0;
-    font-size: 17px;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.9);
-  }
-
-  .qs-im .qs-pill {
-    margin-top: 4px;
-    background: #fff;
-    color: var(--color-primary);
-  }
-
-  .qs-im .qs-pill .qs-pill__arrow {
+  .qs-mhero__bar {
+    display: block;
+    width: 48px;
+    height: 4px;
+    border-radius: 2px;
     background: var(--color-accent);
   }
-}
 
-/* PROVA MÒBIL 3B — banner amb el títol sobre la imatge, dins de targetes
-   (ombra com les targetes actuals, banner a dalt sense cantonades arrodonides
-   i cos amb el text i el CTA centrats). Només <900px. */
-@media (max-width: 899px) {
-  .qs-prop .qs-prop__cards {
-    display: flex;
-    flex-direction: column;
-    gap: 28px;
+  .qs-mhero .qs-mhero__sub {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--color-primary);
+    text-align: left;
   }
 
-  .qs-prop .qs-prop__card {
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    background: #fff;
-    box-shadow: var(--shadow-md);
-  }
-
-  .qs-prop .qs-prop__card .qs-prop__banner {
-    border-radius: 0;
-  }
-
-  .qs-prop .qs-prop__card-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 28px;
-    padding: var(--space-6);
-    text-align: center;
-  }
-
-  .qs-prop .qs-prop__card-body p {
+  .qs-mhero .qs-mhero__text {
     margin: 0;
     font-size: 17px;
     line-height: 1.6;
     color: #4b4b4b;
-  }
-}
-
-/* PROVA MÒBIL 4B — com la 4, però el CTA és un enllaç de text amb "›" (com a la
-   Home: 16px negreta, fletxa a 4px del text), sense píndola ni cercle. Només
-   <900px. */
-@media (max-width: 899px) {
-  .qs-im .qs-im__link {
-    display: inline-flex;
-    align-items: baseline;
-    gap: var(--space-1, 4px);
-    margin-top: 4px;
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 1.5;
-    color: #fff;
-  }
-
-  .qs-im .qs-im__link-arrow {
-    font-weight: 400;
+    text-align: left;
   }
 }
 
 /* ============================================================
-   PROVES MÒBIL del bloc "Una unión que suma experiencia y especialización"
-   (només <900px; a desktop queden amagades perquè les seccions .qs-prop ja
-   són display:none). La secció actual (.qs-union-stats) no es toca.
-   Presentacions pensades per a mòbil: banda navy amb xifres grans i línia de
-   temps vertical. Eliminar les que no es triïn.
+   "Una unión que suma experiencia y especialización" en MÒBIL (<900px):
+   línia de temps vertical amb el logo al costat del número, sobre fons gris
+   (#eeeeec, el mateix del bloc). A mòbil substitueix .qs-union-stats, que
+   s'amaga; a desktop és al revés (aquesta peça queda amagada).
    ============================================================ */
+.qs-munio {
+  display: none;
+}
+
 @media (max-width: 899px) {
-  .qs-prop .qs-un__title {
+  section.qs-union-stats {
+    display: none;
+  }
+
+  /* El bloc gris es tanca amb cantonades arrodonides (28px, com la fulla blanca
+     de la portada) i passa per sobre de la foto de One Health, que comença 28px
+     més amunt. 48px de padding a baix perquè la frase final respiri. */
+  .qs-munio {
+    position: relative;
+    z-index: 2;
+    display: block;
+    padding: var(--space-8) 0 48px;
+    border-radius: 0 0 28px 28px;
+    background: #eeeeec;
+  }
+
+  .qs-munio .qs-munio__title {
     margin: 0 0 28px;
-    text-align: center;
     font-size: 24px;
     font-weight: 700;
     color: var(--color-primary);
-  }
-
-  /* ---- UNIÓ 2 — Banda navy amb xifres grans ---- */
-  .qs-prop.qs-un--band {
-    background: var(--color-primary);
-  }
-
-  .qs-un--band .compare-tag {
-    background: #fff;
-    color: var(--color-primary);
-  }
-
-  .qs-un--band .qs-un__title {
-    color: #fff;
-  }
-
-  .qs-band__row {
-    display: grid;
-    grid-template-columns: 112px 1fr;
-    gap: var(--space-4);
-    align-items: start;
-    padding-block: 24px;
-    border-top: 1px solid rgba(255, 255, 255, 0.18);
-  }
-
-  .qs-band__num {
-    font-family: var(--font-heading);
-    font-size: 48px;
-    font-weight: 800;
-    line-height: 1;
-    color: var(--color-accent);
-  }
-
-  .qs-band__body {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-  }
-
-  .qs-band__logo {
-    display: block;
-    width: auto;
-    height: auto;
-    max-width: 215px;
-    max-height: 28px;
-    object-fit: contain;
-    object-position: left center;
-    filter: brightness(0) invert(1);
-  }
-
-  .qs-band .qs-band__body p {
-    margin: 0;
-    font-size: 17px;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.85);
-  }
-
-  .qs-band .qs-band__footer {
-    margin: 0;
-    padding-top: 24px;
-    border-top: 1px solid rgba(255, 255, 255, 0.18);
-    font-size: 17px;
-    line-height: 1.6;
-    text-align: center;
-    color: rgba(255, 255, 255, 0.75);
-  }
-
-  /* ---- UNIÓ 3 — Línia de temps vertical ---- */
-  .qs-prop.qs-un--timeline {
-    background: #fff;
+    text-align: left;
   }
 
   .qs-tl {
@@ -886,14 +386,31 @@
     list-style: none;
   }
 
-  .qs-tl::before {
+  /* La línia vertical es dibuixa per trams: cada element (menys l'últim) té un
+     tram que va del centre del seu punt fins al centre del punt següent, així
+     la línia acaba exactament al punt final i no el sobrepassa. Els punts
+     normals tenen el centre a 20px de dalt de l'element; el final, a 12px. */
+  .qs-tl__item:not(:last-child)::before {
     content: '';
     position: absolute;
-    left: 11px;
-    top: 12px;
-    bottom: 12px;
+    left: -33px;
+    top: 20px;
+    bottom: -20px;
     width: 2px;
     background: linear-gradient(180deg, var(--color-accent-dark), var(--color-primary));
+  }
+
+  .qs-tl__item:nth-last-child(2)::before {
+    bottom: -12px;
+  }
+
+  /* Degradat continu entre trams: cian fosc -> color intermig -> navy */
+  .qs-tl__item:nth-child(1)::before {
+    background: linear-gradient(180deg, var(--color-accent-dark), #0e5b69);
+  }
+
+  .qs-tl__item:nth-child(2)::before {
+    background: linear-gradient(180deg, #0e5b69, var(--color-primary));
   }
 
   .qs-tl__item {
@@ -912,7 +429,7 @@
   .qs-tl__dot {
     position: absolute;
     left: -44px;
-    top: 6px;
+    top: 8px;
     width: 24px;
     height: 24px;
     box-sizing: border-box;
@@ -921,13 +438,25 @@
     background: #fff;
   }
 
+  /* Punt final tot navy (vora i farciment del mateix color) */
   .qs-tl__dot--end {
     top: 0;
-    border-color: var(--color-accent);
+    border-color: var(--color-primary);
     background: var(--color-primary);
   }
 
+  /* Número, filet i logo en una sola fila (40px d'alt); el text a sota */
+  .qs-tl__head {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    max-width: 100%;
+  }
+
+  /* Número d'ample fix: els dos logos comencen exactament a la mateixa x. */
   .qs-tl__num {
+    flex: none;
+    min-width: 80px;
     font-family: var(--font-heading);
     font-size: 40px;
     font-weight: 800;
@@ -935,12 +464,16 @@
     color: var(--color-accent-dark);
   }
 
+  /* Els dos logos (retallats a la tinta, sense marge transparent) amb la MATEIXA
+     alçada i alineats a l'esquerra. L'alçada és fluida perquè el rètol de GSN
+     Farma (el més ample, ~9,7:1) càpiga al costat del número en tots els
+     mòbils (320-430px): 22px a 393px. Sense filet separador. */
   .qs-tl__logo {
     display: block;
     width: auto;
-    height: auto;
-    max-width: 210px;
-    max-height: 30px;
+    height: clamp(15px, calc(10.2vw - 18.5px), 22px);
+    max-width: none;
+    max-height: none;
     object-fit: contain;
     object-position: left center;
   }
@@ -953,126 +486,46 @@
   }
 
   .qs-tl .qs-tl__item--end p {
-    color: var(--color-primary);
+    font-size: 20px;
     font-weight: 600;
-  }
-}
-
-/* PROVA MÒBIL UNIÓ 2B — mateixa estructura que la banda navy (Unió 2), però amb
-   el fons gris (#eeeeec) i els números en el color de la secció actual
-   (--color-accent-dark, #00829c). El logo es veu amb els seus colors (sense
-   invertir) i el text, les línies i el títol passen a la versió per a fons
-   clar. Només <900px. */
-@media (max-width: 899px) {
-  .qs-prop.qs-un--band.qs-un--band-light {
-    background: #eeeeec;
-  }
-
-  .qs-un--band-light .compare-tag {
-    background: var(--color-primary);
-    color: #fff;
-  }
-
-  .qs-un--band-light .qs-un__title {
+    line-height: 1.4;
     color: var(--color-primary);
-  }
-
-  .qs-un--band-light .qs-band .qs-band__row {
-    border-top-color: rgba(27, 36, 53, 0.15);
-  }
-
-  .qs-un--band-light .qs-band .qs-band__num {
-    color: var(--color-accent-dark);
-  }
-
-  .qs-un--band-light .qs-band .qs-band__logo {
-    filter: none;
-  }
-
-  .qs-un--band-light .qs-band .qs-band__body p {
-    color: #4b4b4b;
-  }
-
-  .qs-un--band-light .qs-band .qs-band__footer {
-    border-top-color: rgba(27, 36, 53, 0.15);
-    color: #4b4b4b;
-  }
-}
-
-/* PROVA MÒBIL UNIÓ 3B — línia de temps amb el logo al costat del número: una
-   sola fila (número | filet | logo) i el text a sota. Només <900px. */
-@media (max-width: 899px) {
-  .qs-tl--inline .qs-tl__head {
-    display: flex;
-    align-items: center;
-    gap: var(--space-4);
-    max-width: 100%;
-  }
-
-  .qs-tl--inline .qs-tl__head .qs-tl__logo {
-    max-width: 190px;
-    max-height: 30px;
-    padding-left: var(--space-4);
-    border-left: 2px solid rgba(27, 36, 53, 0.15);
-    box-sizing: content-box;
-  }
-
-  /* El punt de la línia queda centrat amb la fila número + logo (40px d'alt) */
-  .qs-tl--inline .qs-tl__dot {
-    top: 8px;
-  }
-
-  /* Punt final tot navy: la vora del mateix color que el farciment (sense la
-     silueta cian de la Unió 3) */
-  .qs-tl--inline .qs-tl__dot--end {
-    top: 0;
-    border-color: var(--color-primary);
-    background: var(--color-primary);
   }
 }
 
 /* ============================================================
-   PROVES MÒBIL del bloc One Health (només <900px; a desktop queden amagades
-   perquè les seccions .qs-prop ja són display:none). La secció actual
-   (.qs-onehealth-home) no es toca. Dues presentacions: hero a pantalla
-   completa i targeta superposada. Eliminar les que
-   no es triïn.
+   One Health en MÒBIL (<900px): foto de 400px amb el títol (28px/800, blanc) i
+   la línia blava a sobre, i una fulla blanca arrodonida (28px) que li puja 28px
+   per sobre amb el text alineat a l'esquerra (el mateix llenguatge que la
+   portada). A mòbil substitueix .qs-onehealth-home, que s'amaga; a desktop és al
+   revés (aquesta peça queda amagada).
    ============================================================ */
+.qs-moh {
+  display: none;
+}
+
 @media (max-width: 899px) {
-  /* L'etiqueta "ACTUAL" dins del contenidor flex de la secció actual */
-  .qs-onehealth-home .qs-prop-tag {
-    align-self: stretch;
-    order: 0;
-    margin-bottom: 0;
+  section.qs-onehealth-home {
+    display: none;
   }
 
-  .qs-prop.qs-oh {
+  .qs-moh {
+    position: relative;
+    z-index: 1;
+    display: block;
+    margin-top: -28px;
     background: #fff;
   }
 
-  .qs-oh p strong {
-    font-weight: 700;
-    color: var(--color-blue8);
-  }
-
-  /* ---- ONE HEALTH 1 — Hero a pantalla completa ---- */
-  .qs-prop.qs-oh--hero {
-    padding-top: 0;
-  }
-
-  .qs-oh__tagrow {
-    padding-top: var(--space-8);
-  }
-
-  .qs-oh__hero {
+  .qs-moh__photo {
     position: relative;
     display: flex;
     align-items: flex-end;
-    aspect-ratio: 4 / 5;
+    height: 400px;
     overflow: hidden;
   }
 
-  .qs-oh__hero img {
+  .qs-moh__photo img {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -1082,137 +535,30 @@
     display: block;
   }
 
-  .qs-oh__hero::after {
+  .qs-moh__photo::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(27, 36, 53, 0) 40%, rgba(27, 36, 53, 0.9) 100%);
+    background: linear-gradient(180deg, rgba(27, 36, 53, 0) 40%, rgba(27, 36, 53, 0.88) 100%);
   }
 
-  .qs-oh .qs-oh__hero h2 {
+  .qs-moh__over {
     position: relative;
     z-index: 1;
-    margin: 0;
-    padding: 0 var(--space-4) 28px;
-    font-size: 28px;
-    font-weight: 800;
+    width: 100%;
+    padding: 0 var(--space-4) 52px;
+  }
+
+  .qs-moh .qs-moh__over h2 {
+    margin: 0 0 14px;
+    font-size: 24px;
+    font-weight: 700;
     line-height: 1.2;
     color: #fff;
     text-align: left;
   }
 
-  .qs-oh__body {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin-top: 28px;
-    text-align: left;
-  }
-
-  .qs-oh .qs-oh__body p {
-    margin: 0;
-    font-size: 17px;
-    line-height: 1.6;
-    color: #4b4b4b;
-  }
-
-  .qs-oh .qs-oh__body .qs-oh__lead {
-    font-size: 19px;
-    font-weight: 500;
-    line-height: 1.55;
-    color: var(--color-primary);
-  }
-
-  /* ---- ONE HEALTH 3 — Targeta superposada ---- */
-  .qs-oh__photo {
-    aspect-ratio: 4 / 3;
-    border-radius: 24px;
-    overflow: hidden;
-  }
-
-  .qs-oh__photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 35%;
-    display: block;
-  }
-
-  .qs-oh__card {
-    position: relative;
-    z-index: 1;
-    margin: -56px 12px 0;
-    padding: 28px var(--space-6) 32px;
-    border-radius: 24px;
-    background: #fff;
-    box-shadow: 0 16px 40px rgba(27, 36, 53, 0.16);
-    text-align: center;
-  }
-
-  .qs-oh__card .block2-f__accent-line {
-    margin: 0 auto 20px;
-  }
-
-  .qs-oh .qs-oh__card h2 {
-    margin: 0 0 20px;
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--color-primary);
-  }
-
-  .qs-oh .qs-oh__card p {
-    margin: 0 0 12px;
-    font-size: 17px;
-    line-height: 1.6;
-    color: #4b4b4b;
-  }
-
-  .qs-oh .qs-oh__card p:last-child {
-    margin-bottom: 0;
-  }
-}
-
-/* Etiqueta "ACTUAL" dins del primer bloc actual (només <900px; a desktop
-   .qs-prop-tag ja és display:none). */
-@media (max-width: 899px) {
-  .qs-intro-centered .qs-prop-tag {
-    margin-bottom: var(--space-6);
-  }
-}
-
-/* ============================================================
-   PROVES MÒBIL COMBINADES — capçalera (imatge + títol) i primer bloc
-   (títol + subtítol) fusionats en una sola peça. Només <900px; a desktop
-   queden amagades perquè les seccions .qs-prop ja són display:none. Les
-   peces actuals no es toquen. Eliminar les que no es triïn.
-   Jerarquia: títol de pàgina (H1) > subtítol (h2, 20px/700) > text (17px).
-   ============================================================ */
-@media (max-width: 899px) {
-  .qs-prop.qs-cb {
-    padding: 0;
-    background: #fff;
-  }
-
-  .qs-cb__tagrow {
-    padding-block: var(--space-6) var(--space-4);
-  }
-
-  .qs-cb .compare-tag {
-    margin: 0;
-  }
-
-  .qs-cb__title {
-    margin: 0;
-    font-size: clamp(26px, 8.3vw, 32px);
-    font-weight: 800;
-    line-height: 1.12;
-  }
-
-  .qs-cb__title span {
-    display: block;
-  }
-
-  .qs-cb__bar {
+  .qs-moh__bar {
     display: block;
     width: 48px;
     height: 4px;
@@ -1220,105 +566,179 @@
     background: var(--color-accent);
   }
 
-  .qs-cb .qs-cb__sub {
-    margin: 0;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 1.25;
-    text-align: left;
-  }
-
-  .qs-cb .qs-cb__text {
-    margin: 0;
-    font-size: 17px;
-    line-height: 1.6;
-    text-align: left;
-  }
-
-  .qs-cb__img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  /* ---- COMBINADES 2B i 2C — Fulla blanca (regles base compartides) ---- */
-  .qs-cb--sheet .qs-cb__img {
-    height: 260px;
-  }
-
-  .qs-cb__sheet {
+  .qs-moh__sheet {
     position: relative;
     z-index: 1;
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    margin-top: -32px;
+    gap: 20px;
+    margin-top: -28px;
     padding: 28px var(--space-4) 32px;
     border-radius: 28px 28px 0 0;
     background: #fff;
+    text-align: left;
   }
 
-  .qs-cb--sheet .qs-cb__title {
-    color: var(--color-primary);
-  }
-
-  .qs-cb--sheet .qs-cb__title span:last-child {
-    color: var(--color-accent-dark);
-  }
-
-  .qs-cb--sheet .qs-cb__sub {
-    padding-top: 20px;
-    border-top: 1px solid rgba(27, 36, 53, 0.12);
-    color: var(--color-primary);
-  }
-
-  .qs-cb--sheet .qs-cb__text {
+  .qs-moh .qs-moh__sheet p {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.6;
     color: #4b4b4b;
   }
 
-  /* ---- COMBINADA 2B — com la 2, amb la línia blava entre el títol i el
-     subtítol (substitueix el filet gris que separava els dos) ---- */
-  .qs-cb--sheet-mid .qs-cb__sub {
-    padding-top: 0;
-    border-top: 0;
-  }
-
-  /* 2B: "sumamos salud" en el mateix color fosc que "Sumamos experiencia," (el
-     navy de la marca, que es veu negre), en lloc del cian fosc de la 2. */
-  .qs-cb--sheet-mid .qs-cb__title span:last-child {
+  .qs-moh .qs-moh__sheet .qs-moh__lead {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.4;
     color: var(--color-primary);
   }
 
-  /* ---- COMBINADES 2B amb la imatge més baixa (220px i 180px d'alt; la 2B
-     original en fa 260). La foto va centrada, així que el rètol "GSN FARMA" es
-     continua veient per sobre de la fulla blanca. ---- */
-  .qs-cb--sheet.qs-cb--img220 .qs-cb__img {
-    height: 220px;
+  .qs-moh .qs-moh__sheet p strong {
+    font-weight: 700;
+    color: var(--color-blue8);
+  }
+}
+
+/* ============================================================
+   "Així sumem salut" en MÒBIL (<900px): tancament navy amb cantonades
+   superiors arrodonides (28px, com les fulles de la pàgina), introducció
+   alineada a l'esquerra amb la línia blava entre el títol i el text, i dues
+   targetes immersives (foto, degradat i text a sobre) amb el CTA en text amb
+   "›". A mòbil substitueix .qs-areas, que s'amaga; a desktop és al revés.
+   ============================================================ */
+.qs-mas {
+  display: none;
+}
+
+@media (max-width: 899px) {
+  section.qs-areas {
+    display: none;
   }
 
-  .qs-cb--sheet.qs-cb--img180 .qs-cb__img {
-    height: 180px;
-  }
-
-  /* ---- COMBINADA 2C — com la 2B, amb el subtítol i el paràgraf sobre fons navy ---- */
-  .qs-cb--sheet .qs-cb__sheet--title {
-    padding-bottom: 24px;
-  }
-
-  .qs-cb__navytext {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    padding: 28px var(--space-4) 36px;
+  .qs-mas {
+    display: block;
+    padding: var(--space-8) 0 40px;
+    border-radius: 28px 28px 0 0;
     background: var(--color-primary);
   }
 
-  .qs-cb--sheet.qs-cb--sheet-navy .qs-cb__sub {
+  .qs-mas__intro {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 28px;
+    text-align: left;
+  }
+
+  .qs-mas .qs-mas__intro h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #fff;
+    text-align: left;
+  }
+
+  .qs-mas__bar {
+    display: block;
+    width: 48px;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--color-accent);
+  }
+
+  .qs-mas .qs-mas__intro p {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+    text-align: left;
+  }
+
+  .qs-mas .qs-mas__intro p strong {
+    font-weight: 700;
     color: #fff;
   }
 
-  .qs-cb--sheet.qs-cb--sheet-navy .qs-cb__text {
-    color: rgba(255, 255, 255, 0.85);
+  .qs-mas__cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .qs-mas__card {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    min-height: 520px;
+    overflow: hidden;
+    border-radius: 20px;
+    color: #fff;
+    text-decoration: none;
+    text-align: left;
+  }
+
+  .qs-mas__img {
+    position: absolute;
+    inset: 0;
+  }
+
+  /* Vertical 1000x1440 (_mb) per sota de 768px; per sobre, l'original apaïsat. */
+  .qs-mas__img picture {
+    display: contents;
+  }
+
+  .qs-mas__img img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .qs-mas__card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(27, 36, 53, 0) 20%, rgba(27, 36, 53, 0.92) 68%);
+  }
+
+  .qs-mas__body {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: var(--space-6);
+  }
+
+  .qs-mas .qs-mas__body h3 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .qs-mas .qs-mas__body p {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  /* CTA com a la Home: text de 16px negreta amb "›" a 4px, sense requadres */
+  .qs-mas__link {
+    display: inline-flex;
+    align-items: baseline;
+    gap: var(--space-1, 4px);
+    margin-top: 4px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: #fff;
+  }
+
+  .qs-mas__link-arrow {
+    font-weight: 400;
   }
 }
