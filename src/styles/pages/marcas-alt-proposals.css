@@ -2,26 +2,14 @@
    PROPOSTA — franja de logos: graella de targetes (foto de fons +
    logo + fletxa), inspirada en uriach.com/es. La fletxa és un enllaç
    directe a la franja de la marca corresponent, més avall a la
-   pàgina. Només desktop (>=1024px); en mòbil queda amagada del tot.
-   ============================================================ */
+   pàgina. Ara visible a totes les mides (abans només desktop): en
+   mòbil (<768px) en graella de 2 columnes; a partir de 768px, EXACTAMENT
+   la mateixa fila de 5 que ja hi havia a desktop (res canvia per sobre
+   d'aquest ample). La franja original de logos petits (marcas-intro-logos)
+   queda substituïda per aquesta graella a totes les mides. */
 
 .marcas-logos-alt-wrapper {
-  display: none;
-}
-
-@media (min-width: 1024px) {
-  .marcas-logos-alt-wrapper {
-    display: block;
-  }
-
-  /* La franja original de logos (marcas-body-compare.css) queda
-     substituïda per aquesta graella només a desktop; en mòbil es
-     manté tal com estava (no forma part d'aquesta prova). Especificitat
-     extra (2 classes) perquè guanyi sempre a la regla base (1 classe),
-     independentment de l'ordre de bundling en producció. */
-  .marcas-intro-centered__inner .marcas-intro-logos {
-    display: none;
-  }
+  display: block;
 }
 
 /* padding-top:0 perquè s'integri amb el bloc de text de sobre (que ja
@@ -40,8 +28,20 @@
 
 .marcas-alt-a__grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: var(--space-6);
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+
+/* A partir de 768px, EXACTAMENT la mateixa fila de 5 que ja hi havia a
+   desktop (res canvia per sobre d'aquest ample). Aquesta regla ha d'anar
+   DESPRÉS de la base (.marcas-alt-a__grid de dalt): mateixa especificitat
+   (1 classe) i en producció (bundle de Vite) l'ordre d'arribada és el
+   que decideix quina guanya, no la posició dins un media query. */
+@media (min-width: 768px) {
+  .marcas-alt-a__grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--space-6);
+  }
 }
 
 .marcas-alt-a__card {
@@ -105,6 +105,14 @@
   background: #fff;
   color: var(--color-primary);
   transform: translateX(-50%) translateY(2px);
+}
+
+/* Medicamentos: el PNG blanc està retallat just a les lletres. Abans la caixa
+   (limitada a 56px d'alt) feia ~142px d'ample de lletra a desktop; amb el
+   retall l'alçada ja no limita, així que fixem l'ample a 142px perquè la
+   lletra es vegi igual de gran. En mòbil (card més estreta) ja és el 70%. */
+.marcas-alt-a__card--medicamentos .marcas-alt-a__logo {
+  max-width: min(142px, 70%);
 }
 
 /* GSN: logo un 15% + 15% + 15% més petit (56px -> 48px -> 41px -> 35px) */

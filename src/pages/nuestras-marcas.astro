@@ -13,7 +13,7 @@ import '../styles/pages/marcas-alt-proposals.css';
   title="Nuestras marcas | GSN Farma Labs Group"
   description="Marcas de salud desarrolladas bajo el modelo One Health Care, especializadas en medicamentos, salud natural, salud de la mujer y salud animal."
 >
-  <section class="subpage-hero-e subpage-hero-e--left">
+  <section class="subpage-hero-e subpage-hero-e--left subpage-hero-e--nuestras-marcas">
     <img
       src="/images/gsn_farma_our_brands_header2.jpg"
       alt=""
@@ -98,21 +98,25 @@ import '../styles/pages/marcas-alt-proposals.css';
     );
     const textBlock = (
       <div class="content-section__text">
-        <span class={`pretitle marcas-b__category ${isRefined ? 'marcas-label--a' : ''}`}>{brand.category}</span>
-        <img src={brand.name === 'Medicamentos' ? '/images/gsnfarma_new_logo.png' : brand.logo} alt={brand.name} class="marcas-b__logo" loading="lazy" />
+        <div class="marcas-b__header">
+          <span class={`pretitle marcas-b__category ${isRefined ? 'marcas-label--a' : ''}`}>{brand.category}</span>
+          <img src={brand.name === 'Medicamentos' ? '/images/gsnfarma_new_logo.png' : brand.logo} alt={brand.name} class="marcas-b__logo" loading="lazy" />
+        </div>
         <p>{brand.description.split('\n').map((line, idx) => (idx > 0 ? <><br />{line}</> : line))}</p>
         {brand.gated ? (
           <button type="button" class="block2-f__cta" data-gate-trigger>
             <span class="block2-f__cta-icon">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1b2435" stroke-width="2.4"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
             </span>
+            <span class="block2-f__cta-arrow" aria-hidden="true">›</span>
             <span>{brand.ctaLabel ?? 'Visitar sitio'}</span>
           </button>
         ) : brand.url ? (
-          <a href={brand.url} target="_blank" rel="noopener noreferrer" class="block2-f__cta">
+          <a href={brand.url} {...(brand.url === '#' ? {} : { target: '_blank', rel: 'noopener noreferrer' })} class="block2-f__cta">
             <span class="block2-f__cta-icon">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1b2435" stroke-width="2.4"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
             </span>
+            <span class="block2-f__cta-arrow" aria-hidden="true">›</span>
             <span>{brand.ctaLabel ?? 'Visitar sitio'}</span>
           </a>
         ) : null}

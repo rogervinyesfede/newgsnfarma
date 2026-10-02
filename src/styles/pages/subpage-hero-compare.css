@@ -204,21 +204,38 @@
   text-align: left;
 }
 
-/* PROVA — mòbil, pàgines Contacto i Internacional: capçalera més baixa
-   (300px -> 200px) i H1 igualat al del hero de vídeo de la home (28px/800).
-   Especificitat extra (.subpage-hero-e--contacto/--internacional, 2a
-   classe) perquè no afecti les altres pàgines que reutilitzen
-   .subpage-hero-e (Nuestras marcas, Quiénes somos...). */
+/* Salt de línia només per a mòbil (<900px) dins d'un H1 de capçalera: a
+   desktop queda amagat i el text es reparteix sol. Ha d'anar ABANS del media
+   query: mateixa especificitat, i guanya la regla que va després. */
+.subpage-hero-e .br-mobile {
+  display: none;
+}
+
+/* PROVA — mòbil, pàgines Contacto, Internacional, Nuestras marcas, Quiénes
+   somos i Servicios: capçalera més baixa (300px -> 200px) i H1 igualat al del
+   hero de vídeo de la home (28px/800). Cada pàgina té la seva classe
+   (.subpage-hero-e--xxx, 2a classe) perquè no afecti les altres pàgines que
+   reutilitzen .subpage-hero-e (polítiques legals...). */
 @media (max-width: 899px) {
   .subpage-hero-e--contacto,
-  .subpage-hero-e--internacional {
+  .subpage-hero-e--internacional,
+  .subpage-hero-e--nuestras-marcas,
+  .subpage-hero-e--quienes-somos,
+  .subpage-hero-e--servicios {
     height: 200px;
   }
 
   .subpage-hero-e--contacto h1,
-  .subpage-hero-e--internacional h1 {
+  .subpage-hero-e--internacional h1,
+  .subpage-hero-e--nuestras-marcas h1,
+  .subpage-hero-e--quienes-somos h1,
+  .subpage-hero-e--servicios h1 {
     font-size: 28px;
     font-weight: 800;
+  }
+
+  .subpage-hero-e .br-mobile {
+    display: inline;
   }
 }
 

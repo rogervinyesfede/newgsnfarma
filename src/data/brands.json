@@ -30,6 +30,8 @@
     "name": "Herbaldi",
     "category": "Salud natural",
     "description": "Soluciones y complementos a base de plantas para el bienestar diario.",
+    "url": "#",
+    "ctaLabel": "Ver listado de productos",
     "image": "/images/brand_herbaldi.jpg",
     "logo": "/images/logo_herbaldi.png"
   },

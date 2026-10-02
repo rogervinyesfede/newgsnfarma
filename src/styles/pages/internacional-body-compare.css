@@ -119,6 +119,17 @@
   padding-block: var(--space-16);
 }
 
+/* Desktop: "Medicamentos/Salud natural/Salud animal" -> "¿Hablamos?" era
+   128px (64 de padding-bottom del catàleg + 64 de marge superior de
+   "¿Hablamos?"). Igual que a la home (on el padding-bottom del bloc
+   anterior ja és 0 i tot el gap el fa el marge de "¿Hablamos?"), traiem
+   aquest padding-bottom perquè quedi només a 64px. */
+@media (min-width: 900px) {
+  .intl-catalog {
+    padding-bottom: 0;
+  }
+}
+
 .intl-catalog__inner {
   max-width: 700px;
   margin-inline: auto;
@@ -238,10 +249,6 @@
   .intl-map {
     padding-top: var(--space-8);
     padding-bottom: var(--space-8);
-  }
-
-  .intl-map__list-col .block2-f__accent-line {
-    margin-bottom: 28px;
   }
 
   /* .intl-map__list-col{flex:0 1 380px} és un flex-basis pensat per la

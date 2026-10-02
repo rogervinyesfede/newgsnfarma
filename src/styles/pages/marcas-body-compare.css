@@ -177,9 +177,12 @@
   padding-left: var(--space-6);
 }
 
-/* Medicamentos: logo un 15% més petit (320x120 -> 231x87) */
+/* Medicamentos: el PNG està retallat just a les lletres (sense marge
+   transparent a dalt/baix). Abans la caixa era 231x87 amb un 24% buit a dalt
+   i un 40% a baix; amb el retall, 220px d'ample donen la mateixa lletra visible
+   (~219x36px) i la caixa coincideix amb el que es veu. */
 .marcas-b__row--medicamentos .marcas-b__logo {
-  max-width: 231px;
+  max-width: 220px;
   max-height: 87px;
 }
 
@@ -343,6 +346,132 @@ button.block2-f__cta {
 
   .brand-gate__btn {
     flex: 1 1 auto;
+  }
+}
+
+/* ============================================================
+   MÒBIL — igualat al criteri de la resta del lloc (Contacto,
+   Internacional): capçalera 200px/H1 28px ja aplicat via
+   subpage-hero-compare.css (.subpage-hero-e--nuestras-marcas).
+   ============================================================ */
+/* Amaguem la petita franja de logos original a totes les mides: ara es
+   mostra sempre la graella de targetes gran (2 columnes a mòbil, 5 a
+   partir de 1024px) en comptes seu. */
+.marcas-intro-centered__inner .marcas-intro-logos {
+  display: none;
+}
+
+@media (max-width: 899px) {
+  /* Bloc intro ("Siempre al servicio de la salud..."): títol igualat
+     a la resta de pàgines (40px -> 28px/800, com a Internacional). */
+  .marcas-intro-centered__inner h2 {
+    font-size: 28px;
+    font-weight: 800;
+  }
+
+  /* Espaiats igualats als d'Internacional: capçalera -> línia blava
+     64px -> 32px, línia blava -> títol 16px -> 28px, i final del bloc
+     (paràgraf -> final) 64px -> 32px. Entre blocs (intro -> graella de
+     targetes -> 1a franja de marca) ja era 0px, igual que a Internacional. */
+  .marcas-intro-centered {
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-8);
+  }
+
+  .marcas-intro-centered .block2-f__accent-line {
+    margin-bottom: 28px;
+  }
+
+  .marcas-logos-alt {
+    padding-bottom: var(--space-8);
+  }
+}
+
+/* ============================================================
+   MÒBIL — franges de marca: mateix ordre fix per a totes 5
+   (logo+etiqueta -> imatge -> text -> cta), en comptes de l'ordre
+   alternat imatge/text que ja fa servir desktop. .content-section__text
+   passa a display:contents perquè els seus fills (capçalera, paràgraf,
+   cta) esdevinguin elements flex directes de .content-section__split-inner
+   i puguem reordenar-los amb `order` igual que la resta d'imatges del
+   bloc (mateix truc que .block2-f__text a la home). */
+
+/* La fletxa del CTA només es mostra en mòbil. Va ABANS del media query:
+   mateixa especificitat que la regla de mòbil, i guanya la que va després. */
+.marcas-b__row .block2-f__cta-arrow {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .marcas-b__row .content-section__text {
+    display: contents;
+  }
+
+  .marcas-b__row .marcas-b__header,
+  .marcas-b__row .content-section__text > p,
+  .marcas-b__row .content-section__text > .block2-f__cta {
+    width: 100%;
+  }
+
+  /* Etiqueta a dalt i logo a sota, centrats (com als blocs de la Home en mòbil). */
+  .marcas-b__header {
+    order: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  /* Especificitat extra (4 classes) per guanyar als marges de la pastilla
+     (.marcas-b__row--refined .marcas-b__category.marcas-label--a, 3 classes). */
+  .marcas-b__row .marcas-b__header .marcas-b__logo,
+  .marcas-b__row .marcas-b__header .marcas-b__category.pretitle {
+    margin: 0;
+  }
+
+  .marcas-b__row .content-section__image {
+    order: 2;
+  }
+
+  /* Logo -> imatge, imatge -> text i text -> CTA: 28px (mateix ritme que els
+     blocs de la Home en mòbil). Els 28px els dona el gap del contenidor, així
+     que anul·lem el marge sota el paràgraf i sobre el CTA, que s'hi sumaven. */
+  .marcas-b__row .content-section__split-inner {
+    gap: 28px;
+  }
+
+  .marcas-b__row .content-section__text > p {
+    order: 3;
+    text-align: center;
+    margin-bottom: 0;
+  }
+
+  .marcas-b__row .content-section__text > .block2-f__cta {
+    order: 4;
+    justify-content: center;
+    margin-top: 0;
+  }
+
+  /* CTA com a la Home en mòbil: sense la icona en requadre, text 16px en
+     negreta i fletxa "›" al final (span germà, per no heretar subratllat;
+     al DOM va abans del text i es reordena després amb `order`). El gap
+     de 16px del CTA es compensa amb un marge negatiu perquè la fletxa
+     quedi a 4px del text. */
+  .marcas-b__row .block2-f__cta-icon {
+    display: none;
+  }
+
+  .marcas-b__row .block2-f__cta-arrow {
+    display: inline;
+    order: 1;
+    margin-left: calc(var(--space-1, 4px) - var(--space-4));
+    font-weight: 400;
+    font-size: 16px;
+    text-decoration: none;
+  }
+
+  .marcas-b__row .block2-f__cta:hover {
+    opacity: 0.8;
   }
 }
 
