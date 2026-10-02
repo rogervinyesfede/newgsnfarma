@@ -307,7 +307,7 @@
      s'ha de partir en dues línies en cap mòbil (320-430px). */
   .qs-mhero .qs-mhero__title {
     margin: 0;
-    font-size: clamp(26px, 8.3vw, 32px);
+    font-size: clamp(26px, 8.3vw, 30px);
     font-weight: 800;
     line-height: 1.12;
     color: var(--color-primary);
@@ -328,7 +328,7 @@
 
   .qs-mhero .qs-mhero__sub {
     margin: 0;
-    font-size: 20px;
+    font-size: 19px;
     font-weight: 600;
     line-height: 1.4;
     color: var(--color-primary);
@@ -486,7 +486,7 @@
   }
 
   .qs-tl .qs-tl__item--end p {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
     line-height: 1.4;
     color: var(--color-primary);
@@ -587,15 +587,10 @@
   }
 
   .qs-moh .qs-moh__sheet .qs-moh__lead {
-    font-size: 20px;
+    font-size: 19px;
     font-weight: 600;
     line-height: 1.4;
     color: var(--color-primary);
-  }
-
-  .qs-moh .qs-moh__sheet p strong {
-    font-weight: 700;
-    color: var(--color-blue8);
   }
 }
 
@@ -649,8 +644,9 @@
 
   .qs-mas .qs-mas__intro p {
     margin: 0;
-    font-size: 17px;
-    line-height: 1.6;
+    font-size: 19px;
+    font-weight: 600;
+    line-height: 28px;
     color: rgba(255, 255, 255, 0.85);
     text-align: left;
   }
