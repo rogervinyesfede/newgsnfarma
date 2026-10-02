@@ -239,3 +239,19 @@
   }
 }
 
+/* Internacional: enquadrament de la foto (abans inline, 45%). El rètol
+   "GSN FARMA" de l'edifici queda just a l'alçada del títol "Presencia
+   Global" i el tapa una mica. En mòbil (<=480px, ex. iPhone) es puja la foto
+   (72%) perquè el rètol quedi per sobre del títol. Per sobre de 480px es
+   manté el 45% de sempre: el rètol ja queda a la dreta del títol i, amb tant
+   d'ample, pujar-lo el deixaria tallat per dalt. */
+.subpage-hero-e--internacional img {
+  object-position: center 45%;
+}
+
+@media (max-width: 480px) {
+  .subpage-hero-e--internacional img {
+    object-position: center 72%;
+  }
+}
+
