@@ -587,7 +587,7 @@
   }
 
   .qs-moh .qs-moh__sheet .qs-moh__lead {
-    font-size: 19px;
+    font-size: 18px;
     font-weight: 600;
     line-height: 1.4;
     color: var(--color-primary);
@@ -644,9 +644,9 @@
 
   .qs-mas .qs-mas__intro p {
     margin: 0;
-    font-size: 19px;
+    font-size: 18px;
     font-weight: 600;
-    line-height: 28px;
+    line-height: 1.4;
     color: rgba(255, 255, 255, 0.85);
     text-align: left;
   }
