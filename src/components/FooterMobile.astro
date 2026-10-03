@@ -1,0 +1,35 @@
+---
+// Footer unificat en MÒBIL (<900px): logo, LinkedIn i textos legals en un sol bloc gris, compacte. Substitueix
+// el footer d'informació (FooterInfo: telèfons i adreça, que ja són a Contacto) i la franja legal (Footer) a
+// mòbil; a desktop es mantenen aquests dos i aquest component s'amaga. Veure footer.css.
+import '../styles/components/footer.css';
+
+const legalLinks = [
+  { label: 'Aviso legal', href: '/aviso-legal' },
+  { label: 'Política de privacidad', href: '/politica-de-privacidad' },
+  { label: 'Política de cookies', href: '/politica-de-cookies' },
+];
+
+const year = new Date().getFullYear();
+---
+
+<footer class="footer-m">
+  <div class="footer-m__inner">
+    <div class="footer-m__top">
+      <img class="footer-m__logo" src="/images/gsn_farma_labs_group_logo.png" alt="GSN Farma Labs Group" />
+      <a
+        class="footer-m__in"
+        href="https://www.linkedin.com/company/gsn-farma"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="LinkedIn de GSN Farma Labs Group"
+      >
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9.5h4V21H3V9.5zm6.5 0h3.8v1.6h.06c.53-1 1.84-2 3.8-2 4.06 0 4.84 2.67 4.84 6.15V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.33-1.96 2.7V21h-4V9.5z"></path></svg>
+      </a>
+    </div>
+    <nav class="footer-m__links" aria-label="Menú legal">
+      {legalLinks.map((l) => <a href={l.href}>{l.label}</a>)}
+    </nav>
+    <p class="footer-m__copy">Todos los derechos reservados © {year}</p>
+  </div>
+</footer>

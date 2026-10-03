@@ -5,12 +5,72 @@ import '../styles/pages/inner-page.css';
 import '../styles/pages/block3-compare.css';
 import '../styles/pages/subpage-hero-compare.css';
 import '../styles/pages/contact-2col-compare.css';
+import '../styles/pages/mobile-hero.css';
+import '../styles/pages/mobile-proposals.css';
 ---
 
 <BaseLayout
   title="Contacto | GSN Farma Labs Group"
   description="Contacta con GSN Farma Labs Group para más información sobre nuestro laboratorio farmacéutico, servicios y soluciones de salud."
 >
+  <section class="mhp mhp--contact" style="--mhp-pos: center 65%">
+    <div class="mhp__img"><img src="/images/gsn_farma_offices_hall2.jpg" alt="" loading="eager" /></div>
+    <div class="mhp__sheet">
+      <h1 class="mhp__title">Contacta con nosotros</h1>
+      <span class="mhp__bar" aria-hidden="true"></span>
+      <p class="mhp__sub">Si quieres conocer más o explorar una colaboración, contacta con nosotros.</p>
+    </div>
+  </section>
+
+  <section class="contact-2col contact-2col--f1 contact-2col--mhp">
+    <div class="contact-2col__info">
+      <div class="contact-2col__info-inner">
+        <div class="contact-2col__info-row">
+          <img src="/images/icon-marker.svg" alt="" aria-hidden="true" />
+          <div>
+            <h3>Dirección</h3>
+            <p>C/ del Llobregat 28, 08223.<br />Terrassa, Barcelona.</p>
+          </div>
+        </div>
+        <div class="contact-2col__info-row">
+          <img src="/images/icon-phone.svg" alt="" aria-hidden="true" />
+          <div>
+            <h3>Información general</h3>
+            <p><a href="tel:+34680310655">+34 680 310 655</a></p>
+          </div>
+        </div>
+        <div class="contact-2col__info-row">
+          <img src="/images/icon-phone.svg" alt="" aria-hidden="true" />
+          <div>
+            <h3>Farmacovigilancia</h3>
+            <p><a href="tel:+34680310655">+34 680 310 655</a></p>
+          </div>
+        </div>
+        <div class="contact-2col__info-row">
+          <img src="/images/icon-address.svg" alt="" aria-hidden="true" />
+          <div>
+            <h3>Correo electrónico</h3>
+            <p><a href="mailto:info@gsnfarma.com">info@gsnfarma.com</a></p>
+          </div>
+        </div>
+        <a
+          href="https://www.linkedin.com/company/gsn-farma"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="contact-2col__social"
+          aria-label="LinkedIn de GSN Farma Labs Group"
+        >
+          <img src="/images/icon-linkedin.svg" alt="" aria-hidden="true" />
+        </a>
+      </div>
+    </div>
+    <div class="contact-2col__form">
+      <div class="contact-2col__form-inner">
+        <ContactForm submitLabel="Enviar" />
+      </div>
+    </div>
+  </section>
+
   <section class="subpage-hero-e subpage-hero-e--left subpage-hero-e--contacto">
     <img src="/images/gsn_farma_offices_hall2.jpg" alt="" loading="eager" />
     <div class="subpage-hero-e__scrim"></div>
@@ -69,4 +129,68 @@ import '../styles/pages/contact-2col-compare.css';
     </div>
   </section>
 
+
+
+  <div class="sp-tag">Prova mòbil · Formulari 1 · Targeta blanca sobre gris</div>
+  <section class="sp sp-cf1">
+    <div class="container sp-stack">
+      <p class="sp-lead">Si quieres conocer más o explorar una colaboración, contacta con nosotros.</p>
+      <div class="sp-formcard"><ContactForm submitLabel="Enviar" /></div>
+    </div>
+  </section>
+
+  <div class="sp-tag">Prova mòbil · Formulari 2 · Bloc navy amb targeta</div>
+  <section class="sp sp--navy sp-cf2">
+    <div class="container sp-stack">
+      <p class="sp-lead">Si quieres conocer más o explorar una colaboración, contacta con nosotros.</p>
+      <div class="sp-formcard"><ContactForm submitLabel="Enviar" /></div>
+    </div>
+  </section>
+
+  <div class="sp-tag">Prova mòbil · Formulari 3 · Estil minimalista</div>
+  <section class="sp sp-cf3">
+    <div class="container sp-stack">
+      <p class="sp-lead">Si quieres conocer más o explorar una colaboración, contacta con nosotros.</p>
+      <ContactForm submitLabel="Enviar" />
+    </div>
+  </section>
+
+  <div class="sp-tag">Prova mòbil · Informació 1 · Llista de files</div>
+  <section class="sp sp-ci1">
+    <div class="container">
+      <div class="sp-irows">
+        <div class="sp-irow"><span class="sp-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-5.6 7-11a7 7 0 10-14 0c0 5.4 7 11 7 11z" stroke-linejoin="round"></path><circle cx="12" cy="10" r="2.5"></circle></svg></span><span class="sp-irow__text"><small>Dirección</small>C/ del Llobregat 28, 08223.<br />Terrassa, Barcelona.</span></div>
+        <a class="sp-irow" href="tel:+34680310655"><span class="sp-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="sp-irow__text"><small>Información general</small>+34 680 310 655</span></a>
+        <a class="sp-irow" href="tel:+34680310655"><span class="sp-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="sp-irow__text"><small>Farmacovigilancia</small>+34 680 310 655</span></a>
+        <a class="sp-irow" href="mailto:info@gsnfarma.com"><span class="sp-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="sp-irow__text"><small>Correo electrónico</small>info@gsnfarma.com</span></a>
+        <a class="sp-irow" href="https://www.linkedin.com/company/gsn-farma" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de GSN Farma Labs Group"><span class="sp-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9.5h4V21H3V9.5zm6.5 0h3.8v1.6h.06c.53-1 1.84-2 3.8-2 4.06 0 4.84 2.67 4.84 6.15V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.33-1.96 2.7V21h-4V9.5z"></path></svg></span><span class="sp-irow__text"><small>LinkedIn</small>GSN Farma Labs Group</span></a>
+      </div>
+    </div>
+  </section>
+
+  <div class="sp-tag">Prova mòbil · Informació 2 · Mosaic de targetes</div>
+  <section class="sp sp-ci2">
+    <div class="container">
+      <div class="sp-mosaic">
+        <div class="sp-mosaic__card sp-mosaic__card--wide"><span class="sp-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-5.6 7-11a7 7 0 10-14 0c0 5.4 7 11 7 11z" stroke-linejoin="round"></path><circle cx="12" cy="10" r="2.5"></circle></svg></span><span class="sp-mosaic__label">Dirección</span><span class="sp-mosaic__value">C/ del Llobregat 28, 08223.<br />Terrassa, Barcelona.</span></div>
+        <a class="sp-mosaic__card" href="tel:+34680310655"><span class="sp-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="sp-mosaic__label">Información general</span><span class="sp-mosaic__value">+34 680 310 655</span></a>
+        <a class="sp-mosaic__card" href="tel:+34680310655"><span class="sp-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="sp-mosaic__label">Farmacovigilancia</span><span class="sp-mosaic__value">+34 680 310 655</span></a>
+        <a class="sp-mosaic__card sp-mosaic__card--wide" href="mailto:info@gsnfarma.com"><span class="sp-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="sp-mosaic__label">Correo electrónico</span><span class="sp-mosaic__value">info@gsnfarma.com</span></a>
+        <a class="sp-mosaic__card sp-mosaic__card--wide" href="https://www.linkedin.com/company/gsn-farma" target="_blank" rel="noopener noreferrer"><span class="sp-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9.5h4V21H3V9.5zm6.5 0h3.8v1.6h.06c.53-1 1.84-2 3.8-2 4.06 0 4.84 2.67 4.84 6.15V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.33-1.96 2.7V21h-4V9.5z"></path></svg></span><span class="sp-mosaic__label">LinkedIn</span><span class="sp-mosaic__value">GSN Farma Labs Group</span></a>
+      </div>
+    </div>
+  </section>
+
+  <div class="sp-tag">Prova mòbil · Informació 3 · Bloc navy amb files</div>
+  <section class="sp sp--navy sp-ci3">
+    <div class="container sp-stack">
+      <div class="sp-nrows">
+        <div class="sp-nrow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-5.6 7-11a7 7 0 10-14 0c0 5.4 7 11 7 11z" stroke-linejoin="round"></path><circle cx="12" cy="10" r="2.5"></circle></svg><span class="sp-nrow__text"><small>Dirección</small>C/ del Llobregat 28, 08223.<br />Terrassa, Barcelona.</span></div>
+        <a class="sp-nrow" href="tel:+34680310655"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="sp-nrow__text"><small>Información general</small>+34 680 310 655</span></a>
+        <a class="sp-nrow" href="tel:+34680310655"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="sp-nrow__text"><small>Farmacovigilancia</small>+34 680 310 655</span></a>
+        <a class="sp-nrow" href="mailto:info@gsnfarma.com"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="sp-nrow__text"><small>Correo electrónico</small>info@gsnfarma.com</span></a>
+      </div>
+      <a class="sp-outbtn" href="https://www.linkedin.com/company/gsn-farma" target="_blank" rel="noopener noreferrer"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9.5h4V21H3V9.5zm6.5 0h3.8v1.6h.06c.53-1 1.84-2 3.8-2 4.06 0 4.84 2.67 4.84 6.15V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.33-1.96 2.7V21h-4V9.5z"></path></svg> LinkedIn</a>
+    </div>
+  </section>
 </BaseLayout>

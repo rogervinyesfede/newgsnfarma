@@ -1,0 +1,37 @@
+---
+// "Planta de Producción" en MÒBIL (<900px): foto a sang amb el títol i la línia blava a sobre i una
+// fulla blanca arrodonida amb el text i la capacitat productiva (mateix llenguatge que One Health de
+// Quiénes somos). A mòbil
+// substitueix el bloc #fabricacion de servicios.astro (que s'hi amaga); a desktop és al revés.
+// El contingut de "Capacidad productiva" hi va a dins (slot), a continuació del text.
+import '../styles/pages/mobile-proposals.css';
+
+interface Props {
+  id?: string;
+}
+
+const { id } = Astro.props;
+
+const planta = {
+  title: 'Planta de Producción',
+  img: '/images/gsn_farma_factory_mb.jpg',
+  alt: 'Planta de producción de GSN Farma',
+  p1: 'Fabricación de complementos alimenticios en formas sólidas (comprimidos, cápsulas y doypacks) bajo los más altos estándares de calidad, seguridad y trazabilidad, conforme a normativa GMP e IFS Food Supplements.',
+  p2: 'Ofrecemos un servicio integral y flexible, con desarrollos a medida y formatos adaptados a tu marca, desde el desarrollo hasta el producto final.',
+};
+---
+
+<section class="sp sp-pl1" id={id}>
+  <div class="sp-photo">
+    <img src={planta.img} alt={planta.alt} loading="lazy" />
+    <div class="sp-photo__over">
+      <h2>{planta.title}</h2>
+      <span class="sp-bar" aria-hidden="true"></span>
+    </div>
+  </div>
+  <div class="sp-sheet">
+    <p>{planta.p1}</p>
+    <p>{planta.p2}</p>
+    <slot />
+  </div>
+</section>

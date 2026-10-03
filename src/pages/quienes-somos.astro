@@ -5,6 +5,7 @@ import '../styles/pages/block2.css';
 import '../styles/pages/block3-compare.css';
 import '../styles/pages/subpage-hero-compare.css';
 import '../styles/pages/quienes-somos-body-compare.css';
+import '../styles/pages/quienes-somos-desktop-proposals.css';
 
 // Dades dels blocs de mòbil (.qs-m*). Els blocs de desktop porten el seu text directament al marcat.
 const areas = [
@@ -53,7 +54,9 @@ const intro = {
   h2: 'Grupo farmacéutico con más de 30 años de experiencia, visión global y ADN farmacéutico',
   p: 'Disponemos de una estructura integral capaz de desarrollar, registrar, fabricar y comercializar productos regulados (medicamentos, complementos alimenticios, productos sanitarios y dermocosmética), todo bajo los más altos estándares de calidad, seguridad y trazabilidad.',
 };
-const areasIntro = 'GSN Farma Labs Group estructura su actividad en dos grandes áreas de negocio que reflejan su modelo integral y su visión de grupo: los <strong>servicios farmacéuticos</strong> y las <strong>marcas propias</strong>.';
+// Versió vertical d'alta resolució de les imatges de les àrees (per a les targetes grans de les PROVES DESKTOP).
+const big = (src: string) => src.replace('.jpg', '_mb.jpg');
+const areasIntro = 'Estructuramos nuestra actividad en dos grandes áreas de negocio: los <strong>servicios farmacéuticos</strong> y las <strong>marcas propias</strong>.';
 ---
 
 <BaseLayout
@@ -208,9 +211,8 @@ const areasIntro = 'GSN Farma Labs Group estructura su actividad en dos grandes 
       <div class="block2-f__accent-line"></div>
       <h2>Así sumamos salud</h2>
       <p>
-        GSN Farma Labs Group estructura su actividad en dos grandes áreas de negocio que reflejan
-        su modelo integral y su visión de grupo: los <strong>servicios farmacéuticos</strong> y
-        las <strong>marcas propias</strong>.
+        Estructuramos nuestra actividad en dos grandes áreas de negocio: los
+        <strong>servicios farmacéuticos</strong> y las <strong>marcas propias</strong>.
       </p>
       <div class="qs-areas__grid">
         <div class="qs-areas__card">
@@ -279,6 +281,229 @@ const areasIntro = 'GSN Farma Labs Group estructura su actividad en dos grandes 
             <p>{a.text}</p>
             <span class="qs-mas__link">{a.cta}<span class="qs-mas__link-arrow" aria-hidden="true">›</span></span>
           </span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+
+  {/* =====================================================================
+       PROVES DESKTOP (.qd) — 3 propostes per a desktop (>=900px). Es mostren a sota de la versió
+       actual. Veure quienes-somos-desktop-proposals.css.
+       ===================================================================== */}
+
+  <div class="qd-tag">Prova desktop · Proposta A · Fulles (transposició directa del mòbil)</div>
+
+  <section class="qd qd-a-hero">
+    <div class="qd-a-hero__img"><img src={hero.img} alt="" loading="lazy" /></div>
+    <div class="qd-wrap">
+      <div class="qd-a-hero__sheet">
+        <div class="qd-stack qd-stack--l">
+          <h2 class="qd-a-hero__title"><span>{hero.l1}</span><span>{hero.l2}</span></h2>
+          <span class="qd-bar" aria-hidden="true"></span>
+        </div>
+        <div class="qd-stack">
+          <h3 class="qd-a-hero__sub">{intro.h2}</h3>
+          <p>{intro.p}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="qd qd-a-union">
+    <div class="qd-wrap qd-a-union__grid">
+      <div class="qd-stack">
+        <h2>{union.title}</h2>
+        <span class="qd-bar" aria-hidden="true"></span>
+      </div>
+      <ol class="qd-a-tl">
+        {union.items.map((it) => (
+          <li>
+            <div class="qd-a-tl__head">
+              <span class="qd-a-tl__num">{it.n}</span>
+              <img class="qd-logo" src={it.logo} alt={it.alt} loading="lazy" />
+            </div>
+            <p>{it.text}</p>
+          </li>
+        ))}
+        <li>
+          <p class="qd-a-tl__end">{union.footer}</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="qd qd-a-oh">
+    <div class="qd-a-oh__photo">
+      <img src={oh.img} alt={oh.alt} loading="lazy" />
+      <div class="qd-wrap qd-a-oh__over">
+        <h2 set:html={oh.title}></h2>
+        <span class="qd-bar" aria-hidden="true"></span>
+      </div>
+    </div>
+    <div class="qd-wrap">
+      <div class="qd-a-oh__sheet">
+        <p class="qd-a-oh__lead" set:html={oh.p1}></p>
+        <p set:html={oh.p2}></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="qd qd-navy qd-a-mas">
+    <div class="qd-wrap">
+      <div class="qd-intro-grid">
+        <div class="qd-stack">
+          <h2>Así sumamos salud</h2>
+          <span class="qd-bar" aria-hidden="true"></span>
+        </div>
+        <p set:html={areasIntro}></p>
+      </div>
+      <div class="qd-a-cards">
+        {areas.map((a) => (
+          <a class="qd-a-card" href={a.href}>
+            <img src={big(a.img)} alt={a.alt} loading="lazy" />
+            <div class="qd-a-card__body">
+              <h3>{a.title}</h3>
+              <p>{a.text}</p>
+              <span class="qd-cta">{a.cta}<span aria-hidden="true">›</span></span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <div class="qd-tag">Prova desktop · Proposta B · Asimètric (composicions partides i targetes clares)</div>
+
+  <section class="qd qd-navy qd-b-hero">
+    <div class="qd-b-hero__text">
+      <h2 class="qd-b-hero__title"><span>{hero.l1}</span><span>{hero.l2}</span></h2>
+      <span class="qd-bar" aria-hidden="true"></span>
+      <h3 class="qd-b-hero__sub">{intro.h2}</h3>
+      <p>{intro.p}</p>
+    </div>
+    <div class="qd-b-hero__img"><img src={hero.img} alt="" loading="lazy" /></div>
+  </section>
+
+  <section class="qd qd-b-union">
+    <div class="qd-wrap qd-b-union__grid">
+      <div class="qd-b-union__title qd-stack">
+        <h2>{union.title}</h2>
+        <span class="qd-bar" aria-hidden="true"></span>
+      </div>
+      <div>
+        {union.items.map((it) => (
+          <div class="qd-b-stat">
+            <span class="qd-b-stat__num">{it.n}</span>
+            <div class="qd-stack">
+              <img class="qd-logo" src={it.logo} alt={it.alt} loading="lazy" />
+              <p>{it.text}</p>
+            </div>
+          </div>
+        ))}
+        <div class="qd-b-union__end qd-navy"><p>{union.footer}</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="qd qd-b-oh">
+    <div class="qd-b-oh__img"><img src={oh.img} alt={oh.alt} loading="lazy" /></div>
+    <div class="qd-b-oh__text">
+      <h2 set:html={oh.title}></h2>
+      <span class="qd-bar" aria-hidden="true"></span>
+      <p class="qd-b-oh__lead" set:html={oh.p1}></p>
+      <p set:html={oh.p2}></p>
+    </div>
+  </section>
+
+  <section class="qd qd-b-mas">
+    <div class="qd-wrap">
+      <div class="qd-intro-grid">
+        <div class="qd-stack">
+          <h2>Así sumamos salud</h2>
+          <span class="qd-bar" aria-hidden="true"></span>
+        </div>
+        <p set:html={areasIntro}></p>
+      </div>
+      <div class="qd-b-cards">
+        {areas.map((a) => (
+          <a class="qd-b-card" href={a.href}>
+            <img src={a.img} alt={a.alt} loading="lazy" />
+            <div class="qd-b-card__body">
+              <h3>{a.title}</h3>
+              <p>{a.text}</p>
+              <span class="qd-b-card__btn">{a.cta}<span aria-hidden="true">→</span></span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <div class="qd-tag">Prova desktop · Proposta C · Immersiu (fotos a sang, xifres grans i targetes 50/50)</div>
+
+  <section class="qd qd-navy qd-c-hero">
+    <img src={hero.img} alt="" loading="lazy" />
+    <div class="qd-wrap qd-c-hero__inner">
+      <div class="qd-stack">
+        <h2 class="qd-c-hero__title"><span>{hero.l1}</span><span>{hero.l2}</span></h2>
+        <span class="qd-bar" aria-hidden="true"></span>
+        <h3 class="qd-c-hero__sub">{intro.h2}</h3>
+      </div>
+      <div class="qd-c-glass"><p>{intro.p}</p></div>
+    </div>
+  </section>
+
+  <section class="qd qd-navy qd-c-union">
+    <div class="qd-wrap">
+      <h2>{union.title}</h2>
+      <span class="qd-bar" aria-hidden="true"></span>
+      <div class="qd-c-cols">
+        {union.items.map((it) => (
+          <div class="qd-c-col">
+            <span class="qd-c-col__num">{it.n}</span>
+            <span class="qd-c-col__logo"><img src={it.logo} alt={it.alt} loading="lazy" /></span>
+            <p>{it.text}</p>
+          </div>
+        ))}
+        <div class="qd-c-col">
+          <p class="qd-c-col__end">{union.footer}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="qd qd-navy qd-c-oh">
+    <img src={oh.img} alt={oh.alt} loading="lazy" />
+    <div class="qd-wrap qd-c-oh__inner">
+      <div class="qd-c-oh__text">
+        <h2 set:html={oh.title}></h2>
+        <span class="qd-bar" aria-hidden="true"></span>
+        <p class="qd-c-oh__lead" set:html={oh.p1}></p>
+        <p set:html={oh.p2}></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="qd qd-c-mas">
+    <div class="qd-wrap">
+      <div class="qd-intro-grid">
+        <div class="qd-stack">
+          <h2>Así sumamos salud</h2>
+          <span class="qd-bar" aria-hidden="true"></span>
+        </div>
+        <p set:html={areasIntro}></p>
+      </div>
+    </div>
+    <div class="qd-c-cards">
+      {areas.map((a) => (
+        <a class="qd-c-card" href={a.href}>
+          <img src={big(a.img)} alt={a.alt} loading="lazy" />
+          <div class="qd-c-card__body">
+            <h3>{a.title}</h3>
+            <p>{a.text}</p>
+            <span class="qd-cta">{a.cta}<span aria-hidden="true">›</span></span>
+          </div>
         </a>
       ))}
     </div>

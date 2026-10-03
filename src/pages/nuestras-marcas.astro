@@ -7,12 +7,37 @@ import '../styles/pages/block3-compare.css';
 import '../styles/pages/subpage-hero-compare.css';
 import '../styles/pages/marcas-body-compare.css';
 import '../styles/pages/marcas-alt-proposals.css';
+import '../styles/pages/mobile-hero.css';
+import '../styles/pages/mobile-proposals.css';
+
+// PROVES MÒBIL (.sp): helpers per a les propostes de marques.
+const brandLogo = (b: any) => (b.name === 'Medicamentos' ? '/images/gsnfarma_new_logo.png' : b.logo);
+const gridImg = (b: any) =>
+  b.name === 'Nakama' ? '/images/brand-nakama-shifted.jpg'
+  : b.name === 'Orissens' ? '/images/brands_orissens-shifted.jpg'
+  : b.name === 'Medicamentos' ? '/images/gsnfarma_card.jpg'
+  : b.image;
+const stripImg = (b: any) => (b.name === 'Orissens' ? '/images/brands_orissens-shifted.jpg' : b.image);
 ---
 
 <BaseLayout
   title="Nuestras marcas | GSN Farma Labs Group"
   description="Marcas de salud desarrolladas bajo el modelo One Health Care, especializadas en medicamentos, salud natural, salud de la mujer y salud animal."
 >
+  <section class="mhp" style="--mhp-pos: center 18%">
+    <div class="mhp__img"><img src="/images/gsn_farma_our_brands_header2.jpg" alt="" loading="eager" /></div>
+    <div class="mhp__sheet">
+      <h1 class="mhp__title">Marcas con compromiso farmacéutico</h1>
+      <span class="mhp__bar" aria-hidden="true"></span>
+      <h2 class="mhp__sub">Siempre al servicio de la salud y el bienestar</h2>
+      <p class="mhp__text">
+        Desarrollamos y comercializamos un portafolio de marcas propias en los ámbitos de
+        <strong>salud natural</strong>, <strong>salud animal</strong> y <strong>medicamentos</strong>,
+        integrando conocimiento farmacéutico, innovación y visión <strong>One Health</strong>.
+      </p>
+    </div>
+  </section>
+
   <section class="subpage-hero-e subpage-hero-e--left subpage-hero-e--nuestras-marcas">
     <img
       src="/images/gsn_farma_our_brands_header2.jpg"
@@ -47,7 +72,35 @@ import '../styles/pages/marcas-alt-proposals.css';
     </div>
   </section>
 
+
   {/* ===== Franja de logos — graella de targetes (només desktop) ===== */}
+
+  {/* Graella de marques (mòbil <900px): Orissens a tota l'amplada i la resta en targetes quadrades 2x2. S'amaga el bloc original (.marcas-logos-alt-wrapper); a desktop és al revés. */}
+  <section class="sp sp-mc sp-mc--final">
+    <div class="container">
+      <div class="marcas-alt-a__grid">
+        {brands.map((brand) => (
+          <a
+            href={`#marca-${brand.name.toLowerCase()}-m`}
+            class={`marcas-alt-a__card marcas-alt-a__card--logo-top${brand.name === 'Medicamentos' ? ' marcas-alt-a__card--medicamentos' : ''}`}
+            style={`background-image:url(${gridImg(brand)})`}
+            aria-label={`Anar a ${brand.name}`}
+          >
+            <img
+              src={brand.name === 'Medicamentos' ? '/images/gsnfarma_new_logo_white.png' : brand.logo}
+              alt={brand.name}
+              class={`marcas-alt-a__logo${brand.name === 'Medicamentos' ? '' : ' marcas-alt-a__logo--natural'}${brand.name === 'GSN' ? ' marcas-alt-a__logo--gsn' : ''}`}
+              loading="lazy"
+            />
+            
+            <span class="marcas-alt-a__arrow" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
 
   <div class="marcas-logos-alt-wrapper">
     <section class="marcas-logos-alt marcas-logos-alt--5">
@@ -81,6 +134,47 @@ import '../styles/pages/marcas-alt-proposals.css';
     </section>
   </div>
 
+  <div class="sp-tag">Prova mòbil · Franges de marca · Foto + fulla (logo gran)</div>
+  <section class="sp sp-mb2">
+    {brands.map((brand) => (
+      <div class="sp-mb2__item" id={`marca-${brand.name.toLowerCase()}-m`}>
+        <div class="sp-photo"><img src={stripImg(brand)} alt="" loading="lazy" /></div>
+        <div class="sp-sheet">
+          <span class="sp-mb2__cat">{brand.category}</span>
+          <img class="sp-mb2__logo" src={brandLogo(brand)} alt={brand.name} loading="lazy" />
+          <p>{brand.description.split('\n').map((line: string, idx: number) => (idx > 0 ? <><br />{line}</> : line))}</p>
+          {brand.gated ? (
+              <button type="button" class="sp-cta" data-gate-trigger>{brand.ctaLabel ?? 'Visitar sitio'}<span aria-hidden="true">›</span></button>
+            ) : brand.url ? (
+              <a href={brand.url} {...(brand.url === '#' ? {} : { target: '_blank', rel: 'noopener noreferrer' })} class="sp-cta">{brand.ctaLabel ?? 'Visitar sitio'}<span aria-hidden="true">›</span></a>
+            ) : null}
+        </div>
+      </div>
+    ))}
+  </section>
+
+  <div class="sp-tag">Prova mòbil · Franges de marca · Foto + fulla (logo dins la foto, sense requadre)</div>
+  <section class="sp sp-mb2 sp-mb2--in">
+    {brands.map((brand) => (
+      <div class="sp-mb2__item">
+        <div class="sp-photo">
+          <img src={stripImg(brand)} alt="" loading="lazy" />
+          <span class="sp-mb2__tile"><img src={brandLogo(brand)} alt={brand.name} loading="lazy" /></span>
+        </div>
+        <div class="sp-sheet">
+          <span class="sp-mb2__cat">{brand.category}</span>
+          <p>{brand.description.split('\n').map((line: string, idx: number) => (idx > 0 ? <><br />{line}</> : line))}</p>
+          {brand.gated ? (
+              <button type="button" class="sp-cta" data-gate-trigger>{brand.ctaLabel ?? 'Visitar sitio'}<span aria-hidden="true">›</span></button>
+            ) : brand.url ? (
+              <a href={brand.url} {...(brand.url === '#' ? {} : { target: '_blank', rel: 'noopener noreferrer' })} class="sp-cta">{brand.ctaLabel ?? 'Visitar sitio'}<span aria-hidden="true">›</span></a>
+            ) : null}
+        </div>
+      </div>
+    ))}
+  </section>
+
+  <div class="sp-tag">Franges de marca originals (versió actual)</div>
   {/* ===== COMPARATIVA TEMPORAL — cos de la pàgina ===== */}
 
   {brands.map((brand, i) => {
@@ -130,6 +224,7 @@ import '../styles/pages/marcas-alt-proposals.css';
     </section>
     );
   })}
+
 
   {/* ===== Popup d'accés restringit (marques amb "gated": true, ex. Medicamentos) ===== */}
 

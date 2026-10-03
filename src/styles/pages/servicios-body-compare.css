@@ -333,24 +333,6 @@
    l'ordre de bundling en producció.
    ============================================================ */
 @media (max-width: 899px) {
-  /* ---- Índex de serveis ---- */
-  .srv-union {
-    padding-block: var(--space-8);
-  }
-
-  .srv-union .srv-union__intro .block2-f__accent-line {
-    margin-bottom: 28px;
-  }
-
-  .srv-union .srv-union__intro h2 {
-    font-size: 28px;
-    font-weight: 800;
-  }
-
-  .srv-union .srv-union__intro {
-    margin-bottom: 28px;
-  }
-
   /* ---- Planta de Producción (#fabricacion) i Laboratorio (#i-d) ----
      Mateix tractament que el bloc One Health de Quiénes somos. Fabricación
      manté el padding-bottom:0 (queda integrat amb "Capacidad productiva",
@@ -580,5 +562,18 @@
     content: ' \203A';
     margin-left: var(--space-1, 4px);
     font-weight: 400;
+  }
+}
+
+/* Planta de Producción + Capacidad productiva en mòbil: es veuen SpPlanta (foto + fulla) i .sp-cap1
+   (xifres sota la fulla) i s'amaguen els blocs originals; a desktop continuen els originals. */
+@media (max-width: 899px) {
+  section#fabricacion,
+  section.srv-capacity,
+  section#i-d,
+  section.srv-others,
+  section.srv-strip,
+  section.srv-contact {
+    display: none;
   }
 }

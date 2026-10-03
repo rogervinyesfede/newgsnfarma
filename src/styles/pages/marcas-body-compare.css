@@ -362,26 +362,6 @@ button.block2-f__cta {
 }
 
 @media (max-width: 899px) {
-  /* Bloc intro ("Siempre al servicio de la salud..."): títol igualat
-     a la resta de pàgines (40px -> 28px/800, com a Internacional). */
-  .marcas-intro-centered__inner h2 {
-    font-size: 28px;
-    font-weight: 800;
-  }
-
-  /* Espaiats igualats als d'Internacional: capçalera -> línia blava
-     64px -> 32px, línia blava -> títol 16px -> 28px, i final del bloc
-     (paràgraf -> final) 64px -> 32px. Entre blocs (intro -> graella de
-     targetes -> 1a franja de marca) ja era 0px, igual que a Internacional. */
-  .marcas-intro-centered {
-    padding-top: var(--space-8);
-    padding-bottom: var(--space-8);
-  }
-
-  .marcas-intro-centered .block2-f__accent-line {
-    margin-bottom: 28px;
-  }
-
   .marcas-logos-alt {
     padding-bottom: var(--space-8);
   }
@@ -478,3 +458,10 @@ button.block2-f__cta {
   }
 }
 
+/* Graella de marques en mòbil: es veu la peça .sp-mc (Orissens ample + targetes quadrades) i s'amaga el bloc
+   original; a desktop continua el bloc original. */
+@media (max-width: 899px) {
+  div.marcas-logos-alt-wrapper {
+    display: none;
+  }
+}

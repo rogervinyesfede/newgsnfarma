@@ -19,6 +19,18 @@
   object-position: center center;
 }
 
+/* Si Safari/iOS bloqueja l'autoplay (p. ex. mode d'estalvi d'energia), no ha de
+   mostrar el botó de play nadiu al mig: es queda el cartell (poster). */
+.hero__video::-webkit-media-controls,
+.hero__video::-webkit-media-controls-panel,
+.hero__video::-webkit-media-controls-play-button,
+.hero__video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  -webkit-appearance: none;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .hero--overlap {
   margin-top: 0;
 }

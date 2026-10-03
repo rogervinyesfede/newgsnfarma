@@ -6,6 +6,7 @@ import '../styles/components/buttons.css';
 import Header from '../components/Header.astro';
 import FooterInfo from '../components/FooterInfo.astro';
 import Footer from '../components/Footer.astro';
+import FooterMobile from '../components/FooterMobile.astro';
 
 interface Props {
   title: string;
@@ -41,6 +42,7 @@ const { title, description = '', noindex = false, transparentHeader = false } = 
     <main>
       <slot />
     </main>
+    <FooterMobile />
     <FooterInfo />
     <Footer />
   </body>

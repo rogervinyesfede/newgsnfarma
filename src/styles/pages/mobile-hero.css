@@ -1,0 +1,99 @@
+/* Capçalera + primer bloc en MÒBIL (<900px) per a Servicios, Nuestras marcas, Internacional i
+   Contacto (.mhp), igual que a Quiénes somos (.qs-mhero): imatge de 220px i una fulla blanca
+   arrodonida que li puja 32px per sobre, amb el títol de pàgina (H1), la línia blava, el
+   subtítol i el text alineats a l'esquerra. A mòbil substitueix la capçalera (.subpage-hero-e) i
+   el primer bloc de cada pàgina, que s'amaguen; a desktop és al revés (aquesta peça queda
+   amagada). */
+
+.mhp {
+  display: none;
+}
+
+/* Contacto: còpia del bloc formulari + informació, només per a mòbil (a desktop es veu l'original) */
+@media (min-width: 900px) {
+  .contact-2col--mhp {
+    display: none;
+  }
+}
+
+@media (max-width: 899px) {
+  section.subpage-hero-e--servicios,
+  section.subpage-hero-e--nuestras-marcas,
+  section.subpage-hero-e--internacional,
+  section.subpage-hero-e--contacto,
+  section.srv-union,
+  section.marcas-intro-centered,
+  section.intl-title,
+  section.contact-2col--f1:not(.contact-2col--mhp) {
+    display: none;
+  }
+
+  .mhp {
+    display: block;
+    margin-top: var(--header-height);
+    background: #fff;
+  }
+
+  .mhp__img {
+    height: 220px;
+  }
+
+  .mhp__img img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: var(--mhp-pos, center);
+  }
+
+  .mhp__sheet {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: -32px;
+    padding: 28px var(--space-4) 32px;
+    border-radius: 28px 28px 0 0;
+    background: #fff;
+  }
+
+  .mhp .mhp__title {
+    margin: 0;
+    font-size: clamp(26px, 8.3vw, 30px);
+    font-weight: 800;
+    line-height: 1.12;
+    color: var(--color-primary);
+    text-align: left;
+  }
+
+  .mhp__bar {
+    display: block;
+    width: 48px;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--color-accent);
+  }
+
+  .mhp .mhp__sub {
+    margin: 0;
+    font-size: 19px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--color-primary);
+    text-align: left;
+  }
+
+  .mhp .mhp__text {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.6;
+    color: #4b4b4b;
+    text-align: left;
+  }
+
+  .mhp .mhp__text strong {
+    color: var(--color-blue8);
+  }
+
+}

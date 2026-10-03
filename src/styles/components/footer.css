@@ -172,3 +172,87 @@
     text-align: right;
   }
 }
+
+/* ---------- Footer unificat MÒBIL (<900px): logo, LinkedIn i textos legals ----------
+   A mòbil substitueix .footer-alt (telèfons i adreça, que ja són a Contacto) i .site-footer (franja legal);
+   a desktop es mantenen aquests dos i .footer-m s'amaga. Puja 28px per sobre del darrer bloc de la pàgina
+   (cantonades superiors arrodonides), com la resta de fulles. */
+.footer-m {
+  display: none;
+}
+
+@media (max-width: 899px) {
+  .footer-alt,
+  .site-footer {
+    display: none;
+  }
+
+  .footer-m {
+    position: relative;
+    z-index: 10;
+    display: block;
+    margin-top: -28px;
+    padding: var(--space-8) 0 var(--space-10, 40px);
+    border-top: 1px solid rgba(27, 36, 53, 0.08);
+    border-radius: 28px 28px 0 0;
+    background: #eeeeec;
+  }
+
+  .footer-m__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 1440px;
+    margin-inline: auto;
+    padding-inline: var(--space-4);
+  }
+
+  .footer-m__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .footer-m__logo {
+    display: block;
+    width: 210px;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .footer-m__in {
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: #fff;
+  }
+
+  .footer-m__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 24px;
+    padding-top: 20px;
+    border-top: 1px solid #dcdcda;
+  }
+
+  .footer-m__links a {
+    color: var(--color-primary);
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.4;
+    text-decoration: none;
+  }
+
+  .footer-m__copy {
+    margin: 0;
+    color: #6b6b6b;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}

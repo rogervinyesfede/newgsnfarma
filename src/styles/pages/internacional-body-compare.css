@@ -209,29 +209,9 @@
    sempre a la mida base (40px / clamp), independentment de l'ordre de
    bundling en producció. */
 @media (max-width: 899px) {
-  .intl-title .intl-title__intro h2 {
-    font-size: 28px;
-    font-weight: 800;
-  }
-
   .intl-map .intl-map__list-col h2 {
     font-size: 22px;
     font-weight: 800;
-  }
-
-  /* Capçalera -> línia blava: 64px -> 32px, igual que a la home (hero ->
-     línia blava del bloc One Health). La resta de transicions (entre
-     blocs: 0px; bloc anterior -> "¿Hablamos?": 64px) ja coincidien amb
-     el patró de la home, no calia tocar-les. */
-  .intl-title {
-    padding-top: var(--space-8);
-    padding-bottom: var(--space-8);
-  }
-
-  /* Línia blava -> títol: 16px -> 28px, igual que als altres 2 blocs
-     (Regiones y países, Catálogo) i que a la home. */
-  .intl-title__intro .block2-f__accent-line {
-    margin-bottom: 28px;
   }
 
   /* PROVA: el mapa ocupa tot l'ample de la pantalla (sagna fora dels

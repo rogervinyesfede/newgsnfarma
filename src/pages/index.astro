@@ -4,6 +4,54 @@ import Hero from '../components/Hero.astro';
 import '../styles/pages/block2.css';
 import '../styles/pages/block3-compare.css';
 import '../styles/pages/home-body-compare.css';
+import '../styles/pages/mobile-proposals.css';
+import SpContact from '../components/SpContact.astro';
+
+// PROVES MÒBIL (.sp): mateix contingut que els blocs actuals.
+const oh = {
+  p1: 'Adoptamos el modelo One Health como visión transversal: una salud integrada, sostenible y conectada entre personas, animales y entorno.',
+  p2: 'Desarrollamos, fabricamos y comercializamos productos regulados con agilidad y rigor técnico, bajo los más altos estándares de calidad.',
+};
+const areas = [
+  {
+    title: 'Servicios Farmacéuticos',
+    img: '/images/services_mb.jpg',
+    imgBig: '/images/services_home2.jpg',
+    alt: 'Científica trabajando con microscopio en el laboratorio',
+    text: 'Unidad industrial con 17.000 m² para ofrecer servicios integrales en desarrollo, fabricación, aseguramiento de calidad, asuntos regulatorios y logística para productos regulados.',
+    href: '/servicios',
+    cta: 'Ver todos los servicios',
+    tab: 'Servicios',
+  },
+  {
+    title: 'Marcas Propias',
+    img: '/images/brands_home_products_mb.jpg',
+    imgBig: '/images/brands_home_products2.jpg',
+    alt: 'Mano sosteniendo iconos de productos de salud, representando el portafolio de marcas propias',
+    text: 'Desarrollamos y comercializamos un portafolio de salud transversal, con medicamentos y productos de salud humana y animal, impulsados por la innovación y el rigor farmacéutico.',
+    href: '/nuestras-marcas',
+    cta: 'Ver todas las marcas',
+    tab: 'Marcas propias',
+  },
+];
+const funding = [
+  {
+    intro: 'Subvenciones a proyectos singulares de la economía social y solidaria y el cooperativismo:',
+    logos: [
+      ['/images/economia_social_logo.png', 'Economía Social'],
+      ['/images/gencat_empresa_treball-logo.png', "Generalitat de Catalunya — Departament d'Empresa i Treball"],
+      ['/images/ministerio_logo.png', 'Ministerio de Trabajo y Economía Social — SEPE'],
+    ],
+  },
+  {
+    intro: 'Proyecto Estratégico para la Recuperación y Transformación Económica Agroalimentario:',
+    logos: [
+      ['/images/nextgeneration_logo.png', 'Financiado por la Unión Europea — NextGenerationEU'],
+      ['/images/perte_agro_logo.jpg', 'Plan de Recuperación, Transformación y Resiliencia'],
+      ['/images/ministerio_industria_logo.png', 'Ministerio de Industria y Turismo'],
+    ],
+  },
+];
 ---
 
 <BaseLayout
@@ -23,6 +71,40 @@ import '../styles/pages/home-body-compare.css';
     largeText
     ctaOutline
   />
+
+
+  <div class="sp-tag">Prova mòbil · Hero 1 · Imatge alta amb degradat (cartell del vídeo)</div>
+  <section class="sp sp-hh1">
+    <img src="/images/hero-video-frame.jpg" alt="" loading="lazy" />
+    <div class="sp-hh1__body">
+      <h2 class="sp-h1">Un nuevo grupo farmacéutico</h2>
+      <span class="sp-bar" aria-hidden="true"></span>
+      <p class="sp-lead">Más de 30 años de experiencia y visión global en salud</p>
+      <a href="/quienes-somos" class="sp-link">Conócenos<span aria-hidden="true">›</span></a>
+    </div>
+  </section>
+
+  <div class="sp-tag">Prova mòbil · Hero 2 · Imatge + fulla navy (cartell del vídeo)</div>
+  <section class="sp sp--navy sp-hh2">
+    <div class="sp-hh2__img"><img src="/images/hero-video-frame.jpg" alt="" loading="lazy" /></div>
+    <div class="sp-sheet sp-sheet--navy">
+      <h2 class="sp-h1">Un nuevo grupo farmacéutico</h2>
+      <span class="sp-bar" aria-hidden="true"></span>
+      <p class="sp-lead">Más de 30 años de experiencia y visión global en salud</p>
+      <a href="/quienes-somos" class="sp-btn">Conócenos <span aria-hidden="true">›</span></a>
+    </div>
+  </section>
+
+  <div class="sp-tag">Prova mòbil · Hero 3 · Imatge de 220px + fulla blanca (cartell del vídeo)</div>
+  <section class="sp sp-hh3">
+    <div class="sp-hh3__img"><img src="/images/hero-video-frame.jpg" alt="" loading="lazy" /></div>
+    <div class="sp-sheet">
+      <h2 class="sp-h1">Un nuevo grupo farmacéutico</h2>
+      <span class="sp-bar" aria-hidden="true"></span>
+      <p class="sp-lead">Más de 30 años de experiencia y visión global en salud</p>
+      <a href="/quienes-somos" class="sp-cta">Conócenos<span aria-hidden="true">›</span></a>
+    </div>
+  </section>
 
   <section class="block2-f block3-d__row--50-50 block3-d__row--onehealth onehealth-wide-text">
     <div class="container">
@@ -50,6 +132,50 @@ import '../styles/pages/home-body-compare.css';
           <span class="block2-f__cta-arrow" aria-hidden="true">›</span>
           <span>Conoce más sobre el grupo</span>
         </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="sp-tag">Prova mòbil · One Health 1 · Foto + fulla</div>
+  <section class="sp sp-ho1">
+    <div class="sp-photo">
+      <img src="/images/one_health_gsnfarma4.jpg" alt="Familia con su mascota en casa y manos sosteniendo una planta, símbolo del enfoque One Health" loading="lazy" />
+      <div class="sp-photo__over">
+        <h2>One Health:<br />el propósito que nos guía</h2>
+        <span class="sp-bar" aria-hidden="true"></span>
+      </div>
+    </div>
+    <div class="sp-sheet">
+      <p class="sp-lead">{oh.p1}</p>
+      <p>{oh.p2}</p>
+      <a href="/quienes-somos" class="sp-cta">Conoce más sobre el grupo<span aria-hidden="true">›</span></a>
+    </div>
+  </section>
+
+  <div class="sp-tag">Prova mòbil · One Health 2 · Bloc navy amb imatge</div>
+  <section class="sp sp--navy sp-ho2">
+    <div class="container sp-stack">
+      <h2>One Health:<br />el propósito que nos guía</h2>
+      <span class="sp-bar" aria-hidden="true"></span>
+      <div class="sp-figure"><img src="/images/one_health_gsnfarma4.jpg" alt="Familia con su mascota en casa y manos sosteniendo una planta, símbolo del enfoque One Health" loading="lazy" /></div>
+      <p class="sp-lead">{oh.p1}</p>
+      <p>{oh.p2}</p>
+      <a href="/quienes-somos" class="sp-cta">Conoce más sobre el grupo<span aria-hidden="true">›</span></a>
+    </div>
+  </section>
+
+  <div class="sp-tag">Prova mòbil · One Health 3 · Targeta immersiva</div>
+  <section class="sp sp-ho3">
+    <div class="container">
+      <div class="sp-card">
+        <img src="/images/one_health_gsnfarma4.jpg" alt="Familia con su mascota en casa y manos sosteniendo una planta, símbolo del enfoque One Health" loading="lazy" />
+        <div class="sp-card__body">
+          <h2>One Health:<br />el propósito que nos guía</h2>
+          <span class="sp-bar" aria-hidden="true"></span>
+          <p>{oh.p1}</p>
+          <p>{oh.p2}</p>
+          <a href="/quienes-somos" class="sp-cta">Conoce más sobre el grupo<span aria-hidden="true">›</span></a>
+        </div>
       </div>
     </div>
   </section>
@@ -110,6 +236,62 @@ import '../styles/pages/home-body-compare.css';
     </section>
   </section>
 
+  <div class="sp-tag">Prova mòbil · Àrees 1 · Targetes immersives sobre navy</div>
+  <section class="sp sp--navy sp-ha1">
+    <div class="container">
+      {areas.map((a) => (
+        <a class="sp-card" href={a.href}>
+          <img src={a.imgBig} alt={a.alt} loading="lazy" />
+          <div class="sp-card__body">
+            <h2>{a.title}</h2>
+            <span class="sp-bar" aria-hidden="true"></span>
+            <p>{a.text}</p>
+            <span class="sp-cta">{a.cta}<span aria-hidden="true">›</span></span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <div class="sp-tag">Prova mòbil · Àrees 2 · Targetes blanques sobre gris</div>
+  <section class="sp sp-ha2">
+    <div class="container">
+      <div class="sp-bcards">
+        {areas.map((a) => (
+          <article class="sp-bcard">
+            <img src={a.img} alt={a.alt} loading="lazy" />
+            <div class="sp-bcard__body">
+              <h3>{a.title}</h3>
+              <p>{a.text}</p>
+              <a href={a.href} class="sp-cta">{a.cta}<span aria-hidden="true">›</span></a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <div class="sp-tag">Prova mòbil · Àrees 3 · Pestanyes</div>
+  <section class="sp sp-ha3">
+    <div class="container sp-tabs">
+      <input type="radio" name="spha3" id="spha3a" checked />
+      <input type="radio" name="spha3" id="spha3b" />
+      <div class="sp-tabs__bar">
+        <label for="spha3a">{areas[0].tab}</label>
+        <label for="spha3b">{areas[1].tab}</label>
+      </div>
+      {areas.map((a, i) => (
+        <div class={`sp-tabs__panel sp-tabs__panel--${i === 0 ? 'a' : 'b'}`}>
+          <img src={a.img} alt={a.alt} loading="lazy" />
+          <h2>{a.title}</h2>
+          <span class="sp-bar" aria-hidden="true"></span>
+          <p>{a.text}</p>
+          <a href={a.href} class="sp-cta">{a.cta}<span aria-hidden="true">›</span></a>
+        </div>
+      ))}
+    </div>
+  </section>
+
   <section class="contact-alt contact-alt--photo">
     <div class="container">
       <h2>¿Hablamos?</h2>
@@ -120,6 +302,12 @@ import '../styles/pages/home-body-compare.css';
       <a href="/contacto" class="btn btn--outline-white">Contactar</a>
     </div>
   </section>
+
+  <SpContact
+    label="Hablamos"
+    title="¿Hablamos?"
+    text="En GSN Farma Labs Group trabajamos como partner estratégico para impulsar soluciones en salud con visión a largo plazo."
+  />
 
   <section class="funding">
     <div class="container">
@@ -145,5 +333,60 @@ import '../styles/pages/home-body-compare.css';
     </div>
   </section>
 
+
+
+  <div class="sp-tag">Prova mòbil · Finançament 1 · Targetes blanques sobre gris</div>
+  <section class="sp sp-hf1">
+    <div class="container">
+      <div class="sp-head">
+        <h2>Con la colaboración de:</h2>
+        <span class="sp-bar" aria-hidden="true"></span>
+      </div>
+      {funding.map((g) => (
+        <div class="sp-fgroup sp-fgroup--card">
+          <p>{g.intro}</p>
+          <div class="sp-flogos">
+            {g.logos.map(([src, alt]) => <img src={src} alt={alt} loading="lazy" />)}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <div class="sp-tag">Prova mòbil · Finançament 2 · Llista amb filets</div>
+  <section class="sp sp-hf2">
+    <div class="container">
+      <div class="sp-head">
+        <h2>Con la colaboración de:</h2>
+        <span class="sp-bar" aria-hidden="true"></span>
+      </div>
+      {funding.map((g) => (
+        <div class="sp-fgroup">
+          <p>{g.intro}</p>
+          <div class="sp-flogos">
+            {g.logos.map(([src, alt]) => <img src={src} alt={alt} loading="lazy" />)}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <div class="sp-tag">Prova mòbil · Finançament 3 · Bloc navy amb logos sobre rètols</div>
+  <section class="sp sp--navy sp-hf3">
+    <div class="container">
+      <div class="sp-head">
+        <h2>Con la colaboración de:</h2>
+        <span class="sp-bar" aria-hidden="true"></span>
+      </div>
+      {funding.map((g) => (
+        <div class="sp-fgroup">
+          <p>{g.intro}</p>
+          <div class="sp-flogos">
+            {g.logos.map(([src, alt]) => <span><img src={src} alt={alt} loading="lazy" /></span>)}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
 
 </BaseLayout>

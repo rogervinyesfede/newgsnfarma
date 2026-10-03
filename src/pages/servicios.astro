@@ -6,6 +6,10 @@ import '../styles/pages/subpage-hero-compare.css';
 import '../styles/pages/block2.css';
 import '../styles/pages/block3-compare.css';
 import '../styles/pages/servicios-body-compare.css';
+import '../styles/pages/mobile-hero.css';
+import '../styles/pages/mobile-proposals.css';
+import SpPlanta from '../components/SpPlanta.astro';
+import ServHeader from '../components/ServHeader.astro';
 
 const serviceImages: Record<string, string> = {
   'Almacenamiento farmacéutico': '/images/servicios-almacenamiento.jpg',
@@ -36,6 +40,15 @@ const serviceImagesMobile: Record<string, string> = {
   'Subvenciones': '/images/servicios-subvenciones_mb.jpg',
 };
 
+// Dades per a les PROVES MÒBIL (.sp): mateix contingut que els blocs actuals.
+const lab = {
+  title: 'Laboratorio',
+  img: '/images/gsn_farma_lab_mb.jpg',
+  alt: 'Laboratorio de I+D de GSN Farma',
+  p1: 'En el área de I+D combinamos los servicios globales de desarrollo de CoetusPharma con los servicios de desarrollo de producto de GSN Farma, cubriendo tanto I+D galénico (medicamentos y formas farmacéuticas nuevas) como I+D nutricional (complementos alimenticios y productos funcionales).',
+  p2: 'Acompañamos proyectos propios y de terceros desde la fase conceptual hasta su escalado industrial, con planta piloto, ensayos de estabilidad y soporte técnico específico, ofreciendo un enfoque integral, flexible y orientado a resultados.',
+};
+
 const serviceIds: Record<string, string> = {
   'Almacenamiento farmacéutico': 'almacenamiento',
   'Aseguramiento de la calidad': 'calidad',
@@ -50,6 +63,10 @@ const serviceIds: Record<string, string> = {
   title="Servicios farmacéuticos | GSN Farma Labs Group"
   description="Servicios farmacéuticos especializados en desarrollo, fabricación y gestión de productos farmacéuticos y soluciones de salud con altos estándares de calidad."
 >
+  {/* Capçalera + índex (mòbil): graella plana; la fulla passa per sobre de la foto de la Planta. */}
+  <ServHeader />
+
+  {/* Capçalera i índex de DESKTOP (a mòbil s'amaguen; veure mobile-hero.css) */}
   <section class="subpage-hero-e subpage-hero-e--left subpage-hero-e--servicios">
     <img
       src="/images/gsn_farma_offices_building.jpg"
@@ -82,6 +99,65 @@ const serviceIds: Record<string, string> = {
         <a href="#camaras-climaticas" class="srv-union__item">Cámaras climáticas y estudios de estabilidad</a>
         <a href="#acondicionamiento" class="srv-union__item">Acondicionamiento secundario y serialización</a>
         <a href="#subvenciones" class="srv-union__item">Subvenciones</a>
+      </div>
+    </div>
+  </section>
+
+  {/* Planta de Producción + Capacidad productiva: a mòbil (<900px) es veu aquesta peça (foto + fulla amb la
+       capacitat a dins) i s'amaguen #fabricacion i .srv-capacity; a desktop és al revés. */}
+  <SpPlanta id="fabricacion-m">
+    <div class="sp-panel">
+      <h2 class="sp-panel__title">Capacidad productiva:</h2>
+      <ul class="sp-rows">
+        {capacityItems.map((item) => (
+          <li>
+            <span class="sp-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" set:html={item.icon}></svg></span>
+            <span class="sp-rows__name">{item.title}<small>uds./año</small></span>
+            <strong>{item.value}</strong>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </SpPlanta>
+
+  {/* Laboratorio: a mòbil (<900px) es veu aquesta peça (foto + fulla navy) i s'amaga #i-d; a desktop és al revés.
+       La fulla de Planta li passa per sobre (28px), com "Una unión…" sobre One Health a Quiénes somos. */}
+  <section class="sp sp--navy sp-lab" id="i-d-m">
+    <div class="sp-photo">
+      <img src={lab.img} alt={lab.alt} loading="lazy" />
+      <div class="sp-photo__over">
+        <h2>{lab.title}</h2>
+        <span class="sp-bar" aria-hidden="true"></span>
+      </div>
+    </div>
+    <div class="sp-sheet sp-sheet--navy">
+      <p>{lab.p1}</p>
+      <p>{lab.p2}</p>
+    </div>
+  </section>
+
+  {/* Servicios especializados: a mòbil (<900px) es veu aquest acordió i s'amaguen .srv-others i les franges .srv-strip;
+       a desktop és al revés. Li passa per sota la fulla navy del Laboratorio (28px). */}
+  <section class="sp sp-tuck2 sp-es1">
+    <div class="container">
+      <div class="sp-head">
+        <h2>Servicios especializados:</h2>
+        <span class="sp-bar" aria-hidden="true"></span>
+      </div>
+      <div class="sp-acc">
+        {services.map((service, i) => (
+          <details id={`${serviceIds[service.title]}-m`} open={i === 0}>
+            <summary>
+              <span class="sp-acc__thumb"><img src={serviceImagesMobile[service.title]} alt="" loading="lazy" /></span>
+              <span class="sp-acc__title">{service.title}</span>
+              <span class="sp-acc__chev" aria-hidden="true"></span>
+            </summary>
+            <div class="sp-acc__body">
+              <img src={serviceImagesMobile[service.title]} alt="" loading="lazy" />
+              {service.description.split('\n').map((line: string) => <p set:html={line} />)}
+            </div>
+          </details>
+        ))}
       </div>
     </div>
   </section>
@@ -197,7 +273,7 @@ const serviceIds: Record<string, string> = {
     </section>
   ))}
 
-  <section class="contact-alt contact-alt--photo">
+  <section class="contact-alt contact-alt--photo srv-contact">
     <div class="container">
       <h2>¿Quieres saber más?</h2>
       <p>
@@ -206,4 +282,28 @@ const serviceIds: Record<string, string> = {
       <a href="/contacto" class="btn btn--outline-white">Contactar</a>
     </div>
   </section>
+
+  {/* ¿Quieres saber más?: a mòbil (<900px) es veu aquesta peça (foto + enllaç) i s'amaga .srv-contact; a desktop és al revés.
+       Puja 28px per sobre de l'acordió i el footer li passa per sota (28px), només en aquesta pàgina. */}
+  <section class="sp sp--navy sp-ct2 sp-ct2--final">
+    <div class="sp-ct2__bg" aria-hidden="true"></div>
+    <div class="sp-ct2__body">
+      <h2>¿Quieres saber más?</h2>
+      <p>Contáctanos para recibir más información sobre nuestros servicios.</p>
+      <a href="/contacto" class="sp-link">Contactar<span aria-hidden="true">›</span></a>
+    </div>
+  </section>
+
+  <script>
+    // Índex de serveis a mòbil: si l'enllaç apunta a un ítem de l'acordió, l'obre i hi va.
+    const openFromHash = () => {
+      const el = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+      if (el && el.tagName === 'DETAILS') {
+        (el as HTMLDetailsElement).open = true;
+        el.scrollIntoView();
+      }
+    };
+    window.addEventListener('hashchange', openFromHash);
+    openFromHash();
+  </script>
 </BaseLayout>

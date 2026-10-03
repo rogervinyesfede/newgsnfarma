@@ -1,0 +1,34 @@
+---
+// Capçalera + índex de "Servicios" en MÒBIL (<900px): imatge, fulla blanca amb el títol, la línia blava, el
+// subtítol, el text i l'índex de serveis (graella de 2 columnes, gris clar, sense ombres). La fulla es tanca
+// arrodonida i la foto de la Planta de Producción li passa per sota (28px). A mòbil substitueix la capçalera i el
+// bloc d'índex de desktop (que s'hi amaguen).
+import '../styles/pages/mobile-hero.css';
+import '../styles/pages/mobile-proposals.css';
+
+const items = [
+  { t: 'Fabricación', href: '#fabricacion-m' },
+  { t: 'I+D', href: '#i-d-m' },
+  { t: 'Almacenamiento', href: '#almacenamiento-m' },
+  { t: 'Aseguramiento de calidad', href: '#calidad-m' },
+  { t: 'Asuntos regulatorios', href: '#regulatorio-m' },
+  { t: 'Cámaras climáticas y estudios de estabilidad', href: '#camaras-climaticas-m' },
+  { t: 'Acondicionamiento secundario y serialización', href: '#acondicionamiento-m' },
+  { t: 'Subvenciones', href: '#subvenciones-m' },
+];
+---
+
+<section class="mhp mhp--tuck" style="--mhp-pos: center 40%">
+  <div class="mhp__img"><img src="/images/gsn_farma_offices_building.jpg" alt="" loading="eager" /></div>
+  <div class="mhp__sheet">
+    <h1 class="mhp__title">Servicios Farmacéuticos</h1>
+    <span class="mhp__bar" aria-hidden="true"></span>
+    <h2 class="mhp__sub">Tu partner global en soluciones de salud</h2>
+    <p class="mhp__text">
+      <strong>17.000 m²</strong> dedicados a desarrollo, fabricación, análisis y almacenamiento.
+    </p>
+    <nav class="sp-gx" aria-label="Servicios">
+      {items.map((it) => <a class="sp-gx__item" href={it.href}>{it.t}</a>)}
+    </nav>
+  </div>
+</section>

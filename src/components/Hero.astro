@@ -96,13 +96,36 @@ const style = [
     // que es descarreguin totes dues i garanteix que el mòbil rep sempre
     // la variant lleugera.
     document.querySelectorAll('.hero__video[data-src-desktop]').forEach((el) => {
+      // iOS/Safari només deixa l'autoplay si el vídeo és mut com a PROPIETAT (no
+      // només com a atribut) i va inline; si no, mostra el botó de play al mig.
+      el.muted = true;
+      el.defaultMuted = true;
+      el.playsInline = true;
+      el.setAttribute('webkit-playsinline', '');
+
       const isMobile = window.matchMedia('(max-width: 767px)').matches;
       const src = isMobile ? el.dataset.srcMobile : el.dataset.srcDesktop;
+      const tryPlay = () => {
+        if (!el.paused) return;
+        const p = el.play();
+        if (p && p.catch) p.catch(() => {});
+      };
+
       if (src && el.getAttribute('src') !== src) {
         el.src = src;
         el.load();
-        el.play().catch(() => {});
       }
+      tryPlay();
+      el.addEventListener('loadeddata', tryPlay);
+      el.addEventListener('canplay', tryPlay);
+      document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) tryPlay();
+      });
+      // El mode d'estalvi d'energia d'iOS bloqueja l'autoplay: es reintenta amb el
+      // primer gest de l'usuari (tocar la pantalla).
+      ['touchend', 'pointerdown', 'click'].forEach((ev) =>
+        window.addEventListener(ev, tryPlay, { once: true, passive: true })
+      );
     });
   </script>
 )}
