@@ -458,10 +458,11 @@ button.block2-f__cta {
   }
 }
 
-/* Graella de marques en mòbil: es veu la peça .sp-mc (Orissens ample + targetes quadrades) i s'amaga el bloc
-   original; a desktop continua el bloc original. */
+/* Graella de marques i franges de marca en mòbil: es veuen les peces .sp-mc (Orissens ample + targetes quadrades) i
+   .sp-mb2 (foto + fulla) i s'amaguen els blocs originals; a desktop continuen els originals. */
 @media (max-width: 899px) {
-  div.marcas-logos-alt-wrapper {
+  div.marcas-logos-alt-wrapper,
+  section.content-section.marcas-b__row {
     display: none;
   }
 }

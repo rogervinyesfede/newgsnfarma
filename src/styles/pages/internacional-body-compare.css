@@ -303,3 +303,11 @@
   }
 }
 
+/* Mapa i regions, catàleg i ¿Hablamos? en mòbil: es veuen les peces .sp-ia4, .sp-ic2 i .sp-ct2 i s'amaguen els blocs originals; a desktop continuen els originals. */
+@media (max-width: 899px) {
+  section.intl-map.intl-map--split,
+  section.intl-catalog.intl-catalog--desktop,
+  section.intl-contact {
+    display: none;
+  }
+}

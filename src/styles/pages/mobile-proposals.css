@@ -1,25 +1,13 @@
-/* PROVES MÒBIL (.sp) — propostes addicionals de blocs per a Servicios, Nuestras marcas, Internacional,
+/* BLOCS MÒBIL (.sp) — blocs definitius per a Servicios, Nuestras marcas, Internacional,
    Contacto i Home, amb el llenguatge de Quiénes somos en mòbil: fulles arrodonides de 28px, línia
    blava de 48px, text alineat a l'esquerra i l'escala 24/700 (títols), 18/600 (destacats), 17/400 (text),
-   16/700 (CTA). Només es mostren a mòbil (<900px), a sota del bloc actual de cada secció, amb una
-   etiqueta groga. Eliminar aquest fitxer (i el marcat .sp de cada pàgina) quan es triï. */
-.sp,
-.sp-tag {
+   16/700 (CTA). Només es mostren a mòbil (<900px) i substitueixen el bloc de desktop corresponent,
+   que s'hi amaga; a desktop és al revés. Ja no hi queda cap proposta: tot és definitiu. */
+.sp {
   display: none;
 }
 
 @media (max-width: 899px) {
-  .sp-tag {
-    display: block;
-    padding: 10px var(--space-4);
-    background: #fff3b0;
-    color: #5c4a00;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-  }
-
   .sp {
     display: block;
     --sp-navy: var(--color-primary);
@@ -52,13 +40,6 @@
     text-align: left;
   }
 
-  .sp p.sp-lead {
-    font-size: 18px;
-    font-weight: 600;
-    line-height: 1.4;
-    color: var(--sp-navy);
-  }
-
   .sp-bar {
     display: block;
     width: 48px;
@@ -74,20 +55,12 @@
     margin-bottom: 28px;
   }
 
-  .sp-stack {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  /* Variant fosca (navy) */
   .sp--navy {
     background: var(--sp-navy);
   }
 
   .sp--navy h2,
-  .sp--navy h3,
-  .sp--navy p.sp-lead {
+  .sp--navy h3 {
     color: #fff;
   }
 
@@ -148,20 +121,6 @@
 
   .sp-sheet--navy {
     background: var(--sp-navy);
-  }
-
-  .sp-figure {
-    position: relative;
-    overflow: hidden;
-    border-radius: 20px;
-    aspect-ratio: 12 / 7;
-  }
-
-  .sp-figure img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
   }
 
   .sp-ico {
@@ -239,9 +198,8 @@
      ========================================================= */
 
   /* Servicios especializados — acordió (miniatura + títol; s'obre amb imatge i text) */
-  /* padding-bottom: 28px (el bloc de contacte li puja per sobre) + 32px d'aire visible fins a la foto */
   .sp-es1 {
-    padding: 32px 0 60px;
+    padding: 32px 0 40px;
     background: #fff;
   }
 
@@ -321,32 +279,10 @@
      ¿QUIERES SABER MÁS?
      ========================================================= */
 
-  /* Contacte 1 — bloc navy arrodonit amb botó cian */
-  .sp-ct1 {
-    padding: 40px 0 48px;
-    border-radius: 28px 28px 0 0;
-  }
-
-  .sp-btn {
-    display: inline-flex;
-    align-self: flex-start;
-    align-items: center;
-    gap: 8px;
-    margin-top: 8px;
-    padding: 14px 24px;
-    border-radius: 999px;
-    background: var(--sp-cyan);
-    color: var(--sp-navy);
-    font-size: 16px;
-    font-weight: 700;
-    text-decoration: none;
-  }
-
-  /* Contacte 2 — foto amb degradat navy i CTA com a text amb "›" */
+  /* ¿Hablamos? / ¿Quieres saber más? (definitiu): foto amb degradat navy i CTA com a text amb "›" */
   .sp-ct2 {
     position: relative;
     overflow: hidden;
-    border-radius: 28px 28px 0 0;
     background: var(--sp-navy);
   }
 
@@ -383,64 +319,7 @@
     font-weight: 400;
   }
 
-  /* Contacte 3 — accions directes (escriure / trucar) */
-  .sp-ct3 {
-    padding: 32px 0 40px;
-    background: var(--sp-grey);
-  }
-
-  .sp-acts {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .sp-act {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 16px;
-    border-radius: 16px;
-    background: #fff;
-    color: var(--sp-navy);
-    text-decoration: none;
-    box-shadow: 0 2px 10px rgba(27, 36, 53, 0.08);
-  }
-
-  .sp-act--solid {
-    background: var(--sp-navy);
-    color: #fff;
-  }
-
-  .sp-act--solid .sp-ico {
-    background: rgba(0, 219, 255, 0.16);
-    color: var(--sp-cyan);
-  }
-
-  .sp-act__text {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    gap: 2px;
-    font-size: 17px;
-    font-weight: 700;
-    line-height: 1.25;
-  }
-
-  .sp-act__text small {
-    font-size: 14px;
-    font-weight: 400;
-    opacity: 0.75;
-  }
-
-  .sp-act__arrow {
-    font-size: 20px;
-    font-weight: 400;
-  }
-
-  /* =========================================================
-     PECES COMPARTIDES (pàgines Marcas, Internacional, Contacto, Home)
-     ========================================================= */
+  /* CTA en text: 16px negreta amb "›" */
   .sp-cta {
     display: inline-flex;
     align-self: flex-start;
@@ -457,701 +336,8 @@
     font-weight: 400;
   }
 
-  .sp--navy .sp-cta,
-  .sp-card .sp-cta {
+  .sp--navy .sp-cta {
     color: #fff;
-  }
-
-  .sp-chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  .sp-chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 9px 14px;
-    border: 1px solid var(--sp-line);
-    border-radius: 999px;
-    background: #fff;
-    color: var(--sp-navy);
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 1.2;
-  }
-
-  .sp-chip::before {
-    content: '';
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--sp-cyan);
-  }
-
-  .sp--navy .sp-chip {
-    border-color: rgba(255, 255, 255, 0.22);
-    background: rgba(255, 255, 255, 0.07);
-    color: #fff;
-  }
-
-  /* =========================================================
-     NUESTRAS MARCAS
-     ========================================================= */
-
-  /* =========================================================
-     INTERNACIONAL
-     ========================================================= */
-
-  /* Mapa 1 — mapa en targeta + regions com a xips */
-  .sp-ia1 {
-    padding: 32px 0 40px;
-    background: var(--sp-grey);
-  }
-
-  .sp-mapcard {
-    padding: 8px;
-    border-radius: 20px;
-    background: #fff;
-  }
-
-  /* Mapa 2 — mapa a sang sobre gris clar + fulla blanca amb llista en 2 columnes */
-  .sp-ia2__map {
-    padding: 28px var(--space-4) 44px;
-    background: #f4f4f2;
-  }
-
-  .sp-regions {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0 16px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .sp-regions li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 14px 0;
-    border-bottom: 1px solid var(--sp-line);
-    font-size: 17px;
-    font-weight: 600;
-    color: var(--sp-navy);
-  }
-
-  .sp-regions li::before {
-    content: '';
-    flex: none;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: var(--sp-cyan);
-  }
-
-  /* Mapa 3 — bloc navy amb el mapa i xips */
-  .sp-ia3 {
-    padding: 32px 0 40px;
-    border-radius: 28px 28px 0 0;
-  }
-
-  /* Catàleg 1 — targetes de descàrrega sobre gris */
-  .sp-ib1 {
-    padding: 32px 0 40px;
-    background: var(--sp-grey);
-  }
-
-  .sp-dl {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .sp-dlcard {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 16px;
-    border-radius: 16px;
-    background: #fff;
-    color: var(--sp-navy);
-    text-decoration: none;
-    box-shadow: 0 2px 10px rgba(27, 36, 53, 0.08);
-  }
-
-  .sp-dlcard__text {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    gap: 2px;
-    font-size: 17px;
-    font-weight: 700;
-    line-height: 1.25;
-  }
-
-  .sp-dlcard__text small {
-    font-size: 14px;
-    font-weight: 400;
-    color: #6b6b6b;
-  }
-
-  /* Catàleg 2 — botons grans a tot l'ample */
-  .sp-ib2 {
-    padding: 32px 0 40px;
-    background: #fff;
-  }
-
-  .sp-bigbtn {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    min-height: 56px;
-    padding: 14px 20px;
-    border-radius: 14px;
-    background: var(--sp-navy);
-    color: #fff;
-    font-size: 16px;
-    font-weight: 700;
-    text-decoration: none;
-  }
-
-  .sp-bigbtn svg {
-    flex: none;
-    color: var(--sp-cyan);
-  }
-
-  /* Catàleg 3 — navy amb files separades per filets */
-  .sp-ib3 {
-    padding: 32px 0 40px;
-    border-radius: 28px 28px 0 0;
-  }
-
-  .sp-dlrows {
-    display: flex;
-    flex-direction: column;
-    border-top: 1px solid rgba(255, 255, 255, 0.16);
-  }
-
-  .sp-dlrow {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 18px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
-    color: #fff;
-    font-size: 18px;
-    font-weight: 600;
-    text-decoration: none;
-  }
-
-  .sp-dlrow svg {
-    color: var(--sp-cyan);
-  }
-
-  /* =========================================================
-     CONTACTO
-     ========================================================= */
-
-  /* Formulari 1 — targeta blanca sobre gris */
-  .sp-cf1 {
-    padding: 32px 0 40px;
-    background: var(--sp-grey);
-  }
-
-  .sp-formcard {
-    padding: 20px;
-    border-radius: 20px;
-    background: #fff;
-    box-shadow: 0 2px 12px rgba(27, 36, 53, 0.08);
-  }
-
-  .sp .contact-form {
-    max-width: none;
-    gap: 16px;
-  }
-
-  .sp .contact-form label {
-    gap: 6px;
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--sp-navy);
-  }
-
-  .sp .contact-form input,
-  .sp .contact-form textarea,
-  .sp .contact-form select {
-    padding: 12px 14px;
-    border: 1px solid #d3d3d1;
-    border-radius: 12px;
-    font-size: 17px;
-    color: var(--sp-navy);
-  }
-
-  .sp .contact-form .contact-form__consent {
-    flex-direction: row;
-    font-size: 15px;
-    font-weight: 400;
-  }
-
-  .sp .contact-form .contact-form__consent input {
-    flex: none;
-    width: 20px;
-    height: 20px;
-    margin-top: 2px;
-    padding: 0;
-  }
-
-  .sp .contact-form button {
-    align-self: stretch;
-    min-height: 52px;
-    border: 0;
-    border-radius: 999px;
-    background: var(--sp-navy);
-    color: #fff;
-    font-size: 16px;
-    font-weight: 700;
-  }
-
-  /* Formulari 2 — bloc navy amb targeta blanca i botó cian */
-  .sp-cf2 {
-    padding: 40px 0 40px;
-    border-radius: 28px 28px 0 0;
-  }
-
-  .sp-cf2 .contact-form button {
-    background: var(--sp-cyan);
-    color: var(--sp-navy);
-  }
-
-  /* Formulari 3 — estil minimalista: camps només amb línia inferior */
-  .sp-cf3 {
-    padding: 32px 0 40px;
-    background: #fff;
-  }
-
-  .sp-cf3 .contact-form {
-    gap: 22px;
-  }
-
-  .sp-cf3 .contact-form label {
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    color: #6b6b6b;
-  }
-
-  .sp-cf3 .contact-form input:not([type='checkbox']),
-  .sp-cf3 .contact-form textarea,
-  .sp-cf3 .contact-form select {
-    padding: 8px 0 10px;
-    border: 0;
-    border-bottom: 1.5px solid #bdbdba;
-    border-radius: 0;
-    background: transparent;
-  }
-
-  .sp-cf3 .contact-form textarea {
-    min-height: 96px;
-  }
-
-  .sp-cf3 .contact-form button {
-    background: var(--sp-cyan);
-    color: var(--sp-navy);
-  }
-
-  /* Informació 1 — llista de files (icona, rètol, valor) sobre gris */
-  .sp-ci1 {
-    padding: 32px 0 40px;
-    background: var(--sp-grey);
-  }
-
-  .sp-irows {
-    padding: 4px var(--space-4);
-    border-radius: 20px;
-    background: #fff;
-  }
-
-  .sp-irow {
-    display: grid;
-    grid-template-columns: 44px 1fr;
-    align-items: center;
-    gap: 14px;
-    padding: 14px 0;
-    border-bottom: 1px solid var(--sp-line);
-    color: var(--sp-navy);
-    text-decoration: none;
-  }
-
-  .sp-irow:last-child {
-    border-bottom: 0;
-  }
-
-  .sp-irow__text {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    font-size: 17px;
-    font-weight: 700;
-    line-height: 1.3;
-  }
-
-  .sp-irow__text small {
-    font-size: 14px;
-    font-weight: 400;
-    color: #6b6b6b;
-  }
-
-  /* Informació 2 — mosaic de targetes */
-  .sp-ci2 {
-    padding: 32px 0 40px;
-    background: #fff;
-  }
-
-  .sp-mosaic {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-  }
-
-  .sp-mosaic__card {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 16px;
-    border-radius: 16px;
-    background: var(--sp-grey);
-    color: var(--sp-navy);
-    text-decoration: none;
-  }
-
-  .sp-mosaic__card--wide {
-    grid-column: 1 / -1;
-  }
-
-  .sp-mosaic__card .sp-ico {
-    background: #fff;
-  }
-
-  .sp-mosaic__label {
-    font-size: 14px;
-    font-weight: 400;
-    color: #6b6b6b;
-  }
-
-  .sp-mosaic__value {
-    font-size: 17px;
-    font-weight: 700;
-    line-height: 1.3;
-  }
-
-  /* Informació 3 — navy amb files i botó de LinkedIn */
-  .sp-ci3 {
-    padding: 32px 0 40px;
-    border-radius: 28px 28px 0 0;
-  }
-
-  .sp-nrows {
-    display: flex;
-    flex-direction: column;
-    border-top: 1px solid rgba(255, 255, 255, 0.16);
-  }
-
-  .sp-nrow {
-    display: grid;
-    grid-template-columns: 28px 1fr;
-    gap: 14px;
-    padding: 18px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
-    color: #fff;
-    text-decoration: none;
-  }
-
-  .sp-nrow svg {
-    margin-top: 2px;
-    color: var(--sp-cyan);
-  }
-
-  .sp-nrow__text {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    font-size: 18px;
-    font-weight: 600;
-    line-height: 1.3;
-  }
-
-  .sp-nrow__text small {
-    font-size: 14px;
-    font-weight: 400;
-    color: rgba(255, 255, 255, 0.7);
-  }
-
-  .sp-outbtn {
-    display: inline-flex;
-    align-self: flex-start;
-    align-items: center;
-    gap: 10px;
-    margin-top: 8px;
-    padding: 12px 22px;
-    border: 1.5px solid rgba(255, 255, 255, 0.5);
-    border-radius: 999px;
-    color: #fff;
-    font-size: 16px;
-    font-weight: 700;
-    text-decoration: none;
-  }
-
-  /* =========================================================
-     HOME
-     ========================================================= */
-
-  /* Hero 1 — imatge alta amb degradat i text a sobre */
-  .sp-hh1 {
-    position: relative;
-    display: flex;
-    align-items: flex-end;
-    min-height: 560px;
-    overflow: hidden;
-    background: var(--sp-navy);
-  }
-
-  .sp-hh1 > img {
-    position: absolute;
-    inset: 0;
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .sp-hh1::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(27, 36, 53, 0.1) 30%, rgba(27, 36, 53, 0.9) 100%);
-  }
-
-  .sp-hh1__body {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    width: 100%;
-    padding: 0 var(--space-4) 44px;
-  }
-
-  .sp .sp-h1 {
-    margin: 0;
-    font-size: clamp(26px, 8.3vw, 30px);
-    font-weight: 800;
-    line-height: 1.12;
-    color: var(--sp-navy);
-  }
-
-  .sp--navy .sp-h1,
-  .sp-hh1 .sp-h1 {
-    color: #fff;
-  }
-
-  .sp-hh1 p.sp-lead {
-    color: #fff;
-  }
-
-  /* Hero 2 — imatge + fulla navy amb botó cian */
-  .sp-hh2__img {
-    height: 340px;
-  }
-
-  .sp-hh2__img img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .sp-hh2 .sp-sheet {
-    gap: 16px;
-    padding-bottom: 36px;
-  }
-
-  /* Hero 3 — imatge de 220px + fulla blanca (com la resta de pàgines) */
-  .sp-hh3__img {
-    height: 220px;
-  }
-
-  .sp-hh3__img img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .sp-hh3 .sp-sheet {
-    gap: 16px;
-  }
-
-  /* One Health 1/2/3 */
-  .sp-ho1 {
-    background: #fff;
-  }
-
-  .sp-ho2 {
-    padding: 32px 0 40px;
-    border-radius: 28px 28px 0 0;
-  }
-
-  .sp-ho3 {
-    padding: 32px 0 40px;
-    background: #fff;
-  }
-
-  /* Àrees 1 — dues targetes immersives sobre navy */
-  .sp-ha1 {
-    padding: 32px 0 40px;
-    border-radius: 28px 28px 0 0;
-  }
-
-  .sp-ha1 .sp-card {
-    min-height: 500px;
-    margin-bottom: 16px;
-  }
-
-  .sp-ha1 .sp-card:last-child {
-    margin-bottom: 0;
-  }
-
-  /* Àrees 2 — targetes blanques sobre gris */
-  .sp-ha2 {
-    padding: 32px 0 40px;
-    background: var(--sp-grey);
-  }
-
-  /* Àrees 3 — pestanyes (segmented control) */
-  .sp-ha3 {
-    padding: 32px 0 40px;
-    background: #fff;
-  }
-
-  .sp-tabs input {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  .sp-tabs__bar {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4px;
-    margin-bottom: 20px;
-    padding: 4px;
-    border-radius: 999px;
-    background: var(--sp-grey);
-  }
-
-  .sp-tabs__bar label {
-    padding: 11px 8px;
-    border-radius: 999px;
-    color: #4b4b4b;
-    font-size: 15px;
-    font-weight: 700;
-    text-align: center;
-    cursor: pointer;
-  }
-
-  .sp-tabs__panel {
-    display: none;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .sp-tabs__panel img {
-    display: block;
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    border-radius: 20px;
-  }
-
-  #spha3a:checked ~ .sp-tabs__bar label[for='spha3a'],
-  #spha3b:checked ~ .sp-tabs__bar label[for='spha3b'] {
-    background: var(--sp-navy);
-    color: #fff;
-  }
-
-  #spha3a:checked ~ .sp-tabs__panel--a,
-  #spha3b:checked ~ .sp-tabs__panel--b {
-    display: flex;
-  }
-
-  /* Finançament 1/2/3 */
-  .sp-hf1 {
-    padding: 32px 0 40px;
-    background: var(--sp-grey);
-  }
-
-  .sp-hf2 {
-    padding: 32px 0 40px;
-    background: #fff;
-  }
-
-  .sp-hf3 {
-    padding: 32px 0 40px;
-    border-radius: 28px 28px 0 0;
-  }
-
-  .sp-fgroup {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-
-  .sp-fgroup--card {
-    padding: 20px;
-    border-radius: 20px;
-    background: #fff;
-  }
-
-  .sp-fgroup + .sp-fgroup {
-    margin-top: 16px;
-  }
-
-  .sp-hf2 .sp-fgroup + .sp-fgroup {
-    margin-top: 24px;
-    padding-top: 24px;
-    border-top: 1px solid var(--sp-line);
-  }
-
-  .sp .sp-fgroup p {
-    font-size: 16px;
-    line-height: 1.45;
-  }
-
-  .sp-flogos {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    align-items: center;
-  }
-
-  .sp-flogos img {
-    display: block;
-    width: 100%;
-    height: 44px;
-    object-fit: contain;
-  }
-
-  .sp-hf3 .sp-flogos > span {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 64px;
-    padding: 8px;
-    border-radius: 12px;
-    background: #fff;
   }
 
   button.sp-cta {
@@ -1161,7 +347,6 @@
     font-family: inherit;
     cursor: pointer;
   }
-
 
   /* Planta de Producción + Capacidad productiva (definitiu): tot dins la mateixa fulla; el títol de
      "Capacidad productiva:" (18/700) va dins del panell gris, com a capçalera de les files. */
@@ -1246,21 +431,6 @@
     scroll-margin-top: var(--header-height);
   }
 
-  /* ¿Quieres saber más? (Servicios, definitiu): bloc amb les 4 cantonades arrodonides que puja 28px per
-     sobre de l'acordió. */
-  .sp-ct2--final {
-    position: relative;
-    z-index: 3;
-    margin-top: -28px;
-    border-radius: 28px;
-  }
-
-  /* padding-bottom: 28px els tapa el footer unificat (puja per sobre) + 32px d'aire */
-  .sp-ct2--final .sp-ct2__body {
-    padding-top: 84px;
-    padding-bottom: 60px;
-  }
-
   /* Planta i Laboratorio: els dos paràgrafs són iguals (17/400), sense destacat; 16px entre ells. El panell de
      capacitat manté 32px d'aire per sobre (16 de gap + 16 de marge). */
   .sp-pl1 .sp-sheet,
@@ -1275,7 +445,7 @@
   /* Índex de serveis (capçalera de Servicios): graella de 2 columnes, gris clar, sense ombres, text a l'esquerra */
   .sp-gx {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 8px;
     margin-top: 12px;
   }
@@ -1295,15 +465,10 @@
     line-height: 1.3;
     text-align: left;
     text-decoration: none;
+    overflow-wrap: anywhere;
   }
 
-  /* Capçalera -> Planta: la fulla de la capçalera es tanca arrodonida (28px) i la foto de la Planta li passa per
-     sota (28px, per això la foto fa 28px més d'alt). */
-  .mhp--tuck .mhp__sheet {
-    z-index: 3;
-    border-radius: 28px;
-  }
-
+  /* Capçalera -> Planta: la capçalera acaba en línia recta i la Planta comença just a sota (sense integració arrodonida). */
   .mhp .sp-gx {
     margin-top: 12px;
   }
@@ -1311,11 +476,6 @@
   .sp-pl1 {
     position: relative;
     z-index: 1;
-    margin-top: -28px;
-  }
-
-  .sp-pl1 .sp-photo {
-    height: 388px;
   }
 
   /* Nuestras marques — graella de targetes (mòbil): Orissens (marca principal) a tota l'amplada i la resta
@@ -1350,7 +510,6 @@
     padding-right: 20px;
   }
 
-
   /* Nuestras marcas — franges de marca: foto a sang + fulla blanca arrodonida (com Planta de Servicios), amb la
      categoria i el LOGO gran (48px d'alt) a la fulla. Repetit per marca. */
   .sp-mb2 {
@@ -1374,15 +533,6 @@
     padding-bottom: 36px;
   }
 
-  .sp-mb2__cat {
-    align-self: flex-start;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--sp-cyan-dark);
-  }
-
   .sp-mb2__logo {
     display: block;
     align-self: flex-start;
@@ -1393,21 +543,441 @@
     object-position: left center;
   }
 
-  /* Variant: el logo dins la foto, a dalt a l'esquerra, directament sobre la imatge (sense requadre) */
-  .sp-mb2__tile {
+  /* Etiqueta de categoria com a "pastilla" dins la foto (a dalt a l'esquerra) */
+  .sp-mb2__pill {
     position: absolute;
-    top: 20px;
+    top: 16px;
     left: var(--space-4);
     z-index: 2;
-    display: block;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--sp-navy);
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.25;
   }
 
-  .sp-mb2__tile img {
+  /* Mida del logo ajustada per marca (base: 48px d'alt) */
+  .sp-mb2__logo--orissens {
+    height: 58px; /* +20% */
+  }
+
+  .sp-mb2__logo--gsn {
+    height: 41px; /* -15% */
+  }
+
+  .sp-mb2__logo--herbaldi {
+    height: 43px; /* -10% */
+  }
+
+  .sp-mb2__logo--medicamentos {
+    height: 32px; /* -20% (el logo ja quedava limitat per l'ample: es dibuixava a 40px d'alt) */
+    max-width: 192px;
+  }
+
+  /* Internacional — mapa i regions (mòbil): títol, mapa sobre el gris de la versió actual (a sang) i regions en llista de
+     2 columnes, tot sobre el mateix fons gris */
+  .sp-ia4 {
+    padding: 32px 0 40px;
+    background: var(--sp-grey);
+  }
+
+  .sp-ia4 .sp-head {
+    margin-bottom: 8px;
+  }
+
+  .sp-ia4__map {
+    margin: 0 calc(-1 * var(--space-4)) 24px;
+  }
+
+  .sp-ia4 .sp-regions li {
+    border-bottom-color: #d8d8d5;
+  }
+
+  .sp-regions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .sp-regions li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--sp-line);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--sp-navy);
+  }
+
+  .sp-regions li::before {
+    content: '';
+    flex: none;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--sp-cyan);
+  }
+
+  /* Internacional: el títol del mapa fa 18/700, un punt per sota del subtítol de la capçalera (19/600) (excepció; la resta de
+     títols de bloc fan 24/700 amb línia blava) */
+  .sp.sp-ia4 h2 {
+    font-size: 18px;
+    line-height: 1.3;
+  }
+
+  /* Internacional — catàleg: la versió original (títol i enllaços amb icona de descàrrega) adaptada a l'estil mòbil:
+     alineada a l'esquerra; títol 24/700 amb línia blava (com els títols de bloc de Quiénes somos) i enllaços 16/600, sense filets */
+  .sp-ic2 {
+    padding: 32px 0 40px;
+    background: #fff;
+  }
+
+  .sp-ic2 .sp-head {
+    margin-bottom: 20px;
+  }
+
+  .sp-ic2__row {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--sp-navy);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.3;
+    text-decoration: none;
+  }
+
+  .sp-ic2__row svg {
+    flex: none;
+    color: var(--sp-cyan-dark);
+  }
+
+  /* Sense filets de separació entre files */
+  .sp-ic2__rows {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sp-ic2__row {
+    display: flex;
+    gap: 12px;
+    padding: 12px 0;
+  }
+
+  /* Contacte — formulari: estils del bloc de desktop (.contact-2col), a la vora esquerra de la pàgina (marge de 16px, ample complet) */
+  .sp-cf {
+    padding: 32px 0;
+    background: var(--sp-grey);
+  }
+
+  .sp-cf .contact-form {
+    max-width: none;
+  }
+
+  /* Contacte — dades: graella 2×2 alineada a l'esquerra (icona, rètol 17/700 i valor 17 gris), columna esquerra una mica més ampla; a <360px una sola columna */
+  .sp-cd {
+    padding: 32px 0 40px;
+    background: #fff;
+  }
+
+  .sp-cd__items {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    gap: 0 16px;
+    align-items: start;
+  }
+
+  .sp-cd__item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: var(--space-6);
+  }
+
+  .sp-cd__item img {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    margin-bottom: var(--space-4);
+  }
+
+  .sp-cd__item h3 {
+    margin: 0 0 var(--space-2);
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--color-primary);
+    overflow-wrap: anywhere;
+  }
+
+  .sp .sp-cd__item p {
+    margin: 0;
+    font-size: 17px;
+    color: #555;
+    text-align: left;
+    overflow-wrap: anywhere;
+  }
+
+  .sp-cd__item a {
+    color: #555;
+    text-decoration: none;
+  }
+
+  @media (max-width: 359px) {
+    .sp-cd__items {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+
+  /* Home — hero original en mòbil: sense el CTA «Conócenos» (a desktop es manté) */
+  .hero--overlap .hero__content .btn {
+    display: none;
+  }
+
+  /* Home — One Health: fulla blanca (cantonades de 28px) que puja 28px sobre el vídeo del hero; títol 24/700 amb línia cian, foto en targeta (4:3, radi de 20px), paràgraf 18/600, text 17 i CTA 16/700, tot a l'esquerra */
+  .sp-oh {
+    position: relative;
+    z-index: 11;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: -28px;
+    padding: 32px var(--space-4) 40px;
+    border-radius: 28px 28px 0 0;
+    background: #fff;
+  }
+
+  .sp.sp-oh h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--sp-navy);
+    text-align: left;
+  }
+
+  .sp.sp-oh p {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.6;
+    color: #4b4b4b;
+    text-align: left;
+  }
+
+  .sp.sp-oh p.sp-oh__lead {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--sp-navy);
+  }
+
+  .sp-oh__img {
+    display: block;
+    width: 100%;
+    margin-top: 8px;
+    aspect-ratio: 4 / 3;
+    border-radius: 20px;
+    object-fit: cover;
+    object-position: center 35%;
+  }
+
+  /* Home — el bloc One Health original s'amaga a mòbil (el substitueix .sp-oh); a desktop es manté */
+  section.block2-f.onehealth-wide-text {
+    display: none;
+  }
+
+  /* Home — «Así sumamos salud»: bloc gris amb cantonades superiors arrodonides (28px), introducció a l'esquerra amb línia cian i dues targetes immersives amb CTA en text amb "›" */
+  .sp.sp-hm {
+    display: block;
+    padding: var(--space-8) 0 40px;
+    border-radius: 28px 28px 0 0;
+    background: var(--sp-grey);
+  }
+
+  .sp-hm__intro {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 28px;
+    text-align: left;
+  }
+
+  .sp-hm .sp-hm__intro h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--sp-navy);
+    text-align: left;
+  }
+
+  .sp-hm__bar {
+    display: block;
+    width: 48px;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--color-accent);
+  }
+
+  .sp-hm .sp-hm__intro p {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #4b4b4b;
+    text-align: left;
+  }
+
+  .sp-hm .sp-hm__intro p strong {
+    font-weight: 700;
+    color: var(--sp-navy);
+  }
+
+  .sp-hm__cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .sp-hm__card {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    min-height: 520px;
+    overflow: hidden;
+    border-radius: 20px;
+    color: #fff;
+    text-decoration: none;
+    text-align: left;
+  }
+
+  .sp-hm__img {
+    position: absolute;
+    inset: 0;
+  }
+
+  /* Vertical 1000x1440 (_mb) per sota de 768px; per sobre, l'original apaïsat. */
+  .sp-hm__img picture {
+    display: contents;
+  }
+
+  .sp-hm__img img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .sp-hm__card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(27, 36, 53, 0) 20%, rgba(27, 36, 53, 0.92) 68%);
+  }
+
+  .sp-hm__body {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: var(--space-6);
+  }
+
+  .sp-hm .sp-hm__body h3 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .sp-hm .sp-hm__body p {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  /* CTA com a la Home: text de 16px negreta amb "›" a 4px, sense requadres */
+  .sp-hm__link {
+    display: inline-flex;
+    align-items: baseline;
+    gap: var(--space-1, 4px);
+    margin-top: 4px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: #fff;
+  }
+
+  .sp-hm__link-arrow {
+    font-weight: 400;
+  }
+
+  /* Home — ¿Hablamos?: l'original s'amaga a mòbil (el substitueix .sp-ct2); a desktop es manté */
+  section.contact-alt.home-contact {
+    display: none;
+  }
+
+  /* Home — el bloc d'àrees original s'amaga a mòbil (el substitueix .sp-hm); a desktop es manté */
+  section.block3-d.block3-d--compact {
+    display: none;
+  }
+
+  /* Finançament (definitiu): mínima importància — rètol petit en lloc de títol, textos de 13px en gris, logos de 24px als seus colors */
+  .sp .sp-fcap {
+    margin: 0 0 14px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #6b6b6b;
+  }
+
+  .sp-fa {
+    padding: 24px 0 28px;
+    background: #fff;
+  }
+
+  .sp-fa__group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .sp-fa__group + .sp-fa__group {
+    margin-top: 18px;
+  }
+
+  .sp .sp-fa__group p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.45;
+    color: #6b6b6b;
+  }
+
+  .sp-fa__logos {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 20px;
+  }
+
+  .sp-fa__logos img {
     display: block;
     width: auto;
-    max-width: 220px;
-    height: 44px;
-    object-fit: contain;
-    object-position: left center;
+    max-width: 100%;
+    height: 24px;
+  }
+
+  /* Home — el bloc de finançament original s'amaga a mòbil (el substitueix .sp-fa); a desktop es manté */
+  section.funding {
+    display: none;
   }
 }

@@ -175,8 +175,7 @@
 
 /* ---------- Footer unificat MÒBIL (<900px): logo, LinkedIn i textos legals ----------
    A mòbil substitueix .footer-alt (telèfons i adreça, que ja són a Contacto) i .site-footer (franja legal);
-   a desktop es mantenen aquests dos i .footer-m s'amaga. Puja 28px per sobre del darrer bloc de la pàgina
-   (cantonades superiors arrodonides), com la resta de fulles. */
+   a desktop es mantenen aquests dos i .footer-m s'amaga. Vora superior recta, sense solapar l'últim bloc. */
 .footer-m {
   display: none;
 }
@@ -188,13 +187,9 @@
   }
 
   .footer-m {
-    position: relative;
-    z-index: 10;
     display: block;
-    margin-top: -28px;
-    padding: var(--space-8) 0 var(--space-10, 40px);
+    padding: var(--space-8) 0 var(--space-8);
     border-top: 1px solid rgba(27, 36, 53, 0.08);
-    border-radius: 28px 28px 0 0;
     background: #eeeeec;
   }
 
@@ -233,26 +228,32 @@
     color: #fff;
   }
 
+  /* Els tres textos legals en una sola fila: la mida s'ajusta a l'ample (13px a 393px i més, 10,5px mínim) */
   .footer-m__links {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px 24px;
+    flex-wrap: nowrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
     padding-top: 20px;
     border-top: 1px solid #dcdcda;
   }
 
   .footer-m__links a {
     color: var(--color-primary);
-    font-size: 15px;
+    font-size: clamp(10.5px, 3.2vw, 13px);
     font-weight: 600;
     line-height: 1.4;
+    white-space: nowrap;
     text-decoration: none;
   }
 
+  /* Mateixa mida que els enllaços legals (i el pes de sempre, 400) */
   .footer-m__copy {
     margin: 0;
     color: #6b6b6b;
-    font-size: 14px;
-    line-height: 1.5;
+    font-size: clamp(10.5px, 3.2vw, 13px);
+    font-weight: 400;
+    line-height: 1.4;
   }
 }

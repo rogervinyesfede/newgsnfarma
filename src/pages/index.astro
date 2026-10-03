@@ -5,7 +5,6 @@ import '../styles/pages/block2.css';
 import '../styles/pages/block3-compare.css';
 import '../styles/pages/home-body-compare.css';
 import '../styles/pages/mobile-proposals.css';
-import SpContact from '../components/SpContact.astro';
 
 // PROVES MÒBIL (.sp): mateix contingut que els blocs actuals.
 const oh = {
@@ -16,23 +15,25 @@ const areas = [
   {
     title: 'Servicios Farmacéuticos',
     img: '/images/services_mb.jpg',
-    imgBig: '/images/services_home2.jpg',
     alt: 'Científica trabajando con microscopio en el laboratorio',
     text: 'Unidad industrial con 17.000 m² para ofrecer servicios integrales en desarrollo, fabricación, aseguramiento de calidad, asuntos regulatorios y logística para productos regulados.',
     href: '/servicios',
     cta: 'Ver todos los servicios',
-    tab: 'Servicios',
   },
   {
     title: 'Marcas Propias',
     img: '/images/brands_home_products_mb.jpg',
-    imgBig: '/images/brands_home_products2.jpg',
     alt: 'Mano sosteniendo iconos de productos de salud, representando el portafolio de marcas propias',
     text: 'Desarrollamos y comercializamos un portafolio de salud transversal, con medicamentos y productos de salud humana y animal, impulsados por la innovación y el rigor farmacéutico.',
     href: '/nuestras-marcas',
     cta: 'Ver todas las marcas',
-    tab: 'Marcas propias',
   },
+];
+// "Así sumamos salud" (mòbil): mateix bloc i mateixes fotos que Quiénes somos, amb els textos i CTA de la Home.
+const masIntro = 'Estructuramos nuestra actividad en dos grandes áreas de negocio: los <strong>servicios farmacéuticos</strong> y las <strong>marcas propias</strong>.';
+const masAreas = [
+  { ...areas[0], img: '/images/about_services.jpg', imgMb: '/images/about_services_mb.jpg', muted: 'block2-f__image--muted' },
+  { ...areas[1], img: '/images/about_brands.jpg', imgMb: '/images/about_brands_mb.jpg', muted: 'block2-f__image--muted block2-f__image--muted-strong' },
 ];
 const funding = [
   {
@@ -73,39 +74,6 @@ const funding = [
   />
 
 
-  <div class="sp-tag">Prova mòbil · Hero 1 · Imatge alta amb degradat (cartell del vídeo)</div>
-  <section class="sp sp-hh1">
-    <img src="/images/hero-video-frame.jpg" alt="" loading="lazy" />
-    <div class="sp-hh1__body">
-      <h2 class="sp-h1">Un nuevo grupo farmacéutico</h2>
-      <span class="sp-bar" aria-hidden="true"></span>
-      <p class="sp-lead">Más de 30 años de experiencia y visión global en salud</p>
-      <a href="/quienes-somos" class="sp-link">Conócenos<span aria-hidden="true">›</span></a>
-    </div>
-  </section>
-
-  <div class="sp-tag">Prova mòbil · Hero 2 · Imatge + fulla navy (cartell del vídeo)</div>
-  <section class="sp sp--navy sp-hh2">
-    <div class="sp-hh2__img"><img src="/images/hero-video-frame.jpg" alt="" loading="lazy" /></div>
-    <div class="sp-sheet sp-sheet--navy">
-      <h2 class="sp-h1">Un nuevo grupo farmacéutico</h2>
-      <span class="sp-bar" aria-hidden="true"></span>
-      <p class="sp-lead">Más de 30 años de experiencia y visión global en salud</p>
-      <a href="/quienes-somos" class="sp-btn">Conócenos <span aria-hidden="true">›</span></a>
-    </div>
-  </section>
-
-  <div class="sp-tag">Prova mòbil · Hero 3 · Imatge de 220px + fulla blanca (cartell del vídeo)</div>
-  <section class="sp sp-hh3">
-    <div class="sp-hh3__img"><img src="/images/hero-video-frame.jpg" alt="" loading="lazy" /></div>
-    <div class="sp-sheet">
-      <h2 class="sp-h1">Un nuevo grupo farmacéutico</h2>
-      <span class="sp-bar" aria-hidden="true"></span>
-      <p class="sp-lead">Más de 30 años de experiencia y visión global en salud</p>
-      <a href="/quienes-somos" class="sp-cta">Conócenos<span aria-hidden="true">›</span></a>
-    </div>
-  </section>
-
   <section class="block2-f block3-d__row--50-50 block3-d__row--onehealth onehealth-wide-text">
     <div class="container">
       <div class="block2-f__image block2-f__image--muted onehealth-image">
@@ -136,48 +104,14 @@ const funding = [
     </div>
   </section>
 
-  <div class="sp-tag">Prova mòbil · One Health 1 · Foto + fulla</div>
-  <section class="sp sp-ho1">
-    <div class="sp-photo">
-      <img src="/images/one_health_gsnfarma4.jpg" alt="Familia con su mascota en casa y manos sosteniendo una planta, símbolo del enfoque One Health" loading="lazy" />
-      <div class="sp-photo__over">
-        <h2>One Health:<br />el propósito que nos guía</h2>
-        <span class="sp-bar" aria-hidden="true"></span>
-      </div>
-    </div>
-    <div class="sp-sheet">
-      <p class="sp-lead">{oh.p1}</p>
-      <p>{oh.p2}</p>
-      <a href="/quienes-somos" class="sp-cta">Conoce más sobre el grupo<span aria-hidden="true">›</span></a>
-    </div>
-  </section>
-
-  <div class="sp-tag">Prova mòbil · One Health 2 · Bloc navy amb imatge</div>
-  <section class="sp sp--navy sp-ho2">
-    <div class="container sp-stack">
-      <h2>One Health:<br />el propósito que nos guía</h2>
-      <span class="sp-bar" aria-hidden="true"></span>
-      <div class="sp-figure"><img src="/images/one_health_gsnfarma4.jpg" alt="Familia con su mascota en casa y manos sosteniendo una planta, símbolo del enfoque One Health" loading="lazy" /></div>
-      <p class="sp-lead">{oh.p1}</p>
-      <p>{oh.p2}</p>
-      <a href="/quienes-somos" class="sp-cta">Conoce más sobre el grupo<span aria-hidden="true">›</span></a>
-    </div>
-  </section>
-
-  <div class="sp-tag">Prova mòbil · One Health 3 · Targeta immersiva</div>
-  <section class="sp sp-ho3">
-    <div class="container">
-      <div class="sp-card">
-        <img src="/images/one_health_gsnfarma4.jpg" alt="Familia con su mascota en casa y manos sosteniendo una planta, símbolo del enfoque One Health" loading="lazy" />
-        <div class="sp-card__body">
-          <h2>One Health:<br />el propósito que nos guía</h2>
-          <span class="sp-bar" aria-hidden="true"></span>
-          <p>{oh.p1}</p>
-          <p>{oh.p2}</p>
-          <a href="/quienes-somos" class="sp-cta">Conoce más sobre el grupo<span aria-hidden="true">›</span></a>
-        </div>
-      </div>
-    </div>
+  {/* One Health (mòbil <900px): fulla blanca (cantonades de 28px) que puja 28px sobre el vídeo del hero, amb el títol, la línia cian, la foto en targeta i els textos i el CTA de la Home. S'amaga el bloc original; a desktop és al revés. */}
+  <section class="sp sp-oh">
+    <h2>One Health:<br />el propósito que nos guía</h2>
+    <span class="sp-bar" aria-hidden="true"></span>
+    <img class="sp-oh__img" src="/images/one_health_gsnfarma4.jpg" alt="Familia con su mascota en casa y manos sosteniendo una planta, símbolo del enfoque One Health" loading="lazy" />
+    <p class="sp-oh__lead">{oh.p1}</p>
+    <p>{oh.p2}</p>
+    <a href="/quienes-somos" class="sp-cta">Conoce más sobre el grupo<span aria-hidden="true">›</span></a>
   </section>
 
   <section class="block3-d block3-d--compact">
@@ -236,63 +170,33 @@ const funding = [
     </section>
   </section>
 
-  <div class="sp-tag">Prova mòbil · Àrees 1 · Targetes immersives sobre navy</div>
-  <section class="sp sp--navy sp-ha1">
-    <div class="container">
-      {areas.map((a) => (
-        <a class="sp-card" href={a.href}>
-          <img src={a.imgBig} alt={a.alt} loading="lazy" />
-          <div class="sp-card__body">
-            <h2>{a.title}</h2>
-            <span class="sp-bar" aria-hidden="true"></span>
+  {/* Àrees de negoci (mòbil <900px): com a «Así sumamos salud» de Quiénes somos (bloc gris, introducció i dues targetes immersives, mateixes fotos), amb els textos i CTA de la Home. S'amaga el bloc original; a desktop és al revés. */}
+  <section class="sp sp-hm">
+    <div class="container sp-hm__intro">
+      <h2>Así sumamos salud</h2>
+      <span class="sp-hm__bar" aria-hidden="true"></span>
+      <p set:html={masIntro}></p>
+    </div>
+    <div class="container sp-hm__cards">
+      {masAreas.map((a) => (
+        <a class="sp-hm__card" href={a.href}>
+          <span class={`sp-hm__img ${a.muted}`}>
+            <picture>
+              <source media="(max-width: 767px)" srcset={a.imgMb} />
+              <img src={a.img} alt={a.alt} loading="lazy" />
+            </picture>
+          </span>
+          <span class="sp-hm__body">
+            <h3>{a.title}</h3>
             <p>{a.text}</p>
-            <span class="sp-cta">{a.cta}<span aria-hidden="true">›</span></span>
-          </div>
+            <span class="sp-hm__link">{a.cta}<span class="sp-hm__link-arrow" aria-hidden="true">›</span></span>
+          </span>
         </a>
       ))}
     </div>
   </section>
 
-  <div class="sp-tag">Prova mòbil · Àrees 2 · Targetes blanques sobre gris</div>
-  <section class="sp sp-ha2">
-    <div class="container">
-      <div class="sp-bcards">
-        {areas.map((a) => (
-          <article class="sp-bcard">
-            <img src={a.img} alt={a.alt} loading="lazy" />
-            <div class="sp-bcard__body">
-              <h3>{a.title}</h3>
-              <p>{a.text}</p>
-              <a href={a.href} class="sp-cta">{a.cta}<span aria-hidden="true">›</span></a>
-            </div>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <div class="sp-tag">Prova mòbil · Àrees 3 · Pestanyes</div>
-  <section class="sp sp-ha3">
-    <div class="container sp-tabs">
-      <input type="radio" name="spha3" id="spha3a" checked />
-      <input type="radio" name="spha3" id="spha3b" />
-      <div class="sp-tabs__bar">
-        <label for="spha3a">{areas[0].tab}</label>
-        <label for="spha3b">{areas[1].tab}</label>
-      </div>
-      {areas.map((a, i) => (
-        <div class={`sp-tabs__panel sp-tabs__panel--${i === 0 ? 'a' : 'b'}`}>
-          <img src={a.img} alt={a.alt} loading="lazy" />
-          <h2>{a.title}</h2>
-          <span class="sp-bar" aria-hidden="true"></span>
-          <p>{a.text}</p>
-          <a href={a.href} class="sp-cta">{a.cta}<span aria-hidden="true">›</span></a>
-        </div>
-      ))}
-    </div>
-  </section>
-
-  <section class="contact-alt contact-alt--photo">
+  <section class="contact-alt contact-alt--photo home-contact">
     <div class="container">
       <h2>¿Hablamos?</h2>
       <p>
@@ -303,11 +207,15 @@ const funding = [
     </div>
   </section>
 
-  <SpContact
-    label="Hablamos"
-    title="¿Hablamos?"
-    text="En GSN Farma Labs Group trabajamos como partner estratégico para impulsar soluciones en salud con visión a largo plazo."
-  />
+  {/* ¿Hablamos?: mateix bloc que a Servicios i Internacional (foto + enllaç), independent i amb marges rectes. A mòbil (<900px) es veu aquesta peça i s'amaga .home-contact; a desktop és al revés. */}
+  <section class="sp sp--navy sp-ct2">
+    <div class="sp-ct2__bg" aria-hidden="true"></div>
+    <div class="sp-ct2__body">
+      <h2>¿Hablamos?</h2>
+      <p>En GSN Farma Labs Group trabajamos como partner estratégico para impulsar soluciones en salud con visión a largo plazo.</p>
+      <a href="/contacto" class="sp-link">Contactar<span aria-hidden="true">›</span></a>
+    </div>
+  </section>
 
   <section class="funding">
     <div class="container">
@@ -335,54 +243,15 @@ const funding = [
 
 
 
-  <div class="sp-tag">Prova mòbil · Finançament 1 · Targetes blanques sobre gris</div>
-  <section class="sp sp-hf1">
+  {/* Finançament (mòbil <900px): franja de mínima importància — rètol petit, textos de 13px en gris i logos de 24px als seus colors originals (no es modifiquen per requisits de publicitat de la UE). S'amaga el bloc original; a desktop és al revés. */}
+  <section class="sp sp-fa">
     <div class="container">
-      <div class="sp-head">
-        <h2>Con la colaboración de:</h2>
-        <span class="sp-bar" aria-hidden="true"></span>
-      </div>
+      <p class="sp-fcap">Con la colaboración de:</p>
       {funding.map((g) => (
-        <div class="sp-fgroup sp-fgroup--card">
+        <div class="sp-fa__group">
           <p>{g.intro}</p>
-          <div class="sp-flogos">
+          <div class="sp-fa__logos">
             {g.logos.map(([src, alt]) => <img src={src} alt={alt} loading="lazy" />)}
-          </div>
-        </div>
-      ))}
-    </div>
-  </section>
-
-  <div class="sp-tag">Prova mòbil · Finançament 2 · Llista amb filets</div>
-  <section class="sp sp-hf2">
-    <div class="container">
-      <div class="sp-head">
-        <h2>Con la colaboración de:</h2>
-        <span class="sp-bar" aria-hidden="true"></span>
-      </div>
-      {funding.map((g) => (
-        <div class="sp-fgroup">
-          <p>{g.intro}</p>
-          <div class="sp-flogos">
-            {g.logos.map(([src, alt]) => <img src={src} alt={alt} loading="lazy" />)}
-          </div>
-        </div>
-      ))}
-    </div>
-  </section>
-
-  <div class="sp-tag">Prova mòbil · Finançament 3 · Bloc navy amb logos sobre rètols</div>
-  <section class="sp sp--navy sp-hf3">
-    <div class="container">
-      <div class="sp-head">
-        <h2>Con la colaboración de:</h2>
-        <span class="sp-bar" aria-hidden="true"></span>
-      </div>
-      {funding.map((g) => (
-        <div class="sp-fgroup">
-          <p>{g.intro}</p>
-          <div class="sp-flogos">
-            {g.logos.map(([src, alt]) => <span><img src={src} alt={alt} loading="lazy" /></span>)}
           </div>
         </div>
       ))}

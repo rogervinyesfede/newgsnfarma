@@ -134,35 +134,16 @@ const stripImg = (b: any) => (b.name === 'Orissens' ? '/images/brands_orissens-s
     </section>
   </div>
 
-  <div class="sp-tag">Prova mòbil · Franges de marca · Foto + fulla (logo gran)</div>
+  {/* Franges de marca (mòbil <900px): foto a sang + fulla blanca amb el logo gran, la descripció i el CTA; la categoria va com a pastilla dins la foto. S'amaguen les franges originals (.marcas-b__row); a desktop és al revés. */}
   <section class="sp sp-mb2">
     {brands.map((brand) => (
       <div class="sp-mb2__item" id={`marca-${brand.name.toLowerCase()}-m`}>
-        <div class="sp-photo"><img src={stripImg(brand)} alt="" loading="lazy" /></div>
-        <div class="sp-sheet">
-          <span class="sp-mb2__cat">{brand.category}</span>
-          <img class="sp-mb2__logo" src={brandLogo(brand)} alt={brand.name} loading="lazy" />
-          <p>{brand.description.split('\n').map((line: string, idx: number) => (idx > 0 ? <><br />{line}</> : line))}</p>
-          {brand.gated ? (
-              <button type="button" class="sp-cta" data-gate-trigger>{brand.ctaLabel ?? 'Visitar sitio'}<span aria-hidden="true">›</span></button>
-            ) : brand.url ? (
-              <a href={brand.url} {...(brand.url === '#' ? {} : { target: '_blank', rel: 'noopener noreferrer' })} class="sp-cta">{brand.ctaLabel ?? 'Visitar sitio'}<span aria-hidden="true">›</span></a>
-            ) : null}
-        </div>
-      </div>
-    ))}
-  </section>
-
-  <div class="sp-tag">Prova mòbil · Franges de marca · Foto + fulla (logo dins la foto, sense requadre)</div>
-  <section class="sp sp-mb2 sp-mb2--in">
-    {brands.map((brand) => (
-      <div class="sp-mb2__item">
         <div class="sp-photo">
           <img src={stripImg(brand)} alt="" loading="lazy" />
-          <span class="sp-mb2__tile"><img src={brandLogo(brand)} alt={brand.name} loading="lazy" /></span>
+          <span class="sp-mb2__pill">{brand.category}</span>
         </div>
         <div class="sp-sheet">
-          <span class="sp-mb2__cat">{brand.category}</span>
+          <img class={`sp-mb2__logo sp-mb2__logo--${brand.name.toLowerCase()}`} src={brandLogo(brand)} alt={brand.name} loading="lazy" />
           <p>{brand.description.split('\n').map((line: string, idx: number) => (idx > 0 ? <><br />{line}</> : line))}</p>
           {brand.gated ? (
               <button type="button" class="sp-cta" data-gate-trigger>{brand.ctaLabel ?? 'Visitar sitio'}<span aria-hidden="true">›</span></button>
@@ -174,7 +155,6 @@ const stripImg = (b: any) => (b.name === 'Orissens' ? '/images/brands_orissens-s
     ))}
   </section>
 
-  <div class="sp-tag">Franges de marca originals (versió actual)</div>
   {/* ===== COMPARATIVA TEMPORAL — cos de la pàgina ===== */}
 
   {brands.map((brand, i) => {

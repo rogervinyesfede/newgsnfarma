@@ -9,7 +9,6 @@ import '../styles/components/world-map.css';
 import '../styles/pages/internacional-body-compare.css';
 import '../styles/pages/mobile-hero.css';
 import '../styles/pages/mobile-proposals.css';
-import SpContact from '../components/SpContact.astro';
 
 // PROVES MÒBIL (.sp)
 const regions = ['Europa', 'Oriente Medio', 'China', 'Sudeste Asiático', 'Oceanía', 'Latinoamérica'];
@@ -78,46 +77,23 @@ const catalogs = ['Medicamentos', 'Salud natural', 'Salud animal'];
     </div>
   </section>
 
-  <div class="sp-tag">Prova mòbil · Mapa 1 · Mapa en targeta + xips</div>
-  <section class="sp sp-ia1">
-    <div class="container sp-stack">
-      <h2>Regiones y países donde operamos</h2>
-      <span class="sp-bar" aria-hidden="true"></span>
-      <div class="sp-mapcard"><WorldMap showLabels={false} /></div>
-      <div class="sp-chips">
-        {regions.map((r) => <span class="sp-chip">{r}</span>)}
+  {/* Mapa i regions (mòbil <900px): títol, mapa sobre el gris de sempre (a sang) i regions en llista de 2 columnes. S'amaga .intl-map; a desktop és al revés. */}
+  <section class="sp sp-ia4">
+    <div class="container">
+      <div class="sp-head">
+        <h2>Regiones y países donde operamos</h2>
       </div>
-    </div>
-  </section>
-
-  <div class="sp-tag">Prova mòbil · Mapa 2 · Mapa a sang + fulla</div>
-  <section class="sp sp-ia2">
-    <div class="sp-ia2__map"><WorldMap showLabels={false} /></div>
-    <div class="sp-sheet">
-      <h2>Regiones y países donde operamos</h2>
-      <span class="sp-bar" aria-hidden="true"></span>
+      <div class="sp-ia4__map"><WorldMap showLabels={false} /></div>
       <ul class="sp-regions">
         {regions.map((r) => <li>{r}</li>)}
       </ul>
     </div>
   </section>
 
-  <div class="sp-tag">Prova mòbil · Mapa 3 · Bloc navy</div>
-  <section class="sp sp--navy sp-ia3">
-    <div class="container sp-stack">
-      <h2>Regiones y países donde operamos</h2>
-      <span class="sp-bar" aria-hidden="true"></span>
-      <WorldMap showLabels={false} dark />
-      <div class="sp-chips">
-        {regions.map((r) => <span class="sp-chip">{r}</span>)}
-      </div>
-    </div>
-  </section>
-
-  <section class="intl-catalog">
+  <section class="intl-catalog intl-catalog--desktop">
     <div class="container intl-catalog__inner">
       <div class="block2-f__accent-line"></div>
-      <p class="intl-catalog__intro">Catálogo de producto para mercados internacionales:</p>
+      <p class="intl-catalog__intro">Catálogo de productos para mercados internacionales:</p>
       <ul class="intl-catalog__list intl-catalog__list--bar intl-catalog__list--bar-download">
         <li>
           <a href="#">
@@ -141,50 +117,7 @@ const catalogs = ['Medicamentos', 'Salud natural', 'Salud animal'];
     </div>
   </section>
 
-  <div class="sp-tag">Prova mòbil · Catàleg 1 · Targetes de descàrrega</div>
-  <section class="sp sp-ib1">
-    <div class="container sp-stack">
-      <h2>Catálogo de producto para mercados internacionales:</h2>
-      <span class="sp-bar" aria-hidden="true"></span>
-      <div class="sp-dl">
-        {catalogs.map((c) => (
-          <a href="#" class="sp-dlcard">
-            <span class="sp-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M7 10l5 5 5-5M5 21h14" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
-            <span class="sp-dlcard__text">{c}<small>Catálogo internacional</small></span>
-            <span class="sp-act__arrow" aria-hidden="true">›</span>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <div class="sp-tag">Prova mòbil · Catàleg 2 · Botons grans</div>
-  <section class="sp sp-ib2">
-    <div class="container sp-stack">
-      <h2>Catálogo de producto para mercados internacionales:</h2>
-      <span class="sp-bar" aria-hidden="true"></span>
-      <div class="sp-dl">
-        {catalogs.map((c) => (
-          <a href="#" class="sp-bigbtn">{c}<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M7 10l5 5 5-5M5 21h14" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <div class="sp-tag">Prova mòbil · Catàleg 3 · Bloc navy amb files</div>
-  <section class="sp sp--navy sp-ib3">
-    <div class="container sp-stack">
-      <h2>Catálogo de producto para mercados internacionales:</h2>
-      <span class="sp-bar" aria-hidden="true"></span>
-      <div class="sp-dlrows">
-        {catalogs.map((c) => (
-          <a href="#" class="sp-dlrow">{c}<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M7 10l5 5 5-5M5 21h14" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="contact-alt contact-alt--photo">
+  <section class="contact-alt contact-alt--photo intl-contact">
     <div class="container">
       <h2>¿Hablamos?</h2>
       <p>
@@ -195,9 +128,28 @@ const catalogs = ['Medicamentos', 'Salud natural', 'Salud animal'];
     </div>
   </section>
 
-  <SpContact
-    label="Hablamos"
-    title="¿Hablamos?"
-    text="Contáctanos si estás interesado en explorar oportunidades de colaboración a nivel internacional."
-  />
+  {/* Catàleg de producto (mòbil <900px): títol (24/700 amb línia blava, com els títols de bloc de Quiénes somos) i els tres enllaços de descàrrega en files amb filets, alineats a l'esquerra. S'amaga .intl-catalog; a desktop és al revés. */}
+  <section class="sp sp-ic2">
+    <div class="container">
+      <div class="sp-head">
+        <h2>Catálogo de productos para mercados internacionales:</h2>
+        <span class="sp-bar" aria-hidden="true"></span>
+      </div>
+      <div class="sp-ic2__rows">
+        {catalogs.map((c) => (
+          <a href="#" class="sp-ic2__row"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>{c}</span></a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* ¿Hablamos?: mateix bloc que a Servicios (foto + enllaç), independent i amb marges rectes. A mòbil (<900px) es veu aquesta peça i s'amaga .intl-contact; a desktop és al revés. */}
+  <section class="sp sp--navy sp-ct2">
+    <div class="sp-ct2__bg" aria-hidden="true"></div>
+    <div class="sp-ct2__body">
+      <h2>¿Hablamos?</h2>
+      <p>Contáctanos si estás interesado en explorar oportunidades de colaboración a nivel internacional.</p>
+      <a href="/contacto" class="sp-link">Contactar<span aria-hidden="true">›</span></a>
+    </div>
+  </section>
 </BaseLayout>

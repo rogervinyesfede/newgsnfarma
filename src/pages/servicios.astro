@@ -63,7 +63,7 @@ const serviceIds: Record<string, string> = {
   title="Servicios farmacéuticos | GSN Farma Labs Group"
   description="Servicios farmacéuticos especializados en desarrollo, fabricación y gestión de productos farmacéuticos y soluciones de salud con altos estándares de calidad."
 >
-  {/* Capçalera + índex (mòbil): graella plana; la fulla passa per sobre de la foto de la Planta. */}
+  {/* Capçalera + índex (mòbil): graella plana; acaba en línia recta i la Planta comença just a sota. */}
   <ServHeader />
 
   {/* Capçalera i índex de DESKTOP (a mòbil s'amaguen; veure mobile-hero.css) */}
@@ -283,9 +283,8 @@ const serviceIds: Record<string, string> = {
     </div>
   </section>
 
-  {/* ¿Quieres saber más?: a mòbil (<900px) es veu aquesta peça (foto + enllaç) i s'amaga .srv-contact; a desktop és al revés.
-       Puja 28px per sobre de l'acordió i el footer li passa per sota (28px), només en aquesta pàgina. */}
-  <section class="sp sp--navy sp-ct2 sp-ct2--final">
+  {/* ¿Quieres saber más?: bloc independent (marges rectes). A mòbil (<900px) es veu aquesta peça (foto + enllaç) i s'amaga .srv-contact; a desktop és al revés. */}
+  <section class="sp sp--navy sp-ct2">
     <div class="sp-ct2__bg" aria-hidden="true"></div>
     <div class="sp-ct2__body">
       <h2>¿Quieres saber más?</h2>
