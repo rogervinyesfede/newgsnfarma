@@ -4,7 +4,8 @@
 @media (min-width: 900px) {
   /* Graella a sang: marge esquerre alineat amb el títol (graella de 1264px, marges de 32px), 360px de dades, targeta del formulari fins al marge
      dret de la capçalera (contenidor de 1440px amb 24px de padding: el mateix extrem dret que el selector d'idioma). */
-  .qd-cf {
+  /* .qd.qd-cf (mateix element): amb només .qd-cf, a producció el bundle pot posar .qd{display:block} DESPRÉS i el formulari quedava a sota */
+  .qd.qd-cf {
     display: grid;
     grid-template-columns: max(32px, calc((100% - 1200px) / 2)) 360px minmax(0, 1fr) max(24px, calc((100% - 1392px) / 2));
     padding: 0 0 72px;
@@ -160,8 +161,9 @@
     line-height: 1.4;
   }
 
-  @media (max-width: 1139px) {
-    .qd-cf {
+  /* Només s'apila en pantalles estretes (<960px): a 1024-1139px el formulari continua a la dreta */
+  @media (max-width: 959px) {
+    .qd.qd-cf {
       grid-template-columns: 32px minmax(0, 1fr) 32px;
       row-gap: 40px;
     }
