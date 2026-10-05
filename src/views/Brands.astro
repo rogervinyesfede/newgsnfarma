@@ -1,0 +1,207 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import brandsJson from '../data/brands.json';
+import '../styles/pages/inner-page.css';
+import '../styles/pages/block2.css';
+import '../styles/pages/block3-compare.css';
+import '../styles/pages/subpage-hero-compare.css';
+import '../styles/pages/brand-gate.css';
+import '../styles/pages/marcas-alt-proposals.css';
+import '../styles/pages/mobile-hero.css';
+import '../styles/pages/desktop-page-header.css';
+import '../styles/pages/marcas-desktop-proposals.css';
+import '../styles/pages/mobile-proposals.css';
+import QdContact from '../components/QdContact.astro';
+import { detectPage, pathFor } from '../i18n/config';
+import { ui } from '../i18n/ui';
+import { brandsCopy } from '../i18n/brands';
+
+// Nuestras marcas en els tres idiomes (l'idioma surt de la ruta); els textos són a src/i18n/brands.ts i les marques a src/data/brands.json.
+const { lang } = detectPage(Astro.url.pathname);
+const c = brandsCopy[lang];
+const brands = brandsJson.map((b, i) => ({ ...b, ...c.brands[i], ctaLabel: c.brands[i].cta }));
+
+// PROVES MÒBIL (.sp): helpers per a les propostes de marques.
+const brandLogo = (b: any) => (b.name === 'Medicamentos' ? '/images/gsnfarma_new_logo.png' : b.logo);
+const gridImg = (b: any) =>
+  b.name === 'Nakama' ? '/images/brand-nakama-shifted.jpg'
+  : b.name === 'Orissens' ? '/images/brands_orissens-shifted.jpg'
+  : b.name === 'Medicamentos' ? '/images/gsnfarma_card.jpg'
+  : b.image;
+const stripImg = (b: any) => (b.name === 'Orissens' ? '/images/brands_orissens-shifted.jpg' : b.image);
+
+// PROVES DESKTOP (.qd): helpers per a les propostes de logos i de franges de marca.
+const cardLogo = (b: any) => (b.name === 'Medicamentos' ? '/images/gsnfarma_new_logo_white.png' : b.logo);
+const key = (b: any) => b.name.toLowerCase();
+const ctaLabel = (b: any) => b.ctaLabel;
+const descLines = (b: any) => b.description.split('\n');
+---
+
+<BaseLayout title={c.title} description={c.description}>
+  <section class="mhp">
+    <div class="mhp__img"><picture>
+      <source media="(max-width: 899px)" srcset="/images/gsn_farma_our_brands_header2_hm.webp" type="image/webp" />
+      <source media="(max-width: 899px)" srcset="/images/gsn_farma_our_brands_header2_hm.jpg" />
+      <img src="/images/gsn_farma_our_brands_header2.jpg" alt="" loading="eager" fetchpriority="high" />
+    </picture></div>
+    <div class="mhp__sheet">
+      <h1 class="mhp__title">{c.header.title}</h1>
+      <span class="mhp__bar" aria-hidden="true"></span>
+      <h2 class="mhp__sub">{c.header.sub}</h2>
+      <p class="mhp__text" set:html={c.header.text}></p>
+    </div>
+  </section>
+
+  {/* Capçalera de DESKTOP (>=900px): component compartit (foto amb degradat + fulla amb títol, subtítol, text i, si cal, una ranura). A mòbil s'amaga i el substitueix .mhp. */}
+
+  <section class="qd qd-u qd-u--page">
+    <div class="qd-u__photo">
+      <picture>
+        <source media="(max-width: 899px)" srcset="/images/gsn_farma_our_brands_header2_hm.webp" type="image/webp" />
+        <source media="(max-width: 899px)" srcset="/images/gsn_farma_our_brands_header2_hm.jpg" />
+        <img src="/images/gsn_farma_our_brands_header2.jpg" alt="" loading="eager" fetchpriority="high" style="object-position: center 18%" />
+      </picture>
+    </div>
+    <div class="qd-u__sheet">
+      <div class="qd-wrap qd-u__grid">
+        <div class="qd-u__head">
+          <h1>{c.header.title}</h1>
+          <span class="qd-bar" aria-hidden="true"></span>
+        </div>
+        <div class="qd-u__body">
+          <h2>{c.header.sub}</h2>
+          <p set:html={c.header.text}></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    {/* Franja de logos, versió DESKTOP (>=900px): 5 targetes verticals arrodonides amb el logo, la categoria i la fletxa que porta a la franja de la marca. A mòbil s'amaga i el substitueix .sp-mc. */}
+
+  <section class="qd qd-lg">
+    <div class="qd-wrap">
+      <div class="qd-lg__grid">
+        {brands.map((brand) => (
+          <a href={`#marca-${key(brand)}`} class="qd-lg__card" style={`background-image:url(${gridImg(brand)})`} aria-label={`${c.goTo} ${brand.alt}`}>
+            <img class={`qd-lg__logo qd-lg__logo--${key(brand)}`} src={cardLogo(brand)} alt={brand.alt} loading="lazy" />
+            <span class="qd-lg__foot">
+              <span class="qd-lg__label">{brand.category}</span>
+              <span class="qd-lg__arrow" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* Graella de marques (mòbil <900px): Orissens a tota l'amplada i la resta en targetes quadrades 2x2. A desktop s'amaga i es veu .qd-lg. */}
+  <section class="sp sp-mc sp-mc--final">
+    <div class="container">
+      <div class="marcas-alt-a__grid">
+        {brands.map((brand) => (
+          <a
+            href={`#marca-${brand.name.toLowerCase()}-m`}
+            class={`marcas-alt-a__card marcas-alt-a__card--logo-top${brand.name === 'Medicamentos' ? ' marcas-alt-a__card--medicamentos' : ''}`}
+            style={`background-image:url(${gridImg(brand)})`}
+            aria-label={`${c.goTo} ${brand.alt}`}
+          >
+            <img
+              src={brand.name === 'Medicamentos' ? '/images/gsnfarma_new_logo_white.png' : brand.logo}
+              alt={brand.alt}
+              class={`marcas-alt-a__logo${brand.name === 'Medicamentos' ? '' : ' marcas-alt-a__logo--natural'}${brand.name === 'GSN' ? ' marcas-alt-a__logo--gsn' : ''}`}
+              loading="lazy"
+            />
+            
+            <span class="marcas-alt-a__arrow" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* Franges de marca (mòbil <900px): foto a sang + fulla blanca amb el logo gran, la descripció i el CTA; la categoria va com a pastilla dins la foto. A desktop s'amaga i es veuen les franges .qd-mk. */}
+  <section class="sp sp-mb2">
+    {brands.map((brand) => (
+      <div class="sp-mb2__item" id={`marca-${brand.name.toLowerCase()}-m`}>
+        <div class="sp-photo">
+          <img src={stripImg(brand)} alt="" loading="lazy" />
+          <span class="sp-mb2__pill">{brand.category}</span>
+        </div>
+        <div class="sp-sheet">
+          <h2 class="sp-mb2__name"><img class={`sp-mb2__logo sp-mb2__logo--${brand.name.toLowerCase()}`} src={brandLogo(brand)} alt={brand.alt} loading="lazy" /></h2>
+          <p>{brand.description.split('\n').map((line: string, idx: number) => (idx > 0 ? <><br />{line}</> : line))}</p>
+          {brand.gated ? (
+              <button type="button" class="sp-cta" data-gate-trigger>{brand.ctaLabel}<span aria-hidden="true">›</span></button>
+            ) : brand.url ? (
+              <a href={brand.url} {...(brand.url === '#' ? {} : { target: '_blank', rel: 'noopener noreferrer' })} class="sp-cta">{brand.ctaLabel}<span aria-hidden="true">›</span></a>
+            ) : null}
+        </div>
+      </div>
+    ))}
+  </section>
+
+  {/* Franges de marca, versió DESKTOP (>=900px): foto 16:9 arrodonida i, al costat, categoria, logo, text i CTA; alternen costat i fons (la primera franja, grisa). A mòbil s'amaguen i les substitueix .sp-mb2. */}
+
+  {brands.map((brand, i) => (
+    <section class={`qd qd-mk${i % 2 === 0 ? ' qd-mk--grey' : ' qd-mk--rev'}`} id={`marca-${key(brand)}`}>
+      <div class="qd-wrap qd-mk__grid">
+        <div class="qd-mk__photo"><img src={stripImg(brand)} alt="" loading="lazy" /></div>
+        <div class="qd-mk__text">
+          <span class="qd-mk__pill">{brand.category}</span>
+          <h2 class="qd-mk__name"><img class={`qd-mk__logo qd-mk__logo--${key(brand)}`} src={brandLogo(brand)} alt={brand.alt} loading="lazy" /></h2>
+          <p>{descLines(brand).map((line: string, n: number) => (n > 0 ? <><br />{line}</> : line))}</p>
+          {brand.gated ? (
+            <button type="button" class="qd-cta" data-gate-trigger>{ctaLabel(brand)}<span aria-hidden="true">›</span></button>
+          ) : brand.url ? (
+            <a href={brand.url} {...(brand.url === '#' ? {} : { target: '_blank', rel: 'noopener noreferrer' })} class="qd-cta">{ctaLabel(brand)}<span aria-hidden="true">›</span></a>
+          ) : null}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  {/* ¿Quieres saber más?, versió DESKTOP (>=900px): bloc de contacte compartit (veure QdContact.astro). */}
+  <QdContact text={c.contactText} />
+
+  {/* ===== Popup d'accés restringit (marques amb "gated": true, ex. Medicamentos) ===== */}
+
+  <div class="brand-gate" data-gate-modal hidden>
+    <div class="brand-gate__overlay" data-gate-close></div>
+    <div class="brand-gate__card" role="dialog" aria-modal="true" aria-labelledby="brand-gate-title">
+      <h3 id="brand-gate-title" class="brand-gate__title">{c.gate.title}</h3>
+      <p class="brand-gate__text">{c.gate.text}</p>
+      <div class="brand-gate__actions">
+        <a href="#" class="brand-gate__btn brand-gate__btn--primary">{c.gate.yes}</a>
+        <button type="button" class="brand-gate__btn brand-gate__btn--secondary" data-gate-close>
+          {c.gate.no}
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.querySelector('[data-gate-modal]');
+    const triggers = document.querySelectorAll('[data-gate-trigger]');
+    const closers = document.querySelectorAll('[data-gate-close]');
+
+    function openGate() {
+      modal?.removeAttribute('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeGate() {
+      modal?.setAttribute('hidden', '');
+      document.body.style.overflow = '';
+    }
+
+    triggers.forEach((el) => el.addEventListener('click', openGate));
+    closers.forEach((el) => el.addEventListener('click', closeGate));
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeGate();
+    });
+  </script>
+
+  </BaseLayout>

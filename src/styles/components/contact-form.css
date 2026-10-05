@@ -65,3 +65,35 @@
 .contact-form--dark textarea {
   background: #fff;
 }
+
+/* Camp trampa anti-spam (honeypot): fora de la pantalla, no es veu ni es pot tabular */
+.contact-form__trap {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Missatge d'estat de l'enviament (enviant / enviat / error) */
+.contact-form__status {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--color-primary);
+}
+
+.contact-form__status[data-kind='ok'] {
+  color: var(--color-accent-dark);
+  font-weight: 600;
+}
+
+.contact-form__status[data-kind='error'] {
+  color: #b42318;
+  font-weight: 600;
+}
+
+.contact-form button:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}

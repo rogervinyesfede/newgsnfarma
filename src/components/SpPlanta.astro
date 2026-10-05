@@ -8,30 +8,27 @@ import '../styles/pages/mobile-proposals.css';
 
 interface Props {
   id?: string;
+  title: string;
+  img?: string;
+  alt: string;
+  p1: string;
+  p2: string;
 }
 
-const { id } = Astro.props;
-
-const planta = {
-  title: 'Planta de Producción',
-  img: '/images/gsn_farma_factory_mb.jpg',
-  alt: 'Planta de producción de GSN Farma',
-  p1: 'Fabricación de complementos alimenticios en formas sólidas (comprimidos, cápsulas y doypacks) bajo los más altos estándares de calidad, seguridad y trazabilidad, conforme a normativa GMP e IFS Food Supplements.',
-  p2: 'Ofrecemos un servicio integral y flexible, con desarrollos a medida y formatos adaptados a tu marca, desde el desarrollo hasta el producto final.',
-};
+const { id, title, img = '/images/gsn_farma_factory_mb.jpg', alt, p1, p2 } = Astro.props;
 ---
 
 <section class="sp sp-pl1" id={id}>
   <div class="sp-photo">
-    <img src={planta.img} alt={planta.alt} loading="lazy" />
+    <img src={img} alt={alt} loading="lazy" />
     <div class="sp-photo__over">
-      <h2>{planta.title}</h2>
+      <h2>{title}</h2>
       <span class="sp-bar" aria-hidden="true"></span>
     </div>
   </div>
   <div class="sp-sheet">
-    <p>{planta.p1}</p>
-    <p>{planta.p2}</p>
+    <p>{p1}</p>
+    <p>{p2}</p>
     <slot />
   </div>
 </section>

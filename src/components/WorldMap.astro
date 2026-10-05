@@ -8,9 +8,11 @@ import worldMapInner from '../assets/world-map-inner.svg?raw';
 interface Props {
   showLabels?: boolean;
   dark?: boolean;
+  /** Text alternatiu del mapa (idioma de la pàgina). */
+  label?: string;
 }
 
-const { showLabels = true, dark = false } = Astro.props;
+const { showLabels = true, dark = false, label = 'Mapa del mundo con las regiones donde opera GSN Farma Labs Group' } = Astro.props;
 ---
 
 <svg
@@ -18,7 +20,7 @@ const { showLabels = true, dark = false } = Astro.props;
   viewBox="0 0 1000 440"
   xmlns="http://www.w3.org/2000/svg"
   role="img"
-  aria-label="Mapa del mundo con las regiones donde opera GSN Farma Labs Group"
+  aria-label={label}
 >
   <Fragment set:html={worldMapInner} />
 

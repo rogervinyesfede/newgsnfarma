@@ -2,6 +2,9 @@
 // Bloc de contacte de desktop (>=900px), compartit: foto de l'edifici amb degradat navy, línia cian, títol, frase i botó cap a Contacto.
 // A mòbil s'amaga (cada pàgina té la seva peça .sp-ct2). Estils a desktop-page-header.css (.qd-ct*).
 // Variants: 'band' (per defecte, franja navy a sang) i 'light' (franja clara amb la foto molt suau, a la Home: va just a sota d'un bloc navy).
+import { detectPage, pathFor } from '../i18n/config';
+import { ui } from '../i18n/ui';
+
 interface Props {
   text: string;
   title?: string;
@@ -10,7 +13,9 @@ interface Props {
   variant?: 'band' | 'light';
 }
 
-const { text, title = '¿Quieres saber más?', href = '/contacto', label = 'Contactar', variant = 'band' } = Astro.props;
+const { lang } = detectPage(Astro.url.pathname);
+const t = ui[lang];
+const { text, title = t.contactBand.title, href = pathFor('contact', lang), label = t.contactBand.label, variant = 'band' } = Astro.props;
 ---
 
 <section class={`qd qd-ct${variant === 'light' ? ' qd-ct--light' : ''}`}>

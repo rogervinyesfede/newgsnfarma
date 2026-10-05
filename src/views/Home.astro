@@ -1,0 +1,221 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import '../styles/pages/block2.css';
+import '../styles/pages/block3-compare.css';
+import '../styles/pages/home-body-compare.css';
+import '../styles/pages/mobile-proposals.css';
+import '../styles/pages/desktop-page-header.css';
+import '../styles/pages/home-desktop-proposals.css';
+import QdContact from '../components/QdContact.astro';
+import { detectPage, pathFor } from '../i18n/config';
+import { home } from '../i18n/home';
+import { ui } from '../i18n/ui';
+
+// Home en els tres idiomes (l'idioma surt de la ruta); els textos són a src/i18n/home.ts.
+const { lang } = detectPage(Astro.url.pathname);
+const c = home[lang];
+const href = {
+  about: pathFor('about', lang),
+  services: pathFor('services', lang),
+  brands: pathFor('brands', lang),
+  contact: pathFor('contact', lang),
+};
+
+const oh = c.oh;
+const areaMeta = [
+  { href: href.services, mobile: '/images/services_mb.jpg', about: '/images/about_services.jpg', aboutMb: '/images/about_services_mb.jpg', muted: 'block2-f__image--muted' },
+  { href: href.brands, mobile: '/images/brands_home_products_mb.jpg', about: '/images/about_brands.jpg', aboutMb: '/images/about_brands_mb.jpg', muted: 'block2-f__image--muted block2-f__image--muted-strong' },
+];
+const areas = c.areas.map((a, i) => ({ ...a, ...areaMeta[i] }));
+// "Así sumamos salud" (mòbil): mateix bloc i mateixes fotos que Quiénes somos, amb els textos i CTA de la Home.
+const masAreas = areas.map((a) => ({ ...a, img: a.about, imgMb: a.aboutMb }));
+const fundingLogos = [
+  ['/images/economia_social_logo.png', '/images/gencat_empresa_treball-logo.png', '/images/ministerio_logo.png'],
+  ['/images/nextgeneration_logo.png', '/images/perte_agro_logo.jpg', '/images/ministerio_industria_logo.png'],
+];
+const funding = c.funding.map((g, i) => ({ intro: g.intro, logos: fundingLogos[i].map((src, n) => [src, g.alts[n]]) }));
+
+// Àrees de negoci de desktop: fotos verticals dels panells.
+const homeAreas = areas.map((a, i) => ({ ...a, panel: areaMeta[i].aboutMb }));
+---
+
+<BaseLayout title={c.title} description={c.description}>
+  <Hero
+    title={c.hero.title}
+    subtitle={c.hero.subtitle}
+    image="/images/hero-video-frame.jpg"
+    imageMobile="/images/hero-video-frame.jpg"
+    video="/videos/video_gsn_farma.mp4"
+    videoMobile="/videos/video_gsn_farma_mobile.mp4"
+    overlapHeader
+    ctaLabel={c.hero.cta}
+    ctaHref={href.about}
+    largeText
+    ctaOutline
+    mobileOnly
+  />
+
+  {/* Hero de DESKTOP (>=900px): vídeo amb el text centrat a baix i el CTA en píndola. A mòbil s'amaga i es veu el <Hero> de dalt (només mòbil). */}
+  <section class="qd qd-hh">
+    <video class="qd-hh__video" muted loop playsinline preload="none" poster="/images/hero-video-frame.jpg" aria-hidden="true" data-src="/videos/video_gsn_farma.mp4"></video>
+    <div class="qd-hh__fade" aria-hidden="true"></div>
+    <div class="qd-hh__shade" aria-hidden="true"></div>
+    <div class="qd-hh__content">
+      <h1 class="qd-hh__title">{c.hero.title}</h1>
+      <p class="qd-hh__sub">{c.hero.subtitle}</p>
+      <a href={href.about} class="qd-ct__btn">{c.hero.cta}<span aria-hidden="true">›</span></a>
+    </div>
+  </section>
+  <script is:inline>
+    (function () {
+      // Només es descarrega el vídeo a desktop (a mòbil aquest bloc està amagat): s'inicia quan l'ample arriba a 900px.
+      var mq = window.matchMedia('(min-width: 900px)');
+      var started = false;
+      function start() {
+        if (started || !mq.matches) return;
+        var v = document.querySelector('.qd-hh__video');
+        if (!v) return;
+        started = true;
+        v.muted = true;
+        v.src = v.getAttribute('data-src');
+        v.load();
+        var play = function () {
+          if (!v.paused) return;
+          var p = v.play();
+          if (p && p.catch) p.catch(function () {});
+        };
+        play();
+        v.addEventListener('canplay', play);
+      }
+      start();
+      window.addEventListener('load', start);
+      if (mq.addEventListener) mq.addEventListener('change', start);
+    })();
+  </script>
+
+
+
+
+
+  {/* One Health, versió DESKTOP (>=900px): foto arrodonida a l'esquerra i text a la dreta, sobre gris. A mòbil s'amaga i el substitueix .sp-oh. */}
+  <section class="qd qd-ho">
+    <div class="qd-wrap qd-ho__grid">
+      <div class="qd-ho__photo"><img src="/images/one_health_gsnfarma4.jpg" alt={oh.alt} loading="lazy" /></div>
+      <div class="qd-ho__text">
+        <h2 set:html={oh.title}></h2>
+        <span class="qd-bar" aria-hidden="true"></span>
+        <p>{oh.p1}</p>
+        <p>{oh.p2}</p>
+        <a href={href.about} class="qd-cta">{oh.cta}<span aria-hidden="true">›</span></a>
+      </div>
+    </div>
+  </section>
+
+  {/* One Health (mòbil <900px): fulla blanca (cantonades de 28px) que puja 28px sobre el vídeo del hero, amb el títol, la línia cian, la foto en targeta i els textos i el CTA de la Home. A desktop s'amaga i es veu .qd-ho. */}
+  <section class="sp sp-oh">
+    <h2>One Health:<br />el propósito que nos guía</h2>
+    <span class="sp-bar" aria-hidden="true"></span>
+    <img class="sp-oh__img" src="/images/one_health_gsnfarma4.jpg" alt="Familia con su mascota en casa y manos sosteniendo una planta, símbolo del enfoque One Health" loading="lazy" />
+    <p class="sp-oh__lead">{oh.p1}</p>
+    <p>{oh.p2}</p>
+    <a href={href.about} class="sp-cta">{oh.cta}<span aria-hidden="true">›</span></a>
+  </section>
+
+  {/* Àrees de negoci, versió DESKTOP (>=900px): bloc navy amb «Así sumamos salud» i dos panells de foto (Servicios Farmacéuticos i Marcas Propias), com a Quiénes somos. A mòbil s'amaga i el substitueix .sp-hm. */}
+  <section class="qd qd-navy qd-ha">
+    <div class="qd-wrap">
+      <div class="qd-ha__head">
+        <span class="qd-bar" aria-hidden="true"></span>
+        <h2>{c.areasTitle}</h2>
+        <p set:html={c.areasIntro2}></p>
+      </div>
+      <div class="qd-ha__panels">
+        {homeAreas.map((a) => (
+          <a class="qd-ha__panel" href={a.href}>
+            <img src={a.panel} alt={a.alt} loading="lazy" />
+            <div class="qd-ha__body">
+              <h3>{a.title}</h3>
+              <p>{a.text}</p>
+              <span class="qd-cta">{a.cta}<span aria-hidden="true">›</span></span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* Àrees de negoci (mòbil <900px): com a «Así sumamos salud» de Quiénes somos (bloc gris, introducció i dues targetes immersives, mateixes fotos), amb els textos i CTA de la Home. A desktop s'amaga i es veu .qd-ha. */}
+  <section class="sp sp-hm">
+    <div class="container sp-hm__intro">
+      <h2>{c.areasTitle}</h2>
+      <span class="sp-hm__bar" aria-hidden="true"></span>
+      <p set:html={c.areasIntro}></p>
+    </div>
+    <div class="container sp-hm__cards">
+      {masAreas.map((a) => (
+        <a class="sp-hm__card" href={a.href}>
+          <span class={`sp-hm__img ${a.muted}`}>
+            <picture>
+              <source media="(max-width: 767px)" srcset={a.imgMb} />
+              <img src={a.img} alt={a.alt} loading="lazy" />
+            </picture>
+          </span>
+          <span class="sp-hm__body">
+            <h3>{a.title}</h3>
+            <p>{a.text}</p>
+            <span class="sp-hm__link">{a.cta}<span class="sp-hm__link-arrow" aria-hidden="true">›</span></span>
+          </span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  {/* Finançament, versió DESKTOP (>=900px): rètol centrat i dues columnes amb el seu text i els logos (als colors originals: requisit de publicitat de la UE). A desktop va entre Àrees i el contacte (franja blanca que separa els dos blocs navy). A mòbil s'amaga i el substitueix .sp-fa. */}
+  <section class="qd qd-hf">
+    <div class="qd-wrap">
+      <p class="qd-hf__caption">{c.fundingCaption}</p>
+      <div class="qd-hf__cols">
+        {funding.map((g) => (
+          <div class="qd-hf__col">
+            <p>{g.intro}</p>
+            <div class="qd-hf__logos">
+              {g.logos.map(([src, alt]) => <img src={src} alt={alt} loading="lazy" />)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* ¿Hablamos?, versió DESKTOP (>=900px): bloc de contacte compartit (veure QdContact.astro). A mòbil s'amaga i el substitueix .sp-ct2. */}
+  <QdContact title={c.contact.title} text={c.contact.text} />
+
+
+  {/* ¿Hablamos?, versió MÒBIL (<900px): mateixa peça que a Servicios i Internacional (foto + enllaç); a desktop s'amaga. */}
+  <section class="sp sp--navy sp-ct2">
+    <div class="sp-ct2__bg" aria-hidden="true"></div>
+    <div class="sp-ct2__body">
+      <h2>{c.contact.title}</h2>
+      <p>{c.contact.text}</p>
+      <a href={href.contact} class="sp-link">{ui[lang].contactBand.label}<span aria-hidden="true">›</span></a>
+    </div>
+  </section>
+
+
+  {/* Finançament (mòbil <900px): franja de mínima importància — rètol petit, textos de 13px en gris i logos de 24px als seus colors originals (no es modifiquen per requisits de publicitat de la UE). A desktop s'amaga i es veu .qd-hf. */}
+  <section class="sp sp-fa">
+    <div class="container">
+      <p class="sp-fcap">{c.fundingCaption}</p>
+      {funding.map((g) => (
+        <div class="sp-fa__group">
+          <p>{g.intro}</p>
+          <div class="sp-fa__logos">
+            {g.logos.map(([src, alt]) => <img src={src} alt={alt} loading="lazy" />)}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+</BaseLayout>

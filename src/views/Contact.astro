@@ -1,0 +1,124 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
+import '../styles/pages/inner-page.css';
+import '../styles/pages/block3-compare.css';
+import '../styles/pages/subpage-hero-compare.css';
+import '../styles/pages/contact-form-mobile.css';
+import '../styles/pages/mobile-hero.css';
+import '../styles/pages/desktop-page-header.css';
+import '../styles/pages/mobile-proposals.css';
+import '../styles/pages/contacto-desktop-proposals.css';
+import { detectPage } from '../i18n/config';
+import { ui } from '../i18n/ui';
+import { contact } from '../i18n/contact';
+
+// Contacto en els tres idiomes (l'idioma surt de la ruta); els textos són a src/i18n/contact.ts i ui.ts.
+const { lang } = detectPage(Astro.url.pathname);
+const c = contact[lang];
+const ci = ui[lang].contactItems;
+
+// Dades de contacte del bloc de desktop (el LinkedIn és al footer).
+const contactInfo = [
+  { icon: '/images/icon-marker.svg', title: ci.address, lines: ['C/ del Llobregat 28, 08223.', 'Terrassa, Barcelona.'], href: 'https://maps.google.com/?q=C/+del+Llobregat+28,+08223+Terrassa' },
+  { icon: '/images/icon-phone.svg', title: ci.general, tel: '+34 680 310 655' },
+  { icon: '/images/icon-phone.svg', title: ci.pharmacovigilance, tel: '+34 680 310 655' },
+  { icon: '/images/icon-address.svg', title: ci.email, mail: 'info@gsnfarma.com' },
+];
+---
+
+<BaseLayout title={c.title} description={c.description}>
+  <section class="mhp mhp--contact">
+    <div class="mhp__img"><picture>
+      <source media="(max-width: 899px)" srcset="/images/gsn_farma_offices_hall2_hm.webp" type="image/webp" />
+      <source media="(max-width: 899px)" srcset="/images/gsn_farma_offices_hall2_hm.jpg" />
+      <img src="/images/gsn_farma_offices_hall2.jpg" alt="" loading="eager" fetchpriority="high" />
+    </picture></div>
+    <div class="mhp__sheet">
+      <h1 class="mhp__title">{c.header.title}</h1>
+      <span class="mhp__bar" aria-hidden="true"></span>
+      <p class="mhp__sub">{c.header.sub}</p>
+    </div>
+  </section>
+
+  {/* Capçalera de DESKTOP (>=900px): component compartit (foto amb degradat + fulla amb títol, subtítol, text i, si cal, una ranura). A mòbil s'amaga i el substitueix .mhp. */}
+
+  <section class="qd qd-u qd-u--page">
+    <div class="qd-u__photo">
+      <picture>
+        <source media="(max-width: 899px)" srcset="/images/gsn_farma_offices_hall2_hm.webp" type="image/webp" />
+        <source media="(max-width: 899px)" srcset="/images/gsn_farma_offices_hall2_hm.jpg" />
+        <img src="/images/gsn_farma_offices_hall2.jpg" alt="" loading="eager" fetchpriority="high" style="object-position: center 92%" />
+      </picture>
+    </div>
+    <div class="qd-u__sheet">
+      <div class="qd-wrap qd-u__grid">
+        <div class="qd-u__head">
+          <h1>{c.header.title}</h1>
+          <span class="qd-bar" aria-hidden="true"></span>
+        </div>
+        <div class="qd-u__body">
+          <h2>{c.header.h2}</h2>
+          <p>{c.header.sub}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Dades de contacte i formulari, versió DESKTOP (>=900px): dades alineades amb el títol i formulari en una targeta grisa arrodonida que arriba fins al marge dret de la capçalera. A mòbil s'amaga i el substitueixen .sp-cf i .sp-cd. */}
+  <section class="qd qd-cf">
+    <div class="qd-cf__bg" aria-hidden="true"></div>
+    <div class="qd-cf__info">
+      <div class="qd-cf__list">
+        {contactInfo.map((i) => (
+          <div class="qd-cf__item">
+            <img class="qd-cf__icon" src={i.icon} alt="" aria-hidden="true" />
+            <div>
+              <h3>{i.title}</h3>
+              <p>{i.tel ? <a href={`tel:${i.tel.replace(/ /g, '')}`}>{i.tel}</a> : i.mail ? <a href={`mailto:${i.mail}`}>{i.mail}</a> : <a href={i.href} target="_blank" rel="noopener noreferrer">{i.lines[0]}<br />{i.lines[1]}</a>}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+    <div class="qd-cf__form"><ContactForm requiredNote={true} /></div>
+  </section>
+
+  {/* Formulari (mòbil <900px): reutilitza .contact-2col (contact-form-mobile.css), alineat a l'esquerra amb el marge de 16px de la resta de la pàgina. S'amaga a desktop. */}
+  <section class="sp sp-cf">
+    <div class="container">
+      <div class="contact-2col">
+        <ContactForm />
+      </div>
+    </div>
+  </section>
+
+  {/* Dades de contacte (mòbil <900px): graella 2×2 alineada a l'esquerra (Dirección | Correo, Información general | Farmacovigilancia); LinkedIn és al peu. A desktop es veu el bloc .qd-cf. */}
+  <section class="sp sp-cd">
+    <div class="container">
+      <div class="sp-cd__items">
+        <div class="sp-cd__item">
+          <img src="/images/icon-marker.svg" alt="" aria-hidden="true" />
+          <h3>{ci.address}</h3>
+          <p><a href="https://maps.google.com/?q=C/+del+Llobregat+28,+08223+Terrassa" target="_blank" rel="noopener noreferrer">C/ del Llobregat 28,<br />08223. Terrassa,<br />Barcelona.</a></p>
+        </div>
+        <div class="sp-cd__item">
+          <img src="/images/icon-address.svg" alt="" aria-hidden="true" />
+          <h3>{ci.email}</h3>
+          <p><a href="mailto:info@gsnfarma.com">info@gsnfarma.com</a></p>
+        </div>
+        <div class="sp-cd__item">
+          <img src="/images/icon-phone.svg" alt="" aria-hidden="true" />
+          <h3>{ci.general}</h3>
+          <p><a href="tel:+34680310655">+34 680 310 655</a></p>
+        </div>
+        <div class="sp-cd__item">
+          <img src="/images/icon-phone.svg" alt="" aria-hidden="true" />
+          <h3>{ci.pharmacovigilance}</h3>
+          <p><a href="tel:+34680310655">+34 680 310 655</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

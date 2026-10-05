@@ -16,7 +16,17 @@
   }
 
   .mhp__img {
+    position: relative;
     height: 220px;
+  }
+
+  /* Mateix degradat navy discret que la capçalera de desktop (.qd-u__photo::after), com a Quiénes somos (.qs-mhero) */
+  .mhp__img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(27, 36, 53, 0.4) 0%, rgba(27, 36, 53, 0.16) 45%, rgba(27, 36, 53, 0.2) 70%, rgba(27, 36, 53, 0.42) 100%);
+    pointer-events: none;
   }
 
   .mhp__img picture {

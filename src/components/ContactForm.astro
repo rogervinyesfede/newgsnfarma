@@ -1,5 +1,7 @@
 ---
 import '../styles/components/contact-form.css';
+import { detectPage, pathFor } from '../i18n/config';
+import { ui } from '../i18n/ui';
 
 interface Props {
   submitLabel?: string;
@@ -7,52 +9,113 @@ interface Props {
   requiredNote?: boolean;
 }
 
-const { submitLabel = 'Enviar', dark = false, requiredNote = false } = Astro.props;
+const { lang } = detectPage(Astro.url.pathname);
+const f = ui[lang].form;
+const { submitLabel = f.send, dark = false, requiredNote = false } = Astro.props;
+const messages = JSON.stringify({ sending: f.msgSending, ok: f.msgOk, invalid: f.msgInvalid, error: f.msgError });
 ---
 
-<form class={`contact-form ${dark ? 'contact-form--dark' : ''}`} name="contacto" method="POST">
+<form class={`contact-form ${dark ? 'contact-form--dark' : ''}`} name="contacto" method="POST" action="/api/contact" data-messages={messages}>
   <div class="contact-form__row">
     <label>
-      Nombre y apellidos *
+      {f.name}
       <input type="text" name="nombre" required />
     </label>
     <label>
-      Teléfono
+      {f.phone}
       <input type="tel" name="telefono" />
     </label>
   </div>
 
   <div class="contact-form__row">
     <label>
-      Email *
+      {f.email}
       <input type="email" name="email" required />
     </label>
     <label>
-      Estoy interesado en
+      {f.interest}
       <select name="interes">
-        <option value="" disabled selected>Selecciona una opción</option>
-        <option value="servicios">Servicios</option>
-        <option value="marcas">Marcas propias</option>
+        <option value="" disabled selected>{f.selectOption}</option>
+        <option value="servicios">{f.optServices}</option>
+        <option value="marcas">{f.optBrands}</option>
       </select>
     </label>
   </div>
 
   <label>
-    Escribe tu mensaje
+    {f.message}
     <textarea name="mensaje" rows="8"></textarea>
   </label>
 
   <label class="contact-form__consent">
     <input type="checkbox" name="consentimiento" required />
-    <span>He leído y acepto la <a href="https://gsnfarma.com/politica-de-privacidad">Política de privacidad</a></span>
+    <span>{f.consentPre} <a href={pathFor('privacy', lang)}>{f.consentLink}</a></span>
   </label>
+
+  <div class="contact-form__trap" aria-hidden="true">
+    <label>
+      {f.trap}
+      <input type="text" name="website" tabindex="-1" autocomplete="off" />
+    </label>
+  </div>
 
   {requiredNote ? (
     <div class="contact-form__actions">
       <button type="submit" class={`btn ${dark ? 'btn--white' : ''}`}>{submitLabel}</button>
-      <p class="contact-form__required">* Campos obligatorios</p>
+      <p class="contact-form__required">{f.required}</p>
     </div>
   ) : (
     <button type="submit" class={`btn ${dark ? 'btn--white' : ''}`}>{submitLabel}</button>
   )}
+
+  <p class="contact-form__status" role="status" aria-live="polite" hidden></p>
 </form>
+
+<script>
+  // Envia el formulari a /api/contact (funció de Vercel que l'envia per correu a info@gsnfarma.com) sense recarregar la pàgina.
+  // Els missatges (en l'idioma de la pàgina) arriben al data-messages del formulari.
+  document.querySelectorAll<HTMLFormElement>('form.contact-form').forEach((form) => {
+    if (form.dataset.bound) return;
+    form.dataset.bound = '1';
+    const MESSAGES = JSON.parse(form.dataset.messages || '{}') as Record<'sending' | 'ok' | 'invalid' | 'error', string>;
+    const status = form.querySelector<HTMLElement>('.contact-form__status');
+    const button = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+
+    const show = (text: string, kind: 'info' | 'ok' | 'error') => {
+      if (!status) return;
+      status.hidden = false;
+      status.textContent = text;
+      status.dataset.kind = kind;
+    };
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+      const data = Object.fromEntries(new FormData(form).entries());
+      if (button) button.disabled = true;
+      form.setAttribute('aria-busy', 'true');
+      show(MESSAGES.sending, 'info');
+      try {
+        const res = await fetch(form.getAttribute('action') || '/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+        if (res.ok) {
+          form.reset();
+          show(MESSAGES.ok, 'ok');
+        } else {
+          show(res.status === 400 ? MESSAGES.invalid : MESSAGES.error, 'error');
+        }
+      } catch {
+        show(MESSAGES.error, 'error');
+      } finally {
+        if (button) button.disabled = false;
+        form.removeAttribute('aria-busy');
+      }
+    });
+  });
+</script>

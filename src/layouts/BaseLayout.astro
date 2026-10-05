@@ -5,6 +5,7 @@ import '../styles/layout.css';
 import '../styles/components/buttons.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { detectPage, alternates, HTML_LANG } from '../i18n/config';
 
 interface Props {
   title: string;
@@ -14,10 +15,14 @@ interface Props {
 }
 
 const { title, description = '', noindex = false, transparentHeader = false } = Astro.props;
+
+// Idioma i pàgina segons la ruta (veure src/i18n/config.ts).
+const { lang, key } = detectPage(Astro.url.pathname);
+const versions = alternates(key);
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={HTML_LANG[lang]}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -26,6 +31,8 @@ const { title, description = '', noindex = false, transparentHeader = false } = 
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
     {noindex && <meta name="robots" content="noindex, nofollow" />}
+    {versions.map((v) => <link rel="alternate" hreflang={v.lang} href={v.href} />)}
+    {versions.length > 0 && <link rel="alternate" hreflang="x-default" href={versions[0].href} />}
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

@@ -1,0 +1,138 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WorldMap from '../components/WorldMap.astro';
+import '../styles/pages/inner-page.css';
+import '../styles/pages/subpage-hero-compare.css';
+import '../styles/pages/block2.css';
+import '../styles/pages/block3-compare.css';
+import '../styles/components/world-map.css';
+import '../styles/pages/internacional-body-compare.css';
+import '../styles/pages/mobile-hero.css';
+import '../styles/pages/desktop-page-header.css';
+import '../styles/pages/mobile-proposals.css';
+import '../styles/pages/internacional-desktop-proposals.css';
+import QdContact from '../components/QdContact.astro';
+import { detectPage, pathFor } from '../i18n/config';
+import { ui } from '../i18n/ui';
+import { international } from '../i18n/international';
+
+// Internacional en els tres idiomes (l'idioma surt de la ruta); els textos són a src/i18n/international.ts.
+const { lang } = detectPage(Astro.url.pathname);
+const c = international[lang];
+const { regions, catalogs } = c;
+---
+
+<BaseLayout title={c.title} description={c.description}>
+  <section class="mhp">
+    <div class="mhp__img"><picture>
+      <source media="(max-width: 899px)" srcset="/images/gsn_farma_offices_building3_hm.webp" type="image/webp" />
+      <source media="(max-width: 899px)" srcset="/images/gsn_farma_offices_building3_hm.jpg" />
+      <img src="/images/gsn_farma_offices_building3.jpg" alt="" loading="eager" fetchpriority="high" />
+    </picture></div>
+    <div class="mhp__sheet">
+      <h1 class="mhp__title">{c.header.title}</h1>
+      <span class="mhp__bar" aria-hidden="true"></span>
+      <h2 class="mhp__sub">{c.header.sub}</h2>
+      <p class="mhp__text">{c.header.text}</p>
+    </div>
+  </section>
+
+  {/* Capçalera de DESKTOP (>=900px): component compartit (foto amb degradat + fulla amb títol, subtítol, text i, si cal, una ranura). A mòbil s'amaga i el substitueix .mhp. */}
+
+  <section class="qd qd-u qd-u--page">
+    <div class="qd-u__photo">
+      <picture>
+        <source media="(max-width: 899px)" srcset="/images/gsn_farma_offices_building3_hm.webp" type="image/webp" />
+        <source media="(max-width: 899px)" srcset="/images/gsn_farma_offices_building3_hm.jpg" />
+        <img src="/images/gsn_farma_offices_building3.jpg" alt="" loading="eager" fetchpriority="high" style="object-position: center 52%" />
+      </picture>
+    </div>
+    <div class="qd-u__sheet">
+      <div class="qd-wrap qd-u__grid">
+        <div class="qd-u__head">
+          <h1>{c.header.title}</h1>
+          <span class="qd-bar" aria-hidden="true"></span>
+        </div>
+        <div class="qd-u__body">
+          <h2>{c.header.sub}</h2>
+          <p>{c.header.text}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="intl-map intl-map--split">
+    <div class="container intl-map__split-inner">
+      <div class="intl-map__frame">
+        <WorldMap showLabels={false} label={c.mapLabel} />
+      </div>
+      <div class="intl-map__list-col">
+        <h2>{c.regionsTitle}</h2>
+        <ul class="intl-map__list">
+          {regions.map((r) => <li>{r}</li>)}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  {/* Mapa i regions (mòbil <900px): títol, mapa sobre el gris de sempre (a sang) i regions en llista de 2 columnes. S'amaga .intl-map; a desktop és al revés. */}
+  <section class="sp sp-ia4">
+    <div class="container">
+      <div class="sp-head">
+        <h2>{c.regionsTitle}</h2>
+      </div>
+      <div class="sp-ia4__map"><WorldMap showLabels={false} label={c.mapLabel} /></div>
+      <ul class="sp-regions">
+        {regions.map((r) => <li>{r}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  {/* Catàleg de productes, versió DESKTOP (>=900px): títol a l'esquerra i una fila de descàrrega per catàleg. A mòbil s'amaga i el substitueix .sp-ic2. */}
+  <section class="qd qd-ic">
+    <div class="qd-wrap qd-ic__grid">
+      <div class="qd-ih qd-ih--left">
+          <h2>{c.catalogTitle}</h2>
+          <span class="qd-bar" aria-hidden="true"></span>
+        </div>
+      <div class="qd-ic__rows">
+        {catalogs.map((c) => (
+          <a href="#" class="qd-ic__row">
+            <span class="qd-ic__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+            <span class="qd-ic__name">{c}</span>
+            <span class="qd-ic__arrow" aria-hidden="true">›</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* ¿Hablamos?, versió DESKTOP (>=900px): bloc de contacte compartit (veure QdContact.astro). A mòbil s'amaga i el substitueix .sp-ct2. */}
+  <QdContact title={c.contact.title} text={c.contact.text} />
+
+  {/* Catàleg de producto (mòbil <900px): títol (24/700 amb línia blava, com els títols de bloc de Quiénes somos) i els tres enllaços de descàrrega en files amb filets, alineats a l'esquerra. A desktop s'amaga i es veu .qd-ic. */}
+  <section class="sp sp-ic2">
+    <div class="container">
+      <div class="sp-head">
+        <h2>{c.catalogTitle}</h2>
+        <span class="sp-bar" aria-hidden="true"></span>
+      </div>
+      <div class="sp-ic2__rows">
+        {catalogs.map((c) => (
+          <a href="#" class="sp-ic2__row"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>{c}</span></a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* ¿Hablamos?, versió MÒBIL (<900px): mateixa peça que a Servicios (foto + enllaç), independent i amb marges rectes; a desktop s'amaga. */}
+  <section class="sp sp--navy sp-ct2">
+    <div class="sp-ct2__bg" aria-hidden="true"></div>
+    <div class="sp-ct2__body">
+      <h2>{c.contact.title}</h2>
+      <p>{c.contact.text}</p>
+      <a href={pathFor('contact', lang)} class="sp-link">{ui[lang].contactBand.label}<span aria-hidden="true">›</span></a>
+    </div>
+  </section>
+
+</BaseLayout>

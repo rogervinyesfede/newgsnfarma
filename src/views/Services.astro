@@ -1,0 +1,242 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/pages/inner-page.css';
+import '../styles/pages/subpage-hero-compare.css';
+import '../styles/pages/block2.css';
+import '../styles/pages/block3-compare.css';
+import '../styles/pages/mobile-hero.css';
+import '../styles/pages/desktop-page-header.css';
+import '../styles/pages/servicios-desktop-proposals.css';
+import '../styles/pages/mobile-proposals.css';
+import SpPlanta from '../components/SpPlanta.astro';
+import ServHeader from '../components/ServHeader.astro';
+import QdContact from '../components/QdContact.astro';
+import { detectPage, pathFor, LOCALE } from '../i18n/config';
+import { ui } from '../i18n/ui';
+import { servicesCopy, servicesComingSoon } from '../i18n/services';
+
+// Servicios en els tres idiomes (l'idioma surt de la ruta); els textos són a src/i18n/services.ts.
+const { lang } = detectPage(Astro.url.pathname);
+const c = servicesCopy[lang];
+
+// Els serveis tenen el mateix ordre als tres idiomes; l'id és l'àncora de l'índex (igual a tots els idiomes).
+const serviceMeta = [
+  { id: 'almacenamiento', img: '/images/servicios-almacenamiento.jpg', imgMb: '/images/servicios-almacenamiento_mb.jpg' },
+  { id: 'calidad', img: '/images/gsn_farma_Aseguramiento_de_la_calidad.jpg', imgMb: '/images/gsn_farma_Aseguramiento_de_la_calidad_mb.jpg' },
+  { id: 'regulatorio', img: '/images/servicios-regulatory.webp', imgMb: '/images/servicios-regulatory_mb.jpg' },
+  { id: 'camaras-climaticas', img: '/images/gsn_farma_camaras.jpg', imgMb: '/images/gsn_farma_camaras_mb.jpg' },
+  { id: 'acondicionamiento', img: '/images/gsn_farma_acondicionamiento.jpg', imgMb: '/images/gsn_farma_acondicionamiento_mb.jpg' },
+  { id: 'subvenciones', img: '/images/servicios-subvenciones.webp', imgMb: '/images/servicios-subvenciones_mb.jpg' },
+];
+const services = c.services.map((s, i) => ({ ...s, ...serviceMeta[i], comingSoon: servicesComingSoon[i] }));
+
+// Capacidad productiva: dades del bloc (icona, tipus d'envàs i unitats anuals; el nombre es formata segons l'idioma).
+const capacityData = [
+  { value: 22000000, icon: '<circle cx="12" cy="12" r="8"></circle>' },
+  { value: 22000000, icon: '<rect x="4" y="9" width="16" height="6" rx="3"></rect><path d="M12 9v6" stroke-linecap="round"></path>' },
+  { value: 660000, icon: '<path d="M9 3h6v3.5l2 3V21H7V9.5l2-3V3z" stroke-linecap="round" stroke-linejoin="round"></path><path d="M7 13h10" stroke-linecap="round"></path>' },
+  { value: 350000, icon: '<path d="M6 8c0-2.5 2-4.5 6-4.5s6 2 6 4.5v11a2 2 0 01-2 2H8a2 2 0 01-2-2V8z" stroke-linecap="round" stroke-linejoin="round"></path><path d="M9 3.5v3M15 3.5v3" stroke-linecap="round"></path>' },
+  { value: 2200000, icon: '<rect x="3" y="4" width="18" height="16" rx="1"></rect><path d="M3 10h18M9 4v16M15 4v16"></path>' },
+  { value: 700000, icon: '<path d="M3 8l9-5 9 5-9 5-9-5z" stroke-linecap="round" stroke-linejoin="round"></path><path d="M3 8v8l9 5 9-5V8" stroke-linecap="round" stroke-linejoin="round"></path>' },
+];
+const nf = new Intl.NumberFormat(LOCALE[lang], { useGrouping: true });
+const capacityItems = capacityData.map((d, i) => ({ title: c.capacity.types[i], value: nf.format(d.value), icon: d.icon }));
+
+const lab = { ...c.lab, img: '/images/gsn_farma_lab_mb.jpg' };
+const planta = { ...c.planta, img: '/images/gsn_farma_factory.jpg' };
+
+// Índex de serveis (mòbil: enllaça a l'acordió; desktop: a les franges)
+const chipIds = ['fabricacion', 'i-d', 'almacenamiento', 'calidad', 'regulatorio', 'camaras-climaticas', 'acondicionamiento', 'subvenciones'];
+const chipsMobile = c.chips.map((t, i) => ({ t, href: `#${chipIds[i]}-m` }));
+---
+
+<BaseLayout title={c.title} description={c.description}>
+  {/* Capçalera + índex (mòbil): graella plana; acaba en línia recta i la Planta comença just a sota. */}
+  <ServHeader title={c.header.title} sub={c.header.sub} text={c.header.text} navLabel={c.header.navLabel} items={chipsMobile} />
+
+  {/* Capçalera i índex de DESKTOP (a mòbil s'amaguen; veure mobile-hero.css) */}
+  {/* Capçalera de DESKTOP (>=900px): component compartit (foto amb degradat + fulla amb títol, subtítol, text i, si cal, una ranura). A mòbil s'amaga i el substitueix .mhp. */}
+
+  <section class="qd qd-u qd-u--page">
+    <div class="qd-u__photo">
+      <picture>
+        <source media="(max-width: 899px)" srcset="/images/gsn_farma_offices_building_hm.webp" type="image/webp" />
+        <source media="(max-width: 899px)" srcset="/images/gsn_farma_offices_building_hm.jpg" />
+        <img src="/images/gsn_farma_offices_building.jpg" alt="" loading="eager" fetchpriority="high" style="object-position: center 49%" />
+      </picture>
+    </div>
+    <div class="qd-u__sheet">
+      <div class="qd-wrap qd-u__grid">
+        <div class="qd-u__head">
+          <h1>{c.header.title}</h1>
+          <span class="qd-bar" aria-hidden="true"></span>
+        </div>
+        <div class="qd-u__body">
+          <h2>{c.header.sub}</h2>
+          <p set:html={c.header.text}></p>
+        </div>
+      <div class="qd-u__slot"><nav class="qd-u__chips" aria-label={c.header.navLabel}>{c.chips.map((t, i) => <a href={`#${chipIds[i]}`}>{t}</a>)}</nav></div>
+      </div>
+    </div>
+  </section>
+
+  {/* Planta de Producción + Capacidad productiva: a mòbil (<900px) es veu aquesta peça (foto + fulla amb la
+       capacitat a dins); a desktop es veu #fabricacion (.qd-pa) i aquesta peça s'amaga. */}
+  <SpPlanta id="fabricacion-m" title={c.planta.title} alt={c.planta.alt} p1={c.planta.p1} p2={c.planta.p2}>
+    <div class="sp-panel">
+      <h2 class="sp-panel__title">{c.capacity.title}</h2>
+      <ul class="sp-rows">
+        {capacityItems.map((item) => (
+          <li>
+            <span class="sp-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" set:html={item.icon}></svg></span>
+            <span class="sp-rows__name">{item.title}<small>{c.capacity.unit}</small></span>
+            <strong>{item.value}</strong>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </SpPlanta>
+
+  {/* Laboratorio: a mòbil (<900px) es veu aquesta peça (foto + fulla navy) i s'amaga #i-d; a desktop és al revés.
+       La fulla de Planta li passa per sobre (28px), com "Una unión…" sobre One Health a Quiénes somos. */}
+  <section class="sp sp--navy sp-lab" id="i-d-m">
+    <div class="sp-photo">
+      <img src={lab.img} alt={lab.alt} loading="lazy" />
+      <div class="sp-photo__over">
+        <h2>{lab.title}</h2>
+        <span class="sp-bar" aria-hidden="true"></span>
+      </div>
+    </div>
+    <div class="sp-sheet sp-sheet--navy">
+      <p>{lab.p1}</p>
+      <p>{lab.p2}</p>
+    </div>
+  </section>
+
+  {/* Servicios especializados: a mòbil (<900px) es veu aquest acordió; a desktop es veuen les franges .qd-sf. Li passa per sota la fulla navy del Laboratorio (28px). */}
+  <section class="sp sp-tuck2 sp-es1">
+    <div class="container">
+      <div class="sp-head">
+        <h2>{c.specialized}</h2>
+        <span class="sp-bar" aria-hidden="true"></span>
+      </div>
+      <div class="sp-acc">
+        {services.map((service, i) => (
+          <details id={`${service.id}-m`} open={i === 0}>
+            <summary>
+              <span class="sp-acc__thumb"><img src={service.imgMb} alt="" loading="lazy" /></span>
+              <span class="sp-acc__title">{service.title}{service.comingSoon && <span class="sp-acc__soon">{c.soon}</span>}</span>
+              <span class="sp-acc__chev" aria-hidden="true"></span>
+            </summary>
+            <div class="sp-acc__body">
+              <img src={service.imgMb} alt="" loading="lazy" />
+              <p>{service.description}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* Planta de Producción + Capacidad productiva, versió DESKTOP (>=900px): foto a l'esquerra i text a la dreta sobre gris, amb la capacitat integrada al mateix fons. A mòbil s'amaga i el substitueix #fabricacion-m. */}
+
+  <section class="qd qd-pa" id="fabricacion">
+    <div class="qd-wrap">
+      <div class="qd-pa__grid">
+        <div class="qd-pa__photo"><img src={planta.img} alt={planta.alt} loading="lazy" /></div>
+        <div class="qd-pa__text">
+          <h2>{planta.title}</h2>
+          <span class="qd-bar" aria-hidden="true"></span>
+          <p>{planta.p1}</p>
+          <p>{planta.p2}</p>
+        </div>
+      </div>
+      <div class="qd-pa__panel">
+        <h3>{c.capacity.title}</h3>
+        <div class="qd-pa__cols">
+          {capacityItems.map((item) => (
+            <div class="qd-pa__col">
+              <span class="qd-pa__icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" set:html={item.icon}></svg></span>
+              <span class="qd-pa__type">{item.title}</span>
+              <strong>{item.value}</strong>
+              <span class="qd-pa__unit">{c.capacity.unit}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  {/* Laboratorio, versió DESKTOP (>=900px): bloc navy recte, amb el text a l'esquerra i la foto arrodonida a la dreta. A mòbil s'amaga i el substitueix #i-d-m. */}
+
+  <section class="qd qd-navy qd-la" id="i-d">
+    <div class="qd-wrap qd-la__grid">
+      <div class="qd-la__text">
+          <h2>{lab.title}</h2>
+          <span class="qd-bar" aria-hidden="true"></span>
+          <p>{lab.p1}</p>
+          <p>{lab.p2}</p>
+      </div>
+      <div class="qd-la__photo"><img src="/images/gsn_farma_lab.jpg" alt={lab.alt} loading="lazy" /></div>
+    </div>
+  </section>
+
+
+  {/* Servicios especializados, versió DESKTOP (>=900px): títol centrat amb la línia cian a sobre i una franja per servei que alterna el fons (blanc / gris) i el costat de la foto arrodonida. A mòbil s'amaga i el substitueix l'acordió .sp-es1. */}
+
+  <section class="qd qd-sf-head">
+    <div class="qd-wrap">
+      <div class="qd-sf-head__inner">
+        <span class="qd-bar" aria-hidden="true"></span>
+        <h2>{c.specialized}</h2>
+      </div>
+    </div>
+  </section>
+
+  {services.map((service, i) => (
+    <section class={`qd qd-sf${i % 2 === 1 ? ' qd-sf--grey' : ''}${i % 2 === 1 ? ' qd-sf--rev' : ''}`} id={service.id}>
+      <div class="qd-wrap qd-sf__grid">
+        <div class="qd-sf__photo"><img src={service.img} alt="" loading="lazy" /></div>
+        <div class="qd-sf__text">
+          {service.comingSoon && <span class="qd-sf__soon">{c.soon}</span>}
+          <h3>{service.title}</h3>
+          <p>{service.description}</p>
+        </div>
+      </div>
+    </section>
+  ))}
+
+
+
+
+  {/* ¿Quieres saber más?, versió DESKTOP (>=900px): banda de foto amb degradat navy, marges rectes i text centrat. A mòbil s'amaga i el substitueix .sp-ct2. */}
+
+  <QdContact text={c.contactText} />
+
+
+  {/* ¿Quieres saber más?, versió MÒBIL (<900px): peça independent (foto + enllaç); a desktop s'amaga. */}
+  <section class="sp sp--navy sp-ct2">
+    <div class="sp-ct2__bg" aria-hidden="true"></div>
+    <div class="sp-ct2__body">
+      <h2>{ui[lang].contactBand.title}</h2>
+      <p>{c.contactText}</p>
+      <a href={pathFor('contact', lang)} class="sp-link">{ui[lang].contactBand.label}<span aria-hidden="true">›</span></a>
+    </div>
+  </section>
+
+  <script>
+    // Índex de serveis a mòbil: si l'enllaç apunta a un ítem de l'acordió, l'obre i hi va.
+    const openFromHash = () => {
+      const el = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+      if (el && el.tagName === 'DETAILS') {
+        (el as HTMLDetailsElement).open = true;
+        el.scrollIntoView();
+      }
+    };
+    window.addEventListener('hashchange', openFromHash);
+    openFromHash();
+  </script>
+</BaseLayout>

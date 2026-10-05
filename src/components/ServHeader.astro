@@ -5,16 +5,16 @@
 import '../styles/pages/mobile-hero.css';
 import '../styles/pages/mobile-proposals.css';
 
-const items = [
-  { t: 'Fabricación', href: '#fabricacion-m' },
-  { t: 'I+D', href: '#i-d-m' },
-  { t: 'Almacenamiento', href: '#almacenamiento-m' },
-  { t: 'Aseguramiento de calidad', href: '#calidad-m' },
-  { t: 'Asuntos regulatorios', href: '#regulatorio-m' },
-  { t: 'Cámaras climáticas y estudios de estabilidad', href: '#camaras-climaticas-m' },
-  { t: 'Acondicionamiento secundario y serialización', href: '#acondicionamiento-m' },
-  { t: 'Subvenciones', href: '#subvenciones-m' },
-];
+interface Props {
+  title: string;
+  sub: string;
+  /** HTML (porta un <strong>). */
+  text: string;
+  navLabel: string;
+  items: { t: string; href: string }[];
+}
+
+const { title, sub, text, navLabel, items } = Astro.props;
 ---
 
 <section class="mhp">
@@ -24,13 +24,11 @@ const items = [
       <img src="/images/gsn_farma_offices_building.jpg" alt="" loading="eager" fetchpriority="high" />
     </picture></div>
   <div class="mhp__sheet">
-    <h1 class="mhp__title">Servicios Farmacéuticos</h1>
+    <h1 class="mhp__title">{title}</h1>
     <span class="mhp__bar" aria-hidden="true"></span>
-    <h2 class="mhp__sub">Tu partner global en soluciones de salud</h2>
-    <p class="mhp__text">
-      <strong>17.000 m²</strong> dedicados a desarrollo, fabricación, análisis y almacenamiento.
-    </p>
-    <nav class="sp-gx" aria-label="Servicios">
+    <h2 class="mhp__sub">{sub}</h2>
+    <p class="mhp__text" set:html={text}></p>
+    <nav class="sp-gx" aria-label={navLabel}>
       {items.map((it) => <a class="sp-gx__item" href={it.href}>{it.t}</a>)}
     </nav>
   </div>
