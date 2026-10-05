@@ -8,11 +8,14 @@ import '../styles/pages/block3-compare.css';
 import '../styles/components/world-map.css';
 import '../styles/pages/internacional-body-compare.css';
 import '../styles/pages/mobile-hero.css';
+import '../styles/pages/desktop-page-header.css';
 import '../styles/pages/mobile-proposals.css';
+import '../styles/pages/internacional-desktop-proposals.css';
+import QdContact from '../components/QdContact.astro';
 
 // PROVES MÒBIL (.sp)
 const regions = ['Europa', 'Oriente Medio', 'China', 'Sudeste Asiático', 'Oceanía', 'Latinoamérica'];
-const catalogs = ['Medicamentos', 'Salud natural', 'Salud animal'];
+const catalogs = ['Medicamentos', 'Salud natural', 'Salud de la mujer', 'Salud animal'];
 ---
 
 <BaseLayout
@@ -20,7 +23,11 @@ const catalogs = ['Medicamentos', 'Salud natural', 'Salud animal'];
   description="Presencia internacional de GSN Farma Labs Group."
 >
   <section class="mhp">
-    <div class="mhp__img"><img src="/images/gsn_farma_offices_building3.jpg" alt="" loading="eager" /></div>
+    <div class="mhp__img"><picture>
+      <source media="(max-width: 899px)" srcset="/images/gsn_farma_offices_building3_hm.webp" type="image/webp" />
+      <source media="(max-width: 899px)" srcset="/images/gsn_farma_offices_building3_hm.jpg" />
+      <img src="/images/gsn_farma_offices_building3.jpg" alt="" loading="eager" fetchpriority="high" />
+    </picture></div>
     <div class="mhp__sheet">
       <h1 class="mhp__title">Presencia Global</h1>
       <span class="mhp__bar" aria-hidden="true"></span>
@@ -32,31 +39,29 @@ const catalogs = ['Medicamentos', 'Salud natural', 'Salud animal'];
     </div>
   </section>
 
-  <section class="subpage-hero-e subpage-hero-e--left subpage-hero-e--internacional">
-    <img
-      src="/images/gsn_farma_offices_building3.jpg"
-      alt=""
-      loading="eager"
-    />
-    <div class="subpage-hero-e__scrim"></div>
-    <div class="subpage-hero-e__inner">
-      <h1>Presencia Global</h1>
-    </div>
-  </section>
+  {/* Capçalera de DESKTOP (>=900px): component compartit (foto amb degradat + fulla amb títol, subtítol, text i, si cal, una ranura). A mòbil s'amaga i el substitueix .mhp. */}
 
-  <section class="intl-title">
-    <div class="container">
-      <div class="intl-title__intro">
-        <div class="block2-f__accent-line"></div>
-        <h2>GSN FARMA LABS GROUP<br />en el mundo</h2>
-        <p>
-          Tu partner global en soluciones de salud, con capacidad y presencia para operar en
-          mercados de todo el mundo.
-        </p>
+  <section class="qd qd-u qd-u--page">
+    <div class="qd-u__photo">
+      <picture>
+        <source media="(max-width: 899px)" srcset="/images/gsn_farma_offices_building3_hm.webp" type="image/webp" />
+        <source media="(max-width: 899px)" srcset="/images/gsn_farma_offices_building3_hm.jpg" />
+        <img src="/images/gsn_farma_offices_building3.jpg" alt="" loading="eager" fetchpriority="high" style="object-position: center 52%" />
+      </picture>
+    </div>
+    <div class="qd-u__sheet">
+      <div class="qd-wrap qd-u__grid">
+        <div class="qd-u__head">
+          <h1>Presencia Global</h1>
+          <span class="qd-bar" aria-hidden="true"></span>
+        </div>
+        <div class="qd-u__body">
+          <h2>GSN FARMA LABS GROUP en el mundo</h2>
+          <p>Tu partner global en soluciones de salud, con capacidad y presencia para operar en mercados de todo el mundo.</p>
+        </div>
       </div>
     </div>
   </section>
-
 
   <section class="intl-map intl-map--split">
     <div class="container intl-map__split-inner">
@@ -90,45 +95,29 @@ const catalogs = ['Medicamentos', 'Salud natural', 'Salud animal'];
     </div>
   </section>
 
-  <section class="intl-catalog intl-catalog--desktop">
-    <div class="container intl-catalog__inner">
-      <div class="block2-f__accent-line"></div>
-      <p class="intl-catalog__intro">Catálogo de productos para mercados internacionales:</p>
-      <ul class="intl-catalog__list intl-catalog__list--bar intl-catalog__list--bar-download">
-        <li>
-          <a href="#">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M7 10l5 5 5-5M5 21h14" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-            Medicamentos
+  {/* Catàleg de productes, versió DESKTOP (>=900px): títol a l'esquerra i una fila de descàrrega per catàleg. A mòbil s'amaga i el substitueix .sp-ic2. */}
+  <section class="qd qd-ic">
+    <div class="qd-wrap qd-ic__grid">
+      <div class="qd-ih qd-ih--left">
+          <h2>Catálogo de productos para mercados internacionales:</h2>
+          <span class="qd-bar" aria-hidden="true"></span>
+        </div>
+      <div class="qd-ic__rows">
+        {catalogs.map((c) => (
+          <a href="#" class="qd-ic__row">
+            <span class="qd-ic__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+            <span class="qd-ic__name">{c}</span>
+            <span class="qd-ic__arrow" aria-hidden="true">›</span>
           </a>
-        </li>
-        <li>
-          <a href="#">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M7 10l5 5 5-5M5 21h14" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-            Salud natural
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M7 10l5 5 5-5M5 21h14" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-            Salud animal
-          </a>
-        </li>
-      </ul>
+        ))}
+      </div>
     </div>
   </section>
 
-  <section class="contact-alt contact-alt--photo intl-contact">
-    <div class="container">
-      <h2>¿Hablamos?</h2>
-      <p>
-        Contáctanos si estás interesado en explorar oportunidades de colaboración a nivel
-        internacional.
-      </p>
-      <a href="/contacto" class="btn btn--outline-white">Contactar</a>
-    </div>
-  </section>
+  {/* ¿Hablamos?, versió DESKTOP (>=900px): bloc de contacte compartit (veure QdContact.astro). A mòbil s'amaga i el substitueix .sp-ct2. */}
+  <QdContact title="¿Hablamos?" text="Contáctanos si estás interesado en explorar oportunidades de colaboración a nivel internacional." />
 
-  {/* Catàleg de producto (mòbil <900px): títol (24/700 amb línia blava, com els títols de bloc de Quiénes somos) i els tres enllaços de descàrrega en files amb filets, alineats a l'esquerra. S'amaga .intl-catalog; a desktop és al revés. */}
+  {/* Catàleg de producto (mòbil <900px): títol (24/700 amb línia blava, com els títols de bloc de Quiénes somos) i els tres enllaços de descàrrega en files amb filets, alineats a l'esquerra. A desktop s'amaga i es veu .qd-ic. */}
   <section class="sp sp-ic2">
     <div class="container">
       <div class="sp-head">
@@ -143,7 +132,7 @@ const catalogs = ['Medicamentos', 'Salud natural', 'Salud animal'];
     </div>
   </section>
 
-  {/* ¿Hablamos?: mateix bloc que a Servicios (foto + enllaç), independent i amb marges rectes. A mòbil (<900px) es veu aquesta peça i s'amaga .intl-contact; a desktop és al revés. */}
+  {/* ¿Hablamos?, versió MÒBIL (<900px): mateixa peça que a Servicios (foto + enllaç), independent i amb marges rectes; a desktop s'amaga. */}
   <section class="sp sp--navy sp-ct2">
     <div class="sp-ct2__bg" aria-hidden="true"></div>
     <div class="sp-ct2__body">
@@ -152,4 +141,5 @@ const catalogs = ['Medicamentos', 'Salud natural', 'Salud animal'];
       <a href="/contacto" class="sp-link">Contactar<span aria-hidden="true">›</span></a>
     </div>
   </section>
+
 </BaseLayout>

@@ -209,8 +209,3 @@
   object-position: center 45%;
 }
 
-/* Quiénes somos (desktop): enquadrament de la foto. A mòbil no s'usa. */
-.subpage-hero-e--quienes-somos img {
-  object-position: center 45%;
-}
-

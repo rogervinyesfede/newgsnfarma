@@ -4,9 +4,10 @@ import '../styles/components/contact-form.css';
 interface Props {
   submitLabel?: string;
   dark?: boolean;
+  requiredNote?: boolean;
 }
 
-const { submitLabel = 'Enviar', dark = false } = Astro.props;
+const { submitLabel = 'Enviar', dark = false, requiredNote = false } = Astro.props;
 ---
 
 <form class={`contact-form ${dark ? 'contact-form--dark' : ''}`} name="contacto" method="POST">
@@ -46,5 +47,12 @@ const { submitLabel = 'Enviar', dark = false } = Astro.props;
     <span>He leído y acepto la <a href="https://gsnfarma.com/politica-de-privacidad">Política de privacidad</a></span>
   </label>
 
-  <button type="submit" class={`btn ${dark ? 'btn--white' : ''}`}>{submitLabel}</button>
+  {requiredNote ? (
+    <div class="contact-form__actions">
+      <button type="submit" class={`btn ${dark ? 'btn--white' : ''}`}>{submitLabel}</button>
+      <p class="contact-form__required">* Campos obligatorios</p>
+    </div>
+  ) : (
+    <button type="submit" class={`btn ${dark ? 'btn--white' : ''}`}>{submitLabel}</button>
+  )}
 </form>

@@ -1,0 +1,280 @@
+/* Home — blocs de DESKTOP (>=900px): hero (.qd-hh), One Health (.qd-ho*), àrees de negoci (.qd-ha*) i finançament (.qd-hf*).
+   Usen la base de desktop-page-header.css (.qd, .qd-wrap, .qd-bar, .qd-cta, .qd-navy, .qd-ct__btn). A mòbil s'amaguen. */
+
+@media (min-width: 900px) {
+  /* =====================================================================
+     HERO — la composició de l'original (vídeo, text centrat a baix, CTA) amb el CTA en píndola i la tipografia ajustada a l'escala del web
+     ===================================================================== */
+  .qd-hh {
+    position: relative;
+    margin-top: 0;
+    height: 720px;
+    overflow: hidden;
+    background: var(--qd-navy) url('/images/hero-video-frame.jpg') center / cover no-repeat;
+  }
+
+  .qd-hh__video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .qd-hh__fade {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 180px;
+    background: linear-gradient(180deg, rgba(16, 20, 28, 0.55) 0%, transparent 100%);
+  }
+
+  .qd-hh__shade {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(27, 36, 53, 0.15) 0%, rgba(27, 36, 53, 0.55) 100%);
+  }
+
+  .qd-hh__content {
+    position: absolute;
+    right: 0;
+    bottom: 12%;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 32px;
+    text-align: center;
+  }
+
+  /* Tipografia del hero original (hero.css): títol 700 amb espaiat negatiu, subtítol 400 */
+  .qd .qd-hh__title {
+    max-width: 700px;
+    margin-bottom: 8px;
+    color: #fff;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    text-align: center;
+  }
+
+  .qd .qd-hh__sub {
+    max-width: 600px;
+    margin-bottom: 24px;
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  /* El CTA és el mateix botó que el del bloc de contacte (.qd-ct__btn: píndola, 17/700, minúscules, «›»); només es treu el marge superior perquè
+     la separació amb el subtítol ja la dona el marge del subtítol */
+  .qd .qd-hh__content .qd-ct__btn {
+    margin-top: 0;
+  }
+
+  /* =====================================================================
+     ONE HEALTH — com a Quiénes somos (foto arrodonida a l'esquerra, text a la dreta), sobre el gris de l'original
+     ===================================================================== */
+  .qd-ho {
+    padding: 72px 0;
+    background: var(--qd-grey);
+  }
+
+  .qd-ho__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 72px;
+    align-items: center;
+  }
+
+  .qd-ho__photo {
+    height: 520px;
+    overflow: hidden;
+    border-radius: 28px;
+  }
+
+  .qd-ho__photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .qd-ho__text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .qd-ho__text .qd-cta {
+    margin-top: 16px;
+    color: var(--qd-navy);
+  }
+
+  /* =====================================================================
+     ÀREES DE NEGOCI (Servicios Farmacéuticos i Marcas Propias): bloc navy amb dos panells de foto
+     ===================================================================== */
+  .qd-ha {
+    padding: 72px 0;
+    background: var(--qd-navy);
+  }
+
+  .qd-ha__head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    max-width: 900px;
+    margin: 0 auto 44px;
+    text-align: center;
+  }
+
+  .qd .qd-ha__head h2,
+  .qd .qd-ha__head p {
+    text-align: center;
+  }
+
+  .qd .qd-ha__head p strong {
+    color: #fff;
+  }
+
+  .qd-ha__panels {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .qd-ha__panel {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    min-height: 600px;
+    overflow: hidden;
+    border-radius: 28px;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .qd-ha__panel img {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+  }
+
+  .qd-ha__panel:hover img {
+    transform: scale(1.05);
+  }
+
+  .qd-ha__panel::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(27, 36, 53, 0) 25%, rgba(27, 36, 53, 0.92) 70%);
+  }
+
+  .qd-ha__body {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 44px;
+  }
+
+  .qd .qd-ha__body h3 {
+    color: #fff;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.15;
+  }
+
+  .qd .qd-ha__body p {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  /* =====================================================================
+     FINANÇAMENT — «Con la colaboración de:» (els logos conserven els colors originals: requisit de publicitat de la UE).
+     La composició de l'original (rètol centrat i dues columnes), compacta, amb l'estil nou: rètol navy, un filet entre columnes i 56px de marge.
+     ===================================================================== */
+  .qd-hf {
+    padding: 56px 0;
+    background: #fff;
+  }
+
+  .qd .qd-hf__caption {
+    margin-bottom: 28px;
+    color: var(--qd-navy);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.4;
+    text-align: center;
+  }
+
+  .qd-hf__cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .qd-hf__col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 0 40px;
+    text-align: center;
+  }
+
+  .qd-hf__col + .qd-hf__col {
+    border-left: 1px solid #d6d6d3;
+  }
+
+  .qd .qd-hf__col p {
+    color: #4b4b4b;
+    font-size: 15px;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  .qd-hf__logos {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px 28px;
+  }
+
+  .qd-hf__logos img {
+    display: block;
+    width: auto;
+    height: 40px;
+    object-fit: contain;
+  }
+
+  @media (max-width: 1139px) {
+    .qd-ho__grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .qd-ha__panels,
+    .qd-hf__cols {
+      grid-template-columns: 1fr;
+    }
+
+    .qd-hf__col + .qd-hf__col {
+      margin-top: 28px;
+      padding-top: 28px;
+      border-top: 1px solid #d6d6d3;
+      border-left: 0;
+    }
+  }
+}

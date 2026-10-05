@@ -5,11 +5,13 @@ import '../styles/pages/inner-page.css';
 import '../styles/pages/subpage-hero-compare.css';
 import '../styles/pages/block2.css';
 import '../styles/pages/block3-compare.css';
-import '../styles/pages/servicios-body-compare.css';
 import '../styles/pages/mobile-hero.css';
+import '../styles/pages/desktop-page-header.css';
+import '../styles/pages/servicios-desktop-proposals.css';
 import '../styles/pages/mobile-proposals.css';
 import SpPlanta from '../components/SpPlanta.astro';
 import ServHeader from '../components/ServHeader.astro';
+import QdContact from '../components/QdContact.astro';
 
 const serviceImages: Record<string, string> = {
   'Almacenamiento farmacéutico': '/images/servicios-almacenamiento.jpg',
@@ -49,6 +51,15 @@ const lab = {
   p2: 'Acompañamos proyectos propios y de terceros desde la fase conceptual hasta su escalado industrial, con planta piloto, ensayos de estabilidad y soporte técnico específico, ofreciendo un enfoque integral, flexible y orientado a resultados.',
 };
 
+// Planta de Producción (propostes desktop): mateix text que el bloc actual.
+const planta = {
+  title: 'Planta de Producción',
+  img: '/images/gsn_farma_factory.jpg',
+  alt: 'Planta de producción de GSN Farma',
+  p1: 'Fabricación de complementos alimenticios en formas sólidas (comprimidos, cápsulas y doypacks) bajo los más altos estándares de calidad, seguridad y trazabilidad, conforme a normativa GMP e IFS Food Supplements.',
+  p2: 'Ofrecemos un servicio integral y flexible, con desarrollos a medida y formatos adaptados a tu marca, desde el desarrollo hasta el producto final.',
+};
+
 const serviceIds: Record<string, string> = {
   'Almacenamiento farmacéutico': 'almacenamiento',
   'Aseguramiento de la calidad': 'calidad',
@@ -67,44 +78,33 @@ const serviceIds: Record<string, string> = {
   <ServHeader />
 
   {/* Capçalera i índex de DESKTOP (a mòbil s'amaguen; veure mobile-hero.css) */}
-  <section class="subpage-hero-e subpage-hero-e--left subpage-hero-e--servicios">
-    <img
-      src="/images/gsn_farma_offices_building.jpg"
-      alt=""
-      loading="eager"
-      style="object-position: center 40%"
-    />
-    <div class="subpage-hero-e__scrim"></div>
-    <div class="subpage-hero-e__inner">
-      <h1>Servicios Farmacéuticos</h1>
-    </div>
-  </section>
+  {/* Capçalera de DESKTOP (>=900px): component compartit (foto amb degradat + fulla amb títol, subtítol, text i, si cal, una ranura). A mòbil s'amaga i el substitueix .mhp. */}
 
-  <section class="srv-union">
-    <div class="container">
-      <div class="srv-union__intro">
-        <div class="block2-f__accent-line"></div>
-        <h2>Tu partner global en<br />soluciones de salud</h2>
-        <p>
-          <strong>17.000 m²</strong> dedicados a desarrollo, fabricación, análisis y
-          almacenamiento.
-        </p>
-      </div>
-      <div class="srv-union__grid">
-        <a href="#fabricacion" class="srv-union__item">Fabricación</a>
-        <a href="#i-d" class="srv-union__item">I+D</a>
-        <a href="#almacenamiento" class="srv-union__item">Almacenamiento</a>
-        <a href="#calidad" class="srv-union__item">Aseguramiento de calidad</a>
-        <a href="#regulatorio" class="srv-union__item">Asuntos regulatorios</a>
-        <a href="#camaras-climaticas" class="srv-union__item">Cámaras climáticas y estudios de estabilidad</a>
-        <a href="#acondicionamiento" class="srv-union__item">Acondicionamiento secundario y serialización</a>
-        <a href="#subvenciones" class="srv-union__item">Subvenciones</a>
+  <section class="qd qd-u qd-u--page">
+    <div class="qd-u__photo">
+      <picture>
+        <source media="(max-width: 899px)" srcset="/images/gsn_farma_offices_building_hm.webp" type="image/webp" />
+        <source media="(max-width: 899px)" srcset="/images/gsn_farma_offices_building_hm.jpg" />
+        <img src="/images/gsn_farma_offices_building.jpg" alt="" loading="eager" fetchpriority="high" style="object-position: center 49%" />
+      </picture>
+    </div>
+    <div class="qd-u__sheet">
+      <div class="qd-wrap qd-u__grid">
+        <div class="qd-u__head">
+          <h1>Servicios Farmacéuticos</h1>
+          <span class="qd-bar" aria-hidden="true"></span>
+        </div>
+        <div class="qd-u__body">
+          <h2>Tu partner global en soluciones de salud</h2>
+          <p><strong>17.000 m²</strong> dedicados a desarrollo, fabricación, análisis y almacenamiento.</p>
+        </div>
+      <div class="qd-u__slot"><nav class="qd-u__chips" aria-label="Servicios"><a href="#fabricacion">Fabricación</a><a href="#i-d">I+D</a><a href="#almacenamiento">Almacenamiento</a><a href="#calidad">Aseguramiento de calidad</a><a href="#regulatorio">Asuntos regulatorios</a><a href="#camaras-climaticas">Cámaras climáticas y estudios de estabilidad</a><a href="#acondicionamiento">Acondicionamiento secundario y serialización</a><a href="#subvenciones">Subvenciones</a></nav></div>
       </div>
     </div>
   </section>
 
   {/* Planta de Producción + Capacidad productiva: a mòbil (<900px) es veu aquesta peça (foto + fulla amb la
-       capacitat a dins) i s'amaguen #fabricacion i .srv-capacity; a desktop és al revés. */}
+       capacitat a dins); a desktop es veu #fabricacion (.qd-pa) i aquesta peça s'amaga. */}
   <SpPlanta id="fabricacion-m">
     <div class="sp-panel">
       <h2 class="sp-panel__title">Capacidad productiva:</h2>
@@ -136,8 +136,7 @@ const serviceIds: Record<string, string> = {
     </div>
   </section>
 
-  {/* Servicios especializados: a mòbil (<900px) es veu aquest acordió i s'amaguen .srv-others i les franges .srv-strip;
-       a desktop és al revés. Li passa per sota la fulla navy del Laboratorio (28px). */}
+  {/* Servicios especializados: a mòbil (<900px) es veu aquest acordió; a desktop es veuen les franges .qd-sf. Li passa per sota la fulla navy del Laboratorio (28px). */}
   <section class="sp sp-tuck2 sp-es1">
     <div class="container">
       <div class="sp-head">
@@ -162,128 +161,85 @@ const serviceIds: Record<string, string> = {
     </div>
   </section>
 
-  <section id="fabricacion" class="block2-f block3-d__row--50-50 block3-d__row--onehealth srv-fi--white">
-    <div class="container">
-      <div class="block2-f__image">
-        <picture>
-          <source media="(max-width: 899px)" srcset="/images/gsn_farma_factory_mb.jpg" />
-          <img src="/images/gsn_farma_factory.jpg" alt="Planta de producción de GSN Farma" loading="lazy" />
-        </picture>
+  {/* Planta de Producción + Capacidad productiva, versió DESKTOP (>=900px): foto a l'esquerra i text a la dreta sobre gris, amb la capacitat integrada al mateix fons. A mòbil s'amaga i el substitueix #fabricacion-m. */}
+
+  <section class="qd qd-pa" id="fabricacion">
+    <div class="qd-wrap">
+      <div class="qd-pa__grid">
+        <div class="qd-pa__photo"><img src={planta.img} alt={planta.alt} loading="lazy" /></div>
+        <div class="qd-pa__text">
+          <h2>{planta.title}</h2>
+          <span class="qd-bar" aria-hidden="true"></span>
+          <p>{planta.p1}</p>
+          <p>{planta.p2}</p>
+        </div>
       </div>
-      <div class="block2-f__text">
-        <div class="block2-f__accent-line"></div>
-        <h2>Planta de Producción</h2>
-        <p>
-          Fabricación de complementos alimenticios en formas sólidas (comprimidos, cápsulas y
-          doypacks) bajo los más altos estándares de calidad, seguridad y trazabilidad, conforme
-          a normativa GMP e IFS Food Supplements.
-        </p>
-        <p>
-          Ofrecemos un servicio integral y flexible, con desarrollos a medida y formatos
-          adaptados a tu marca, desde el desarrollo hasta el producto final.
-        </p>
+      <div class="qd-pa__panel">
+        <h3>Capacidad productiva:</h3>
+        <div class="qd-pa__cols">
+          {capacityItems.map((item) => (
+            <div class="qd-pa__col">
+              <span class="qd-pa__icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" set:html={item.icon}></svg></span>
+              <span class="qd-pa__type">{item.title}</span>
+              <strong>{item.value}</strong>
+              <span class="qd-pa__unit">uds./año</span>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="srv-capacity">
-    <div class="container">
-      <h2>Capacidad productiva:</h2>
-      <div class="srv-capacity__grid">
-        {capacityItems.map((item) => (
-          <div class="srv-capacity__item">
-            <span class="srv-capacity__icon">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" set:html={item.icon}></svg>
-            </span>
-            <h3>{item.title}</h3>
-            <strong>{item.value}</strong>
-            <span class="srv-capacity__unit">uds./año</span>
-          </div>
-        ))}
+
+
+
+  {/* Laboratorio, versió DESKTOP (>=900px): bloc navy recte, amb el text a l'esquerra i la foto arrodonida a la dreta. A mòbil s'amaga i el substitueix #i-d-m. */}
+
+  <section class="qd qd-navy qd-la" id="i-d">
+    <div class="qd-wrap qd-la__grid">
+      <div class="qd-la__text">
+          <h2>{lab.title}</h2>
+          <span class="qd-bar" aria-hidden="true"></span>
+          <p>{lab.p1}</p>
+          <p>{lab.p2}</p>
       </div>
+      <div class="qd-la__photo"><img src="/images/gsn_farma_lab.jpg" alt={lab.alt} loading="lazy" /></div>
     </div>
   </section>
 
-  <section id="i-d" class="block2-f block3-d__row--50-50 block3-d__row--onehealth srv-fi--navy">
-    <div class="container">
-      <div class="block2-f__text">
-        <div class="block2-f__accent-line"></div>
-        <h2>Laboratorio</h2>
-        <p>
-          En el área de I+D combinamos los servicios globales de desarrollo de CoetusPharma con
-          los servicios de desarrollo de producto de GSN Farma, cubriendo tanto I+D galénico
-          (medicamentos y formas farmacéuticas nuevas) como I+D nutricional (complementos
-          alimenticios y productos funcionales).
-        </p>
-        <p>
-          Acompañamos proyectos propios y de terceros desde la fase conceptual hasta su escalado
-          industrial, con planta piloto, ensayos de estabilidad y soporte técnico específico,
-          ofreciendo un enfoque integral, flexible y orientado a resultados.
-        </p>
-      </div>
-      <div class="block2-f__image">
-        <picture>
-          <source media="(max-width: 899px)" srcset="/images/gsn_farma_lab_mb.jpg" />
-          <img src="/images/gsn_farma_lab.jpg" alt="Laboratorio de I+D de GSN Farma" loading="lazy" />
-        </picture>
-      </div>
-    </div>
-  </section>
 
-  <section class="srv-others">
-    <div class="container">
-      <div class="block2-f__text">
-        <div class="block2-f__accent-line"></div>
+  {/* Servicios especializados, versió DESKTOP (>=900px): títol centrat amb la línia cian a sobre i una franja per servei que alterna el fons (blanc / gris) i el costat de la foto arrodonida. A mòbil s'amaga i el substitueix l'acordió .sp-es1. */}
+
+  <section class="qd qd-sf-head">
+    <div class="qd-wrap">
+      <div class="qd-sf-head__inner">
+        <span class="qd-bar" aria-hidden="true"></span>
         <h2>Servicios especializados:</h2>
       </div>
     </div>
   </section>
 
   {services.map((service, i) => (
-    <section id={serviceIds[service.title]} class={`content-section content-section--split srv-strip ${i % 2 === 1 ? 'srv-strip--grey' : ''}`}>
-      <div class="container content-section__split-inner">
-        {i % 2 === 0 ? (
-          <>
-            <div class={`content-section__image srv-strip__image${serviceImagesMobile[service.title] ? ' srv-strip__image--mb' : ''}`}>
-              <picture>
-                {serviceImagesMobile[service.title] && <source media="(max-width: 767px)" srcset={serviceImagesMobile[service.title]} />}
-                <img src={serviceImages[service.title]} alt="" loading="lazy" />
-              </picture>
-            </div>
-            <div class="content-section__text">
-              <h3>{service.title}</h3>
-              {service.description.split('\n').map((line: string) => <p set:html={line} />)}
-            </div>
-          </>
-        ) : (
-          <>
-            <div class="content-section__text">
-              <h3>{service.title}</h3>
-              {service.description.split('\n').map((line: string) => <p set:html={line} />)}
-            </div>
-            <div class={`content-section__image srv-strip__image${serviceImagesMobile[service.title] ? ' srv-strip__image--mb' : ''}`}>
-              <picture>
-                {serviceImagesMobile[service.title] && <source media="(max-width: 767px)" srcset={serviceImagesMobile[service.title]} />}
-                <img src={serviceImages[service.title]} alt="" loading="lazy" />
-              </picture>
-            </div>
-          </>
-        )}
+    <section class={`qd qd-sf${i % 2 === 1 ? ' qd-sf--grey' : ''}${i % 2 === 1 ? ' qd-sf--rev' : ''}`} id={serviceIds[service.title]}>
+      <div class="qd-wrap qd-sf__grid">
+        <div class="qd-sf__photo"><img src={serviceImages[service.title]} alt="" loading="lazy" /></div>
+        <div class="qd-sf__text">
+          <h3>{service.title}</h3>
+          {service.description.split('\n').map((line: string) => <p set:html={line} />)}
+        </div>
       </div>
     </section>
   ))}
 
-  <section class="contact-alt contact-alt--photo srv-contact">
-    <div class="container">
-      <h2>¿Quieres saber más?</h2>
-      <p>
-        Contáctanos para recibir más información sobre nuestros servicios.
-      </p>
-      <a href="/contacto" class="btn btn--outline-white">Contactar</a>
-    </div>
-  </section>
 
-  {/* ¿Quieres saber más?: bloc independent (marges rectes). A mòbil (<900px) es veu aquesta peça (foto + enllaç) i s'amaga .srv-contact; a desktop és al revés. */}
+
+
+  {/* ¿Quieres saber más?, versió DESKTOP (>=900px): banda de foto amb degradat navy, marges rectes i text centrat. A mòbil s'amaga i el substitueix .sp-ct2. */}
+
+  <QdContact text="Contáctanos para recibir más información sobre nuestros servicios." />
+
+
+  {/* ¿Quieres saber más?, versió MÒBIL (<900px): peça independent (foto + enllaç); a desktop s'amaga. */}
   <section class="sp sp--navy sp-ct2">
     <div class="sp-ct2__bg" aria-hidden="true"></div>
     <div class="sp-ct2__body">

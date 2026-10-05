@@ -1,0 +1,25 @@
+---
+// Bloc de contacte de desktop (>=900px), compartit: foto de l'edifici amb degradat navy, línia cian, títol, frase i botó cap a Contacto.
+// A mòbil s'amaga (cada pàgina té la seva peça .sp-ct2). Estils a desktop-page-header.css (.qd-ct*).
+// Variants: 'band' (per defecte, franja navy a sang) i 'light' (franja clara amb la foto molt suau, a la Home: va just a sota d'un bloc navy).
+interface Props {
+  text: string;
+  title?: string;
+  href?: string;
+  label?: string;
+  variant?: 'band' | 'light';
+}
+
+const { text, title = '¿Quieres saber más?', href = '/contacto', label = 'Contactar', variant = 'band' } = Astro.props;
+---
+
+<section class={`qd qd-ct${variant === 'light' ? ' qd-ct--light' : ''}`}>
+  <div class={`qd-ct__band${variant === 'light' ? '' : ' qd-navy'}`}>
+    <div class="qd-wrap qd-ct__inner">
+      <span class="qd-bar" aria-hidden="true"></span>
+      <h2>{title}</h2>
+      <p>{text}</p>
+      <a href={href} class="qd-ct__btn">{label}<span aria-hidden="true">›</span></a>
+    </div>
+  </div>
+</section>

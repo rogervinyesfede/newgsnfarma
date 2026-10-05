@@ -1,0 +1,326 @@
+/* CAPÇALERA DE DESKTOP (>=900px), component compartit per a totes les pàgines (.qd-u): banda de foto de 340px amb un degradat navy discret
+   i fulla blanca de 36px que li puja 56px amb el títol (H1) + línia cian a l'esquerra i el subtítol, el text i, opcionalment, una ranura
+   (.qd-u__slot) a la dreta/a sota. Inclou la base dels blocs de desktop (.qd: variables, tipografia comuna, línia cian). A mòbil s'amaga. */
+
+.qd-tag {
+  display: none;
+}
+
+.qd {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .qd {
+    display: block;
+    --qd-navy: var(--color-primary);
+    --qd-cyan: var(--color-accent);
+    --qd-cyan-dark: var(--color-accent-dark);
+    --qd-grey: #eeeeec;
+    --qd-line: #e1e1df;
+  }
+
+  .qd-wrap {
+    max-width: 1264px;
+    margin-inline: auto;
+    padding-inline: 32px;
+  }
+
+  /* ---- Tipografia comuna ---- */
+  .qd h1,
+  .qd h2,
+  .qd h3 {
+    margin: 0;
+    color: var(--qd-navy);
+    text-align: left;
+  }
+
+  .qd h2 {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.15;
+  }
+
+  .qd p {
+    margin: 0;
+    color: #4b4b4b;
+    font-size: 18px;
+    line-height: 1.7;
+    text-align: left;
+  }
+
+  .qd-bar {
+    display: block;
+    width: 64px;
+    height: 5px;
+    border-radius: 3px;
+    background: var(--qd-cyan);
+  }
+
+  .qd-navy h1,
+  .qd-navy h2,
+  .qd-navy h3 {
+    color: #fff;
+  }
+
+  .qd-navy p {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .qd-cta {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 6px;
+    color: inherit;
+    font-size: 17px;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .qd-cta span {
+    font-weight: 400;
+    transition: transform 0.25s ease;
+  }
+
+  a:hover .qd-cta span,
+  .qd-cta:hover span {
+    transform: translateX(4px);
+  }
+
+  .qd-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .qd-logo {
+    display: block;
+    width: auto;
+    height: 28px;
+    object-fit: contain;
+    object-position: left center;
+  }
+
+  /* =====================================================================
+     CAPÇALERA 4 — component universal (Quiénes somos, Servicios, Nuestras marcas, Internacional, Contacto):
+     banda de foto neta de 340px (sense text a sobre, serveix qualsevol imatge) i fulla blanca de 36px que li
+     puja 56px amb el títol (H1) + línia cian a l'esquerra i subtítol + text opcional a la dreta, com el mòbil.
+     ===================================================================== */
+  .qd-u {
+    background: #fff;
+  }
+
+  .qd-u__photo {
+    position: relative;
+    height: 340px;
+    overflow: hidden;
+    background: var(--qd-navy);
+  }
+
+  .qd-u__photo img {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* El contingut de la foto puja perquè el rètol «GSN FARMA» quedi sencer per sobre de la fulla */
+    object-position: center 47%;
+  }
+
+  .qd-u--page {
+    margin-top: var(--header-height);
+  }
+
+  /* Degradat navy discret sobre la foto: una mica més fosc a dalt (sota el menú) i a baix (abans de la fulla), centre quasi net */
+  .qd-u__photo::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(27, 36, 53, 0.4) 0%, rgba(27, 36, 53, 0.16) 45%, rgba(27, 36, 53, 0.2) 70%, rgba(27, 36, 53, 0.42) 100%);
+    pointer-events: none;
+  }
+
+  .qd-u__sheet {
+    position: relative;
+    margin-top: -56px;
+    padding: 52px 0 60px;
+    border-radius: 36px 36px 0 0;
+    background: #fff;
+  }
+
+  .qd-u__grid {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .qd-u__head {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .qd .qd-u__head h1 {
+    color: var(--qd-navy);
+    font-size: clamp(36px, 3.8vw, 48px);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+  }
+
+  .qd-u__body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 6px;
+  }
+
+  .qd .qd-u__body h2 {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  .qd .qd-u__body p {
+    font-size: 18px;
+    line-height: 1.7;
+  }
+
+  .qd .qd-u__body p strong {
+    color: var(--qd-navy);
+    font-weight: 700;
+  }
+
+  @media (max-width: 1139px) {
+    .qd-u__grid {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+  }
+
+  /* Ranura opcional sota les dues columnes (p. ex. l'índex de Servicios) */
+  .qd-u__slot {
+    grid-column: 1 / -1;
+  }
+
+  .qd-u__chips {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .qd-u__chips a {
+    display: flex;
+    align-items: center;
+    min-height: 68px;
+    padding: 14px 20px;
+    border-radius: 16px;
+    background: #f4f4f2;
+    color: var(--qd-navy);
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.3;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .qd-u__chips a:hover {
+    background: var(--qd-navy);
+    color: #fff;
+  }
+
+  /* Proves: franja groga per comparar amb l'original */
+  .qd-tag {
+    display: block;
+    padding: 12px var(--space-6);
+    background: #fff3b0;
+    color: #5c4a00;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 1139px) {
+    .qd-u__chips {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  /* =====================================================================
+     BLOC DE CONTACTE (QdContact.astro) — foto de l'edifici amb degradat navy, marges rectes, línia cian a sobre del títol, títol 32/700,
+     frase a 18/400 en una sola línia i botó en píndola de vora blanca.
+     ===================================================================== */
+  .qd-ct__band {
+    padding: 64px 0;
+    background:
+      linear-gradient(135deg, rgba(27, 36, 53, 0.94), rgba(44, 62, 86, 0.86)),
+      url('/images/gsn_farma_offices_building3.jpg') center 45% / cover;
+  }
+
+  .qd-ct__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .qd .qd-ct__band h2,
+  .qd .qd-ct__band p {
+    text-align: center;
+  }
+
+  .qd .qd-ct__band h2 {
+    font-size: 32px;
+  }
+
+  .qd .qd-ct__band p {
+    max-width: none;
+  }
+
+  .qd .qd-ct__btn {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-top: 8px;
+    padding: 14px 30px;
+    border: 2px solid #fff;
+    border-radius: 999px;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .qd .qd-ct__btn:hover {
+    background: #fff;
+    color: var(--qd-navy);
+  }
+
+  .qd-ct__btn span {
+    font-weight: 400;
+  }
+
+  /* Variant «light» (Home): franja clara amb la foto de l'edifici molt suau i el text en navy */
+  .qd-ct--light .qd-ct__band {
+    background:
+      linear-gradient(135deg, rgba(255, 255, 255, 0.93), rgba(238, 238, 236, 0.9)),
+      url('/images/gsn_farma_offices_building3.jpg') center 45% / cover;
+  }
+
+  .qd.qd-ct--light .qd-ct__btn {
+    border-color: var(--qd-navy);
+    color: var(--qd-navy);
+  }
+
+  .qd.qd-ct--light .qd-ct__btn:hover {
+    background: var(--qd-navy);
+    color: #fff;
+  }
+}

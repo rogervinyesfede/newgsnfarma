@@ -1,0 +1,180 @@
+/* Contacto — bloc de DESKTOP (>=900px): dades de contacte a l'esquerra (alineades amb el títol de la capçalera) i formulari en una targeta grisa
+   arrodonida que arriba fins a la dreta del contenidor de la capçalera (l'alçada del selector d'idioma). A mòbil s'amaga (.sp-cf / .sp-cd). */
+
+@media (min-width: 900px) {
+  /* Graella a sang: marge esquerre alineat amb el títol (graella de 1264px, marges de 32px), 360px de dades, targeta del formulari fins al marge
+     dret de la capçalera (contenidor de 1440px amb 24px de padding: el mateix extrem dret que el selector d'idioma). */
+  .qd-cf {
+    display: grid;
+    grid-template-columns: max(32px, calc((100% - 1200px) / 2)) 360px minmax(0, 1fr) max(24px, calc((100% - 1392px) / 2));
+    padding: 0 0 72px;
+    background: #fff;
+  }
+
+  .qd-cf__bg {
+    grid-column: 3;
+    grid-row: 1;
+    border-radius: 28px;
+    background: var(--qd-grey);
+  }
+
+  /* 40px a dalt = el padding de la targeta: el primer rètol («Dirección») comença a la mateixa alçada que el primer camp («Nombre y apellidos») */
+  .qd-cf__info {
+    grid-column: 2;
+    grid-row: 1;
+    padding: 40px 48px 0 0;
+  }
+
+  .qd-cf__form {
+    grid-column: 3;
+    grid-row: 1;
+    padding: 40px;
+  }
+
+  /* ---------- Dades de contacte ---------- */
+  .qd-cf__list {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .qd-cf__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .qd-cf__icon {
+    flex: none;
+    width: 28px;
+    height: 28px;
+    margin-top: 1px;
+  }
+
+  .qd .qd-cf__item h3 {
+    margin: 0 0 4px;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  .qd .qd-cf__item p {
+    color: #4b4b4b;
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  .qd-cf__item a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .qd-cf__item a:hover {
+    color: var(--qd-cyan-dark);
+  }
+
+  /* ---------- Formulari ---------- */
+  .qd-cf__form .contact-form {
+    max-width: none;
+    gap: 20px;
+  }
+
+  .qd-cf__form .contact-form label {
+    gap: 8px;
+    color: var(--qd-navy);
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  .qd-cf__form .contact-form__row {
+    gap: 20px;
+  }
+
+  .qd-cf__form .contact-form input:not([type='checkbox']),
+  .qd-cf__form .contact-form textarea,
+  .qd-cf__form .contact-form select {
+    padding: 14px 16px;
+    border: 1px solid #d6d6d3;
+    border-radius: 12px;
+    background: #fff;
+    color: var(--qd-navy);
+    font-size: 16px;
+  }
+
+  .qd-cf__form .contact-form input:not([type='checkbox']):focus,
+  .qd-cf__form .contact-form textarea:focus,
+  .qd-cf__form .contact-form select:focus {
+    border-color: var(--qd-cyan-dark);
+    outline: 2px solid rgba(0, 130, 156, 0.25);
+  }
+
+  .qd-cf__form .contact-form textarea {
+    resize: vertical;
+  }
+
+  .qd-cf__form .contact-form .contact-form__consent {
+    gap: 10px;
+    color: #4b4b4b;
+    font-size: 15px;
+    font-weight: 400;
+  }
+
+  .qd-cf__form .contact-form .contact-form__consent a {
+    color: var(--qd-navy);
+    font-weight: 600;
+    text-decoration: underline;
+  }
+
+  .qd-cf__form .contact-form button {
+    padding: 14px 36px;
+    border: 2px solid var(--qd-navy);
+    border-radius: 999px;
+    background: var(--qd-navy);
+    color: #fff;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: normal;
+    line-height: 1.2;
+    text-transform: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .qd-cf__form .contact-form button:hover {
+    border-color: var(--qd-cyan-dark);
+    background: var(--qd-cyan-dark);
+  }
+
+  /* Botó d'enviar i nota de camps obligatoris, a la mateixa fila */
+  .qd-cf__form .contact-form__actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .qd .qd-cf__form .contact-form__required {
+    color: #6b6b6b;
+    font-size: 15px;
+    line-height: 1.4;
+  }
+
+  @media (max-width: 1139px) {
+    .qd-cf {
+      grid-template-columns: 32px minmax(0, 1fr) 32px;
+      row-gap: 40px;
+    }
+
+    .qd-cf__info {
+      grid-column: 2;
+      padding: 0;
+    }
+
+    .qd-cf__bg,
+    .qd-cf__form {
+      grid-column: 2;
+      grid-row: 2;
+    }
+  }
+}

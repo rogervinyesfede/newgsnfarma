@@ -25,6 +25,8 @@ interface Props {
   largeText?: boolean;
   /** CTA amb vora blanca i sense fons, en lloc del cian. Només per a `video`. */
   ctaOutline?: boolean;
+  /** Només es veu a mòbil (<900px): a desktop s'amaga i no es descarrega el vídeo (la pàgina té un hero propi de desktop). */
+  mobileOnly?: boolean;
 }
 
 const {
@@ -42,6 +44,7 @@ const {
   ctaHref,
   largeText = false,
   ctaOutline = false,
+  mobileOnly = false,
 } = Astro.props;
 const style = [
   image ? `--hero-image: url(${image})` : '',
@@ -62,7 +65,7 @@ const style = [
     </div>
   </section>
 ) : (
-  <section class={`hero${overlapHeader ? ' hero--overlap' : ''}`} style={style || undefined}>
+  <section class={`hero${overlapHeader ? ' hero--overlap' : ''}${mobileOnly ? ' hero--mobile-only' : ''}`} style={style || undefined}>
     {video && (
       <video
         class="hero__video"
@@ -75,6 +78,7 @@ const style = [
         aria-hidden="true"
         data-src-desktop={video}
         data-src-mobile={videoMobile || video}
+        data-mobile-only={mobileOnly ? '' : undefined}
       ></video>
     )}
     {video && <div class="hero__fade-top" aria-hidden="true"></div>}
@@ -96,6 +100,8 @@ const style = [
     // que es descarreguin totes dues i garanteix que el mòbil rep sempre
     // la variant lleugera.
     document.querySelectorAll('.hero__video[data-src-desktop]').forEach((el) => {
+      // Hero només de mòbil: a desktop no es descarrega el vídeo.
+      if (el.hasAttribute('data-mobile-only') && window.matchMedia('(min-width: 900px)').matches) return;
       // iOS/Safari només deixa l'autoplay si el vídeo és mut com a PROPIETAT (no
       // només com a atribut) i va inline; si no, mostra el botó de play al mig.
       el.muted = true;

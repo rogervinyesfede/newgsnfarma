@@ -17,8 +17,12 @@ const items = [
 ];
 ---
 
-<section class="mhp" style="--mhp-pos: center 40%">
-  <div class="mhp__img"><img src="/images/gsn_farma_offices_building.jpg" alt="" loading="eager" /></div>
+<section class="mhp">
+  <div class="mhp__img"><picture>
+      <source media="(max-width: 899px)" srcset="/images/gsn_farma_offices_building_hm.webp" type="image/webp" />
+      <source media="(max-width: 899px)" srcset="/images/gsn_farma_offices_building_hm.jpg" />
+      <img src="/images/gsn_farma_offices_building.jpg" alt="" loading="eager" fetchpriority="high" />
+    </picture></div>
   <div class="mhp__sheet">
     <h1 class="mhp__title">Servicios Farmacéuticos</h1>
     <span class="mhp__bar" aria-hidden="true"></span>

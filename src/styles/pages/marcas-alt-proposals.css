@@ -1,30 +1,7 @@
 /* ============================================================
-   PROPOSTA — franja de logos: graella de targetes (foto de fons +
-   logo + fletxa), inspirada en uriach.com/es. La fletxa és un enllaç
-   directe a la franja de la marca corresponent, més avall a la
-   pàgina. Ara visible a totes les mides (abans només desktop): en
-   mòbil (<768px) en graella de 2 columnes; a partir de 768px, EXACTAMENT
-   la mateixa fila de 5 que ja hi havia a desktop (res canvia per sobre
-   d'aquest ample). La franja original de logos petits (marcas-intro-logos)
-   queda substituïda per aquesta graella a totes les mides. */
-
-.marcas-logos-alt-wrapper {
-  display: block;
-}
-
-/* padding-top:0 perquè s'integri amb el bloc de text de sobre (que ja
-   té el seu propi padding-bottom): sense això, els dos padding-block de
-   var(--space-16) se sumaven i es veia com un bloc separat. */
-.marcas-logos-alt {
-  padding-top: 0;
-  padding-bottom: var(--space-16);
-  background: #fff;
-  text-align: center;
-}
-
-.marcas-logos-alt .compare-tag {
-  margin-bottom: var(--space-8);
-}
+   Targetes de marca (foto de fons + logo + fletxa) de la graella MÒBIL (.sp-mc): Orissens a tota l'amplada i la resta en 2 columnes.
+   La fletxa és un enllaç directe a la franja de la marca. A desktop la graella és .qd-lg (marcas-desktop-proposals.css).
+   ============================================================ */
 
 .marcas-alt-a__grid {
   display: grid;
@@ -136,58 +113,3 @@
 .marcas-alt-a__logo--natural {
   filter: none;
 }
-
-/* ============================================================
-   PROVA — franja de marca a 50/50 amb marge lateral (només Orissens)
-   ============================================================ */
-.marcas-b__row--50-50-margin .compare-tag {
-  margin-bottom: var(--space-6);
-}
-
-@media (min-width: 768px) {
-  /* Reduïm el 40/60 habitual a 50/50 per a aquesta franja de prova.
-     Especificitat extra (.marcas-b__row.marcas-b__row--50-50-margin, 3
-     classes) necessària per guanyar sempre a .marcas-b__row
-     .content-section__image (2 classes) de marcas-body-compare.css —
-     mateixa especificitat si no, i en producció (bundle de Vite) l'ordre
-     de càrrega no és fiable. */
-  .marcas-b__row.marcas-b__row--50-50-margin .content-section__image {
-    width: 50%;
-  }
-
-  .marcas-b__row.marcas-b__row--50-50-margin .content-section__text {
-    width: 50%;
-  }
-
-  /* Marge lateral visible: en lloc dels 16px del .container genèric,
-     deixem un marge més ampli (40px) a banda i banda de les 2 columnes,
-     i separació entre imatge i text a 48px (--space-12). */
-  .marcas-b__row--50-50-margin .container.content-section__split-inner {
-    max-width: 1100px;
-    padding-inline: 24px;
-    gap: 64px;
-  }
-}
-
-/* Nakama: aquesta franja de prova no té id="marca-nakama", així que la
-   regla #marca-nakama .marcas-b__logo (marcas-body-compare.css) no li
-   arriba. Repliquem la mateixa mida (216x81) perquè el logo es mantingui
-   igual que a la franja original. */
-.marcas-b__row--nakama.marcas-b__row--50-50-margin .marcas-b__logo {
-  max-width: 216px;
-  max-height: 81px;
-}
-
-/* GSN: mateix motiu que Nakama — sense id="marca-gsn", repliquem la
-   mida (151x57) perquè el logo es mantingui igual que a la franja original. */
-.marcas-b__row--gsn.marcas-b__row--50-50-margin .marcas-b__logo {
-  max-width: 151px;
-  max-height: 57px;
-}
-
-/* Herbaldi: mateix motiu — repliquem la mida (190x71) de la franja original. */
-.marcas-b__row--herbaldi.marcas-b__row--50-50-margin .marcas-b__logo {
-  max-width: 190px;
-  max-height: 71px;
-}
-

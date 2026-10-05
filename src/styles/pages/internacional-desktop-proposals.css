@@ -1,0 +1,101 @@
+/* Internacional — blocs de DESKTOP (>=900px): catàleg de productes (.qd-ic*).
+   Usen la base de desktop-page-header.css (.qd, .qd-wrap, .qd-bar, .qd-cta, .qd-navy). A mòbil s'amaguen. */
+
+@media (min-width: 900px) {
+  /* Capçalera d'un bloc: títol i línia cian (centrada: línia a sobre; a l'esquerra: línia a sota) */
+  .qd-ih {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+
+  .qd .qd-ih h2 {
+    text-align: center;
+  }
+
+  .qd-ih--left {
+    align-items: flex-start;
+    margin-bottom: 0;
+  }
+
+  .qd .qd-ih--left h2 {
+    text-align: left;
+  }
+
+  /* =====================================================================
+     CATÀLEG DE PRODUCTES PER A MERCATS INTERNACIONALS — títol a l'esquerra i una fila de descàrrega per catàleg
+     ===================================================================== */
+  .qd-ic {
+    padding: 72px 0;
+    background: #fff;
+  }
+
+  .qd-ic a {
+    color: var(--qd-navy);
+    text-decoration: none;
+  }
+
+  .qd-ic svg {
+    flex: none;
+  }
+
+  .qd-ic__grid {
+    display: grid;
+    grid-template-columns: 6fr 6fr;
+    gap: 72px;
+    align-items: center;
+  }
+
+  /* Títol una mica més petit (36px) perquè càpiga en 2 línies */
+  .qd.qd-ic .qd-ih h2 {
+    font-size: 36px;
+  }
+
+  .qd-ic__rows {
+    border-top: 1px solid #d6d6d3;
+  }
+
+  .qd-ic__row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 26px 8px;
+    border-bottom: 1px solid #d6d6d3;
+  }
+
+  .qd-ic__icon {
+    display: flex;
+    color: var(--qd-cyan-dark);
+  }
+
+  .qd-ic__name {
+    flex: 1;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.3;
+    transition: color 0.2s ease;
+  }
+
+  .qd-ic__arrow {
+    font-size: 28px;
+    line-height: 1;
+    transition: transform 0.25s ease;
+  }
+
+  .qd-ic__row:hover .qd-ic__name {
+    color: var(--qd-cyan-dark);
+  }
+
+  .qd-ic__row:hover .qd-ic__arrow {
+    transform: translateX(4px);
+  }
+
+  @media (max-width: 1139px) {
+    .qd-ic__grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+}

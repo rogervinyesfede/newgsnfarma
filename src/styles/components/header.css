@@ -268,7 +268,7 @@ body.nav-open .site-header__toggle span {
   flex-direction: column;
   padding: var(--space-6) var(--space-6) var(--space-8);
   background-image: linear-gradient(160deg, rgba(37, 74, 104, 0.92) 0%, rgba(27, 36, 53, 0.94) 55%, rgba(10, 14, 22, 0.96) 100%),
-    url('/images/gsn_farma_offices_building3.jpg');
+    url('/images/gsn_farma_offices_building3_hm.webp');
   background-size: cover;
   background-position: center 45%;
   background-repeat: no-repeat;

@@ -1,26 +1,14 @@
 /* Capçalera + primer bloc en MÒBIL (<900px) per a Servicios, Nuestras marcas, Internacional i
    Contacto (.mhp), igual que a Quiénes somos (.qs-mhero): imatge de 220px i una fulla blanca
    arrodonida que li puja 32px per sobre, amb el títol de pàgina (H1), la línia blava, el
-   subtítol i el text alineats a l'esquerra. A mòbil substitueix la capçalera (.subpage-hero-e) i
-   el primer bloc de cada pàgina, que s'amaguen; a desktop és al revés (aquesta peça queda
-   amagada). */
+   subtítol i el text alineats a l'esquerra. A mòbil substitueix la capçalera de desktop (.qd-u--page);
+   a desktop és al revés (aquesta peça queda amagada). */
 
 .mhp {
   display: none;
 }
 
 @media (max-width: 899px) {
-  section.subpage-hero-e--servicios,
-  section.subpage-hero-e--nuestras-marcas,
-  section.subpage-hero-e--internacional,
-  section.subpage-hero-e--contacto,
-  section.srv-union,
-  section.marcas-intro-centered,
-  section.intl-title,
-  section.contact-2col--f1 {
-    display: none;
-  }
-
   .mhp {
     display: block;
     margin-top: var(--header-height);
@@ -31,12 +19,18 @@
     height: 220px;
   }
 
+  .mhp__img picture {
+    display: block;
+    height: 100%;
+  }
+
   .mhp__img img {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: var(--mhp-pos, center);
+    /* Les imatges _hm ja venen retallades per a la posició de cada pàgina */
+    object-position: center;
   }
 
   .mhp__sheet {

@@ -1,0 +1,32 @@
+/* Formulari de contacte a MÒBIL: la peça .sp-cf reutilitza el contenidor .contact-2col (camps blancs amb vora suau, etiquetes lleugeres i botó
+   amb contorn). A desktop el formulari és el del bloc .qd-cf (contacto-desktop-proposals.css). */
+
+.contact-2col {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.contact-2col .contact-form input:not([type='checkbox']):not([type='radio']),
+.contact-2col .contact-form textarea,
+.contact-2col .contact-form select {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: var(--space-2) var(--space-4);
+}
+
+.contact-2col .contact-form label {
+  font-weight: 400;
+  color: #555;
+}
+
+.contact-2col .contact-form button {
+  background: transparent;
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+}
+
+.contact-2col .contact-form button:hover {
+  background: var(--color-primary);
+  color: #fff;
+}

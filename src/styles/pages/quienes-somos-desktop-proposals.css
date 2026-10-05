@@ -1,279 +1,164 @@
-/* PROVES DESKTOP de "Quiénes somos" (.qd) — 3 maneres d'adaptar a desktop el llenguatge del nou
-   mòbil (fulles arrodonides, línia blava, blocs navy/gris, línia de temps, targetes immersives):
-     A · Fulles      — transposició directa del mòbil (fulles que pugen sobre les fotos)
-     B · Asimètric   — composicions partides 5/7, aire i targetes clares
-     C · Immersiu    — fotos a sang, bloc navy amb xifres grans i targetes 50/50
-   Només es mostren a desktop (>=900px), a sota de la versió actual, amb una etiqueta groga.
-   Eliminar aquest fitxer (i el marcat .qd de quienes-somos.astro) quan es triï. */
-
-.qd,
-.qd-tag {
-  display: none;
-}
+/* Blocs de DESKTOP (>=900px) de "Quiénes somos" (.qd): [capçalera compartida a desktop-page-header.css], unió (.qd-un), One Health (.qd-oh) i àrees (.qd-ag), amb el
+   llenguatge del mòbil (fulles i targetes arrodonides, línia cian, blocs blanc / gris / navy). A mòbil s'amaguen i els substitueixen
+   .qs-mhero, .qs-munio, .qs-moh i .qs-mas (quienes-somos-body-compare.css). */
 
 @media (min-width: 900px) {
-  .qd-tag {
-    display: block;
-    padding: 12px var(--space-6);
-    background: #fff3b0;
-    color: #5c4a00;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-align: center;
-    text-transform: uppercase;
-  }
-
-  .qd {
-    display: block;
-    --qd-navy: var(--color-primary);
-    --qd-cyan: var(--color-accent);
-    --qd-cyan-dark: var(--color-accent-dark);
-    --qd-grey: #eeeeec;
-    --qd-line: #e1e1df;
-  }
-
-  .qd-wrap {
-    max-width: 1264px;
-    margin-inline: auto;
-    padding-inline: 32px;
-  }
-
-  /* ---- Tipografia comuna ---- */
-  .qd h1,
-  .qd h2,
-  .qd h3 {
-    margin: 0;
-    color: var(--qd-navy);
-    text-align: left;
-  }
-
-  .qd h2 {
-    font-size: 40px;
-    font-weight: 700;
-    line-height: 1.15;
-  }
-
-  .qd p {
-    margin: 0;
-    color: #4b4b4b;
-    font-size: 18px;
-    line-height: 1.7;
-    text-align: left;
-  }
-
-  .qd-bar {
-    display: block;
-    width: 64px;
-    height: 5px;
-    border-radius: 3px;
-    background: var(--qd-cyan);
-  }
-
-  .qd-navy h1,
-  .qd-navy h2,
-  .qd-navy h3 {
-    color: #fff;
-  }
-
-  .qd-navy p {
-    color: rgba(255, 255, 255, 0.85);
-  }
-
-  .qd-cta {
-    display: inline-flex;
-    align-items: baseline;
-    gap: 6px;
-    color: inherit;
-    font-size: 17px;
-    font-weight: 700;
-    text-decoration: none;
-  }
-
-  .qd-cta span {
-    font-weight: 400;
-    transition: transform 0.25s ease;
-  }
-
-  a:hover .qd-cta span,
-  .qd-cta:hover span {
-    transform: translateX(4px);
-  }
-
-  .qd-stack {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-  }
-
-  .qd-logo {
-    display: block;
-    width: auto;
-    height: 28px;
-    object-fit: contain;
-    object-position: left center;
-  }
-
   /* =====================================================================
-     PROPOSTA A · FULLES
+     UNIÓ (definitiu a desktop): línia de temps horitzontal de tres columnes iguals sobre gris; cada columna amb el punt de la
+     línia, la xifra, el logo (a la mateixa alçada) i el text centrats; la línia va del centre de la 1a al de la 3a columna i la
+     frase final té l'amplada dels altres textos i queda centrada verticalment dins la seva columna.
      ===================================================================== */
-
-  /* A1 — capçalera + intro: foto a sang i fulla blanca arrodonida que li puja a sobre */
-  .qd-a-hero {
-    background: #fff;
-  }
-
-  .qd-a-hero__img {
-    height: 520px;
-  }
-
-  .qd-a-hero__img img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 45%;
-  }
-
-  .qd-a-hero__sheet {
-    position: relative;
-    z-index: 1;
-    display: grid;
-    grid-template-columns: 5fr 7fr;
-    gap: 64px;
-    margin-top: -120px;
-    padding: 64px;
-    border-radius: 32px 32px 0 0;
-    background: #fff;
-  }
-
-  .qd-a-hero__title {
-    font-size: clamp(44px, 4.6vw, 62px);
-    font-weight: 800;
-    line-height: 1.08;
-  }
-
-  .qd-a-hero__title span {
-    display: block;
-  }
-
-  .qd-a-hero .qd-stack--l {
-    gap: 28px;
-  }
-
-  .qd .qd-a-hero__sub {
-    font-size: 28px;
-    font-weight: 600;
-    line-height: 1.35;
-  }
-
-  .qd-a-hero__sheet .qd-stack p {
-    font-size: 19px;
-  }
-
-  /* A2 — unió: bloc gris amb la base arrodonida i línia de temps horitzontal */
-  .qd-a-union {
-    position: relative;
-    z-index: 2;
-    padding: 88px 0 96px;
-    border-radius: 0 0 40px 40px;
+  .qd-un {
+    padding: 72px 0;
     background: var(--qd-grey);
   }
 
-  .qd-a-union__grid {
+  .qd-un__grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 56px;
+    gap: 44px;
   }
 
-  .qd-a-tl {
+  /* Títol centrat (única excepció de la pàgina): el contingut del bloc és simètric i centrat */
+  .qd-un__grid > .qd-stack {
+    align-items: center;
+  }
+
+  .qd .qd-un__grid > .qd-stack h2 {
+    text-align: center;
+  }
+
+  .qd-un__tl {
     display: grid;
-    grid-template-columns: 1fr 1fr 1.3fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 40px;
     margin: 0;
     padding: 0;
     list-style: none;
   }
 
-  .qd-a-tl li {
+  .qd-un__tl li {
     position: relative;
     padding-top: 60px;
+    text-align: center;
   }
 
-  .qd-a-tl li::after {
+  .qd-un__tl li::after {
     content: '';
     position: absolute;
     top: 0;
-    left: 0;
+    left: 50%;
     box-sizing: border-box;
     width: 24px;
     height: 24px;
     border: 3px solid var(--qd-cyan-dark);
     border-radius: 50%;
     background: var(--qd-grey);
+    transform: translateX(-50%);
   }
 
-  .qd-a-tl li:last-child::after {
+  .qd-un__tl li:last-child::after {
     border-color: var(--qd-navy);
     background: var(--qd-navy);
   }
 
-  .qd-a-tl li:not(:last-child)::before {
+  .qd-un__tl li:not(:last-child)::before {
     content: '';
     position: absolute;
     top: 11px;
-    left: 12px;
+    left: 50%;
     width: calc(100% + 40px);
     height: 2px;
   }
 
-  .qd-a-tl li:nth-child(1)::before {
+  .qd-un__tl li:nth-child(1)::before {
     background: linear-gradient(90deg, #00829c, #0e5b69);
   }
 
-  .qd-a-tl li:nth-child(2)::before {
+  .qd-un__tl li:nth-child(2)::before {
     background: linear-gradient(90deg, #0e5b69, #1b2435);
   }
 
-  .qd-a-tl__head {
+  .qd-un__head {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     align-items: center;
-    gap: 8px 18px;
+    justify-content: center;
+    gap: 14px;
     margin-bottom: 18px;
   }
 
-  .qd-a-tl__num {
+  .qd-un__num {
     font-size: 64px;
     font-weight: 800;
     line-height: 1;
     color: var(--qd-cyan-dark);
   }
 
-  .qd .qd-a-tl__end {
-    font-size: 24px;
+  .qd-un__head .qd-logo {
+    height: 30px;
+    object-position: center;
+  }
+
+  .qd .qd-un__tl p {
+    max-width: 340px;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .qd-un__tl li:last-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .qd .qd-un__tl .qd-un__end {
+    font-size: 22px;
     font-weight: 600;
-    line-height: 1.4;
+    line-height: 1.5;
     color: var(--qd-navy);
   }
 
-  /* A3 — One Health: foto a sang amb títol i fulla blanca de dues columnes */
-  .qd-a-oh {
-    position: relative;
-    z-index: 1;
-    margin-top: -40px;
+  @media (max-width: 1139px) {
+    .qd-un__tl {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .qd-un__tl li::before,
+    .qd-un__tl li::after {
+      display: none;
+    }
+
+    .qd-un__tl li {
+      padding-top: 0;
+    }
+  }
+
+  /* =====================================================================
+     ONE HEALTH (definitiu a desktop): composició partida sobre blanc; foto vertical arrodonida (28px) a l'esquerra i, a la dreta,
+     el títol amb la línia cian, el destacat (22/600) i el text.
+     ===================================================================== */
+  .qd-oh {
+    padding: 72px 0;
     background: #fff;
   }
 
-  .qd-a-oh__photo {
-    position: relative;
-    display: flex;
-    align-items: flex-end;
-    height: 600px;
-    overflow: hidden;
+  .qd-oh__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 72px;
+    align-items: center;
   }
 
-  .qd-a-oh__photo > img {
+  .qd-oh__photo {
+    position: relative;
+    min-height: 600px;
+    overflow: hidden;
+    border-radius: 28px;
+  }
+
+  .qd-oh__photo img {
     position: absolute;
     inset: 0;
     display: block;
@@ -283,88 +168,88 @@
     object-position: center 35%;
   }
 
-  .qd-a-oh__photo::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(27, 36, 53, 0.05) 30%, rgba(27, 36, 53, 0.85) 100%);
+  .qd-oh__text {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
   }
 
-  .qd-a-oh__over {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    padding-bottom: 128px;
+  .qd .qd-oh__text h2 {
+    font-size: 40px;
+    font-weight: 700;
   }
 
-  .qd-a-oh__over h2 {
-    margin-bottom: 22px;
-    font-size: 52px;
-    line-height: 1.1;
-    color: #fff;
-  }
-
-  .qd-a-oh__sheet {
-    position: relative;
-    z-index: 1;
-    display: grid;
-    grid-template-columns: 6fr 5fr;
-    gap: 64px;
-    margin-top: -72px;
-    padding: 56px 64px 88px;
-    border-radius: 32px 32px 0 0;
-    background: #fff;
-  }
-
-  .qd .qd-a-oh__lead {
-    font-size: 26px;
-    font-weight: 600;
-    line-height: 1.35;
+  .qd .qd-oh__lead {
     color: var(--qd-navy);
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.4;
   }
 
-  /* A4 — àrees: tancament navy amb dues targetes immersives */
-  .qd-a-mas {
-    padding: 88px 0 96px;
+  @media (max-width: 1139px) {
+    .qd-oh__grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .qd-oh__photo {
+      min-height: 440px;
+    }
+  }
+
+  /* =====================================================================
+     ÀREES (definitiu a desktop): bloc navy amb cantonades superiors arrodonides (40px), títol centrat amb la línia cian a sobre i
+     dos panells de 600px (foto, degradat, text i enllaç). En passar-hi el ratolí: la foto fa zoom i la fletxa de l'enllaç es desplaça.
+     ===================================================================== */
+  .qd-ag {
+    padding: 72px 0;
     border-radius: 40px 40px 0 0;
     background: var(--qd-navy);
   }
 
-  .qd-intro-grid {
-    display: grid;
-    grid-template-columns: 5fr 7fr;
-    gap: 64px;
-    align-items: end;
-    margin-bottom: 56px;
+  .qd-ag__head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    max-width: 900px;
+    margin: 0 auto 44px;
+    text-align: center;
   }
 
-  .qd-intro-grid p {
-    font-size: 20px;
+  .qd .qd-ag__head h2 {
+    color: #fff;
+    font-size: 40px;
+    text-align: center;
   }
 
-  .qd-a-cards {
+  .qd .qd-ag__head p {
+    color: rgba(255, 255, 255, 0.85);
+    text-align: center;
+  }
+
+  .qd .qd-ag__head p strong {
+    color: #fff;
+  }
+
+  .qd-ag__panels {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 24px;
   }
 
-  .qd-a-card,
-  .qd-c-card {
+  .qd-ag__panel {
     position: relative;
     display: flex;
     align-items: flex-end;
+    min-height: 600px;
     overflow: hidden;
+    border-radius: 28px;
     color: #fff;
     text-decoration: none;
   }
 
-  .qd-a-card {
-    min-height: 560px;
-    border-radius: 28px;
-  }
-
-  .qd-a-card img,
-  .qd-c-card img {
+  .qd-ag__panel img {
     position: absolute;
     inset: 0;
     display: block;
@@ -374,464 +259,44 @@
     transition: transform 0.7s ease;
   }
 
-  .qd-a-card:hover img,
-  .qd-c-card:hover img {
+  .qd-ag__panel:hover img {
     transform: scale(1.05);
   }
 
-  .qd-a-card::after,
-  .qd-c-card::after {
+  .qd-ag__panel::after {
     content: '';
     position: absolute;
     inset: 0;
     background: linear-gradient(180deg, rgba(27, 36, 53, 0) 25%, rgba(27, 36, 53, 0.92) 70%);
   }
 
-  .qd-a-card__body,
-  .qd-c-card__body {
+  .qd-ag__body {
     position: relative;
     z-index: 1;
     display: flex;
     flex-direction: column;
     gap: 16px;
-    padding: 40px;
+    padding: 44px;
   }
 
-  .qd .qd-a-card__body h3,
-  .qd .qd-c-card__body h3 {
-    font-size: 34px;
+  .qd .qd-ag__body h3 {
+    color: #fff;
+    font-size: 30px;
     font-weight: 700;
     line-height: 1.15;
-    color: #fff;
   }
 
-  .qd .qd-a-card__body p,
-  .qd .qd-c-card__body p {
+  .qd .qd-ag__body p {
     color: rgba(255, 255, 255, 0.9);
   }
 
-  /* =====================================================================
-     PROPOSTA B · ASIMÈTRIC
-     ===================================================================== */
+  @media (max-width: 1139px) {
+    .qd-ag__panels {
+      grid-template-columns: 1fr;
+    }
 
-  /* B1 — capçalera partida: panell navy amb el text + foto amb un cantó molt arrodonit */
-  .qd-b-hero {
-    display: grid;
-    grid-template-columns: 6fr 6fr;
-    min-height: 640px;
-    background: var(--qd-navy);
-  }
-
-  .qd-b-hero__text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 24px;
-    padding: 80px 56px 80px max(32px, calc((100vw - 1200px) / 2 + 32px));
-  }
-
-  .qd .qd-b-hero__title {
-    font-size: clamp(44px, 4.4vw, 60px);
-    font-weight: 800;
-    line-height: 1.08;
-  }
-
-  .qd-b-hero__title span {
-    display: block;
-  }
-
-  .qd .qd-b-hero__sub {
-    font-size: 22px;
-    font-weight: 600;
-    line-height: 1.35;
-    color: #fff;
-  }
-
-  .qd-b-hero__img {
-    overflow: hidden;
-    border-radius: 0 0 0 72px;
-  }
-
-  .qd-b-hero__img img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 45%;
-  }
-
-  /* B2 — unió: títol a l'esquerra i xifres grans en files amb filets */
-  .qd-b-union {
-    padding: 104px 0;
-    background: #fff;
-  }
-
-  .qd-b-union__grid {
-    display: grid;
-    grid-template-columns: 4fr 8fr;
-    gap: 80px;
-    align-items: start;
-  }
-
-  .qd-b-union__title {
-    position: sticky;
-    top: 120px;
-  }
-
-  .qd-b-stat {
-    display: grid;
-    grid-template-columns: 220px 1fr;
-    gap: 32px;
-    align-items: center;
-    padding: 36px 0;
-    border-top: 1px solid var(--qd-line);
-  }
-
-  .qd-b-stat__num {
-    font-size: 96px;
-    font-weight: 800;
-    line-height: 1;
-    color: var(--qd-cyan-dark);
-  }
-
-  .qd-b-stat .qd-stack {
-    gap: 16px;
-  }
-
-  .qd-b-union__end {
-    margin-top: 24px;
-    padding: 40px 44px;
-    border-radius: 28px;
-    background: var(--qd-navy);
-  }
-
-  .qd .qd-b-union__end p {
-    font-size: 26px;
-    font-weight: 600;
-    line-height: 1.4;
-    color: #fff;
-  }
-
-  /* B3 — One Health: imatge que surt de la vora esquerra, text a la dreta */
-  .qd-b-oh {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    background: var(--qd-grey);
-  }
-
-  .qd-b-oh__img {
-    height: 680px;
-    overflow: hidden;
-    border-radius: 0 56px 56px 0;
-  }
-
-  .qd-b-oh__img img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .qd-b-oh__text {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    padding: 80px max(32px, calc((100vw - 1200px) / 2 + 32px)) 80px 80px;
-  }
-
-  .qd .qd-b-oh__text h2 {
-    font-size: 46px;
-    line-height: 1.12;
-  }
-
-  .qd .qd-b-oh__lead {
-    font-size: 24px;
-    font-weight: 600;
-    line-height: 1.4;
-    color: var(--qd-navy);
-  }
-
-  /* B4 — àrees: targetes clares amb imatge i botó */
-  .qd-b-mas {
-    padding: 104px 0;
-    background: #fff;
-  }
-
-  .qd-b-cards {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-  }
-
-  .qd-b-card {
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    border-radius: 28px;
-    background: var(--qd-grey);
-    color: var(--qd-navy);
-    text-decoration: none;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .qd-b-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 18px 40px rgba(27, 36, 53, 0.14);
-  }
-
-  .qd-b-card img {
-    display: block;
-    width: 100%;
-    aspect-ratio: 16 / 10;
-    object-fit: cover;
-  }
-
-  .qd-b-card__body {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-    padding: 36px 40px 40px;
-  }
-
-  .qd .qd-b-card__body h3 {
-    font-size: 32px;
-    font-weight: 700;
-    line-height: 1.15;
-  }
-
-  .qd-b-card__btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: auto;
-    padding: 12px 22px;
-    border: 1.5px solid var(--qd-navy);
-    border-radius: 999px;
-    color: var(--qd-navy);
-    font-size: 16px;
-    font-weight: 700;
-    transition: background 0.25s ease, color 0.25s ease;
-  }
-
-  .qd-b-card:hover .qd-b-card__btn {
-    background: var(--qd-navy);
-    color: #fff;
-  }
-
-  /* =====================================================================
-     PROPOSTA C · IMMERSIU
-     ===================================================================== */
-
-  /* C1 — capçalera a pantalla gairebé completa, títol gran i text en targeta de vidre */
-  .qd-c-hero {
-    position: relative;
-    display: flex;
-    align-items: flex-end;
-    min-height: min(88vh, 780px);
-    overflow: hidden;
-    background: var(--qd-navy);
-  }
-
-  .qd-c-hero > img {
-    position: absolute;
-    inset: 0;
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 40%;
-  }
-
-  .qd-c-hero::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(27, 36, 53, 0.2) 0%, rgba(27, 36, 53, 0.2) 35%, rgba(27, 36, 53, 0.94) 100%);
-  }
-
-  .qd-c-hero__inner {
-    position: relative;
-    z-index: 1;
-    display: grid;
-    grid-template-columns: 7fr 5fr;
-    gap: 56px;
-    align-items: end;
-    width: 100%;
-    padding-bottom: 120px;
-  }
-
-  .qd .qd-c-hero__title {
-    font-size: clamp(54px, 6.2vw, 88px);
-    font-weight: 800;
-    line-height: 1.04;
-    color: #fff;
-  }
-
-  .qd-c-hero__title span {
-    display: block;
-  }
-
-  .qd .qd-c-hero__sub {
-    font-size: 28px;
-    font-weight: 600;
-    line-height: 1.35;
-    color: #fff;
-  }
-
-  .qd-c-glass {
-    padding: 32px;
-    border: 1px solid rgba(255, 255, 255, 0.28);
-    border-radius: 24px;
-    background: rgba(255, 255, 255, 0.12);
-    -webkit-backdrop-filter: blur(14px);
-    backdrop-filter: blur(14px);
-  }
-
-  .qd .qd-c-glass p {
-    color: rgba(255, 255, 255, 0.95);
-  }
-
-  /* C2 — unió: bloc navy amb xifres enormes en cian */
-  .qd-c-union {
-    position: relative;
-    z-index: 2;
-    margin-top: -40px;
-    padding: 96px 0 104px;
-    border-radius: 40px 40px 0 0;
-    background: var(--qd-navy);
-  }
-
-  .qd .qd-c-union h2 {
-    max-width: 820px;
-    margin-bottom: 24px;
-    font-size: 44px;
-  }
-
-  .qd-c-cols {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1.1fr;
-    margin-top: 64px;
-  }
-
-  .qd-c-col {
-    display: flex;
-    flex-direction: column;
-    gap: 22px;
-    padding: 0 40px;
-    border-left: 1px solid rgba(255, 255, 255, 0.18);
-  }
-
-  .qd-c-col:first-child {
-    padding-left: 0;
-    border-left: 0;
-  }
-
-  .qd-c-col__num {
-    font-size: clamp(88px, 9vw, 128px);
-    font-weight: 800;
-    line-height: 0.95;
-    color: var(--qd-cyan);
-  }
-
-  .qd-c-col__logo {
-    display: inline-flex;
-    align-self: flex-start;
-    padding: 10px 18px;
-    border-radius: 14px;
-    background: #fff;
-  }
-
-  .qd-c-col__logo img {
-    display: block;
-    width: auto;
-    height: 26px;
-    object-fit: contain;
-  }
-
-  .qd .qd-c-col__end {
-    font-size: 28px;
-    font-weight: 600;
-    line-height: 1.35;
-    color: #fff;
-  }
-
-  /* C3 — One Health: foto a sang amb degradat navy i el text a l'esquerra */
-  .qd-c-oh {
-    position: relative;
-    display: flex;
-    align-items: center;
-    min-height: 680px;
-    overflow: hidden;
-    background: var(--qd-navy);
-  }
-
-  .qd-c-oh > img {
-    position: absolute;
-    inset: 0;
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: 60% 40%;
-  }
-
-  .qd-c-oh::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg, rgba(27, 36, 53, 0.96) 0%, rgba(27, 36, 53, 0.82) 38%, rgba(27, 36, 53, 0.1) 78%);
-  }
-
-  .qd-c-oh__inner {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    padding-block: 96px;
-  }
-
-  .qd-c-oh__text {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    max-width: 580px;
-  }
-
-  .qd .qd-c-oh__text h2 {
-    font-size: 48px;
-    line-height: 1.1;
-  }
-
-  .qd .qd-c-oh__lead {
-    font-size: 24px;
-    font-weight: 600;
-    line-height: 1.4;
-    color: #fff;
-  }
-
-  /* C4 — àrees: presentació sobre blanc i dues targetes 50/50 a sang */
-  .qd-c-mas {
-    background: #fff;
-  }
-
-  .qd-c-mas .qd-intro-grid {
-    margin-bottom: 0;
-    padding-block: 96px 56px;
-  }
-
-  .qd-c-cards {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .qd-c-card {
-    min-height: 680px;
-  }
-
-  .qd-c-card__body {
-    padding: 56px;
-    max-width: 600px;
+    .qd-ag__panel {
+      min-height: 520px;
+    }
   }
 }

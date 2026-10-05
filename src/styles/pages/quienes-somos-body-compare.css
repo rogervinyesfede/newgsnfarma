@@ -1,279 +1,20 @@
 /* Cos de la pàgina "Quiénes somos".
-   Desktop (>=900px): blocs .qs-intro-centered, .qs-union-stats, .qs-onehealth-home i .qs-areas.
+   Desktop (>=900px): capçalera .qd-u--page i unió .qd-un (fitxer de desktop) i One Health .qd-oh i àrees (fitxer de desktop).
    Mòbil (<900px): aquests blocs s'amaguen i els substitueixen .qs-mhero, .qs-munio, .qs-moh i
    .qs-mas (al final del fitxer), cadascun amb el seu display:none per defecte. */
-
-/* ---------- Intro — centrada, estil "Nuestras marcas"/"Internacional" ---------- */
-.qs-intro-centered {
-  background: #fff;
-  padding-block: var(--space-16);
-  margin-top: 0;
-}
-
-.qs-intro-centered__inner {
-  text-align: center;
-  max-width: 950px;
-  margin-inline: auto;
-}
-
-.qs-intro-centered__inner .block2-f__accent-line--centered {
-  margin-inline: auto;
-}
-
-.qs-intro-centered__inner h2 {
-  font-size: 40px;
-  font-weight: 800;
-  color: var(--color-primary);
-  margin: 0 0 var(--space-4);
-}
-
-.qs-intro-centered__inner p {
-  font-size: 17px;
-  line-height: 1.6;
-  color: #4b4b4b;
-  margin: 0 0 var(--space-4);
-}
-
-.qs-intro-centered__inner p:last-child {
-  margin-bottom: 0;
-}
-
-.qs-intro-centered__inner p strong {
-  color: var(--color-blue8);
-}
-
-
-/* ---------- Unió — xifres destacades (desktop) ---------- */
-.qs-union-stats {
-  background: #eeeeec;
-  padding-block: var(--space-16);
-  margin-top: 0;
-}
-
-.qs-union-stats .container {
-  max-width: 1000px;
-}
-
-.qs-union-stats__intro {
-  text-align: center;
-  max-width: 640px;
-  margin-inline: auto;
-  margin-bottom: var(--space-12);
-}
-
-.qs-union-stats__intro h2 {
-  font-weight: 800;
-  color: var(--color-primary);
-}
-
-.qs-union-stats__intro p {
-  font-size: 1.125rem;
-  line-height: 1.6;
-  color: #4b4b4b;
-}
-
-@media (min-width: 900px) {
-  .qs-union-stats__intro h2 {
-    font-size: 40px;
-    line-height: 50px;
-  }
-}
-
-.qs-union-stats__grid {
-  display: grid;
-  gap: var(--space-8);
-}
-
-.qs-union-stats__card {
-  background: #fff;
-  padding: var(--space-8);
-  box-shadow: var(--shadow-md);
-}
-
-.qs-union-stats__number {
-  display: block;
-  text-align: center;
-  font-family: var(--font-heading);
-  font-weight: 800;
-  font-size: clamp(2.5rem, 6vw, 3.5rem);
-  line-height: 1;
-  color: var(--color-accent-dark);
-  margin-bottom: var(--space-4);
-}
-
-.qs-union-stats__logo {
-  display: block;
-  width: 200px;
-  height: 56px;
-  object-fit: contain;
-  object-position: center bottom;
-  margin: 0 auto var(--space-4);
-}
-
-.qs-union-stats__card p {
-  font-size: 16px;
-  color: #4b4b4b;
-  line-height: 1.6;
-  margin: 0;
-}
-
-.qs-union-stats__footer {
-  text-align: center;
-  max-width: 720px;
-  margin: var(--space-12) auto 0;
-  font-size: 17px;
-  line-height: 1.6;
-  color: #4b4b4b;
-  font-weight: 400;
-}
-
-@media (min-width: 640px) {
-  .qs-union-stats__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* ---------- One Health (desktop) — imatge + text (estil idèntic al bloc "One Health" de la
-   home: mateixes classes block3-d__row--onehealth, només sobreescrivim el fons a blanc perquè
-   aquí va just després del bloc d'unió (gris) i el marge superior perquè no va enganxat a un hero) ---------- */
-.qs-onehealth-home.block2-f.block3-d__row--onehealth {
-  background: #fff;
-  margin-top: 40px;
-}
-
-.qs-onehealth-home .block2-f__text h2 {
-  font-size: 40px;
-}
-
-.qs-onehealth-home .block2-f__text p {
-  font-size: 17px;
-}
-
-@media (min-width: 900px) {
-  .qs-onehealth-home.block2-f.block3-d__row--onehealth .block2-f__text p {
-    width: 540px;
-  }
-}
-
-/* ---------- Àrees de negocio (desktop) — variants clares (reutilitzen l'accent-line +
-   la graella de targetes del bloc actual, però amb fons clar i targetes destacades) ---------- */
-.qs-areas {
-  padding-block: var(--space-16);
-  margin-top: 40px;
-}
-
-.qs-areas--grey {
-  background: #eeeeec;
-}
-
-/* Títol i subtítol centrats, seguint la mateixa lògica que la resta de
-   blocs amb intro centrada (p. ex. "Una unión que suma..."): l'accent-line
-   i el paràgraf es centren amb margin-inline:auto, sense afectar el grid
-   de targetes que hi ha a sota. */
-.qs-areas .block2-f__accent-line {
-  margin: 0 auto var(--space-4);
-}
-
-.qs-areas h2 {
-  font-size: clamp(1.8rem, 4vw, 2.4rem);
-  font-weight: 800;
-  color: var(--color-primary);
-  margin: 0 0 var(--space-4);
-  text-align: center;
-}
-
-@media (min-width: 900px) {
-  .qs-areas h2 {
-    font-size: 40px;
-    line-height: 50px;
-  }
-}
-
-.qs-areas > .container > p {
-  max-width: 750px;
-  font-size: 17px;
-  line-height: 1.6;
-  color: #4b4b4b;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.qs-areas__grid {
-  display: grid;
-  gap: var(--space-6);
-  margin-top: var(--space-8);
-}
-
-.qs-areas__card {
-  background: #fff;
-  box-shadow: var(--shadow-md);
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.qs-areas__card-image {
-  aspect-ratio: 16 / 10;
-  overflow: hidden;
-}
-
-.qs-areas__card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.qs-areas__card-body {
-  padding: var(--space-6);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-  flex: 1;
-}
-
-.qs-areas__card-body h3 {
-  font-size: 1.4rem;
-  font-weight: 800;
-  color: var(--color-teal);
-}
-
-.qs-areas__card-body p {
-  font-size: 16px;
-  color: #4b4b4b;
-  line-height: 1.6;
-}
-
-.qs-areas__card-body .block2-f__cta {
-  margin-top: auto;
-}
-
-.qs-areas__card-body .block2-f__cta span:last-child {
-  font-size: 16px;
-}
-
-@media (min-width: 768px) {
-  .qs-areas__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
 
 /* ============================================================
    Capçalera + primer bloc en MÒBIL (<900px): una sola peça (.qs-mhero) —
    imatge de 220px i una fulla blanca arrodonida que li puja 32px per sobre,
    amb el títol de pàgina, la línia blava, el subtítol i el text, tot alineat
-   a l'esquerra. A mòbil substitueix la capçalera (.subpage-hero-e) i el
-   primer bloc (.qs-intro-centered), que s'amaguen; a desktop és al revés.
+   a l'esquerra. A mòbil substitueix la capçalera de desktop (.qd-u--page), que
+   s'amaga; a desktop és al revés.
    ============================================================ */
 .qs-mhero {
   display: none;
 }
 
 @media (max-width: 899px) {
-  section.subpage-hero-e.subpage-hero-e--quienes-somos,
-  section.qs-intro-centered {
-    display: none;
-  }
-
   .qs-mhero {
     display: block;
     margin-top: var(--header-height);
@@ -282,6 +23,11 @@
 
   .qs-mhero__img {
     height: 220px;
+  }
+
+  .qs-mhero__img picture {
+    display: block;
+    height: 100%;
   }
 
   .qs-mhero__img img {
@@ -347,7 +93,7 @@
 /* ============================================================
    "Una unión que suma experiencia y especialización" en MÒBIL (<900px):
    línia de temps vertical amb el logo al costat del número, sobre fons gris
-   (#eeeeec, el mateix del bloc). A mòbil substitueix .qs-union-stats, que
+   (#eeeeec, el mateix del bloc). A mòbil substitueix la unió de desktop (.qd-un), que
    s'amaga; a desktop és al revés (aquesta peça queda amagada).
    ============================================================ */
 .qs-munio {
@@ -355,10 +101,6 @@
 }
 
 @media (max-width: 899px) {
-  section.qs-union-stats {
-    display: none;
-  }
-
   /* El bloc gris es tanca amb cantonades arrodonides (28px, com la fulla blanca
      de la portada) i passa per sobre de la foto de One Health, que comença 28px
      més amunt. 48px de padding a baix perquè la frase final respiri. */
@@ -497,7 +239,7 @@
    One Health en MÒBIL (<900px): foto de 400px amb el títol (28px/800, blanc) i
    la línia blava a sobre, i una fulla blanca arrodonida (28px) que li puja 28px
    per sobre amb el text alineat a l'esquerra (el mateix llenguatge que la
-   portada). A mòbil substitueix .qs-onehealth-home, que s'amaga; a desktop és al
+   portada). A mòbil substitueix .qd-oh, que s'amaga; a desktop és al
    revés (aquesta peça queda amagada).
    ============================================================ */
 .qs-moh {
@@ -505,10 +247,6 @@
 }
 
 @media (max-width: 899px) {
-  section.qs-onehealth-home {
-    display: none;
-  }
-
   .qs-moh {
     position: relative;
     z-index: 1;
@@ -599,17 +337,13 @@
    superiors arrodonides (28px, com les fulles de la pàgina), introducció
    alineada a l'esquerra amb la línia blava entre el títol i el text, i dues
    targetes immersives (foto, degradat i text a sobre) amb el CTA en text amb
-   "›". A mòbil substitueix .qs-areas, que s'amaga; a desktop és al revés.
+   "›". A mòbil substitueix les àrees de desktop, que s'amaguen; a desktop és al revés.
    ============================================================ */
 .qs-mas {
   display: none;
 }
 
 @media (max-width: 899px) {
-  section.qs-areas {
-    display: none;
-  }
-
   .qs-mas {
     display: block;
     padding: var(--space-8) 0 40px;

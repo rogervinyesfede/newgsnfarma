@@ -185,3 +185,10 @@
     height: auto;
   }
 }
+
+/* Hero només de mòbil (la Home en té un de propi per a desktop) */
+@media (min-width: 900px) {
+  .hero--mobile-only {
+    display: none;
+  }
+}

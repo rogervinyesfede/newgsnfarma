@@ -4,17 +4,31 @@ import ContactForm from '../components/ContactForm.astro';
 import '../styles/pages/inner-page.css';
 import '../styles/pages/block3-compare.css';
 import '../styles/pages/subpage-hero-compare.css';
-import '../styles/pages/contact-2col-compare.css';
+import '../styles/pages/contact-form-mobile.css';
 import '../styles/pages/mobile-hero.css';
+import '../styles/pages/desktop-page-header.css';
 import '../styles/pages/mobile-proposals.css';
+import '../styles/pages/contacto-desktop-proposals.css';
+
+// Dades de contacte del bloc de desktop (el LinkedIn és al footer).
+const contactInfo = [
+  { icon: '/images/icon-marker.svg', title: 'Dirección', lines: ['C/ del Llobregat 28, 08223.', 'Terrassa, Barcelona.'], href: 'https://maps.google.com/?q=C/+del+Llobregat+28,+08223+Terrassa' },
+  { icon: '/images/icon-phone.svg', title: 'Información general', tel: '+34 680 310 655' },
+  { icon: '/images/icon-phone.svg', title: 'Farmacovigilancia', tel: '+34 680 310 655' },
+  { icon: '/images/icon-address.svg', title: 'Correo electrónico', mail: 'info@gsnfarma.com' },
+];
 ---
 
 <BaseLayout
   title="Contacto | GSN Farma Labs Group"
   description="Contacta con GSN Farma Labs Group para más información sobre nuestro laboratorio farmacéutico, servicios y soluciones de salud."
 >
-  <section class="mhp mhp--contact" style="--mhp-pos: center 65%">
-    <div class="mhp__img"><img src="/images/gsn_farma_offices_hall2.jpg" alt="" loading="eager" /></div>
+  <section class="mhp mhp--contact">
+    <div class="mhp__img"><picture>
+      <source media="(max-width: 899px)" srcset="/images/gsn_farma_offices_hall2_hm.webp" type="image/webp" />
+      <source media="(max-width: 899px)" srcset="/images/gsn_farma_offices_hall2_hm.jpg" />
+      <img src="/images/gsn_farma_offices_hall2.jpg" alt="" loading="eager" fetchpriority="high" />
+    </picture></div>
     <div class="mhp__sheet">
       <h1 class="mhp__title">Contacta con nosotros</h1>
       <span class="mhp__bar" aria-hidden="true"></span>
@@ -22,67 +36,50 @@ import '../styles/pages/mobile-proposals.css';
     </div>
   </section>
 
-  <section class="subpage-hero-e subpage-hero-e--left subpage-hero-e--contacto">
-    <img src="/images/gsn_farma_offices_hall2.jpg" alt="" loading="eager" />
-    <div class="subpage-hero-e__scrim"></div>
-    <div class="subpage-hero-e__inner">
-      <h1>Contacta con nosotros</h1>
-    </div>
-  </section>
+  {/* Capçalera de DESKTOP (>=900px): component compartit (foto amb degradat + fulla amb títol, subtítol, text i, si cal, una ranura). A mòbil s'amaga i el substitueix .mhp. */}
 
-  <section class="contact-2col contact-2col--f1">
-    <div class="contact-2col__info">
-      <div class="contact-2col__info-inner">
-        <div class="contact-2col__info-row">
-          <img src="/images/icon-marker.svg" alt="" aria-hidden="true" />
-          <div>
-            <h3>Dirección</h3>
-            <p>C/ del Llobregat 28, 08223.<br />Terrassa, Barcelona.</p>
-          </div>
-        </div>
-        <div class="contact-2col__info-row">
-          <img src="/images/icon-phone.svg" alt="" aria-hidden="true" />
-          <div>
-            <h3>Información general</h3>
-            <p><a href="tel:+34680310655">+34 680 310 655</a></p>
-          </div>
-        </div>
-        <div class="contact-2col__info-row">
-          <img src="/images/icon-phone.svg" alt="" aria-hidden="true" />
-          <div>
-            <h3>Farmacovigilancia</h3>
-            <p><a href="tel:+34680310655">+34 680 310 655</a></p>
-          </div>
-        </div>
-        <div class="contact-2col__info-row">
-          <img src="/images/icon-address.svg" alt="" aria-hidden="true" />
-          <div>
-            <h3>Correo electrónico</h3>
-            <p><a href="mailto:info@gsnfarma.com">info@gsnfarma.com</a></p>
-          </div>
-        </div>
-        <a
-          href="https://www.linkedin.com/company/gsn-farma"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="contact-2col__social"
-          aria-label="LinkedIn de GSN Farma Labs Group"
-        >
-          <img src="/images/icon-linkedin.svg" alt="" aria-hidden="true" />
-        </a>
-      </div>
+  <section class="qd qd-u qd-u--page">
+    <div class="qd-u__photo">
+      <picture>
+        <source media="(max-width: 899px)" srcset="/images/gsn_farma_offices_hall2_hm.webp" type="image/webp" />
+        <source media="(max-width: 899px)" srcset="/images/gsn_farma_offices_hall2_hm.jpg" />
+        <img src="/images/gsn_farma_offices_hall2.jpg" alt="" loading="eager" fetchpriority="high" style="object-position: center 78%" />
+      </picture>
     </div>
-    <div class="contact-2col__form">
-      <div class="contact-2col__form-inner">
-        <p>Si quieres conocer más o explorar una colaboración, contacta con nosotros.</p>
-        <ContactForm submitLabel="Enviar" />
+    <div class="qd-u__sheet">
+      <div class="qd-wrap qd-u__grid">
+        <div class="qd-u__head">
+          <h1>Contacta con nosotros</h1>
+          <span class="qd-bar" aria-hidden="true"></span>
+        </div>
+        <div class="qd-u__body">
+          <h2>Estamos aquí para ayudarte</h2>
+          <p>Si quieres conocer más o explorar una colaboración, contacta con nosotros.</p>
+        </div>
       </div>
     </div>
   </section>
 
+  {/* Dades de contacte i formulari, versió DESKTOP (>=900px): dades alineades amb el títol i formulari en una targeta grisa arrodonida que arriba fins al marge dret de la capçalera. A mòbil s'amaga i el substitueixen .sp-cf i .sp-cd. */}
+  <section class="qd qd-cf">
+    <div class="qd-cf__bg" aria-hidden="true"></div>
+    <div class="qd-cf__info">
+      <div class="qd-cf__list">
+        {contactInfo.map((i) => (
+          <div class="qd-cf__item">
+            <img class="qd-cf__icon" src={i.icon} alt="" aria-hidden="true" />
+            <div>
+              <h3>{i.title}</h3>
+              <p>{i.tel ? <a href={`tel:${i.tel.replace(/ /g, '')}`}>{i.tel}</a> : i.mail ? <a href={`mailto:${i.mail}`}>{i.mail}</a> : <a href={i.href} target="_blank" rel="noopener noreferrer">{i.lines[0]}<br />{i.lines[1]}</a>}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+    <div class="qd-cf__form"><ContactForm submitLabel="Enviar" requiredNote={true} /></div>
+  </section>
 
-
-  {/* Formulari (mòbil <900px): mateixos estils que el del bloc de desktop (reutilitza .contact-2col), alineat a l'esquerra amb el marge de 16px de la resta de la pàgina. S'amaga a desktop. */}
+  {/* Formulari (mòbil <900px): reutilitza .contact-2col (contact-form-mobile.css), alineat a l'esquerra amb el marge de 16px de la resta de la pàgina. S'amaga a desktop. */}
   <section class="sp sp-cf">
     <div class="container">
       <div class="contact-2col">
@@ -91,7 +88,7 @@ import '../styles/pages/mobile-proposals.css';
     </div>
   </section>
 
-  {/* Dades de contacte (mòbil <900px): graella 2×2 alineada a l'esquerra (Dirección | Correo, Información general | Farmacovigilancia); LinkedIn és al peu. A desktop continuen les del bloc original. */}
+  {/* Dades de contacte (mòbil <900px): graella 2×2 alineada a l'esquerra (Dirección | Correo, Información general | Farmacovigilancia); LinkedIn és al peu. A desktop es veu el bloc .qd-cf. */}
   <section class="sp sp-cd">
     <div class="container">
       <div class="sp-cd__items">
@@ -118,4 +115,5 @@ import '../styles/pages/mobile-proposals.css';
       </div>
     </div>
   </section>
+
 </BaseLayout>

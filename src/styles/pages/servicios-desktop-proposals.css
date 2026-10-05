@@ -1,0 +1,247 @@
+/* Planta de Producción + Capacidad productiva (Servicios, desktop >=900px): foto a l'esquerra i text a la dreta sobre un fons gris, amb la
+   capacitat productiva integrada al mateix fons (6 columnes amb divisors verticals). */
+
+@media (min-width: 900px) {
+  .qd-pa {
+    scroll-margin-top: var(--header-height);
+    padding: 72px 0 104px;
+    background: var(--qd-grey);
+  }
+
+  .qd-pa__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 72px;
+    align-items: center;
+  }
+
+  .qd-pa__photo {
+    position: relative;
+    min-height: 520px;
+    overflow: hidden;
+    border-radius: 28px;
+    background: var(--qd-navy);
+  }
+
+  .qd-pa__photo img {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .qd-pa__text {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  /* Capacitat productiva: mateix fons que la planta (sense targeta ni línia de separació) */
+  .qd-pa__panel {
+    margin-top: 64px;
+  }
+
+  .qd .qd-pa__panel h3 {
+    margin-bottom: 28px;
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  .qd-pa__cols {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .qd-pa__col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 12px;
+    border-left: 1px solid #d6d6d3;
+    text-align: center;
+  }
+
+  .qd-pa__col:first-child {
+    border-left: 0;
+  }
+
+  .qd-pa__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: #fff;
+    color: var(--qd-cyan-dark);
+  }
+
+  .qd-pa__type {
+    color: var(--qd-navy);
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  .qd-pa__col strong {
+    color: var(--qd-cyan-dark);
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1.1;
+  }
+
+  .qd-pa__unit {
+    color: #6b6b6b;
+    font-size: 13px;
+  }
+
+  @media (max-width: 1139px) {
+    .qd-pa__grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .qd-pa__cols {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px 0;
+    }
+  }
+
+  /* =====================================================================
+     LABORATORIO (definitiu a desktop): bloc navy recte, amb el text a l'esquerra i la foto arrodonida (28px) a la dreta.
+     ===================================================================== */
+  .qd-la {
+    scroll-margin-top: var(--header-height);
+    padding: 72px 0;
+    background: var(--qd-navy);
+  }
+
+  .qd-la__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 72px;
+    align-items: center;
+  }
+
+  .qd-la__text {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .qd-la__photo {
+    position: relative;
+    min-height: 520px;
+    overflow: hidden;
+    border-radius: 28px;
+  }
+
+  .qd-la__photo img {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media (max-width: 1139px) {
+    .qd-la__grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+  }
+
+  /* =====================================================================
+     SERVICIOS ESPECIALIZADOS — franges alternes (estil nou): títol centrat amb la línia cian a sobre i, a cada servei, foto arrodonida
+     (28px) i text, alternant els costats i el fons (blanc / gris).
+     ===================================================================== */
+  .qd-sf-head {
+    padding: 72px 0 24px;
+    background: #fff;
+  }
+
+  .qd-sf-head__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .qd .qd-sf-head h2 {
+    text-align: center;
+  }
+
+  .qd-sf {
+    padding: 48px 0;
+    background: #fff;
+    scroll-margin-top: var(--header-height);
+  }
+
+  .qd-sf--grey {
+    background: var(--qd-grey);
+  }
+
+  .qd-sf:last-of-type {
+    padding-bottom: 80px;
+  }
+
+  .qd-sf__grid {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 72px;
+    align-items: center;
+  }
+
+  .qd-sf--rev .qd-sf__grid {
+    grid-template-columns: 7fr 5fr;
+  }
+
+  .qd-sf--rev .qd-sf__photo {
+    order: 2;
+  }
+
+  .qd-sf__photo {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 28px;
+    background: var(--qd-navy);
+  }
+
+  .qd-sf__photo img {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .qd-sf__text {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .qd .qd-sf__text h3 {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  @media (max-width: 1139px) {
+    .qd-sf__grid,
+    .qd-sf--rev .qd-sf__grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .qd-sf--rev .qd-sf__photo {
+      order: 0;
+    }
+  }
+}

@@ -1,0 +1,223 @@
+/* Nuestras marcas — blocs de DESKTOP (>=900px): franja de logos (.qd-lg*) i franges de marca (.qd-mk*).
+   Usen la base de desktop-page-header.css (.qd, .qd-wrap, .qd-bar, .qd-cta). A mòbil s'amaguen. */
+
+@media (min-width: 900px) {
+  /* =====================================================================
+     COMÚ DE LES FRANGES DE MARCA: categoria, logo, text i CTA
+     ===================================================================== */
+  .qd-mk__text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .qd-mk__pill {
+    display: inline-flex;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: var(--qd-navy);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  /* El nom de marca és un H2 (el logo hi va a dins); no afegeix cap caixa ni canvia el disseny. */
+  .qd-mk__name {
+    display: contents;
+  }
+
+  .qd-mk__logo {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: left center;
+  }
+
+  .qd-mk__logo--orissens {
+    height: 76px;
+  }
+
+  .qd-mk__logo--gsn {
+    height: 40px;
+  }
+
+  .qd-mk__logo--nakama {
+    height: 46px;
+  }
+
+  .qd-mk__logo--herbaldi {
+    height: 46px;
+  }
+
+  .qd-mk__logo--medicamentos {
+    height: 40px;
+  }
+
+  .qd button.qd-cta {
+    padding: 0;
+    border: 0;
+    background: none;
+    font-family: inherit;
+    cursor: pointer;
+  }
+
+  .qd .qd-mk__text .qd-cta {
+    margin-top: 4px;
+    color: var(--qd-navy);
+  }
+
+  /* =====================================================================
+     FRANJA DE LOGOS — targetes verticals arrodonides sobre gris
+     ===================================================================== */
+  .qd-lg {
+    padding: 0 0 72px;
+    background: #fff;
+  }
+
+  .qd-lg__card {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: 28px;
+    background-color: #d9d9d6;
+    background-position: center 75%;
+    background-size: cover;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .qd-lg__card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(27, 36, 53, 0.15) 0%, rgba(27, 36, 53, 0.6) 100%);
+    transition: background 0.3s ease;
+  }
+
+  .qd-lg__card:hover::before {
+    background: linear-gradient(180deg, rgba(27, 36, 53, 0.4) 0%, rgba(27, 36, 53, 0.8) 100%);
+  }
+
+  .qd-lg__logo {
+    position: absolute;
+    z-index: 1;
+    top: 28px;
+    left: 50%;
+    max-width: 70%;
+    max-height: 56px;
+    object-fit: contain;
+    transform: translateX(-50%);
+  }
+
+  .qd-lg__logo--gsn {
+    max-height: 35px;
+  }
+
+  .qd-lg__logo--medicamentos {
+    max-width: min(142px, 70%);
+  }
+
+  .qd-lg__foot {
+    position: absolute;
+    z-index: 1;
+    right: 20px;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .qd-lg__label {
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.3;
+    text-align: center;
+  }
+
+  .qd-lg__arrow {
+    display: flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: 1.5px solid rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+  }
+
+  .qd-lg__card:hover .qd-lg__arrow {
+    background: #fff;
+    color: var(--qd-navy);
+    transform: translateY(2px);
+  }
+
+  .qd-lg__grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .qd-lg__card {
+    aspect-ratio: 3 / 4;
+  }
+
+  /* =====================================================================
+     FRANGES DE MARCA — foto 16:9 arrodonida i text, alternant costat i fons
+     ===================================================================== */
+  .qd-mk {
+    padding: 56px 0;
+    background: #fff;
+    scroll-margin-top: var(--header-height);
+  }
+
+  .qd-mk--grey {
+    background: var(--qd-grey);
+  }
+
+  .qd-mk__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 72px;
+    align-items: center;
+  }
+
+  .qd-mk--rev .qd-mk__photo {
+    order: 2;
+  }
+
+  .qd-mk__photo {
+    overflow: hidden;
+    border-radius: 28px;
+    background: var(--qd-navy);
+  }
+
+  .qd-mk__photo img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  @media (max-width: 1139px) {
+    .qd-lg__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .qd-mk__grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .qd-mk--rev .qd-mk__photo {
+      order: 0;
+    }
+  }
+}

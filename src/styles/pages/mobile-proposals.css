@@ -291,7 +291,7 @@
     inset: 0;
     background:
       linear-gradient(180deg, rgba(27, 36, 53, 0.55), rgba(27, 36, 53, 0.95)),
-      url('/images/gsn_farma_offices_building3.jpg') center / cover;
+      url('/images/gsn_farma_offices_building3_hm.webp') center / cover;
   }
 
   .sp-ct2__body {
@@ -531,6 +531,11 @@
   .sp-mb2 .sp-sheet {
     gap: 14px;
     padding-bottom: 36px;
+  }
+
+  /* El nom de marca és un H2 (el logo hi va a dins); no afegeix cap caixa ni canvia el disseny. */
+  .sp-mb2__name {
+    display: contents;
   }
 
   .sp-mb2__logo {
@@ -786,11 +791,6 @@
     object-position: center 35%;
   }
 
-  /* Home — el bloc One Health original s'amaga a mòbil (el substitueix .sp-oh); a desktop es manté */
-  section.block2-f.onehealth-wide-text {
-    display: none;
-  }
-
   /* Home — «Así sumamos salud»: bloc gris amb cantonades superiors arrodonides (28px), introducció a l'esquerra amb línia cian i dues targetes immersives amb CTA en text amb "›" */
   .sp.sp-hm {
     display: block;
@@ -829,7 +829,7 @@
     font-size: 18px;
     font-weight: 600;
     line-height: 1.4;
-    color: #4b4b4b;
+    color: var(--sp-navy);
     text-align: left;
   }
 
@@ -920,16 +920,6 @@
     font-weight: 400;
   }
 
-  /* Home — ¿Hablamos?: l'original s'amaga a mòbil (el substitueix .sp-ct2); a desktop es manté */
-  section.contact-alt.home-contact {
-    display: none;
-  }
-
-  /* Home — el bloc d'àrees original s'amaga a mòbil (el substitueix .sp-hm); a desktop es manté */
-  section.block3-d.block3-d--compact {
-    display: none;
-  }
-
   /* Finançament (definitiu): mínima importància — rètol petit en lloc de títol, textos de 13px en gris, logos de 24px als seus colors */
   .sp .sp-fcap {
     margin: 0 0 14px;
@@ -974,10 +964,5 @@
     width: auto;
     max-width: 100%;
     height: 24px;
-  }
-
-  /* Home — el bloc de finançament original s'amaga a mòbil (el substitueix .sp-fa); a desktop es manté */
-  section.funding {
-    display: none;
   }
 }
