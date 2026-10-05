@@ -83,8 +83,8 @@ const areasIntro = c.areasIntro;
     </div>
   </section>
 
-  {/* ===== 2. Unión Coetus + GSN, versió DESKTOP (>=900px): línia de temps horitzontal de tres columnes iguals sobre gris, amb la xifra, el logo i el text
-       centrats i la frase final centrada verticalment a la seva columna. A mòbil s'amaga i el substitueix .qs-munio. ===== */}
+  {/* ===== 2. Unión Coetus + GSN, versió DESKTOP (>=900px): línia de temps horitzontal de tres columnes iguals sobre gris, cada una amb el seu punt, la xifra, el logo i el text
+       centrats; la 3a és el grup (sense xifra, amb el logo de GSN Farma Labs Group a la mateixa alçada i la frase final). A mòbil s'amaga i el substitueix .qs-munio. ===== */}
 
   <section class="qd qd-un">
     <div class="qd-wrap qd-un__grid">
@@ -103,7 +103,11 @@ const areasIntro = c.areasIntro;
           </li>
         ))}
         <li>
-          <p class="qd-un__end">{union.footer}</p>
+          <div class="qd-un__head">
+            <span class="qd-un__num" aria-hidden="true">&nbsp;</span>
+            <img class="qd-logo qd-logo--group" src="/images/gsn_farma_labs_group_logo_cropped.png" alt="GSN Farma Labs Group" loading="lazy" />
+          </div>
+          <p>{union.footer}</p>
         </li>
       </ol>
     </div>

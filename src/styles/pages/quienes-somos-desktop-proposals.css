@@ -5,8 +5,8 @@
 @media (min-width: 900px) {
   /* =====================================================================
      UNIÓ (definitiu a desktop): línia de temps horitzontal de tres columnes iguals sobre gris; cada columna amb el punt de la
-     línia, la xifra, el logo (a la mateixa alçada) i el text centrats; la línia va del centre de la 1a al de la 3a columna i la
-     frase final té l'amplada dels altres textos i queda centrada verticalment dins la seva columna.
+     línia, la xifra, el logo (a la mateixa alçada) i el text centrats; la línia va del centre de la 1a al de la 3a columna. La 3a és el
+     grup: sense xifra, amb el logo de GSN Farma Labs Group i la frase final.
      ===================================================================== */
   .qd-un {
     padding: 72px 0;
@@ -106,19 +106,12 @@
     text-align: center;
   }
 
-  .qd-un__tl li:last-child {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  /* Baixat 8px respecte al centre geomètric (número de dalt – final del paràgraf de les columnes): òpticament queda més centrat amb el pes del número gran */
-  .qd .qd-un__tl .qd-un__end {
-    margin-top: 16px;
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 1.5;
-    color: var(--qd-navy);
+  /* 3a columna (el grup): mateixa anatomia que les altres (el número buit manté el logo a la mateixa alçada). El logo (retallat a la tinta i amb el
+     mateix negre) fa 31px d'alt perquè les lletres de «GSN FARMA» tinguin l'alçada dels altres logos (30px); si la columna és estreta s'encongeix. */
+  .qd-un__head .qd-logo--group {
+    height: 31px;
+    max-width: 100%;
+    object-position: center;
   }
 
   @media (max-width: 1139px) {
