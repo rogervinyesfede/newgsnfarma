@@ -246,6 +246,22 @@
     color: var(--sp-navy);
   }
 
+  /* Etiqueta "Próximamente" sota el títol de la franja (mateix estil que la pastilla de Nuestras marcas) */
+  .sp-acc__soon {
+    display: block;
+    width: fit-content;
+    margin-top: 6px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    background: var(--sp-navy);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
   .sp-acc__chev {
     width: 10px;
     height: 10px;

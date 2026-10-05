@@ -112,8 +112,10 @@
     justify-content: center;
   }
 
+  /* Baixat 8px respecte al centre geomètric (número de dalt – final del paràgraf de les columnes): òpticament queda més centrat amb el pes del número gran */
   .qd .qd-un__tl .qd-un__end {
-    font-size: 22px;
+    margin-top: 16px;
+    font-size: 20px;
     font-weight: 600;
     line-height: 1.5;
     color: var(--qd-navy);

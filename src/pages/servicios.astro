@@ -148,7 +148,7 @@ const serviceIds: Record<string, string> = {
           <details id={`${serviceIds[service.title]}-m`} open={i === 0}>
             <summary>
               <span class="sp-acc__thumb"><img src={serviceImagesMobile[service.title]} alt="" loading="lazy" /></span>
-              <span class="sp-acc__title">{service.title}</span>
+              <span class="sp-acc__title">{service.title}{service.comingSoon && <span class="sp-acc__soon">Próximamente</span>}</span>
               <span class="sp-acc__chev" aria-hidden="true"></span>
             </summary>
             <div class="sp-acc__body">
@@ -224,6 +224,7 @@ const serviceIds: Record<string, string> = {
       <div class="qd-wrap qd-sf__grid">
         <div class="qd-sf__photo"><img src={serviceImages[service.title]} alt="" loading="lazy" /></div>
         <div class="qd-sf__text">
+          {service.comingSoon && <span class="qd-sf__soon">Próximamente</span>}
           <h3>{service.title}</h3>
           {service.description.split('\n').map((line: string) => <p set:html={line} />)}
         </div>

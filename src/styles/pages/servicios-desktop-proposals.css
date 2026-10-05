@@ -227,6 +227,21 @@
     gap: 16px;
   }
 
+  /* Etiqueta "Próximamente": mateix estil que la pastilla de categoria de Nuestras marcas (.qd-mk__pill) */
+  .qd-sf__soon {
+    align-self: flex-start;
+    margin-bottom: -4px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: var(--qd-navy);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
   .qd .qd-sf__text h3 {
     font-size: 30px;
     font-weight: 700;

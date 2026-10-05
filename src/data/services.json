@@ -1,11 +1,11 @@
 [
   {
     "title": "Almacenamiento farmacéutico",
-    "description": "Operador logístico farmacéutico, con autorización como entidad de distribución farmacéutica mayorista de productos de uso humano y veterinario. Así como almacén por contrato. Monitorización de las condiciones ambientales a 15ºC - 25ºC y almacenamiento de producto a 2ºC-8ºC. Soporte en las retiradas de producto de mercado.",
+    "description": "Operador logístico farmacéutico, con autorización como entidad de distribución farmacéutica mayorista de productos de uso humano y veterinario. Así como almacén por contrato. Monitorización de las condiciones ambientales y control de temperatura. Soporte en las retiradas de producto de mercado.",
     "items": [
       "Alquiler de espacios delimitados",
-      "Monitorización ambiental a 15 ºC–25 ºC",
-      "Almacenamiento refrigerado de producto a 2 ºC–8 ºC",
+      "Monitorización ambiental y control de temperatura",
+      "Almacenamiento refrigerado de producto",
       "Soporte en retiradas de producto del mercado",
       "Gestión de devoluciones"
     ]
@@ -41,6 +41,7 @@
   },
   {
     "title": "Cámaras climáticas y estudios de estabilidad",
+    "comingSoon": true,
     "description": "Estudios de estabilidad para evaluar el comportamiento de medicamentos y complementos alimenticios bajo distintas condiciones ambientales, garantizando su calidad, seguridad y eficacia y el cumplimiento de los requisitos regulatorios (EMA, FDA).",
     "items": [
       "Garantizar la calidad, seguridad y eficacia del producto durante su vida útil",
@@ -51,6 +52,7 @@
   },
   {
     "title": "Acondicionamiento secundario y serialización",
+    "comingSoon": true,
     "description": "Gestión integral del acondicionamiento secundario y serialización: etiquetado, estuchado, codificado, termosellado y armado de packs, conforme a la normativa vigente.",
     "items": [
       "Almacenamiento de materiales de acondicionamiento",
