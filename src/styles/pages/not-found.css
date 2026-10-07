@@ -1,0 +1,144 @@
+/* Pàgina 404: foto de capçalera sense títol i una fulla blanca arrodonida que li puja per sobre, amb "404" gran, línia blava, títol, text,
+   i botó píndola cap a la Home. Mòbil primer; a partir de 900px (desktop) s'engrandeix. */
+.nf {
+  margin-top: var(--header-height);
+  background: #fff;
+}
+
+.nf__photo {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+  background: var(--color-primary);
+}
+
+/* Mateix degradat navy discret que la resta de capçaleres (.qd-u__photo::after / .mhp__img::after) */
+.nf__photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(27, 36, 53, 0.4) 0%, rgba(27, 36, 53, 0.16) 45%, rgba(27, 36, 53, 0.2) 70%, rgba(27, 36, 53, 0.42) 100%);
+  pointer-events: none;
+}
+
+.nf__photo picture {
+  display: block;
+  height: 100%;
+}
+
+.nf__photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.nf__sheet {
+  position: relative;
+  margin-top: -32px;
+  padding: 36px var(--space-4) 48px;
+  border-radius: 28px 28px 0 0;
+  background: #fff;
+}
+
+.nf__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1264px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.nf__code {
+  margin: 0;
+  font-size: 96px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--color-accent-dark);
+}
+
+.nf__bar {
+  display: block;
+  width: 64px;
+  height: 5px;
+  margin: 18px 0 24px;
+  border-radius: 3px;
+  background: var(--color-accent);
+}
+
+.nf__inner h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--color-primary);
+}
+
+.nf__inner > p {
+  max-width: 520px;
+  margin: 12px 0 0;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #4b4b4b;
+}
+
+.nf__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 28px;
+  padding: 14px 28px;
+  border-radius: 999px;
+  background: var(--color-primary);
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  transition: background 0.2s ease;
+}
+
+.nf__btn:hover {
+  background: #2c3e56;
+  text-decoration: none;
+}
+
+/* Desktop (>=900px) */
+@media (min-width: 900px) {
+  .nf__photo {
+    height: 280px;
+  }
+
+  .nf__photo img {
+    object-position: center 47%;
+  }
+
+  .nf__sheet {
+    margin-top: -56px;
+    padding: 56px 32px 72px;
+    border-radius: 36px 36px 0 0;
+  }
+
+  .nf__code {
+    font-size: clamp(96px, 12vw, 150px);
+  }
+
+  .nf__bar {
+    margin: 20px 0 28px;
+  }
+
+  .nf__inner h2 {
+    font-size: 32px;
+  }
+
+  .nf__inner > p {
+    font-size: 18px;
+  }
+
+  .nf__btn {
+    padding: 14px 32px;
+    font-size: 17px;
+  }
+
+}

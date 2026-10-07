@@ -20,10 +20,9 @@
   --color-section-grey: #d5d6da; /* fons de secció alterna (quiénes somos) */
   --color-slate: #3c4353; /* fons de la secció de contacte (home/contacto) */
 
-  /* Tipografies (Google Fonts: IBM Plex Sans + DM Sans) */
+  /* Tipografia (Google Fonts: IBM Plex Sans; la web només en fa servir una família) */
   --font-heading: 'IBM Plex Sans', system-ui, sans-serif;
   --font-body: 'IBM Plex Sans', system-ui, sans-serif;
-  --font-accent: 'DM Sans', system-ui, sans-serif;
 
   /* Espaiat (base 4px) */
   --space-2: 0.5rem;

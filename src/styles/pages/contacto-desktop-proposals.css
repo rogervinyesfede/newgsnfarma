@@ -161,7 +161,7 @@
     line-height: 1.4;
   }
 
-  /* Només s'apila en pantalles estretes (<960px): a 1024-1139px el formulari continua a la dreta */
+  /* Només s'apila en pantalles estretes (<960px): a partir de 960px el formulari continua a la dreta */
   @media (max-width: 959px) {
     .qd.qd-cf {
       grid-template-columns: 32px minmax(0, 1fr) 32px;

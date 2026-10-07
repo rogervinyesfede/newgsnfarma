@@ -98,12 +98,15 @@
     font-size: 13px;
   }
 
-  @media (max-width: 1139px) {
+  @media (max-width: 1023px) {
     .qd-pa__grid {
       grid-template-columns: 1fr;
       gap: 32px;
     }
+  }
 
+  /* Capacitat productiva: les 6 columnes (xifres de fins a 22.000.000) no hi caben per sota de 1140px; es posen en 3 + 3 */
+  @media (max-width: 1139px) {
     .qd-pa__cols {
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 24px 0;
@@ -148,7 +151,7 @@
     object-fit: cover;
   }
 
-  @media (max-width: 1139px) {
+  @media (max-width: 1023px) {
     .qd-la__grid {
       grid-template-columns: 1fr;
       gap: 32px;
@@ -248,7 +251,7 @@
     line-height: 1.2;
   }
 
-  @media (max-width: 1139px) {
+  @media (max-width: 1023px) {
     .qd-sf__grid,
     .qd-sf--rev .qd-sf__grid {
       grid-template-columns: 1fr;
@@ -258,5 +261,17 @@
     .qd-sf--rev .qd-sf__photo {
       order: 0;
     }
+  }
+}
+
+/* Nota sota la capacitat productiva (petita, en gris) */
+@media (min-width: 900px) {
+  .qd .qd-pa__note {
+    margin: 24px 0 0;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #6b6b6b;
+    font-style: italic;
+    text-align: center;
   }
 }

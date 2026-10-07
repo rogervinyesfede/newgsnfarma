@@ -482,3 +482,12 @@
     font-weight: 400;
   }
 }
+
+/* Tauleta (640-899px): mateix marge de 16px que les fulles de mòbil (el .container global en té 24px a partir de 640px) */
+@media (max-width: 899px) {
+  .qs-munio .container,
+  .qs-mas .container {
+    padding-right: var(--space-4);
+    padding-left: var(--space-4);
+  }
+}

@@ -1,0 +1,33 @@
+---
+// Pàgina 404 d'un idioma (l'idioma surt de la ruta): foto de capçalera sense títol, fulla blanca amb "404" gran, línia blava, títol, text,
+// i botó cap a la Home. Un sol marcat per a mòbil i desktop (estils a styles/pages/not-found.css).
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/pages/not-found.css';
+import { detectPage, pathFor } from '../i18n/config';
+import { notFound } from '../i18n/notfound';
+
+const { lang } = detectPage(Astro.url.pathname);
+const c = notFound[lang];
+const home = pathFor('home', lang);
+---
+
+<BaseLayout title={c.pageTitle} description="" noindex>
+  <section class="nf">
+    <div class="nf__photo">
+      <picture>
+        <source media="(max-width: 899px)" srcset="/images/gsn_farma_offices_building3_hm.webp" type="image/webp" />
+        <source media="(max-width: 899px)" srcset="/images/gsn_farma_offices_building3_hm.jpg" />
+        <img src="/images/gsn_farma_offices_building3.jpg" alt="" loading="eager" fetchpriority="high" />
+      </picture>
+    </div>
+    <div class="nf__sheet">
+      <div class="nf__inner">
+        <h1 class="nf__code">404</h1>
+        <span class="nf__bar" aria-hidden="true"></span>
+        <h2>{c.title}</h2>
+        <p>{c.text}</p>
+        <a href={home} class="nf__btn">{c.cta}<span aria-hidden="true">›</span></a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

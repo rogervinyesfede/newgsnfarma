@@ -94,6 +94,7 @@ const chipsMobile = c.chips.map((t, i) => ({ t, href: `#${chipIds[i]}-m` }));
           </li>
         ))}
       </ul>
+      {c.capacity.note && <p class="sp-panel__note">{c.capacity.note}</p>}
     </div>
   </SpPlanta>
 
@@ -163,6 +164,7 @@ const chipsMobile = c.chips.map((t, i) => ({ t, href: `#${chipIds[i]}-m` }));
             </div>
           ))}
         </div>
+        {c.capacity.note && <p class="qd-pa__note">{c.capacity.note}</p>}
       </div>
     </div>
   </section>

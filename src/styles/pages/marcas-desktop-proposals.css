@@ -206,7 +206,7 @@
     object-fit: cover;
   }
 
-  @media (max-width: 1139px) {
+  @media (max-width: 1023px) {
     .qd-lg__grid {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }

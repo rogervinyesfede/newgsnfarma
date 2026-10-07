@@ -32,9 +32,8 @@ export const ROUTES: Record<PageKey, Record<Lang, string>> = {
   cookies: { es: '/politica-de-cookies', ca: '/ca/politica-de-cookies', en: '/en/cookie-policy' },
 };
 
-// Idiomes en què cada pàgina existeix de veritat. Les pàgines legals en català i anglès encara no
-// estan fetes: mentrestant els enllaços del peu apunten a la versió en castellà i el selector
-// d'idioma porta a la Home de l'altre idioma. Quan s'afegeixin, cal posar-hi 'ca' i 'en'.
+// Idiomes en què cada pàgina existeix de veritat (si una pàgina no existís en algun idioma, el peu enllaça a la versió en castellà i el selector
+// d'idioma porta a la Home de l'altre idioma). Ara existeixen totes les pàgines als tres idiomes.
 const READY: Record<PageKey, Lang[]> = {
   home: LANGS,
   about: LANGS,
@@ -42,9 +41,9 @@ const READY: Record<PageKey, Lang[]> = {
   brands: LANGS,
   international: LANGS,
   contact: LANGS,
-  legal: ['es'],
-  privacy: ['es'],
-  cookies: ['es'],
+  legal: LANGS,
+  privacy: LANGS,
+  cookies: LANGS,
 };
 
 const normalize = (pathname: string) => {

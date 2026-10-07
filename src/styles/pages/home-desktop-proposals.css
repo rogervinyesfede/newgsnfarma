@@ -259,13 +259,19 @@
     object-fit: contain;
   }
 
-  @media (max-width: 1139px) {
+  @media (max-width: 1023px) {
     .qd-ho__grid {
       grid-template-columns: 1fr;
       gap: 40px;
     }
 
-    .qd-ha__panels,
+    .qd-ha__panels {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Finançament: les dues columnes (3 logos cadascuna) no hi caben en una sola fila per sota de 1140px; s'apilen */
+  @media (max-width: 1139px) {
     .qd-hf__cols {
       grid-template-columns: 1fr;
     }

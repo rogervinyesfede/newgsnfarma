@@ -24,7 +24,7 @@ const { title, sub, text, navLabel, items } = Astro.props;
       <img src="/images/gsn_farma_offices_building.jpg" alt="" loading="eager" fetchpriority="high" />
     </picture></div>
   <div class="mhp__sheet">
-    <h1 class="mhp__title">{title}</h1>
+    <div class="mhp__title" role="heading" aria-level="1">{title}</div>
     <span class="mhp__bar" aria-hidden="true"></span>
     <h2 class="mhp__sub">{sub}</h2>
     <p class="mhp__text" set:html={text}></p>

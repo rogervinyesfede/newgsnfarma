@@ -114,9 +114,9 @@ const homeAreas = areas.map((a, i) => ({ ...a, panel: areaMeta[i].aboutMb }));
 
   {/* One Health (mòbil <900px): fulla blanca (cantonades de 28px) que puja 28px sobre el vídeo del hero, amb el títol, la línia cian, la foto en targeta i els textos i el CTA de la Home. A desktop s'amaga i es veu .qd-ho. */}
   <section class="sp sp-oh">
-    <h2>One Health:<br />el propósito que nos guía</h2>
+    <h2 set:html={oh.title}></h2>
     <span class="sp-bar" aria-hidden="true"></span>
-    <img class="sp-oh__img" src="/images/one_health_gsnfarma4.jpg" alt="Familia con su mascota en casa y manos sosteniendo una planta, símbolo del enfoque One Health" loading="lazy" />
+    <img class="sp-oh__img" src="/images/one_health_gsnfarma4.jpg" alt={oh.alt} loading="lazy" />
     <p class="sp-oh__lead">{oh.p1}</p>
     <p>{oh.p2}</p>
     <a href={href.about} class="sp-cta">{oh.cta}<span aria-hidden="true">›</span></a>
@@ -157,7 +157,7 @@ const homeAreas = areas.map((a, i) => ({ ...a, panel: areaMeta[i].aboutMb }));
         <a class="sp-hm__card" href={a.href}>
           <span class={`sp-hm__img ${a.muted}`}>
             <picture>
-              <source media="(max-width: 767px)" srcset={a.imgMb} />
+              <source media="(max-width: 899px)" srcset={a.imgMb} />
               <img src={a.img} alt={a.alt} loading="lazy" />
             </picture>
           </span>

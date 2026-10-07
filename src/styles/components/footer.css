@@ -82,20 +82,23 @@
   line-height: 1.4;
 }
 
-/* Desktop (>=900px): alineat amb la graella de les pàgines (1264px, marges de 32px); els textos legals a
-   l'esquerra i el copyright a la dreta, a la mateixa fila. */
+/* Desktop (>=900px): alineat amb la capçalera (mateix ample màxim de 1440px que .site-header__inner): a l'esquerra, el logo i «Aviso legal»
+   arrenquen on arrenca el logo del menú (marge de 16px + els ~7px de coixí transparent del PNG del logo, que aquí es compensen amb el
+   marge negatiu del logo); a la dreta, LinkedIn i el copyright acaben on acaba el selector d'idioma (24px de marge + 8px de coixí del
+   botó). Els textos legals a l'esquerra i el copyright a la dreta, a la mateixa fila. */
 @media (min-width: 900px) {
   .site-footer {
     padding: 56px 0 40px;
   }
 
   .site-footer__inner {
-    max-width: 1264px;
-    padding-inline: 32px;
+    max-width: 1440px;
+    padding-inline: 22px 32px;
   }
 
   .site-footer__logo {
     width: 240px;
+    margin-left: -5.6px;
   }
 
   .site-footer__bottom {
@@ -121,5 +124,12 @@
 
   .site-footer__copy {
     font-size: 14px;
+  }
+}
+
+/* Amb el menú complet (>=1024px) el logo de la capçalera és una mica més ample i el seu coixí transparent també: el peu l'acompanya */
+@media (min-width: 1024px) {
+  .site-footer__inner {
+    padding-left: 23px;
   }
 }

@@ -5,7 +5,6 @@ import '../styles/pages/inner-page.css';
 import '../styles/pages/subpage-hero-compare.css';
 import '../styles/pages/block2.css';
 import '../styles/pages/block3-compare.css';
-import '../styles/components/world-map.css';
 import '../styles/pages/internacional-body-compare.css';
 import '../styles/pages/mobile-hero.css';
 import '../styles/pages/desktop-page-header.css';
@@ -30,7 +29,7 @@ const { regions, catalogs } = c;
       <img src="/images/gsn_farma_offices_building3.jpg" alt="" loading="eager" fetchpriority="high" />
     </picture></div>
     <div class="mhp__sheet">
-      <h1 class="mhp__title">{c.header.title}</h1>
+      <div class="mhp__title" role="heading" aria-level="1">{c.header.title}</div>
       <span class="mhp__bar" aria-hidden="true"></span>
       <h2 class="mhp__sub">{c.header.sub}</h2>
       <p class="mhp__text">{c.header.text}</p>
@@ -64,7 +63,7 @@ const { regions, catalogs } = c;
   <section class="intl-map intl-map--split">
     <div class="container intl-map__split-inner">
       <div class="intl-map__frame">
-        <WorldMap showLabels={false} label={c.mapLabel} />
+        <WorldMap label={c.mapLabel} />
       </div>
       <div class="intl-map__list-col">
         <h2>{c.regionsTitle}</h2>
@@ -81,7 +80,7 @@ const { regions, catalogs } = c;
       <div class="sp-head">
         <h2>{c.regionsTitle}</h2>
       </div>
-      <div class="sp-ia4__map"><WorldMap showLabels={false} label={c.mapLabel} /></div>
+      <div class="sp-ia4__map"><WorldMap label={c.mapLabel} /></div>
       <ul class="sp-regions">
         {regions.map((r) => <li>{r}</li>)}
       </ul>
