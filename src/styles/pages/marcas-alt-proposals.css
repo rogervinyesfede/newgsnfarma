@@ -53,6 +53,7 @@
 .marcas-alt-a__logo {
   position: relative;
   z-index: 1;
+  width: auto;
   max-width: 70%;
   max-height: 56px;
   object-fit: contain;

@@ -59,6 +59,11 @@ video {
   display: block;
 }
 
+/* Les <img> porten width/height (integrations/image-dimensions.mjs) només per reservar espai: l'alçada es calcula sempre a partir de l'ample. */
+img {
+  height: auto;
+}
+
 ul,
 ol {
   margin: 0;

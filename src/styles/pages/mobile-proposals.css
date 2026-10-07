@@ -728,20 +728,20 @@
     margin-bottom: var(--space-4);
   }
 
-  .sp-cd__item h3 {
-    margin: 0 0 var(--space-2);
-    font-size: 17px;
-    font-weight: 700;
-    color: var(--color-primary);
-    overflow-wrap: anywhere;
-  }
-
   .sp .sp-cd__item p {
     margin: 0;
     font-size: 17px;
     color: #555;
     text-align: left;
     overflow-wrap: anywhere;
+  }
+
+  /* Etiqueta de cada dada (text en negreta, no un títol: així l'estructura de títols no salta de H1 a H3) */
+  .sp .sp-cd__item p.sp-cd__label {
+    margin: 0 0 var(--space-2);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-primary);
   }
 
   .sp-cd__item a {

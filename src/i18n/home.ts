@@ -3,7 +3,7 @@
 const es = {
   title: 'GSN Farma Labs Group | Laboratorio farmacéutico',
   description:
-    'Laboratorio farmacéutico con más de 30 años de experiencia desarrollando soluciones de salud con visión global y ADN farmacéutico bajo el enfoque One Health Care.',
+    'Laboratorio farmacéutico con más de 30 años de experiencia. Desarrollamos soluciones de salud con visión global y ADN farmacéutico bajo el enfoque One Health.',
   hero: {
     title: 'Un nuevo grupo farmacéutico',
     subtitle: 'Más de 30 años de experiencia y visión global en salud',
@@ -55,7 +55,7 @@ const es = {
 const ca: typeof es = {
   title: 'GSN Farma Labs Group | Laboratori farmacèutic',
   description:
-    "Laboratori farmacèutic amb més de 30 anys d'experiència desenvolupant solucions de salut amb visió global i ADN farmacèutic sota l'enfocament One Health Care.",
+    "Laboratori farmacèutic amb més de 30 anys d'experiència. Desenvolupem solucions de salut amb visió global i ADN farmacèutic sota l'enfocament One Health.",
   hero: {
     title: 'Un nou grup farmacèutic',
     subtitle: "Més de 30 anys d'experiència i visió global en salut",
@@ -107,7 +107,7 @@ const ca: typeof es = {
 const en: typeof es = {
   title: 'GSN Farma Labs Group | Pharmaceutical laboratory',
   description:
-    'Pharmaceutical laboratory with more than 30 years of experience developing health solutions with a global vision and pharmaceutical DNA, under the One Health Care approach.',
+    'Pharmaceutical laboratory with over 30 years of experience. We develop health solutions with global vision and pharmaceutical DNA under the One Health approach.',
   hero: {
     title: 'A new pharmaceutical group',
     subtitle: 'Over 30 years of experience and a global vision in health',

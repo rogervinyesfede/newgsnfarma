@@ -108,6 +108,7 @@
     z-index: 1;
     top: 28px;
     left: 50%;
+    width: auto;
     max-width: 70%;
     max-height: 56px;
     object-fit: contain;
