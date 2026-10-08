@@ -24,15 +24,15 @@ const href = {
 
 const oh = c.oh;
 const areaMeta = [
-  { href: href.services, mobile: '/images/services_mb.jpg', about: '/images/about_services.jpg', aboutMb: '/images/about_services_mb.jpg', muted: 'block2-f__image--muted' },
-  { href: href.brands, mobile: '/images/brands_home_products_mb.jpg', about: '/images/about_brands.jpg', aboutMb: '/images/about_brands_mb.jpg', muted: 'block2-f__image--muted block2-f__image--muted-strong' },
+  { href: href.services, mobile: '/images/services_mb.jpg', about: '/images/about_services2.jpg', aboutMb: '/images/about_services_mb.jpg', muted: 'block2-f__image--muted' },
+  { href: href.brands, mobile: '/images/brands_home_products_mb.jpg', about: '/images/about_brands2.jpg', aboutMb: '/images/about_brands_mb.jpg', muted: 'block2-f__image--muted block2-f__image--muted-strong' },
 ];
 const areas = c.areas.map((a, i) => ({ ...a, ...areaMeta[i] }));
 // "Así sumamos salud" (mòbil): mateix bloc i mateixes fotos que Quiénes somos, amb els textos i CTA de la Home.
 const masAreas = areas.map((a) => ({ ...a, img: a.about, imgMb: a.aboutMb }));
 const fundingLogos = [
-  ['/images/economia_social_logo.png', '/images/gencat_empresa_treball-logo.png', '/images/ministerio_logo.png'],
-  ['/images/nextgeneration_logo.png', '/images/perte_agro_logo.jpg', '/images/ministerio_industria_logo.png'],
+  ['/images/economia_social_logo2.png', '/images/gencat_empresa_treball-logo.png', '/images/ministerio_logo2.png'],
+  ['/images/nextgeneration_logo.png', '/images/perte_agro_logo.jpg', '/images/ministerio_industria_logo2.png'],
 ];
 const funding = c.funding.map((g, i) => ({ intro: g.intro, logos: fundingLogos[i].map((src, n) => [src, g.alts[n]]) }));
 
@@ -44,8 +44,8 @@ const homeAreas = areas.map((a, i) => ({ ...a, panel: areaMeta[i].aboutMb }));
   <Hero
     title={c.hero.title}
     subtitle={c.hero.subtitle}
-    image="/images/hero-video-frame.jpg"
-    imageMobile="/images/hero-video-frame.jpg"
+    image="/images/hero-video-frame2.jpg"
+    imageMobile="/images/hero-video-frame2.jpg"
     video="/videos/video_gsn_farma.mp4"
     videoMobile="/videos/video_gsn_farma_mobile.mp4"
     overlapHeader
@@ -58,7 +58,7 @@ const homeAreas = areas.map((a, i) => ({ ...a, panel: areaMeta[i].aboutMb }));
 
   {/* Hero de DESKTOP (>=900px): vídeo amb el text centrat a baix i el CTA en píndola. A mòbil s'amaga i es veu el <Hero> de dalt (només mòbil). */}
   <section class="qd qd-hh">
-    <video class="qd-hh__video" muted loop playsinline preload="none" poster="/images/hero-video-frame.jpg" aria-hidden="true" data-src="/videos/video_gsn_farma.mp4"></video>
+    <video class="qd-hh__video" muted loop playsinline preload="none" poster="/images/hero-video-frame2.jpg" aria-hidden="true" data-src="/videos/video_gsn_farma.mp4"></video>
     <div class="qd-hh__fade" aria-hidden="true"></div>
     <div class="qd-hh__shade" aria-hidden="true"></div>
     <div class="qd-hh__content">
@@ -67,31 +67,36 @@ const homeAreas = areas.map((a, i) => ({ ...a, panel: areaMeta[i].aboutMb }));
       <a href={href.about} class="qd-ct__btn">{c.hero.cta}<span aria-hidden="true">›</span></a>
     </div>
   </section>
-  <script is:inline>
-    (function () {
-      // Només es descarrega el vídeo a desktop (a mòbil aquest bloc està amagat): s'inicia quan l'ample arriba a 900px.
-      var mq = window.matchMedia('(min-width: 900px)');
-      var started = false;
-      function start() {
-        if (started || !mq.matches) return;
-        var v = document.querySelector('.qd-hh__video');
-        if (!v) return;
-        started = true;
-        v.muted = true;
-        v.src = v.getAttribute('data-src');
+  <script>
+    import { pickVideoSource, fallbackOnError } from '../scripts/pick-video-source';
+
+    // Només es descarrega el vídeo a desktop (a mòbil aquest bloc està amagat): s'inicia quan l'ample arriba a 900px.
+    // La font es tria segons el navegador: AV1 → HEVC (Safari) → H.264 de reserva (veure pick-video-source.ts).
+    const mq = window.matchMedia('(min-width: 900px)');
+    let started = false;
+    function start() {
+      if (started || !mq.matches) return;
+      const v = document.querySelector('.qd-hh__video') as HTMLVideoElement | null;
+      if (!v) return;
+      started = true;
+      v.muted = true;
+      const base = v.getAttribute('data-src') || '';
+      const play = () => {
+        if (!v.paused) return;
+        const p = v.play();
+        if (p && p.catch) p.catch(() => {});
+      };
+      pickVideoSource(v, base).then((src) => {
+        fallbackOnError(v, base, play);
+        v.src = src;
         v.load();
-        var play = function () {
-          if (!v.paused) return;
-          var p = v.play();
-          if (p && p.catch) p.catch(function () {});
-        };
         play();
         v.addEventListener('canplay', play);
-      }
-      start();
-      window.addEventListener('load', start);
-      if (mq.addEventListener) mq.addEventListener('change', start);
-    })();
+      });
+    }
+    start();
+    window.addEventListener('load', start);
+    if (mq.addEventListener) mq.addEventListener('change', start);
   </script>
 
 
@@ -101,7 +106,7 @@ const homeAreas = areas.map((a, i) => ({ ...a, panel: areaMeta[i].aboutMb }));
   {/* One Health, versió DESKTOP (>=900px): foto arrodonida a l'esquerra i text a la dreta, sobre gris. A mòbil s'amaga i el substitueix .sp-oh. */}
   <section class="qd qd-ho">
     <div class="qd-wrap qd-ho__grid">
-      <div class="qd-ho__photo"><img src="/images/one_health_gsnfarma4.jpg" alt={oh.alt} loading="lazy" /></div>
+      <div class="qd-ho__photo"><img src="/images/one_health_gsnfarma5.jpg" alt={oh.alt} loading="lazy" /></div>
       <div class="qd-ho__text">
         <h2 set:html={oh.title}></h2>
         <span class="qd-bar" aria-hidden="true"></span>
@@ -116,7 +121,7 @@ const homeAreas = areas.map((a, i) => ({ ...a, panel: areaMeta[i].aboutMb }));
   <section class="sp sp-oh">
     <h2 set:html={oh.title}></h2>
     <span class="sp-bar" aria-hidden="true"></span>
-    <img class="sp-oh__img" src="/images/one_health_gsnfarma4.jpg" alt={oh.alt} loading="lazy" />
+    <img class="sp-oh__img" src="/images/one_health_gsnfarma5.jpg" alt={oh.alt} loading="lazy" />
     <p class="sp-oh__lead">{oh.p1}</p>
     <p>{oh.p2}</p>
     <a href={href.about} class="sp-cta">{oh.cta}<span aria-hidden="true">›</span></a>

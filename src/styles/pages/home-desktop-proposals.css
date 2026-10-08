@@ -10,7 +10,7 @@
     margin-top: 0;
     height: 720px;
     overflow: hidden;
-    background: var(--qd-navy) url('/images/hero-video-frame.jpg') center / cover no-repeat;
+    background: var(--qd-navy) url('/images/hero-video-frame2.jpg') center / cover no-repeat;
   }
 
   .qd-hh__video {

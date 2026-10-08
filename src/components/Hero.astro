@@ -93,8 +93,10 @@ const style = [
   </section>
 )}
 
-{video && (
-  <script>
+{/* El script va fora de qualsevol condició: Astro no empaqueta (ni deixa fer `import`) als scripts dins d'una expressió. Si la pàgina no té cap `.hero__video`, no fa res. */}
+<script>
+    import { pickVideoSource, fallbackOnError } from '../scripts/pick-video-source';
+
     // El navegador ignora sovint l'atribut `media` a <source> dins <video>
     // (a diferència de <picture>), així que triem la font per JS: evita
     // que es descarreguin totes dues i garanteix que el mòbil rep sempre
@@ -110,18 +112,30 @@ const style = [
       el.setAttribute('webkit-playsinline', '');
 
       const isMobile = window.matchMedia('(max-width: 767px)').matches;
-      const src = isMobile ? el.dataset.srcMobile : el.dataset.srcDesktop;
       const tryPlay = () => {
         if (!el.paused) return;
         const p = el.play();
         if (p && p.catch) p.catch(() => {});
       };
 
-      if (src && el.getAttribute('src') !== src) {
-        el.src = src;
-        el.load();
+      const setSrc = (src) => {
+        if (src && el.getAttribute('src') !== src) {
+          el.src = src;
+          el.load();
+        }
+        tryPlay();
+      };
+      if (isMobile) {
+        // Mòbil: sempre la variant lleugera (960x540), sense triar còdec.
+        setSrc(el.dataset.srcMobile);
+      } else {
+        // Tauleta vertical (768-899px): vídeo gran; es tria AV1 → HEVC → H.264 segons el navegador.
+        const base = el.dataset.srcDesktop;
+        pickVideoSource(el, base).then((src) => {
+          fallbackOnError(el, base, tryPlay);
+          setSrc(src);
+        });
       }
-      tryPlay();
       el.addEventListener('loadeddata', tryPlay);
       el.addEventListener('canplay', tryPlay);
       document.addEventListener('visibilitychange', () => {
@@ -133,5 +147,4 @@ const style = [
         window.addEventListener(ev, tryPlay, { once: true, passive: true })
       );
     });
-  </script>
-)}
+</script>

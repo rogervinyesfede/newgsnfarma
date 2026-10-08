@@ -21,11 +21,11 @@ const c = servicesCopy[lang];
 
 // Els serveis tenen el mateix ordre als tres idiomes; l'id és l'àncora de l'índex (igual a tots els idiomes).
 const serviceMeta = [
-  { id: 'almacenamiento', img: '/images/servicios-almacenamiento.jpg', imgMb: '/images/servicios-almacenamiento_mb.jpg' },
-  { id: 'calidad', img: '/images/gsn_farma_Aseguramiento_de_la_calidad.jpg', imgMb: '/images/gsn_farma_Aseguramiento_de_la_calidad_mb.jpg' },
+  { id: 'almacenamiento', img: '/images/servicios-almacenamiento2.jpg', imgMb: '/images/servicios-almacenamiento_mb.jpg' },
+  { id: 'calidad', img: '/images/gsn_farma_Aseguramiento_de_la_calidad2.jpg', imgMb: '/images/gsn_farma_Aseguramiento_de_la_calidad_mb.jpg' },
   { id: 'regulatorio', img: '/images/servicios-regulatory.webp', imgMb: '/images/servicios-regulatory_mb.jpg' },
-  { id: 'camaras-climaticas', img: '/images/gsn_farma_camaras.jpg', imgMb: '/images/gsn_farma_camaras_mb.jpg' },
-  { id: 'acondicionamiento', img: '/images/gsn_farma_acondicionamiento.jpg', imgMb: '/images/gsn_farma_acondicionamiento_mb.jpg' },
+  { id: 'camaras-climaticas', img: '/images/gsn_farma_camaras2.jpg', imgMb: '/images/gsn_farma_camaras_mb.jpg' },
+  { id: 'acondicionamiento', img: '/images/gsn_farma_acondicionamiento2.jpg', imgMb: '/images/gsn_farma_acondicionamiento_mb.jpg' },
   { id: 'subvenciones', img: '/images/servicios-subvenciones.webp', imgMb: '/images/servicios-subvenciones_mb.jpg' },
 ];
 const services = c.services.map((s, i) => ({ ...s, ...serviceMeta[i], comingSoon: servicesComingSoon[i] }));
@@ -43,7 +43,7 @@ const nf = new Intl.NumberFormat(LOCALE[lang], { useGrouping: true });
 const capacityItems = capacityData.map((d, i) => ({ title: c.capacity.types[i], value: nf.format(d.value), icon: d.icon }));
 
 const lab = { ...c.lab, img: '/images/gsn_farma_lab_mb.jpg' };
-const planta = { ...c.planta, img: '/images/gsn_farma_factory.jpg' };
+const planta = { ...c.planta, img: '/images/gsn_farma_factory2.jpg' };
 
 // Índex de serveis (mòbil: enllaça a l'acordió; desktop: a les franges)
 const chipIds = ['fabricacion', 'i-d', 'almacenamiento', 'calidad', 'regulatorio', 'camaras-climaticas', 'acondicionamiento', 'subvenciones'];
@@ -62,7 +62,7 @@ const chipsMobile = c.chips.map((t, i) => ({ t, href: `#${chipIds[i]}-m` }));
       <picture>
         <source media="(max-width: 899px)" srcset="/images/gsn_farma_offices_building_hm.webp" type="image/webp" />
         <source media="(max-width: 899px)" srcset="/images/gsn_farma_offices_building_hm.jpg" />
-        <img src="/images/gsn_farma_offices_building.jpg" alt="" loading="eager" fetchpriority="high" style="object-position: center 49%" />
+        <img src="/images/gsn_farma_offices_building_new.jpg" alt="" loading="eager" fetchpriority="high" style="object-position: center 49%" />
       </picture>
     </div>
     <div class="qd-u__sheet">
@@ -182,7 +182,7 @@ const chipsMobile = c.chips.map((t, i) => ({ t, href: `#${chipIds[i]}-m` }));
           <p>{lab.p1}</p>
           <p>{lab.p2}</p>
       </div>
-      <div class="qd-la__photo"><img src="/images/gsn_farma_lab.jpg" alt={lab.alt} loading="lazy" /></div>
+      <div class="qd-la__photo"><img src="/images/gsn_farma_lab2.jpg" alt={lab.alt} loading="lazy" /></div>
     </div>
   </section>
 

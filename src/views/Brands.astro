@@ -22,16 +22,16 @@ const c = brandsCopy[lang];
 const brands = brandsJson.map((b, i) => ({ ...b, ...c.brands[i], ctaLabel: c.brands[i].cta }));
 
 // PROVES MÒBIL (.sp): helpers per a les propostes de marques.
-const brandLogo = (b: any) => (b.name === 'Medicamentos' ? '/images/gsnfarma_new_logo.png' : b.logo);
+const brandLogo = (b: any) => (b.name === 'Medicamentos' ? '/images/gsnfarma_new_logo2.png' : b.logo);
 const gridImg = (b: any) =>
-  b.name === 'Nakama' ? '/images/brand-nakama-shifted.jpg'
+  b.name === 'Nakama' ? '/images/brand-nakama-shifted2.jpg'
   : b.name === 'Orissens' ? '/images/brands_orissens-shifted.jpg'
   : b.name === 'Medicamentos' ? '/images/gsnfarma_card.jpg'
   : b.image;
 const stripImg = (b: any) => (b.name === 'Orissens' ? '/images/brands_orissens-shifted.jpg' : b.image);
 
 // PROVES DESKTOP (.qd): helpers per a les propostes de logos i de franges de marca.
-const cardLogo = (b: any) => (b.name === 'Medicamentos' ? '/images/gsnfarma_new_logo_white.png' : b.logo);
+const cardLogo = (b: any) => (b.name === 'Medicamentos' ? '/images/gsnfarma_new_logo_white2.png' : b.logo);
 const key = (b: any) => b.name.toLowerCase();
 const ctaLabel = (b: any) => b.ctaLabel;
 const descLines = (b: any) => b.description.split('\n');
@@ -42,7 +42,7 @@ const descLines = (b: any) => b.description.split('\n');
     <div class="mhp__img"><picture>
       <source media="(max-width: 899px)" srcset="/images/gsn_farma_our_brands_header2_hm.webp" type="image/webp" />
       <source media="(max-width: 899px)" srcset="/images/gsn_farma_our_brands_header2_hm.jpg" />
-      <img src="/images/gsn_farma_our_brands_header2.jpg" alt="" loading="eager" fetchpriority="high" />
+      <img src="/images/gsn_farma_our_brands_header3.jpg" alt="" loading="eager" fetchpriority="high" />
     </picture></div>
     <div class="mhp__sheet">
       <div class="mhp__title" role="heading" aria-level="1">{c.header.title}</div>
@@ -59,7 +59,7 @@ const descLines = (b: any) => b.description.split('\n');
       <picture>
         <source media="(max-width: 899px)" srcset="/images/gsn_farma_our_brands_header2_hm.webp" type="image/webp" />
         <source media="(max-width: 899px)" srcset="/images/gsn_farma_our_brands_header2_hm.jpg" />
-        <img src="/images/gsn_farma_our_brands_header2.jpg" alt="" loading="eager" fetchpriority="high" style="object-position: center 18%" />
+        <img src="/images/gsn_farma_our_brands_header3.jpg" alt="" loading="eager" fetchpriority="high" style="object-position: center 18%" />
       </picture>
     </div>
     <div class="qd-u__sheet">
@@ -106,7 +106,7 @@ const descLines = (b: any) => b.description.split('\n');
             aria-label={`${c.goTo} ${brand.alt}`}
           >
             <img
-              src={brand.name === 'Medicamentos' ? '/images/gsnfarma_new_logo_white.png' : brand.logo}
+              src={brand.name === 'Medicamentos' ? '/images/gsnfarma_new_logo_white2.png' : brand.logo}
               alt={brand.alt}
               class={`marcas-alt-a__logo${brand.name === 'Medicamentos' ? '' : ' marcas-alt-a__logo--natural'}${brand.name === 'GSN' ? ' marcas-alt-a__logo--gsn' : ''}`}
               loading="lazy"

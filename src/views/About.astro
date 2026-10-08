@@ -15,8 +15,8 @@ import { about } from '../i18n/about';
 const { lang } = detectPage(Astro.url.pathname);
 const c = about[lang];
 const areaMeta = [
-  { img: '/images/about_services.jpg', imgMb: '/images/about_services_mb.jpg', muted: 'block2-f__image--muted', href: pathFor('services', lang) },
-  { img: '/images/about_brands.jpg', imgMb: '/images/about_brands_mb.jpg', muted: 'block2-f__image--muted block2-f__image--muted-strong', href: pathFor('brands', lang) },
+  { img: '/images/about_services2.jpg', imgMb: '/images/about_services_mb.jpg', muted: 'block2-f__image--muted', href: pathFor('services', lang) },
+  { img: '/images/about_brands2.jpg', imgMb: '/images/about_brands_mb.jpg', muted: 'block2-f__image--muted block2-f__image--muted-strong', href: pathFor('brands', lang) },
 ];
 const areas = c.areas.map((a, i) => ({ ...a, ...areaMeta[i] }));
 const unionLogos = ['/images/gsn_farma_logo_cropped.png', '/images/coetus_logo_cropped.png'];
@@ -25,11 +25,9 @@ const union = {
   items: c.union.items.map((it, i) => ({ ...it, logo: unionLogos[i] })),
   footer: c.union.footer,
 };
-const oh = { ...c.oh, img: '/images/one_health_gsnfarma4.jpg' };
-const hero = { ...c.hero, img: '/images/gsn_farma_offices_building3.jpg' };
+const oh = { ...c.oh, img: '/images/one_health_gsnfarma5.jpg' };
+const hero = { ...c.hero, img: '/images/gsn_farma_offices_building4.jpg' };
 const intro = c.intro;
-// Versió vertical d'alta resolució de les imatges de les àrees (per als panells grans de desktop).
-const big = (src: string) => src.replace('.jpg', '_mb.jpg');
 const areasIntroMix = c.areasIntroMix;
 const areasIntro = c.areasIntro;
 ---
@@ -215,7 +213,7 @@ const areasIntro = c.areasIntro;
       <div class="qd-ag__panels">
         {areas.map((a) => (
           <a class="qd-ag__panel" href={a.href}>
-            <img src={big(a.img)} alt={a.alt} loading="lazy" />
+            <img src={a.imgMb} alt={a.alt} loading="lazy" />
             <div class="qd-ag__body">
               <h3>{a.title}</h3>
               <p>{a.text}</p>
