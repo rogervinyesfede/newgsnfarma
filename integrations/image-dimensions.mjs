@@ -112,33 +112,64 @@ export default function imageDimensions() {
         };
 
         let added = 0;
+        let skippedMixed = 0;
         const missing = new Set();
+
+        // URL de la imatge d'una etiqueta <img> o <source> (null si no se'n pot treure una de sola)
+        const urlOf = (tag, name) => {
+          if (name.toLowerCase() === 'img') return tag.match(/\ssrc\s*=\s*"([^"]*)"/i)?.[1];
+          const srcset = tag.match(/\ssrcset\s*=\s*"([^"]*)"/i)?.[1];
+          if (!srcset || srcset.includes(',')) return null; // <source> només amb una sola URL
+          return srcset.trim().split(/\s+/)[0];
+        };
+        // Mida natural de l'etiqueta, o null si ja en té o no es pot determinar
+        const sizeOfTag = (tag, name) => {
+          if (/\swidth\s*=/i.test(tag) || /\sheight\s*=/i.test(tag)) return null;
+          const url = urlOf(tag, name);
+          if (!url || url.startsWith('data:')) return null;
+          const size = lookup(url);
+          if (!size && url.startsWith('/')) missing.add(url);
+          return size;
+        };
+        const withSize = (tag, size) => {
+          added++;
+          return tag.replace(/^<(img|source)/i, `<$1 width="${size.width}" height="${size.height}"`);
+        };
+
+        // Dins d'un <picture>, si alguna <source> té una proporció diferent de la de l'<img> (p. ex. la versió de mòbil retallada),
+        // l'<img> NO rep mides: el navegador i Lighthouse les llegirien com si fossin les de la imatge que realment es mostra
+        // («proporció d'imatge incorrecta»). Les <source> sí que en porten, i són les correctes per a cada versió.
+        const processPicture = (block) => {
+          const tags = [...block.matchAll(TAG)].map((m) => ({ tag: m[0], name: m[1] }));
+          const img = tags.find((t) => t.name.toLowerCase() === 'img');
+          const imgSize = img && sizeOfTag(img.tag, 'img');
+          const ratio = (s) => s.width / s.height;
+          const mixed =
+            !!imgSize &&
+            tags.some((t) => {
+              if (t.name.toLowerCase() !== 'source') return false;
+              const s = sizeOfTag(t.tag, 'source');
+              return !!s && Math.abs(ratio(s) / ratio(imgSize) - 1) > 0.02;
+            });
+          if (mixed) skippedMixed++;
+          return block.replace(TAG, (tag, name) => {
+            if (name.toLowerCase() === 'img' && mixed) return tag;
+            const size = sizeOfTag(tag, name);
+            return size ? withSize(tag, size) : tag;
+          });
+        };
+
+        const BLOCK = new RegExp(`<picture\\b[\\s\\S]*?<\\/picture>|${TAG.source}`, 'gi');
         for (const file of walk(root)) {
           const html = fs.readFileSync(file, 'utf8');
-          const out = html.replace(TAG, (tag, name) => {
-            const hasW = /\swidth\s*=/i.test(tag);
-            const hasH = /\sheight\s*=/i.test(tag);
-            if (hasW || hasH) return tag;
-            let url;
-            if (name.toLowerCase() === 'img') {
-              url = tag.match(/\ssrc\s*=\s*"([^"]*)"/i)?.[1];
-            } else {
-              const srcset = tag.match(/\ssrcset\s*=\s*"([^"]*)"/i)?.[1];
-              if (!srcset || srcset.includes(',')) return tag; // <source> només amb una sola URL
-              url = srcset.trim().split(/\s+/)[0];
-            }
-            if (!url || url.startsWith('data:')) return tag;
-            const size = lookup(url);
-            if (!size) {
-              if (url.startsWith('/')) missing.add(url);
-              return tag;
-            }
-            added++;
-            return tag.replace(/^<(img|source)/i, `<$1 width="${size.width}" height="${size.height}"`);
+          const out = html.replace(BLOCK, (m, name) => {
+            if (/^<picture/i.test(m)) return processPicture(m);
+            const size = sizeOfTag(m, name);
+            return size ? withSize(m, size) : m;
           });
           if (out !== html) fs.writeFileSync(file, out);
         }
-        logger.info(`mides afegides a ${added} etiquetes d'imatge`);
+        logger.info(`mides afegides a ${added} etiquetes d'imatge (${skippedMixed} <picture> amb versions de proporció diferent: sense mides a l'<img>)`);
         if (missing.size) logger.warn(`sense mida (no trobades o format desconegut): ${[...missing].join(', ')}`);
       },
     },

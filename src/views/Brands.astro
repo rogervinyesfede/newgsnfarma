@@ -35,6 +35,17 @@ const cardLogo = (b: any) => (b.name === 'Medicamentos' ? '/images/gsnfarma_new_
 const key = (b: any) => b.name.toLowerCase();
 const ctaLabel = (b: any) => b.ctaLabel;
 const descLines = (b: any) => b.description.split('\n');
+
+// Foto de capçalera de desktop en tres mides (la caixa ocupa tota l'amplada, 100vw): el navegador tria la més petita que
+// cobreix l'amplada de la pantalla (1280 → 131 KB, 1600 → 185 KB, resta/retina → la gran de 277 KB).
+// Les DUES etiquetes <img> d'aquesta pàgina (mòbil i desktop) han de dur el mateix srcset: a desktop es resolen a la mateixa
+// URL i només es baixa una vegada.
+const headerImg = '/images/gsn_farma_our_brands_header3.jpg';
+const headerSrcset = [
+  '/images/gsn_farma_our_brands_header3_1280.jpg 1280w',
+  '/images/gsn_farma_our_brands_header3_1600.jpg 1600w',
+  `${headerImg} 3000w`,
+].join(', ');
 ---
 
 <BaseLayout title={c.title} description={c.description}>
@@ -42,7 +53,7 @@ const descLines = (b: any) => b.description.split('\n');
     <div class="mhp__img"><picture>
       <source media="(max-width: 899px)" srcset="/images/gsn_farma_our_brands_header2_hm.webp" type="image/webp" />
       <source media="(max-width: 899px)" srcset="/images/gsn_farma_our_brands_header2_hm.jpg" />
-      <img src="/images/gsn_farma_our_brands_header3.jpg" alt="" loading="eager" fetchpriority="high" />
+      <img src={headerImg} srcset={headerSrcset} sizes="100vw" alt="" loading="eager" fetchpriority="high" />
     </picture></div>
     <div class="mhp__sheet">
       <div class="mhp__title" role="heading" aria-level="1">{c.header.title}</div>
@@ -59,7 +70,7 @@ const descLines = (b: any) => b.description.split('\n');
       <picture>
         <source media="(max-width: 899px)" srcset="/images/gsn_farma_our_brands_header2_hm.webp" type="image/webp" />
         <source media="(max-width: 899px)" srcset="/images/gsn_farma_our_brands_header2_hm.jpg" />
-        <img src="/images/gsn_farma_our_brands_header3.jpg" alt="" loading="eager" fetchpriority="high" style="object-position: center 18%" />
+        <img src={headerImg} srcset={headerSrcset} sizes="100vw" alt="" loading="eager" fetchpriority="high" style="object-position: center 18%" />
       </picture>
     </div>
     <div class="qd-u__sheet">
