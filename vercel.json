@@ -24,15 +24,15 @@
     },
     {
       "src": "^/$",
-      "has": [{ "type": "header", "key": "accept-language", "value": "^\\s*ca(?:[-,;]|$)" }],
-      "missing": [{ "type": "header", "key": "referer", "value": "^https?://(?:www\\.)?(?:gsnfarma\\.com|newgsnfarma\\.vercel\\.app)(?:/|$)" }],
+      "has": [{ "type": "header", "key": "accept-language", "value": "^\\s*ca(?:[-,;].*)?$" }],
+      "missing": [{ "type": "header", "key": "referer", "value": "^https?://(?:www\\.)?(?:gsnfarma\\.com|newgsnfarma\\.vercel\\.app)(?:/.*)?$" }],
       "status": 307,
       "headers": { "Location": "/ca/", "Vary": "Accept-Language, Referer", "Cache-Control": "no-store" }
     },
     {
       "src": "^/$",
-      "has": [{ "type": "header", "key": "accept-language", "value": "^\\s*en(?:[-,;]|$)" }],
-      "missing": [{ "type": "header", "key": "referer", "value": "^https?://(?:www\\.)?(?:gsnfarma\\.com|newgsnfarma\\.vercel\\.app)(?:/|$)" }],
+      "has": [{ "type": "header", "key": "accept-language", "value": "^\\s*en(?:[-,;].*)?$" }],
+      "missing": [{ "type": "header", "key": "referer", "value": "^https?://(?:www\\.)?(?:gsnfarma\\.com|newgsnfarma\\.vercel\\.app)(?:/.*)?$" }],
       "status": 307,
       "headers": { "Location": "/en/", "Vary": "Accept-Language, Referer", "Cache-Control": "no-store" }
     },
