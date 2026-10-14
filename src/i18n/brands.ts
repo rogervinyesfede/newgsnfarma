@@ -1,5 +1,6 @@
 // Textos de Nuestras marcas (castellà, català, anglès). Les marques (nom, logo, imatge, URL) són a src/data/brands.json;
-// aquí només hi ha el text de cada marca, en el mateix ordre: Orissens, GSN, Nakama, Herbaldi, Medicamentos.
+// aquí només hi ha el text de cada marca, en el mateix ordre: Orissens, GSN, Nakama, Herbaldi, Medicamentos, Esenciales, Ortopedia, Dermo
+// (les 3 últimes repliquen provisionalment el text d'Herbaldi; Ortopedia i Dermo mostren «Próximamente» com a categoria).
 // Els noms de marca no es tradueixen (excepte l'alt del logo de "Medicamentos").
 
 const es = {
@@ -18,7 +19,15 @@ const es = {
     { alt: 'Nakama', category: 'Salud animal', description: 'La marca de salud natural para mascotas, exclusiva de farmacias.\nCuidarlos es un compromiso compartido.', cta: 'Visitar la web de Nakama' },
     { alt: 'Herbaldi', category: 'Salud natural', description: 'Soluciones y complementos a base de plantas para el bienestar diario.', cta: 'Ver listado de productos' },
     { alt: 'Medicamentos', category: 'Medicamentos', description: 'Desarrollamos y registramos medicamentos no sujetos a prescripción médica.\nUn portafolio en expansión.', cta: 'Ver listado de medicamentos' },
+    { alt: 'Esenciales de la farmacia', category: 'Esenciales de la farmacia', description: 'Catálogo transversal de productos de farmacia con más de 200 referencias de primeros auxilios, higiene, diagnóstico y cuidado personal.', cta: 'Ver listado de productos' },
+    { alt: 'Ortopedia', category: 'Próximamente', description: 'Nueva marca especializada en ortopedia que engloba productos de autocuidado y ortopedia de movilidad.', cta: '' },
+    { alt: 'Dermo', category: 'Próximamente', description: 'Marca farmacéutica que ofrece productos dermocosméticos con categorías para fotoproteger la piel, repararla, tratarla y cuidarla de manera específica.', cta: '' },
   ],
+  grid: {
+    legendNow: 'Marcas actuales',
+    legendSoon: 'Próximamente',
+    soonLabel: 'Próximamente',
+  },
   contactText: 'Contáctanos para recibir más información sobre nuestras marcas.',
   gate: {
     title: 'Acceso profesional',
@@ -44,7 +53,15 @@ const ca: typeof es = {
     { alt: 'Nakama', category: 'Salut animal', description: 'La marca de salut natural per a mascotes, exclusiva de farmàcies.\nCuidar-les és un compromís compartit.', cta: 'Visitar el web de Nakama' },
     { alt: 'Herbaldi', category: 'Salut natural', description: 'Solucions i complements a base de plantes per al benestar diari.', cta: 'Veure llistat de productes' },
     { alt: 'Medicaments', category: 'Medicaments', description: 'Desenvolupem i registrem medicaments no subjectes a prescripció mèdica.\nUn portafoli en expansió.', cta: 'Veure llistat de medicaments' },
+    { alt: 'Essencials de la farmàcia', category: 'Essencials de la farmàcia', description: 'Catàleg transversal de productes de farmàcia amb més de 200 referències de primers auxilis, higiene, diagnòstic i cura personal.', cta: 'Veure llistat de productes' },
+    { alt: 'Ortopèdia', category: 'Properament', description: "Nova marca especialitzada en ortopèdia que engloba productes d'autocura i ortopèdia de mobilitat.", cta: '' },
+    { alt: 'Dermo', category: 'Properament', description: 'Marca farmacèutica que ofereix productes dermocosmètics amb categories per fotoprotegir la pell, reparar-la, tractar-la i cuidar-la de manera específica.', cta: '' },
   ],
+  grid: {
+    legendNow: 'Marques actuals',
+    legendSoon: 'Properament',
+    soonLabel: 'Properament',
+  },
   contactText: 'Contacta amb nosaltres per rebre més informació sobre les nostres marques.',
   gate: {
     title: 'Accés professional',
@@ -70,7 +87,15 @@ const en: typeof es = {
     { alt: 'Nakama', category: 'Animal health', description: 'The natural health brand for pets, exclusive to pharmacies.\nCaring for them is a shared commitment.', cta: 'Visit the Nakama website' },
     { alt: 'Herbaldi', category: 'Natural health', description: 'Plant-based solutions and supplements for everyday well-being.', cta: 'View product list' },
     { alt: 'Medicines', category: 'Medicines', description: 'We develop and register non-prescription medicines.\nAn expanding portfolio.', cta: 'View medicines list' },
+    { alt: 'Pharmacy essentials', category: 'Pharmacy essentials', description: 'Cross-category catalogue of pharmacy products with more than 200 references in first aid, hygiene, diagnostics and personal care.', cta: 'View product list' },
+    { alt: 'Orthopaedics', category: 'Coming soon', description: 'New brand specialised in orthopaedics that brings together self-care products and mobility orthopaedics.', cta: '' },
+    { alt: 'Dermo', category: 'Coming soon', description: 'Pharmaceutical brand offering dermocosmetic products with categories to photoprotect, repair, treat and specifically care for the skin.', cta: '' },
   ],
+  grid: {
+    legendNow: 'Current brands',
+    legendSoon: 'Coming soon',
+    soonLabel: 'Coming soon',
+  },
   contactText: 'Contact us to receive more information about our brands.',
   gate: {
     title: 'Professional access',

@@ -1,0 +1,53 @@
+---
+// Graella de targetes de marca de DESKTOP (>=900px) de Nuestras marques: 6 marques actuals i 2 de «Próximamente» en una sola graella 4 × 2.
+// Totes les targetes són enllaços a la seva franja de marca (#marca-<clau>). Les de «Próximamente» van desaturades, amb el
+// nom en text (encara no tenen logo) i una pastilla en lloc de la fletxa. Estils a src/styles/pages/marcas-grid.css. A mòbil s'amaga (hi ha BrandsGridMobile.astro).
+import '../styles/pages/marcas-grid.css';
+
+interface Card {
+  key: string;
+  alt: string;
+  category?: string;
+  img: string;
+  logo?: string;
+}
+interface Props {
+  live: Card[];
+  soon: Card[];
+  legendNow: string;
+  legendSoon: string;
+  soonLabel: string;
+  goTo: string;
+}
+const { live, soon, legendNow, legendSoon, soonLabel, goTo } = Astro.props;
+---
+
+<section class="qd qd-bg">
+  <div class="qd-wrap">
+    <ul class="qd-bg__legend" aria-hidden="true">
+      <li><i class="qd-bg__dot"></i>{legendNow} <b>{live.length}</b></li>
+      <li><i class="qd-bg__dot qd-bg__dot--soon"></i>{legendSoon} <b>{soon.length}</b></li>
+    </ul>
+    <div class="qd-bg__grid">
+      {live.map((b) => (
+        <a href={`#marca-${b.key}`} class="qd-bc" style={`background-image:url(${b.img})`} aria-label={`${goTo} ${b.alt}`}>
+          <img class={`qd-bc__logo qd-bc__logo--${b.key}`} src={b.logo} alt={b.alt} loading="lazy" />
+          <span class="qd-bc__foot">
+            <span class="qd-bc__label">{b.category}</span>
+            <span class="qd-bc__arrow" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+          </span>
+        </a>
+      ))}
+      {soon.map((b) => (
+        <a href={`#marca-${b.key}`} class="qd-bc qd-bc--soon" style={`background-image:url(${b.img})`} aria-label={`${goTo} ${b.alt}`}>
+          {b.logo ? (
+            <img class={`qd-bc__logo qd-bc__logo--${b.key}`} src={b.logo} alt={b.alt} loading="lazy" />
+          ) : (
+            <span class="qd-bc__word">{b.alt}</span>
+          )}
+          <span class="qd-bc__foot"><span class="qd-bc__pill">{soonLabel}</span></span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,47 @@
+---
+// Graella de targetes de marca de MÒBIL (<900px) de Nuestras marques: 6 marques actuals + 2 de «Próximamente», totes iguals:
+// 2 columnes × 4 files (de 600 a 899px, 4 columnes × 2 files). Cada targeta enllaça a la seva franja (#marca-<clau>-m).
+// Les de «Próximamente» van desaturades, amb el nom en text i una pastilla en lloc de la fletxa. Estils a src/styles/pages/marcas-grid-mobile.css.
+import '../styles/pages/marcas-grid-mobile.css';
+
+interface Card {
+  key: string;
+  alt: string;
+  img: string;
+  logo?: string;
+}
+interface Props {
+  live: Card[];
+  soon: Card[];
+  legendNow: string;
+  legendSoon: string;
+  soonLabel: string;
+  goTo: string;
+}
+const { live, soon, legendNow, legendSoon, soonLabel, goTo } = Astro.props;
+---
+
+<section class="sp sp-bg">
+  <div class="container">
+    <ul class="sp-bg__legend" aria-hidden="true">
+      <li><i class="sp-bg__dot"></i>{legendNow} <b>{live.length}</b></li>
+      <li><i class="sp-bg__dot sp-bg__dot--soon"></i>{legendSoon} <b>{soon.length}</b></li>
+    </ul>
+    <div class="sp-bg__grid">
+      {live.map((b) => (
+        <a href={`#marca-${b.key}-m`} class="sp-bc" style={`background-image:url(${b.img})`} aria-label={`${goTo} ${b.alt}`}>
+          <img class={`sp-bc__logo sp-bc__logo--${b.key}`} src={b.logo} alt={b.alt} loading="lazy" />
+          <span class="sp-bc__arrow" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </span>
+        </a>
+      ))}
+      {soon.map((b) => (
+        <a href={`#marca-${b.key}-m`} class="sp-bc sp-bc--soon" style={`background-image:url(${b.img})`} aria-label={`${goTo} ${b.alt}`}>
+          <span class="sp-bc__word">{b.alt}</span>
+          <span class="sp-bc__pill">{soonLabel}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

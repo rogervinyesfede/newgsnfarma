@@ -13,12 +13,16 @@ import '../styles/pages/internacional-desktop-proposals.css';
 import QdContact from '../components/QdContact.astro';
 import { detectPage, pathFor } from '../i18n/config';
 import { ui } from '../i18n/ui';
+import { MEDICINES_PDF, ANIMAL_HEALTH_PDF, ESENCIALES_PDF, WOMEN_HEALTH_PDF, NATURAL_HEALTH_PDF } from '../data/documents';
 import { international } from '../i18n/international';
 
 // Internacional en els tres idiomes (l'idioma surt de la ruta); els textos són a src/i18n/international.ts.
 const { lang } = detectPage(Astro.url.pathname);
 const c = international[lang];
 const { regions, catalogs } = c;
+// Catàlegs amb PDF (per posició: Medicamentos, Los esenciales de la farmacia, Salud natural, Salud de la mujer, Salud animal); s'obren en una pestanya nova, sense popup. Si algun catàleg no en té, l'entrada és null i l'enllaç queda com a '#'.
+const catalogPdfs: (string | null)[] = [MEDICINES_PDF, ESENCIALES_PDF, NATURAL_HEALTH_PDF, WOMEN_HEALTH_PDF, ANIMAL_HEALTH_PDF];
+const catalogLink = (i: number) => (catalogPdfs[i] ? { href: catalogPdfs[i] as string, target: '_blank', rel: 'noopener noreferrer' } : { href: '#' });
 ---
 
 <BaseLayout title={c.title} description={c.description}>
@@ -95,8 +99,8 @@ const { regions, catalogs } = c;
           <span class="qd-bar" aria-hidden="true"></span>
         </div>
       <div class="qd-ic__rows">
-        {catalogs.map((c) => (
-          <a href="#" class="qd-ic__row">
+        {catalogs.map((c, i) => (
+          <a {...catalogLink(i)} class="qd-ic__row">
             <span class="qd-ic__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
             <span class="qd-ic__name">{c}</span>
             <span class="qd-ic__arrow" aria-hidden="true">›</span>
@@ -117,8 +121,8 @@ const { regions, catalogs } = c;
         <span class="sp-bar" aria-hidden="true"></span>
       </div>
       <div class="sp-ic2__rows">
-        {catalogs.map((c) => (
-          <a href="#" class="sp-ic2__row"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>{c}</span></a>
+        {catalogs.map((c, i) => (
+          <a {...catalogLink(i)} class="sp-ic2__row"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>{c}</span></a>
         ))}
       </div>
     </div>

@@ -1,6 +1,7 @@
 [
   {
     "title": "Almacenamiento farmacéutico",
+    "comingSoon": true,
     "description": "Operador logístico farmacéutico, con autorización como entidad de distribución farmacéutica mayorista de productos de uso humano y veterinario. Así como almacén por contrato. Monitorización de las condiciones ambientales y control de temperatura. Soporte en las retiradas de producto de mercado.",
     "items": [
       "Alquiler de espacios delimitados",
@@ -11,7 +12,7 @@
     ]
   },
   {
-    "title": "Aseguramiento de la calidad",
+    "title": "Servicios de calidad",
     "description": "Asesoramos a fabricantes en el cumplimiento de la normativa GMP, con soporte en la preparación de inspecciones GXP y en la liberación de lotes y transferencia de fabricación.",
     "items": [
       "Búsqueda, homologación y due dilligence de proveedores",
@@ -51,7 +52,7 @@
     ]
   },
   {
-    "title": "Acondicionamiento secundario y serialización",
+    "title": "Acondicionamiento secundario y serialización de medicamentos",
     "comingSoon": true,
     "description": "Gestión integral del acondicionamiento secundario y serialización: etiquetado, estuchado, codificado, termosellado y armado de packs, conforme a la normativa vigente.",
     "items": [

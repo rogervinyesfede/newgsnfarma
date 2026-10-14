@@ -64,7 +64,8 @@
   gap: 8px;
 }
 
-.site-footer__links a {
+.site-footer__links a,
+.site-footer__links button {
   color: var(--color-primary);
   font-size: clamp(10.5px, 3.2vw, 13px);
   font-weight: 600;
@@ -114,11 +115,13 @@
     gap: 36px;
   }
 
-  .site-footer__links a {
+  .site-footer__links a,
+  .site-footer__links button {
     font-size: 15px;
   }
 
-  .site-footer__links a:hover {
+  .site-footer__links a:hover,
+  .site-footer__links button:hover {
     color: var(--color-accent-dark);
   }
 

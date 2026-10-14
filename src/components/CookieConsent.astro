@@ -1,0 +1,71 @@
+---
+// Bàner i panell de configuració de cookies (adaptat a Astro del patró «cookie consent framework»).
+// El bàner només es mostra si hi ha cookies opcionals (PUBLIC_GTM_ID definit; veure src/i18n/cookies.ts).
+// La lògica és a src/scripts/cookie-consent.ts; els estils, a src/styles/components/cookie-consent.css.
+import '../styles/components/cookie-consent.css';
+import { detectPage, pathFor } from '../i18n/config';
+import { cookieCopy, CONSENT_ENABLED, GTM_ID } from '../i18n/cookies';
+
+const { lang } = detectPage(Astro.url.pathname);
+const c = cookieCopy[lang];
+const policyHref = pathFor('cookies', lang);
+---
+
+{
+  CONSENT_ENABLED && (
+    <div id="gsn-cc" data-gtm={GTM_ID} data-lang={lang}>
+      <div class="cc-banner" id="gsn-cc-banner" role="dialog" aria-modal="false" aria-labelledby="gsn-cc-banner-title" hidden>
+        <div class="cc-banner__inner">
+          <div class="cc-banner__copy">
+            <h2 class="cc-banner__title" id="gsn-cc-banner-title">{c.bannerTitle}</h2>
+            <p class="cc-banner__body">
+              {c.bannerBody}{" "}<a href={policyHref} class="cc-link">{c.policyLinkLabel}</a>
+            </p>
+          </div>
+          <div class="cc-banner__actions">
+            <button type="button" class="cc-btn cc-btn--ghost" data-cc-open>{c.configureLabel}</button>
+            <button type="button" class="cc-btn cc-btn--reject" data-cc-action="reject">{c.rejectLabel}</button>
+            <button type="button" class="cc-btn cc-btn--accept" data-cc-action="accept">{c.acceptLabel}</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="cc-overlay" id="gsn-cc-overlay" role="dialog" aria-modal="true" aria-labelledby="gsn-cc-settings-title" hidden>
+        <div class="cc-panel" id="gsn-cc-panel">
+          <button type="button" class="cc-panel__close" id="gsn-cc-close" aria-label={c.closeLabel}>
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h2 class="cc-panel__title" id="gsn-cc-settings-title">{c.settingsTitle}</h2>
+          <p class="cc-panel__intro">{c.settingsIntro}</p>
+
+          <div class="cc-cat">
+            <div class="cc-cat__text">
+              <h3 class="cc-cat__title">{c.necessaryTitle}</h3>
+              <p class="cc-cat__desc">{c.necessaryDescription}</p>
+            </div>
+            <span class="cc-cat__on">{c.alwaysOnLabel}</span>
+          </div>
+
+          <div class="cc-cat">
+            <div class="cc-cat__text">
+              <h3 class="cc-cat__title" id="gsn-cc-analytics-title">{c.analyticsTitle}</h3>
+              <p class="cc-cat__desc">{c.analyticsDescription}</p>
+            </div>
+            <button type="button" role="switch" aria-checked="false" aria-labelledby="gsn-cc-analytics-title" class="cc-switch" data-cc-switch="analytics">
+              <span class="cc-switch__thumb" aria-hidden="true"></span>
+            </button>
+          </div>
+
+          <div class="cc-panel__actions">
+            <a href={policyHref} class="cc-link">{c.policyLinkLabel}</a>
+            <button type="button" class="cc-btn cc-btn--accept" id="gsn-cc-save">{c.saveLabel}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+<script>
+  import '../scripts/cookie-consent';
+</script>

@@ -14,10 +14,10 @@ const es = {
     navLabel: 'Servicios',
   },
   chips: [
-    'Fabricación',
+    'Fabricación / CMO',
     'I+D',
     'Almacenamiento',
-    'Aseguramiento de calidad',
+    'Servicios de calidad',
     'Asuntos regulatorios',
     'Cámaras climáticas y estudios de estabilidad',
     'Acondicionamiento secundario y serialización',
@@ -58,10 +58,10 @@ const ca: typeof es = {
     navLabel: 'Serveis',
   },
   chips: [
-    'Fabricació',
+    'Fabricació / CMO',
     'R+D',
     'Emmagatzematge',
-    'Assegurament de qualitat',
+    'Serveis de qualitat',
     'Afers regulatoris',
     "Cambres climàtiques i estudis d'estabilitat",
     'Condicionament secundari i serialització',
@@ -94,7 +94,7 @@ const ca: typeof es = {
         "Operador logístic farmacèutic, amb autorització com a entitat de distribució farmacèutica majorista de productes d'ús humà i veterinari. Així com magatzem per contracte. Monitorització de les condicions ambientals i control de temperatura. Suport en les retirades de producte del mercat.",
     },
     {
-      title: 'Assegurament de la qualitat',
+      title: 'Serveis de qualitat',
       description:
         "Assessorem fabricants en el compliment de la normativa GMP, amb suport en la preparació d'inspeccions GXP i en l'alliberament de lots i la transferència de fabricació.",
     },
@@ -109,7 +109,7 @@ const ca: typeof es = {
         "Estudis d'estabilitat per avaluar el comportament de medicaments i complements alimentosos sota diferents condicions ambientals, garantint-ne la qualitat, la seguretat i l'eficàcia i el compliment dels requisits regulatoris (EMA, FDA).",
     },
     {
-      title: 'Condicionament secundari i serialització',
+      title: 'Condicionament secundari i serialització de medicaments',
       description:
         "Gestió integral del condicionament secundari i la serialització: etiquetatge, estotjat, codificat, termosegellat i muntatge de packs, d'acord amb la normativa vigent.",
     },
@@ -133,10 +133,10 @@ const en: typeof es = {
     navLabel: 'Services',
   },
   chips: [
-    'Manufacturing',
+    'Manufacturing / CMO',
     'R&D',
     'Storage',
-    'Quality assurance',
+    'Quality services',
     'Regulatory affairs',
     'Climatic chambers and stability studies',
     'Secondary packaging and serialisation',
@@ -169,7 +169,7 @@ const en: typeof es = {
         'Pharmaceutical logistics operator, authorised as a wholesale pharmaceutical distribution entity for products for human and veterinary use, as well as a contract warehouse. Monitoring of environmental conditions and temperature control. Support with product recalls from the market.',
     },
     {
-      title: 'Quality assurance',
+      title: 'Quality services',
       description:
         'We advise manufacturers on compliance with GMP regulations, with support in preparing for GXP inspections and in batch release and manufacturing transfer.',
     },
@@ -184,7 +184,7 @@ const en: typeof es = {
         'Stability studies to assess the behaviour of medicines and food supplements under different environmental conditions, ensuring their quality, safety and efficacy and compliance with regulatory requirements (EMA, FDA).',
     },
     {
-      title: 'Secondary packaging and serialisation',
+      title: 'Secondary packaging and serialisation of medicines',
       description:
         'Comprehensive management of secondary packaging and serialisation: labelling, cartoning, coding, heat sealing and pack assembly, in accordance with current regulations.',
     },

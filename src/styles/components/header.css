@@ -394,3 +394,50 @@ body.nav-open .site-header__toggle span {
     display: none;
   }
 }
+
+/* Tauletes en horitzontal i portàtils petits (1024–1366px): el wordmark
+   (310px a 30px d'alçada) més el menú d'escriptori no hi caben junts i el
+   logo s'encongia fins a quedar enganxat als títols (o desaparèixer a
+   1024px). Aquí el logo passa a 24px d'alçada (com al mòbil) i no
+   s'encongeix mai, i el menú guanya espai amb menys separació entre títols.
+   Per sobre de 1366px la capçalera no canvia. */
+@media (min-width: 1024px) and (max-width: 1366px) {
+  .site-header__logo {
+    flex-shrink: 0;
+  }
+
+  .site-header__logo img {
+    height: 24px;
+  }
+
+  .site-header__right {
+    gap: var(--space-4);
+  }
+
+  .site-header__nav ul {
+    gap: var(--space-4);
+  }
+}
+
+/* 1024–1239px (iPad i tauletes de 10–11" en horitzontal): ni amb el logo a 24px
+   hi cap el menú en castellà (el més llarg), i el selector d'idioma sortia de
+   la pantalla. Aquí el menú passa a text una mica més petit, amb menys
+   separació, i el logo a 22px. */
+@media (min-width: 1024px) and (max-width: 1239px) {
+  .site-header__logo img {
+    height: 22px;
+  }
+
+  .site-header__nav ul {
+    gap: var(--space-2);
+  }
+
+  .site-header__nav a {
+    font-size: 0.86rem;
+    padding-inline: 6px;
+  }
+
+  .site-header__lang {
+    font-size: 0.95rem;
+  }
+}

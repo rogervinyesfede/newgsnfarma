@@ -12,7 +12,7 @@ const es = {
   regionsTitle: 'Regiones y países donde operamos',
   regions: ['Europa', 'Oriente Medio', 'China', 'Sudeste Asiático', 'Oceanía', 'Latinoamérica'],
   catalogTitle: 'Catálogo de productos para mercados internacionales:',
-  catalogs: ['Medicamentos', 'Salud natural', 'Salud de la mujer', 'Salud animal'],
+  catalogs: ['Medicamentos', 'Los esenciales de la farmacia', 'Salud natural', 'Salud de la mujer', 'Salud animal'],
   contact: {
     title: '¿Hablamos?',
     text: 'Contáctanos si estás interesado en explorar oportunidades de colaboración a nivel internacional.',
@@ -31,7 +31,7 @@ const ca: typeof es = {
   regionsTitle: 'Regions i països on operem',
   regions: ['Europa', 'Orient Mitjà', 'Xina', 'Sud-est Asiàtic', 'Oceania', 'Llatinoamèrica'],
   catalogTitle: 'Catàleg de productes per a mercats internacionals:',
-  catalogs: ['Medicaments', 'Salut natural', 'Salut de la dona', 'Salut animal'],
+  catalogs: ['Medicaments', 'Els essencials de la farmàcia', 'Salut natural', 'Salut de la dona', 'Salut animal'],
   contact: {
     title: 'Parlem?',
     text: "Contacta amb nosaltres si estàs interessat a explorar oportunitats de col·laboració a nivell internacional.",
@@ -50,7 +50,7 @@ const en: typeof es = {
   regionsTitle: 'Regions and countries where we operate',
   regions: ['Europe', 'Middle East', 'China', 'Southeast Asia', 'Oceania', 'Latin America'],
   catalogTitle: 'Product catalogue for international markets:',
-  catalogs: ['Medicines', 'Natural health', "Women's health", 'Animal health'],
+  catalogs: ['Medicines', 'The pharmacy essentials', 'Natural health', "Women's health", 'Animal health'],
   contact: {
     title: 'Shall we talk?',
     text: 'Contact us if you are interested in exploring collaboration opportunities at an international level.',

@@ -4,6 +4,7 @@
 import '../styles/components/footer.css';
 import { detectPage, pathFor } from '../i18n/config';
 import { ui } from '../i18n/ui';
+import { cookieCopy, CONSENT_ENABLED } from '../i18n/cookies';
 
 const { lang } = detectPage(Astro.url.pathname);
 const t = ui[lang];
@@ -31,8 +32,9 @@ const year = new Date().getFullYear();
       </a>
     </div>
     <div class="site-footer__bottom">
-      <nav class="site-footer__links" aria-label={t.footer.legalNav}>
+      <nav class={`site-footer__links${CONSENT_ENABLED ? " site-footer__links--cc" : ""}`} aria-label={t.footer.legalNav}>
         {legalLinks.map((l) => <a href={l.href}>{l.label}</a>)}
+        {CONSENT_ENABLED && <button type="button" class="cc-footer-link" data-cc-open>{cookieCopy[lang].settingsLinkLabel}</button>}
       </nav>
       <p class="site-footer__copy">{t.footer.rights} {year}</p>
     </div>

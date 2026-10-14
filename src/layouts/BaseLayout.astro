@@ -5,6 +5,7 @@ import '../styles/layout.css';
 import '../styles/components/buttons.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import CookieConsent from '../components/CookieConsent.astro';
 import { detectPage, alternates, HTML_LANG, LANGS, SITE } from '../i18n/config';
 
 interface Props {
@@ -73,5 +74,6 @@ const ogImage = SITE + '/images/og-gsnfarma.jpg';
       <slot />
     </main>
     <Footer />
+    <CookieConsent />
   </body>
 </html>

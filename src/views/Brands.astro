@@ -6,14 +6,16 @@ import '../styles/pages/block2.css';
 import '../styles/pages/block3-compare.css';
 import '../styles/pages/subpage-hero-compare.css';
 import '../styles/pages/brand-gate.css';
-import '../styles/pages/marcas-alt-proposals.css';
 import '../styles/pages/mobile-hero.css';
 import '../styles/pages/desktop-page-header.css';
 import '../styles/pages/marcas-desktop-proposals.css';
 import '../styles/pages/mobile-proposals.css';
 import QdContact from '../components/QdContact.astro';
+import BrandsGrid from '../components/BrandsGrid.astro';
+import BrandsGridMobile from '../components/BrandsGridMobile.astro';
 import { detectPage, pathFor } from '../i18n/config';
 import { ui } from '../i18n/ui';
+import { MEDICINES_PDF } from '../data/documents';
 import { brandsCopy } from '../i18n/brands';
 
 // Nuestras marcas en els tres idiomes (l'idioma surt de la ruta); els textos són a src/i18n/brands.ts i les marques a src/data/brands.json.
@@ -27,14 +29,29 @@ const gridImg = (b: any) =>
   b.name === 'Nakama' ? '/images/brand-nakama-shifted2.jpg'
   : b.name === 'Orissens' ? '/images/brands_orissens-shifted.jpg'
   : b.name === 'Medicamentos' ? '/images/gsnfarma_card.jpg'
+  : b.name === 'Esenciales' ? '/images/esenciales-farmacia.jpg'
   : b.image;
 const stripImg = (b: any) => (b.name === 'Orissens' ? '/images/brands_orissens-shifted.jpg' : b.image);
 
 // PROVES DESKTOP (.qd): helpers per a les propostes de logos i de franges de marca.
-const cardLogo = (b: any) => (b.name === 'Medicamentos' ? '/images/gsnfarma_new_logo_white2.png' : b.logo);
+const cardLogo = (b: any) => (b.name === 'Medicamentos' ? '/images/gsnfarma_new_logo_white2.png' : b.name === 'Esenciales' ? '/images/logo_esenciales_white.webp' : b.logo);
 const key = (b: any) => b.name.toLowerCase();
 const ctaLabel = (b: any) => b.ctaLabel;
+// PDF del llistat de medicaments: s'obre en una pestanya nova quan l'usuari confirma que és professional sanitari (popup d'accés professional).
+const gatePdf = MEDICINES_PDF;
 const descLines = (b: any) => b.description.split('\n');
+
+// Graella desktop: 6 marques actuals (amb Esenciales just abans de Medicamentos, a diferència de l'ordre de les franges) i 2 de «Próximamente».
+// GSN: a la graella de desktop es fa servir una versió de la foto amb llenç ampliat a dalt i a baix (marca_gsn_card.jpg) perquè els pots es vegin una mica més petits; el mòbil i la franja usen marca_gsn.jpg.
+const gridCard = (b: any) => ({ key: key(b), alt: b.alt, category: b.category, img: b.name === 'GSN' ? '/images/marca_gsn_card.jpg' : gridImg(b), logo: cardLogo(b) });
+const gridLive = ['orissens', 'gsn', 'nakama', 'herbaldi', 'esenciales', 'medicamentos'].map((k) => gridCard(brands.find((b: any) => key(b) === k)));
+const gridSoon = ['ortopedia', 'dermo'].map((k) => gridCard(brands.find((b: any) => key(b) === k))).map(({ key, alt, img }) => ({ key, alt, img }));
+
+// Graella de mòbil (2×4): mateixes marques i ordre que a desktop, amb logos amb els seus colors.
+// GSN: com a desktop, versió de la foto amb llenç ampliat (els pots més petits i una mica més avall); la franja de GSN continua amb marca_gsn.jpg.
+const mobileCard = (b: any) => ({ key: key(b), alt: b.alt, img: b.name === 'GSN' ? '/images/marca_gsn_card.jpg' : gridImg(b), logo: cardLogo(b) });
+const mobileLive = ['orissens', 'gsn', 'nakama', 'herbaldi', 'esenciales', 'medicamentos'].map((k) => mobileCard(brands.find((b: any) => key(b) === k)));
+const mobileSoon = ['ortopedia', 'dermo'].map((k) => { const m = mobileCard(brands.find((b: any) => key(b) === k)); return { key: m.key, alt: m.alt, img: m.img }; });
 
 // Foto de capçalera de desktop en tres mides (la caixa ocupa tota l'amplada, 100vw): el navegador tria la més petita que
 // cobreix l'amplada de la pantalla (1280 → 131 KB, 1600 → 185 KB, resta/retina → la gran de 277 KB).
@@ -87,50 +104,11 @@ const headerSrcset = [
     </div>
   </section>
 
-    {/* Franja de logos, versió DESKTOP (>=900px): 5 targetes verticals arrodonides amb el logo, la categoria i la fletxa que porta a la franja de la marca. A mòbil s'amaga i el substitueix .sp-mc. */}
+  {/* Graella de targetes de marca, versió DESKTOP (>=900px): 6 marques actuals + 2 de «Próximamente» en una graella 4 × 2 (veure BrandsGrid.astro). A mòbil s'amaga i la substitueix BrandsGridMobile. */}
+  <BrandsGrid live={gridLive} soon={gridSoon} legendNow={c.grid.legendNow} legendSoon={c.grid.legendSoon} soonLabel={c.grid.soonLabel} goTo={c.goTo} />
 
-  <section class="qd qd-lg">
-    <div class="qd-wrap">
-      <div class="qd-lg__grid">
-        {brands.map((brand) => (
-          <a href={`#marca-${key(brand)}`} class="qd-lg__card" style={`background-image:url(${gridImg(brand)})`} aria-label={`${c.goTo} ${brand.alt}`}>
-            <img class={`qd-lg__logo qd-lg__logo--${key(brand)}`} src={cardLogo(brand)} alt={brand.alt} loading="lazy" />
-            <span class="qd-lg__foot">
-              <span class="qd-lg__label">{brand.category}</span>
-              <span class="qd-lg__arrow" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
-            </span>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  {/* Graella de marques (mòbil <900px): Orissens a tota l'amplada i la resta en targetes quadrades 2x2. A desktop s'amaga i es veu .qd-lg. */}
-  <section class="sp sp-mc sp-mc--final">
-    <div class="container">
-      <div class="marcas-alt-a__grid">
-        {brands.map((brand) => (
-          <a
-            href={`#marca-${brand.name.toLowerCase()}-m`}
-            class={`marcas-alt-a__card marcas-alt-a__card--logo-top${brand.name === 'Medicamentos' ? ' marcas-alt-a__card--medicamentos' : ''}`}
-            style={`background-image:url(${gridImg(brand)})`}
-            aria-label={`${c.goTo} ${brand.alt}`}
-          >
-            <img
-              src={brand.name === 'Medicamentos' ? '/images/gsnfarma_new_logo_white2.png' : brand.logo}
-              alt={brand.alt}
-              class={`marcas-alt-a__logo${brand.name === 'Medicamentos' ? '' : ' marcas-alt-a__logo--natural'}${brand.name === 'GSN' ? ' marcas-alt-a__logo--gsn' : ''}`}
-              loading="lazy"
-            />
-            
-            <span class="marcas-alt-a__arrow" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-            </span>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
+  {/* Graella de targetes de marca, versió MÒBIL (<900px): 6 marques actuals + 2 de «Próximamente», totes iguals, 2 columnes × 4 files (4 × 2 de 600 a 899px) (veure BrandsGridMobile.astro). A desktop s'amaga i es veu .qd-bg. */}
+  <BrandsGridMobile live={mobileLive} soon={mobileSoon} legendNow={c.grid.legendNow} legendSoon={c.grid.legendSoon} soonLabel={c.grid.soonLabel} goTo={c.goTo} />
 
   {/* Franges de marca (mòbil <900px): foto a sang + fulla blanca amb el logo gran, la descripció i el CTA; la categoria va com a pastilla dins la foto. A desktop s'amaga i es veuen les franges .qd-mk. */}
   <section class="sp sp-mb2">
@@ -138,10 +116,14 @@ const headerSrcset = [
       <div class="sp-mb2__item" id={`marca-${brand.name.toLowerCase()}-m`}>
         <div class="sp-photo">
           <img src={stripImg(brand)} alt="" loading="lazy" />
-          <span class="sp-mb2__pill">{brand.category}</span>
+          <span class={`sp-mb2__pill${brand.soon ? ' sp-mb2__pill--soon' : ''}`}>{brand.category}</span>
         </div>
         <div class="sp-sheet">
-          <h2 class="sp-mb2__name"><img class={`sp-mb2__logo sp-mb2__logo--${brand.name.toLowerCase()}`} src={brandLogo(brand)} alt={brand.alt} loading="lazy" /></h2>
+          {brandLogo(brand) ? (
+            <h2 class="sp-mb2__name"><img class={`sp-mb2__logo sp-mb2__logo--${brand.name.toLowerCase()}`} src={brandLogo(brand)} alt={brand.alt} loading="lazy" /></h2>
+          ) : (
+            <h2 class="sp-mb2__name sp-mb2__name--text">{brand.alt}</h2>
+          )}
           <p>{brand.description.split('\n').map((line: string, idx: number) => (idx > 0 ? <><br />{line}</> : line))}</p>
           {brand.gated ? (
               <button type="button" class="sp-cta" data-gate-trigger>{brand.ctaLabel}<span aria-hidden="true">›</span></button>
@@ -160,8 +142,12 @@ const headerSrcset = [
       <div class="qd-wrap qd-mk__grid">
         <div class="qd-mk__photo"><img src={stripImg(brand)} alt="" loading="lazy" /></div>
         <div class="qd-mk__text">
-          <span class="qd-mk__pill">{brand.category}</span>
-          <h2 class="qd-mk__name"><img class={`qd-mk__logo qd-mk__logo--${key(brand)}`} src={brandLogo(brand)} alt={brand.alt} loading="lazy" /></h2>
+          <span class={`qd-mk__pill${brand.soon ? ' qd-mk__pill--soon' : ''}`}>{brand.category}</span>
+          {brandLogo(brand) ? (
+            <h2 class="qd-mk__name"><img class={`qd-mk__logo qd-mk__logo--${key(brand)}`} src={brandLogo(brand)} alt={brand.alt} loading="lazy" /></h2>
+          ) : (
+            <h2 class="qd-mk__name qd-mk__name--text">{brand.alt}</h2>
+          )}
           <p>{descLines(brand).map((line: string, n: number) => (n > 0 ? <><br />{line}</> : line))}</p>
           {brand.gated ? (
             <button type="button" class="qd-cta" data-gate-trigger>{ctaLabel(brand)}<span aria-hidden="true">›</span></button>
@@ -184,7 +170,7 @@ const headerSrcset = [
       <h3 id="brand-gate-title" class="brand-gate__title">{c.gate.title}</h3>
       <p class="brand-gate__text">{c.gate.text}</p>
       <div class="brand-gate__actions">
-        <a href="#" class="brand-gate__btn brand-gate__btn--primary">{c.gate.yes}</a>
+        <a href={gatePdf} target="_blank" rel="noopener noreferrer" class="brand-gate__btn brand-gate__btn--primary" data-gate-close>{c.gate.yes}</a>
         <button type="button" class="brand-gate__btn brand-gate__btn--secondary" data-gate-close>
           {c.gate.no}
         </button>

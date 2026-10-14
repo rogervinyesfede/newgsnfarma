@@ -17,10 +17,11 @@ import { contact } from '../i18n/contact';
 const { lang } = detectPage(Astro.url.pathname);
 const c = contact[lang];
 const ci = ui[lang].contactItems;
+const COUNTRY = { es: 'España', ca: 'Espanya', en: 'Spain' } as const;
 
 // Dades de contacte del bloc de desktop (el LinkedIn és al footer).
 const contactInfo = [
-  { icon: '/images/icon-marker.svg', title: ci.address, lines: ['C/ del Llobregat 28, 08223.', 'Terrassa, Barcelona.'], href: 'https://maps.google.com/?q=C/+del+Llobregat+28,+08223+Terrassa' },
+  { icon: '/images/icon-marker.svg', title: ci.address, lines: ['C/ del Llobregat 28, 08223.', 'Terrassa, Barcelona, ' + COUNTRY[lang] + '.'], href: 'https://maps.google.com/?q=C/+del+Llobregat+28,+08223+Terrassa' },
   { icon: '/images/icon-phone.svg', title: ci.general, tel: '+34 680 310 655' },
   { icon: '/images/icon-phone.svg', title: ci.pharmacovigilance, tel: '+34 680 310 655' },
   { icon: '/images/icon-address.svg', title: ci.email, mail: 'info@gsnfarma.com' },
@@ -100,7 +101,7 @@ const contactInfo = [
         <div class="sp-cd__item">
           <img src="/images/icon-marker.svg" alt="" aria-hidden="true" />
           <p class="sp-cd__label">{ci.address}</p>
-          <p><a href="https://maps.google.com/?q=C/+del+Llobregat+28,+08223+Terrassa" target="_blank" rel="noopener noreferrer">C/ del Llobregat 28,<br />08223. Terrassa,<br />Barcelona.</a></p>
+          <p><a href="https://maps.google.com/?q=C/+del+Llobregat+28,+08223+Terrassa" target="_blank" rel="noopener noreferrer">C/ del Llobregat 28,<br />08223. Terrassa,<br />Barcelona, {COUNTRY[lang]}.</a></p>
         </div>
         <div class="sp-cd__item">
           <img src="/images/icon-address.svg" alt="" aria-hidden="true" />

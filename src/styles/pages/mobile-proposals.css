@@ -494,38 +494,6 @@
     z-index: 1;
   }
 
-  /* Nuestras marques — graella de targetes (mòbil): Orissens (marca principal) a tota l'amplada i la resta
-     en targetes quadrades 2x2, amb les mateixes targetes (foto + logo + fletxa) de la versió de desktop. */
-  .sp-mc {
-    padding: 0 0 32px;
-    background: #fff;
-  }
-
-  .sp-mc .marcas-alt-a__grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-4);
-  }
-
-  .sp-mc .marcas-alt-a__card {
-    aspect-ratio: 1 / 1;
-  }
-
-  /* Logo de GSN un 20% més petit (70% -> 56% de l'ample de la targeta) */
-  .sp-mc .marcas-alt-a__logo--gsn {
-    max-width: 56%;
-  }
-
-  .sp-mc .marcas-alt-a__card:first-child {
-    grid-column: 1 / -1;
-    aspect-ratio: 2.1 / 1;
-  }
-
-  /* A la targeta ampla d'Orissens el logo va desplaçat cap a la dreta (enquadre i fletxa, com a la resta) */
-  .sp-mc .marcas-alt-a__card:first-child {
-    justify-content: flex-end;
-    padding-right: 20px;
-  }
-
   /* Nuestras marcas — franges de marca: foto a sang + fulla blanca arrodonida (com Planta de Servicios), amb la
      categoria i el LOGO gran (48px d'alt) a la fulla. Repetit per marca. */
   .sp-mb2 {
@@ -580,6 +548,12 @@
   }
 
   /* Mida del logo ajustada per marca (base: 48px d'alt) */
+  /* Marca de «Próximamente»: la pastilla porta el mateix color que la targeta de la graella (cian fosc, text blanc) */
+  .sp-mb2__pill--soon {
+    background: var(--color-accent-dark);
+    color: #fff;
+  }
+
   .sp-mb2__logo--orissens {
     height: 58px; /* +20% */
   }
@@ -595,6 +569,24 @@
   .sp-mb2__logo--medicamentos {
     height: 32px; /* -20% (el logo ja quedava limitat per l'ample: es dibuixava a 40px d'alt) */
     max-width: 192px;
+  }
+
+  /* Esenciales: logo molt apaïsat (6,8:1) */
+  .sp-mb2__logo--esenciales {
+    height: 34px;
+    max-width: 232px;
+  }
+
+  /* Marca sense logo (Ortopedia, Dermo): el nom en text, al lloc del logo */
+  .sp-mb2__name--text {
+    display: block;
+    margin: 0;
+    color: var(--color-primary);
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    line-height: 1.1;
+    text-transform: uppercase;
   }
 
   /* Internacional — mapa i regions (mòbil): títol, mapa sobre el gris de la versió actual (a sang) i regions en llista de

@@ -14,7 +14,7 @@
     "description": "Empieza a cuidarte, nosotros te acompañamos\nGSN te ofrece un cuidado fácil y esencial de la salud.",
     "url": "https://gsn.es/",
     "ctaLabel": "Visitar la web de GSN",
-    "image": "/images/brands_gsn.jpg",
+    "image": "/images/marca_gsn.jpg",
     "logo": "/images/brand-gsn-logo.png"
   },
   {
@@ -44,5 +44,30 @@
     "image": "/images/gsnfarma_medicamentos3.jpg",
     "logo": "/images/logo_gsnfarma.png",
     "gated": true
+  },
+  {
+    "name": "Esenciales",
+    "category": "Esenciales de la farmacia",
+    "description": "Catálogo transversal de productos de farmacia con más de 200 referencias de primeros auxilios, higiene, diagnóstico y cuidado personal.",
+    "url": "/docs/GSNFarma-listado-esenciales_farmacia.pdf",
+    "ctaLabel": "Ver listado de productos",
+    "image": "/images/marca_esenciales.jpg",
+    "logo": "/images/logo_esenciales.webp"
+  },
+  {
+    "name": "Ortopedia",
+    "category": "Próximamente",
+    "description": "Nueva marca especializada en ortopedia que engloba productos de autocuidado y ortopedia de movilidad.",
+    "url": "",
+    "image": "/images/marca_ortopedia.jpg",
+    "soon": true
+  },
+  {
+    "name": "Dermo",
+    "category": "Próximamente",
+    "description": "Marca farmacéutica que ofrece productos dermocosméticos con categorías para fotoproteger la piel, repararla, tratarla y cuidarla de manera específica.",
+    "url": "",
+    "image": "/images/marca_dermo.jpg",
+    "soon": true
   }
 ]
