@@ -22,6 +22,25 @@
       "headers": { "Cache-Control": "public, max-age=604800, stale-while-revalidate=86400" },
       "continue": true
     },
+    {
+      "src": "^/$",
+      "has": [{ "type": "header", "key": "accept-language", "value": "^\\s*ca(?:[-,;]|$)" }],
+      "missing": [{ "type": "header", "key": "referer", "value": "^https?://(?:www\\.)?(?:gsnfarma\\.com|newgsnfarma\\.vercel\\.app)(?:/|$)" }],
+      "status": 307,
+      "headers": { "Location": "/ca/", "Vary": "Accept-Language, Referer", "Cache-Control": "no-store" }
+    },
+    {
+      "src": "^/$",
+      "has": [{ "type": "header", "key": "accept-language", "value": "^\\s*en(?:[-,;]|$)" }],
+      "missing": [{ "type": "header", "key": "referer", "value": "^https?://(?:www\\.)?(?:gsnfarma\\.com|newgsnfarma\\.vercel\\.app)(?:/|$)" }],
+      "status": 307,
+      "headers": { "Location": "/en/", "Vary": "Accept-Language, Referer", "Cache-Control": "no-store" }
+    },
+    {
+      "src": "/docs/(.*)",
+      "headers": { "X-Robots-Tag": "noindex, nofollow, noarchive" },
+      "continue": true
+    },
     { "handle": "filesystem" },
     { "src": "/ca(?:/.*)?", "status": 404, "dest": "/ca/404/index.html" },
     { "src": "/en(?:/.*)?", "status": 404, "dest": "/en/404/index.html" },
