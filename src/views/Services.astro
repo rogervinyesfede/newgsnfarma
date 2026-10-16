@@ -30,16 +30,16 @@ const serviceMeta = [
 ];
 const services = c.services.map((s, i) => ({ ...s, ...serviceMeta[i], comingSoon: servicesComingSoon[i] }));
 
-// Capacidad productiva: dades del bloc (icona, tipus d'envàs i unitats anuals; el nombre es formata segons l'idioma).
+// Capacidad productiva: dades del bloc (icona i milions d'unitats/any per tipus d'envàs; el nom del tipus és a services.ts i el nombre es formata segons l'idioma).
 const capacityData = [
-  { value: 22000000, icon: '<circle cx="12" cy="12" r="8"></circle>' },
-  { value: 22000000, icon: '<rect x="4" y="9" width="16" height="6" rx="3"></rect><path d="M12 9v6" stroke-linecap="round"></path>' },
-  { value: 660000, icon: '<path d="M9 3h6v3.5l2 3V21H7V9.5l2-3V3z" stroke-linecap="round" stroke-linejoin="round"></path><path d="M7 13h10" stroke-linecap="round"></path>' },
-  { value: 350000, icon: '<path d="M6 8c0-2.5 2-4.5 6-4.5s6 2 6 4.5v11a2 2 0 01-2 2H8a2 2 0 01-2-2V8z" stroke-linecap="round" stroke-linejoin="round"></path><path d="M9 3.5v3M15 3.5v3" stroke-linecap="round"></path>' },
-  { value: 2200000, icon: '<rect x="3" y="4" width="18" height="16" rx="1"></rect><path d="M3 10h18M9 4v16M15 4v16"></path>' },
-  { value: 700000, icon: '<path d="M3 8l9-5 9 5-9 5-9-5z" stroke-linecap="round" stroke-linejoin="round"></path><path d="M3 8v8l9 5 9-5V8" stroke-linecap="round" stroke-linejoin="round"></path>' },
+  { value: 275, icon: '<circle cx="12" cy="12" r="8"></circle>' },
+  { value: 275, icon: '<rect x="4" y="9" width="16" height="6" rx="3"></rect><path d="M12 9v6" stroke-linecap="round"></path>' },
+  { value: 7.5, icon: '<path d="M9 3h6v3.5l2 3V21H7V9.5l2-3V3z" stroke-linecap="round" stroke-linejoin="round"></path><path d="M7 13h10" stroke-linecap="round"></path>' },
+  { value: 4.25, icon: '<path d="M6 8c0-2.5 2-4.5 6-4.5s6 2 6 4.5v11a2 2 0 01-2 2H8a2 2 0 01-2-2V8z" stroke-linecap="round" stroke-linejoin="round"></path><path d="M9 3.5v3M15 3.5v3" stroke-linecap="round"></path>' },
+  { value: 12.5, icon: '<rect x="3" y="4" width="18" height="16" rx="1"></rect><path d="M3 10h18M9 4v16M15 4v16"></path>' },
+  { value: 6.75, icon: '<path d="M3 8l9-5 9 5-9 5-9-5z" stroke-linecap="round" stroke-linejoin="round"></path><path d="M3 8v8l9 5 9-5V8" stroke-linecap="round" stroke-linejoin="round"></path>' },
 ];
-const nf = new Intl.NumberFormat(LOCALE[lang], { useGrouping: true });
+const nf = new Intl.NumberFormat(LOCALE[lang], { maximumFractionDigits: 2 });
 const capacityItems = capacityData.map((d, i) => ({ title: c.capacity.types[i], value: nf.format(d.value), icon: d.icon }));
 
 const lab = { ...c.lab, img: '/images/gsn_farma_lab_mb.jpg' };
@@ -90,11 +90,10 @@ const chipsMobile = c.chips.map((t, i) => ({ t, href: `#${chipIds[i]}-m` }));
           <li>
             <span class="sp-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" set:html={item.icon}></svg></span>
             <span class="sp-rows__name">{item.title}<small>{c.capacity.unit}</small></span>
-            <strong>{item.value}</strong>
+            <strong>{item.value}<small>{c.capacity.millions}</small></strong>
           </li>
         ))}
       </ul>
-      {c.capacity.note && <p class="sp-panel__note">{c.capacity.note}</p>}
     </div>
   </SpPlanta>
 
@@ -159,12 +158,11 @@ const chipsMobile = c.chips.map((t, i) => ({ t, href: `#${chipIds[i]}-m` }));
             <div class="qd-pa__col">
               <span class="qd-pa__icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" set:html={item.icon}></svg></span>
               <span class="qd-pa__type">{item.title}</span>
-              <strong>{item.value}</strong>
+              <strong>{item.value}<small>{c.capacity.millions}</small></strong>
               <span class="qd-pa__unit">{c.capacity.unit}</span>
             </div>
           ))}
         </div>
-        {c.capacity.note && <p class="qd-pa__note">{c.capacity.note}</p>}
       </div>
     </div>
   </section>

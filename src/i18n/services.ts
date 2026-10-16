@@ -32,7 +32,7 @@ const es = {
   capacity: {
     title: 'Capacidad productiva:',
     unit: 'uds./año',
-    note: 'Capacidad operando con 1 turno al día. Capacidades estimadas para producción estándar; pueden variar según la composición y los requerimientos del producto.',
+    millions: 'millones',
     types: ['Comprimidos', 'Cápsulas', 'Botes pildoreros', 'Doypacks', 'Blísteres', 'Estuches de blísteres'],
   },
   lab: {
@@ -76,7 +76,7 @@ const ca: typeof es = {
   capacity: {
     title: 'Capacitat productiva:',
     unit: 'uds./any',
-    note: 'Capacitat operant amb 1 torn al dia. Capacitats estimades per a producció estàndard; poden variar segons la composició i els requeriments del producte.',
+    millions: 'milions',
     types: ['Comprimits', 'Càpsules', 'Pots pastiller', 'Doypacks', 'Blísters', 'Estoigs de blísters'],
   },
   lab: {
@@ -151,7 +151,7 @@ const en: typeof es = {
   capacity: {
     title: 'Production capacity:',
     unit: 'units/year',
-    note: "Capacity based on one shift per day. Estimated capacities for standard production; they may vary depending on the product's composition and requirements.",
+    millions: 'million',
     types: ['Tablets', 'Capsules', 'Pill bottles', 'Doypacks', 'Blisters', 'Blister cartons'],
   },
   lab: {

@@ -4,7 +4,7 @@
 @media (min-width: 900px) {
   .qd-pa {
     scroll-margin-top: var(--header-height);
-    padding: 72px 0 104px;
+    padding: 72px 0;
     background: var(--qd-grey);
   }
 
@@ -88,9 +88,18 @@
 
   .qd-pa__col strong {
     color: var(--qd-cyan-dark);
-    font-size: 28px;
+    font-size: 36px;
     font-weight: 800;
     line-height: 1.1;
+    white-space: nowrap;
+  }
+
+  /* «millones» al costat de la xifra */
+  .qd-pa__col strong small {
+    margin-left: 6px;
+    color: var(--qd-navy);
+    font-size: 16px;
+    font-weight: 700;
   }
 
   .qd-pa__unit {
@@ -105,7 +114,7 @@
     }
   }
 
-  /* Capacitat productiva: les 6 columnes (xifres de fins a 22.000.000) no hi caben per sota de 1140px; es posen en 3 + 3 */
+  /* Capacitat productiva: les 6 columnes (xifra gran + «millones») no hi caben per sota de 1140px; es posen en 3 + 3 */
   @media (max-width: 1139px) {
     .qd-pa__cols {
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -261,17 +270,5 @@
     .qd-sf--rev .qd-sf__photo {
       order: 0;
     }
-  }
-}
-
-/* Nota sota la capacitat productiva (petita, en gris) */
-@media (min-width: 900px) {
-  .qd .qd-pa__note {
-    margin: 24px 0 0;
-    font-size: 13px;
-    line-height: 1.5;
-    color: #6b6b6b;
-    font-style: italic;
-    text-align: center;
   }
 }
