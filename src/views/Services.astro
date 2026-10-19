@@ -213,27 +213,13 @@ const chipsMobile = c.chips.map((t, i) => ({ t, href: `#${chipIds[i]}-m` }));
 
 
 
-  {/* ¿Quieres saber más?, versió DESKTOP (>=900px): banda de foto amb degradat navy, marges rectes i text centrat. A mòbil s'amaga i el substitueix .sp-ct2. */}
+  {/* ¿Quieres saber más?, versió DESKTOP (>=900px): banda de foto amb degradat navy, marges rectes i text centrat. A mòbil s'amaga i el substitueix SpContactBand. */}
 
   <QdContact text={c.contactText} />
 
 
-  {/* ¿Quieres saber más?, versió MÒBIL (<900px): peça independent (foto + enllaç); a desktop s'amaga. */}
-  <div class="sp sp-tag">Actual · ¿Quieres saber más? (original)</div>
-  <section class="sp sp--navy sp-ct2">
-    <div class="sp-ct2__bg" aria-hidden="true"></div>
-    <div class="sp-ct2__body">
-      <h2>{ui[lang].contactBand.title}</h2>
-      <p>{c.contactText}</p>
-      <a href={pathFor('contact', lang)} class="sp-link">{ui[lang].contactBand.label}<span aria-hidden="true">›</span></a>
-    </div>
-  </section>
-
-  {/* PROPOSTA (temporal, només mòbil): mateix estil que el ¿Hablamos? de la Home (centrat, botó en píndola, cantonades arrodonides). */}
-  <div class="sp sp-tag">Proposta A · centrat, amb el CTA encerclat (botó)</div>
+  {/* ¿Quieres saber más?, versió MÒBIL (<900px): banda centrada amb el CTA en enllaç de text (SpContactBand). A desktop s'amaga. */}
   <SpContactBand title={ui[lang].contactBand.title} text={c.contactText} href={pathFor('contact', lang)} label={ui[lang].contactBand.label} />
-  <div class="sp sp-tag">Proposta B · centrat, amb el CTA sense encerclar (enllaç)</div>
-  <SpContactBand title={ui[lang].contactBand.title} text={c.contactText} href={pathFor('contact', lang)} label={ui[lang].contactBand.label} variant="link" />
 
   <script>
     // Índex de serveis a mòbil: si l'enllaç apunta a un ítem de l'acordió, l'obre i hi va.

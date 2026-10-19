@@ -1000,19 +1000,8 @@
   }
 }
 
-/* PROPOSTA (temporal, Home mòbil): ¿Hablamos? centrat amb botó en píndola (com a desktop) i cantonades superiors arrodonides */
+/* Banda de contacte de mòbil (SpContactBand.astro; Home, Servicios i Nuestras marcas): centrada, CTA en enllaç de text i cantonades superiors arrodonides */
 @media (max-width: 899px) {
-  .sp.sp-tag {
-    padding: 10px var(--space-4);
-    background: #fff3b0;
-    color: #5c4a00;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-align: center;
-    text-transform: uppercase;
-  }
-
   .sp-ct3 {
     position: relative;
     overflow: hidden;
@@ -1063,13 +1052,11 @@
   .sp-ct3__btn {
     display: inline-flex;
     align-items: baseline;
-    gap: 8px;
-    margin-top: 8px;
-    padding: 13px 28px;
-    border: 2px solid #fff;
-    border-radius: 999px;
+    gap: 6px;
+    margin-top: 4px;
+    padding: 4px 0;
     color: #fff;
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 700;
     line-height: 1.2;
     text-decoration: none;
@@ -1077,14 +1064,5 @@
 
   .sp-ct3__btn span {
     font-weight: 400;
-  }
-
-  /* Variant sense encerclar: enllaç en text centrat amb «›» */
-  .sp-ct3__btn--link {
-    margin-top: 4px;
-    padding: 4px 0;
-    border: 0;
-    border-radius: 0;
-    font-size: 17px;
   }
 }
