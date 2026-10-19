@@ -15,6 +15,8 @@ export interface CookieCopy {
   /** Nom accessible del bàner (no es veu: el bàner no porta títol visible). */
   bannerLabel: string;
   bannerBody: string;
+  /** Versió curta del text del bàner per a mòbil (acaba abans de l'enllaç a la política). */
+  bannerBodyMobile: string;
   policyLinkLabel: string;
   acceptLabel: string;
   rejectLabel: string;
@@ -37,6 +39,8 @@ export const cookieCopy: Record<Lang, CookieCopy> = {
     bannerLabel: 'Cookies',
     bannerBody:
       'Usamos cookies propias y de terceros para analizar la navegación del usuario y asegurar el correcto funcionamiento de la web. Puedes aceptarlas, rechazarlas o configurarlas. Más información en nuestra',
+    bannerBodyMobile:
+      'Usamos cookies propias y de terceros para analizar la navegación del usuario y asegurar el correcto funcionamiento de la web. Más información en',
     policyLinkLabel: 'Política de cookies',
     acceptLabel: 'Aceptar',
     rejectLabel: 'Rechazar',
@@ -59,6 +63,8 @@ export const cookieCopy: Record<Lang, CookieCopy> = {
     bannerLabel: 'Galetes',
     bannerBody:
       'Fem servir galetes pròpies i de tercers per analitzar la navegació de l’usuari i assegurar el correcte funcionament del web. Pots acceptar-les, rebutjar-les o configurar-les. Més informació a la nostra',
+    bannerBodyMobile:
+      'Fem servir galetes pròpies i de tercers per analitzar la navegació de l’usuari i assegurar el correcte funcionament del web. Més informació a',
     policyLinkLabel: 'Política de cookies',
     acceptLabel: 'Acceptar',
     rejectLabel: 'Rebutjar',
@@ -81,6 +87,8 @@ export const cookieCopy: Record<Lang, CookieCopy> = {
     bannerLabel: 'Cookies',
     bannerBody:
       'We use our own and third-party cookies to analyse user browsing and ensure the website works properly. You can accept them, reject them or configure them. More information in our',
+    bannerBodyMobile:
+      'We use our own and third-party cookies to analyse user browsing and ensure the website works properly. More information in',
     policyLinkLabel: 'Cookie policy',
     acceptLabel: 'Accept',
     rejectLabel: 'Reject',

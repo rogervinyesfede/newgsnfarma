@@ -49,6 +49,8 @@ const es = {
   contact: {
     title: '¿Hablamos?',
     text: 'En GSN Farma Labs Group trabajamos como partner estratégico para impulsar soluciones en salud con visión a largo plazo.',
+    // Mòbil: sense «En GSN Farma Labs Group».
+    textMobile: 'Trabajamos como partner estratégico para impulsar soluciones en salud con visión a largo plazo.',
   },
 };
 
@@ -101,6 +103,7 @@ const ca: typeof es = {
   contact: {
     title: 'Parlem?',
     text: 'A GSN Farma Labs Group treballem com a partner estratègic per impulsar solucions en salut amb visió a llarg termini.',
+    textMobile: 'Treballem com a partner estratègic per impulsar solucions en salut amb visió a llarg termini.',
   },
 };
 
@@ -153,6 +156,7 @@ const en: typeof es = {
   contact: {
     title: 'Shall we talk?',
     text: 'At GSN Farma Labs Group we work as a strategic partner to drive health solutions with a long-term vision.',
+    textMobile: 'We work as a strategic partner to drive health solutions with a long-term vision.',
   },
 };
 

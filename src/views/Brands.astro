@@ -11,6 +11,7 @@ import '../styles/pages/desktop-page-header.css';
 import '../styles/pages/marcas-desktop-proposals.css';
 import '../styles/pages/mobile-proposals.css';
 import QdContact from '../components/QdContact.astro';
+import SpContactBand from '../components/SpContactBand.astro';
 import BrandsGrid from '../components/BrandsGrid.astro';
 import BrandsGridMobile from '../components/BrandsGridMobile.astro';
 import { detectPage, pathFor } from '../i18n/config';
@@ -161,6 +162,10 @@ const headerSrcset = [
 
   {/* ¿Quieres saber más?, versió DESKTOP (>=900px): bloc de contacte compartit (veure QdContact.astro). */}
   <QdContact text={c.contactText} />
+
+  {/* PROPOSTA (temporal, només mòbil): a mòbil no hi havia el bloc «¿Quieres saber más?» al final; mateix estil que el ¿Hablamos? de la Home. */}
+  <div class="sp sp-tag">Proposta · ¿Quieres saber más? al final de Nuestras marcas (mòbil)</div>
+  <SpContactBand title={ui[lang].contactBand.title} text={c.contactText} href={pathFor('contact', lang)} label={ui[lang].contactBand.label} />
 
   {/* ===== Popup d'accés restringit (marques amb "gated": true, ex. Medicamentos) ===== */}
 

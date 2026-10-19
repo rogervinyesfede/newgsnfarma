@@ -261,21 +261,54 @@
   }
 }
 
+/* Text del bàner: a mòbil es mostra la versió curta (cookies.ts, bannerBodyMobile) */
+.cc-txt-m {
+  display: none;
+}
+
+/* Mòbil: bàner el més baix possible: text curt, tres botons en una sola fila (Configurar · Rechazar · Aceptar) i menys espais. */
 @media (max-width: 640px) {
+  .cc-txt-d {
+    display: none;
+  }
+  .cc-txt-m {
+    display: inline;
+  }
+  .cc-banner {
+    padding: 18px 0 14px;
+  }
+  .cc-banner__inner {
+    gap: 10px;
+  }
+  .cc-banner__copy {
+    flex-basis: 100%;
+  }
+  .cc-banner__body {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
   .cc-banner__actions {
     width: 100%;
+    flex-wrap: nowrap;
+    gap: 8px;
+  }
+  .cc-banner__actions .cc-btn {
+    min-height: 42px;
+    padding-block: 8px;
+    font-size: 0.78rem;
+    letter-spacing: 0.01em;
   }
   .cc-banner__actions .cc-btn--accept,
   .cc-banner__actions .cc-btn--reject {
     flex: 1 1 0;
-    padding-inline: 12px;
+    padding-inline: 10px;
   }
   .cc-banner__actions .cc-btn--reject {
-    padding-inline: 13px;
+    padding-inline: 11px;
   }
   .cc-banner__actions .cc-btn--ghost {
-    flex: 1 1 100%;
-    order: 3;
+    flex: 0 0 auto;
+    padding-inline: 8px;
   }
 }
 

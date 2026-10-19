@@ -8,6 +8,7 @@ import '../styles/pages/mobile-proposals.css';
 import '../styles/pages/desktop-page-header.css';
 import '../styles/pages/home-desktop-proposals.css';
 import QdContact from '../components/QdContact.astro';
+import SpContactBand from '../components/SpContactBand.astro';
 import { detectPage, pathFor } from '../i18n/config';
 import { home } from '../i18n/home';
 import { ui } from '../i18n/ui';
@@ -122,7 +123,7 @@ const homeAreas = areas.map((a, i) => ({ ...a, panel: areaMeta[i].aboutMb }));
     <h2 set:html={oh.title}></h2>
     <span class="sp-bar" aria-hidden="true"></span>
     <img class="sp-oh__img" src="/images/one_health_gsnfarma5.jpg" alt={oh.alt} loading="lazy" />
-    <p class="sp-oh__lead">{oh.p1}</p>
+    <p>{oh.p1}</p>
     <p>{oh.p2}</p>
     <a href={href.about} class="sp-cta">{oh.cta}<span aria-hidden="true">›</span></a>
   </section>
@@ -198,14 +199,20 @@ const homeAreas = areas.map((a, i) => ({ ...a, panel: areaMeta[i].aboutMb }));
 
 
   {/* ¿Hablamos?, versió MÒBIL (<900px): mateixa peça que a Servicios i Internacional (foto + enllaç); a desktop s'amaga. */}
+  <div class="sp sp-tag">Actual · ¿Hablamos? (original)</div>
   <section class="sp sp--navy sp-ct2">
     <div class="sp-ct2__bg" aria-hidden="true"></div>
     <div class="sp-ct2__body">
       <h2>{c.contact.title}</h2>
-      <p>{c.contact.text}</p>
+      <p>{c.contact.textMobile}</p>
       <a href={href.contact} class="sp-link">{ui[lang].contactBand.label}<span aria-hidden="true">›</span></a>
     </div>
   </section>
+
+  {/* PROPOSTA (temporal, només Home mòbil): ¿Hablamos? centrat, amb la línia cian i el botó en píndola de desktop, cantonades superiors de 28px
+       i un degradat més fosc perquè el rètol de la façana no interfereixi amb el text. L'original (.sp-ct2) es manté a sobre. */}
+  <div class="sp sp-tag">Proposta · ¿Hablamos? centrat, botó en píndola i cantonades arrodonides</div>
+  <SpContactBand title={c.contact.title} text={c.contact.textMobile} href={href.contact} label={ui[lang].contactBand.label} />
 
 
   {/* Finançament (mòbil <900px): franja de mínima importància — rètol petit, textos de 13px en gris i logos de 24px als seus colors originals (no es modifiquen per requisits de publicitat de la UE). A desktop s'amaga i es veu .qd-hf. */}

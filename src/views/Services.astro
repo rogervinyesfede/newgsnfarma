@@ -11,6 +11,7 @@ import '../styles/pages/mobile-proposals.css';
 import SpPlanta from '../components/SpPlanta.astro';
 import ServHeader from '../components/ServHeader.astro';
 import QdContact from '../components/QdContact.astro';
+import SpContactBand from '../components/SpContactBand.astro';
 import { detectPage, pathFor, LOCALE } from '../i18n/config';
 import { ui } from '../i18n/ui';
 import { servicesCopy, servicesComingSoon } from '../i18n/services';
@@ -218,6 +219,7 @@ const chipsMobile = c.chips.map((t, i) => ({ t, href: `#${chipIds[i]}-m` }));
 
 
   {/* ¿Quieres saber más?, versió MÒBIL (<900px): peça independent (foto + enllaç); a desktop s'amaga. */}
+  <div class="sp sp-tag">Actual · ¿Quieres saber más? (original)</div>
   <section class="sp sp--navy sp-ct2">
     <div class="sp-ct2__bg" aria-hidden="true"></div>
     <div class="sp-ct2__body">
@@ -226,6 +228,10 @@ const chipsMobile = c.chips.map((t, i) => ({ t, href: `#${chipIds[i]}-m` }));
       <a href={pathFor('contact', lang)} class="sp-link">{ui[lang].contactBand.label}<span aria-hidden="true">›</span></a>
     </div>
   </section>
+
+  {/* PROPOSTA (temporal, només mòbil): mateix estil que el ¿Hablamos? de la Home (centrat, botó en píndola, cantonades arrodonides). */}
+  <div class="sp sp-tag">Proposta · ¿Quieres saber más? centrat, botó en píndola i cantonades arrodonides</div>
+  <SpContactBand title={ui[lang].contactBand.title} text={c.contactText} href={pathFor('contact', lang)} label={ui[lang].contactBand.label} />
 
   <script>
     // Índex de serveis a mòbil: si l'enllaç apunta a un ítem de l'acordió, l'obre i hi va.

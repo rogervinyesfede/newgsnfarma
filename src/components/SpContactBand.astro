@@ -1,0 +1,23 @@
+---
+// Banda de contacte de MÒBIL (<900px), proposta: contingut centrat, línia cian, botó en píndola (com el de desktop),
+// cantonades superiors de 28px i foto de l'edifici amb un degradat fosc. A desktop s'amaga (cada pàgina té el seu <QdContact>).
+// Estils: .sp-ct3* a styles/pages/mobile-proposals.css.
+interface Props {
+  title: string;
+  text: string;
+  href: string;
+  label: string;
+}
+
+const { title, text, href, label } = Astro.props;
+---
+
+<section class="sp sp--navy sp-ct3">
+  <div class="sp-ct3__bg" aria-hidden="true"></div>
+  <div class="sp-ct3__body">
+    <span class="sp-ct3__bar" aria-hidden="true"></span>
+    <h2>{title}</h2>
+    <p>{text}</p>
+    <a href={href} class="sp-ct3__btn">{label}<span aria-hidden="true">›</span></a>
+  </div>
+</section>
