@@ -12,7 +12,8 @@ export const GTM_ID: string = (import.meta.env.PUBLIC_GTM_ID ?? '').trim();
 export const CONSENT_ENABLED: boolean = GTM_ID !== '';
 
 export interface CookieCopy {
-  bannerTitle: string;
+  /** Nom accessible del bàner (no es veu: el bàner no porta títol visible). */
+  bannerLabel: string;
   bannerBody: string;
   policyLinkLabel: string;
   acceptLabel: string;
@@ -33,9 +34,9 @@ export interface CookieCopy {
 
 export const cookieCopy: Record<Lang, CookieCopy> = {
   es: {
-    bannerTitle: 'Utilizamos cookies',
+    bannerLabel: 'Cookies',
     bannerBody:
-      'Usamos cookies técnicas necesarias para el funcionamiento de la web. Solo con tu permiso usaremos cookies analíticas de terceros (Google) para medir el uso de la web y mejorarla. Puedes aceptarlas, rechazarlas o configurarlas.',
+      'Usamos cookies propias y de terceros para analizar la navegación del usuario y asegurar el correcto funcionamiento de la web. Puedes aceptarlas, rechazarlas o configurarlas. Más información en nuestra',
     policyLinkLabel: 'Política de cookies',
     acceptLabel: 'Aceptar',
     rejectLabel: 'Rechazar',
@@ -44,20 +45,20 @@ export const cookieCopy: Record<Lang, CookieCopy> = {
     closeLabel: 'Cerrar',
     settingsTitle: 'Configuración de cookies',
     settingsIntro:
-      'Elige qué cookies permites. Puedes cambiar tu decisión en cualquier momento desde el enlace «Configuración de cookies» del pie de página.',
+      'Elige qué cookies quieres permitir. Puedes cambiar tu decisión en cualquier momento desde “Configuración de cookies”, en el pie de página.',
     necessaryTitle: 'Técnicas y necesarias',
     necessaryDescription:
-      'Imprescindibles para que la web funcione y para recordar tu decisión sobre las cookies. No se pueden desactivar.',
+      'Son imprescindibles para el funcionamiento de la web. Garantizan funcionalidades básicas y características de seguridad. No almacenan ninguna información personal.',
     alwaysOnLabel: 'Siempre activas',
-    analyticsTitle: 'Analíticas (Google)',
+    analyticsTitle: 'Analíticas',
     analyticsDescription:
-      'Nos permiten medir cómo se usa la web para mejorarla. Instalan cookies de terceros y solo se cargan si las aceptas.',
+      'Se utilizan para comprender cómo los visitantes interactúan con la web, para poder mejorarla. Instalan cookies de terceros.',
     settingsLinkLabel: 'Configuración de cookies',
   },
   ca: {
-    bannerTitle: 'Utilitzem galetes',
+    bannerLabel: 'Galetes',
     bannerBody:
-      'Fem servir galetes tècniques necessàries per al funcionament del web. Només amb el teu permís farem servir galetes analítiques de tercers (Google) per mesurar l’ús del web i millorar-lo. Pots acceptar-les, rebutjar-les o configurar-les.',
+      'Fem servir galetes pròpies i de tercers per analitzar la navegació de l’usuari i assegurar el correcte funcionament del web. Pots acceptar-les, rebutjar-les o configurar-les. Més informació a la nostra',
     policyLinkLabel: 'Política de cookies',
     acceptLabel: 'Acceptar',
     rejectLabel: 'Rebutjar',
@@ -66,20 +67,20 @@ export const cookieCopy: Record<Lang, CookieCopy> = {
     closeLabel: 'Tancar',
     settingsTitle: 'Configuració de cookies',
     settingsIntro:
-      'Tria quines galetes permets. Pots canviar la teva decisió en qualsevol moment des de l’enllaç «Configuració de cookies» del peu de pàgina.',
+      'Tria quines galetes vols permetre. Pots canviar la teva decisió en qualsevol moment des de “Configuració de cookies”, al peu de pàgina.',
     necessaryTitle: 'Tècniques i necessàries',
     necessaryDescription:
-      'Imprescindibles perquè el web funcioni i per recordar la teva decisió sobre les galetes. No es poden desactivar.',
+      'Són imprescindibles per al funcionament del web. Garanteixen funcionalitats bàsiques i característiques de seguretat. No emmagatzemen cap informació personal.',
     alwaysOnLabel: 'Sempre actives',
-    analyticsTitle: 'Analítiques (Google)',
+    analyticsTitle: 'Analítiques',
     analyticsDescription:
-      'Ens permeten mesurar com s’usa el web per millorar-lo. Instal·len galetes de tercers i només es carreguen si les acceptes.',
+      'S’utilitzen per comprendre com interactuen els visitants amb el web, per poder-lo millorar. Instal·len galetes de tercers.',
     settingsLinkLabel: 'Configuració de cookies',
   },
   en: {
-    bannerTitle: 'We use cookies',
+    bannerLabel: 'Cookies',
     bannerBody:
-      'We use technical cookies that are necessary for the website to work. Only with your permission will we use third-party analytics cookies (Google) to measure how the website is used and improve it. You can accept, reject or configure them.',
+      'We use our own and third-party cookies to analyse user browsing and ensure the website works properly. You can accept them, reject them or configure them. More information in our',
     policyLinkLabel: 'Cookie policy',
     acceptLabel: 'Accept',
     rejectLabel: 'Reject',
@@ -88,14 +89,14 @@ export const cookieCopy: Record<Lang, CookieCopy> = {
     closeLabel: 'Close',
     settingsTitle: 'Cookie settings',
     settingsIntro:
-      'Choose which cookies you allow. You can change your decision at any time from the “Cookie settings” link in the footer.',
+      'Choose which cookies you want to allow. You can change your decision at any time from “Cookie settings”, in the footer.',
     necessaryTitle: 'Technical and necessary',
     necessaryDescription:
-      'Essential for the website to work and to remember your cookie choice. They cannot be switched off.',
+      'They are essential for the website to work. They ensure basic functionality and security features. They do not store any personal information.',
     alwaysOnLabel: 'Always on',
-    analyticsTitle: 'Analytics (Google)',
+    analyticsTitle: 'Analytics',
     analyticsDescription:
-      'They let us measure how the website is used so we can improve it. They set third-party cookies and are only loaded if you accept them.',
+      'They are used to understand how visitors interact with the website so that we can improve it. They set third-party cookies.',
     settingsLinkLabel: 'Cookie settings',
   },
 };

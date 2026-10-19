@@ -14,6 +14,7 @@
   padding: 16px 0;
   background: #fff;
   border-top: 1px solid var(--color-section-grey);
+  border-radius: 28px 28px 0 0;
   box-shadow: 0 -6px 24px rgba(27, 36, 53, 0.16);
   animation: cc-in 0.24s ease;
 }
@@ -31,13 +32,6 @@
 .cc-banner__copy {
   flex: 1 1 360px;
   min-width: 0;
-}
-
-.cc-banner__title {
-  margin: 0 0 4px;
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--color-primary);
 }
 
 .cc-banner__body {
@@ -65,7 +59,7 @@
   min-height: 44px;
   padding: 10px 24px;
   border: 2px solid transparent;
-  border-radius: 0;
+  border-radius: 999px; /* píndola, com els altres CTAs de la web */
   font: inherit;
   font-size: 0.9rem;
   font-weight: 600;
@@ -88,16 +82,21 @@
   outline-offset: 2px;
 }
 
+/* Aceptar: blau de l'etiqueta «Próximamente» (--color-accent-dark; text blanc, contrast 4,5:1). */
 .cc-btn--accept {
-  background: var(--color-accent);
-  border-color: var(--color-accent);
-  color: var(--color-primary);
+  background: var(--color-accent-dark);
+  border-color: var(--color-accent-dark);
+  color: #fff;
 }
 
+/* Rechazar: fons blanc, vora i text negres. La vora és d'1px; el padding en suma 1 més per costat perquè el botó
+   tingui exactament la mateixa mida que Aceptar (vora de 2px). */
 .cc-btn--reject {
-  background: var(--color-primary);
-  border-color: var(--color-primary);
-  color: #fff;
+  padding: 11px 25px;
+  border-width: 1px;
+  background: #fff;
+  border-color: #000;
+  color: #000;
 }
 
 .cc-btn--ghost {
@@ -127,6 +126,7 @@
   overflow-y: auto;
   background: #fff;
   padding: clamp(22px, 3.5vw, 32px);
+  border-radius: 28px;
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
 }
 
@@ -139,6 +139,7 @@
   display: grid;
   place-items: center;
   border: 0;
+  border-radius: 50%;
   background: var(--color-primary-light);
   color: var(--color-primary);
   font-size: 1.5rem;
@@ -268,6 +269,9 @@
   .cc-banner__actions .cc-btn--reject {
     flex: 1 1 0;
     padding-inline: 12px;
+  }
+  .cc-banner__actions .cc-btn--reject {
+    padding-inline: 13px;
   }
   .cc-banner__actions .cc-btn--ghost {
     flex: 1 1 100%;

@@ -14,12 +14,11 @@ const policyHref = pathFor('cookies', lang);
 {
   CONSENT_ENABLED && (
     <div id="gsn-cc" data-gtm={GTM_ID} data-lang={lang}>
-      <div class="cc-banner" id="gsn-cc-banner" role="dialog" aria-modal="false" aria-labelledby="gsn-cc-banner-title" hidden>
+      <div class="cc-banner" id="gsn-cc-banner" role="dialog" aria-modal="false" aria-label={c.bannerLabel} hidden>
         <div class="cc-banner__inner">
           <div class="cc-banner__copy">
-            <h2 class="cc-banner__title" id="gsn-cc-banner-title">{c.bannerTitle}</h2>
             <p class="cc-banner__body">
-              {c.bannerBody}{" "}<a href={policyHref} class="cc-link">{c.policyLinkLabel}</a>
+              {c.bannerBody}{" "}<a href={policyHref} class="cc-link">{c.policyLinkLabel}</a>.
             </p>
           </div>
           <div class="cc-banner__actions">
