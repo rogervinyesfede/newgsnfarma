@@ -1078,4 +1078,13 @@
   .sp-ct3__btn span {
     font-weight: 400;
   }
+
+  /* Variant sense encerclar: enllaç en text centrat amb «›» */
+  .sp-ct3__btn--link {
+    margin-top: 4px;
+    padding: 4px 0;
+    border: 0;
+    border-radius: 0;
+    font-size: 17px;
+  }
 }

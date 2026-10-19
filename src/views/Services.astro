@@ -230,8 +230,10 @@ const chipsMobile = c.chips.map((t, i) => ({ t, href: `#${chipIds[i]}-m` }));
   </section>
 
   {/* PROPOSTA (temporal, només mòbil): mateix estil que el ¿Hablamos? de la Home (centrat, botó en píndola, cantonades arrodonides). */}
-  <div class="sp sp-tag">Proposta · ¿Quieres saber más? centrat, botó en píndola i cantonades arrodonides</div>
+  <div class="sp sp-tag">Proposta A · centrat, amb el CTA encerclat (botó)</div>
   <SpContactBand title={ui[lang].contactBand.title} text={c.contactText} href={pathFor('contact', lang)} label={ui[lang].contactBand.label} />
+  <div class="sp sp-tag">Proposta B · centrat, amb el CTA sense encerclar (enllaç)</div>
+  <SpContactBand title={ui[lang].contactBand.title} text={c.contactText} href={pathFor('contact', lang)} label={ui[lang].contactBand.label} variant="link" />
 
   <script>
     // Índex de serveis a mòbil: si l'enllaç apunta a un ítem de l'acordió, l'obre i hi va.

@@ -199,20 +199,12 @@ const homeAreas = areas.map((a, i) => ({ ...a, panel: areaMeta[i].aboutMb }));
 
 
   {/* ¿Hablamos?, versió MÒBIL (<900px): mateixa peça que a Servicios i Internacional (foto + enllaç); a desktop s'amaga. */}
-  <div class="sp sp-tag">Actual · ¿Hablamos? (original)</div>
-  <section class="sp sp--navy sp-ct2">
-    <div class="sp-ct2__bg" aria-hidden="true"></div>
-    <div class="sp-ct2__body">
-      <h2>{c.contact.title}</h2>
-      <p>{c.contact.textMobile}</p>
-      <a href={href.contact} class="sp-link">{ui[lang].contactBand.label}<span aria-hidden="true">›</span></a>
-    </div>
-  </section>
-
-  {/* PROPOSTA (temporal, només Home mòbil): ¿Hablamos? centrat, amb la línia cian i el botó en píndola de desktop, cantonades superiors de 28px
-       i un degradat més fosc perquè el rètol de la façana no interfereixi amb el text. L'original (.sp-ct2) es manté a sobre. */}
-  <div class="sp sp-tag">Proposta · ¿Hablamos? centrat, botó en píndola i cantonades arrodonides</div>
+  {/* PROPOSTES (temporals, només Home mòbil): ¿Hablamos? centrat, amb la línia cian, cantonades superiors de 28px i un degradat fosc perquè el rètol
+       de la façana no interfereixi amb el text. A: CTA en botó encerclat (píndola, com a desktop). B: CTA en enllaç de text, sense encerclar. */}
+  <div class="sp sp-tag">Proposta A · ¿Hablamos? amb el CTA encerclat (botó)</div>
   <SpContactBand title={c.contact.title} text={c.contact.textMobile} href={href.contact} label={ui[lang].contactBand.label} />
+  <div class="sp sp-tag">Proposta B · ¿Hablamos? amb el CTA sense encerclar (enllaç)</div>
+  <SpContactBand title={c.contact.title} text={c.contact.textMobile} href={href.contact} label={ui[lang].contactBand.label} variant="link" />
 
 
   {/* Finançament (mòbil <900px): franja de mínima importància — rètol petit, textos de 13px en gris i logos de 24px als seus colors originals (no es modifiquen per requisits de publicitat de la UE). A desktop s'amaga i es veu .qd-hf. */}
