@@ -1,11 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactForm from '../components/ContactForm.astro';
+import PageHeaderCentered from '../components/PageHeaderCentered.astro';
+import PageHeaderMobile from '../components/PageHeaderMobile.astro';
 import '../styles/pages/inner-page.css';
 import '../styles/pages/block3-compare.css';
 import '../styles/pages/subpage-hero-compare.css';
 import '../styles/pages/contact-form-mobile.css';
-import '../styles/pages/mobile-hero.css';
 import '../styles/pages/desktop-page-header.css';
 import '../styles/pages/mobile-proposals.css';
 import '../styles/pages/contacto-desktop-proposals.css';
@@ -29,42 +30,11 @@ const contactInfo = [
 ---
 
 <BaseLayout title={c.title} description={c.description}>
-  <section class="mhp mhp--contact">
-    <div class="mhp__img"><picture>
-      <source media="(max-width: 899px)" srcset="/images/gsn_farma_offices_hall2_hm.webp" type="image/webp" />
-      <source media="(max-width: 899px)" srcset="/images/gsn_farma_offices_hall2_hm.jpg" />
-      <img src="/images/gsn_farma_offices_hall3.jpg" alt="" loading="eager" fetchpriority="high" />
-    </picture></div>
-    <div class="mhp__sheet">
-      <div class="mhp__title" role="heading" aria-level="1">{c.header.title}</div>
-      <span class="mhp__bar" aria-hidden="true"></span>
-      <p class="mhp__sub">{c.header.sub}</p>
-    </div>
-  </section>
+  {/* Capçalera de MÒBIL (<900px): foto de 220px SENSE degradat i fulla blanca arrodonida amb el títol, la barra cian i el subtítol, a l'esquerra (PageHeaderMobile.astro; mateix text que la proposta de desktop). A desktop s'amaga. */}
+  <PageHeaderMobile title={c.header.title} text={c.header.sub} img="/images/gsn_farma_offices_hall2_hm" />
 
-  {/* Capçalera de DESKTOP (>=900px): component compartit (foto amb degradat + fulla amb títol, subtítol, text i, si cal, una ranura). A mòbil s'amaga i el substitueix .mhp. */}
-
-  <section class="qd qd-u qd-u--page">
-    <div class="qd-u__photo">
-      <picture>
-        <source media="(max-width: 899px)" srcset="/images/gsn_farma_offices_hall2_hm.webp" type="image/webp" />
-        <source media="(max-width: 899px)" srcset="/images/gsn_farma_offices_hall2_hm.jpg" />
-        <img src="/images/gsn_farma_offices_hall3.jpg" alt="" loading="eager" fetchpriority="high" style="object-position: center 92%" />
-      </picture>
-    </div>
-    <div class="qd-u__sheet">
-      <div class="qd-wrap qd-u__grid">
-        <div class="qd-u__head">
-          <h1>{c.header.title}</h1>
-          <span class="qd-bar" aria-hidden="true"></span>
-        </div>
-        <div class="qd-u__body">
-          <h2>{c.header.h2}</h2>
-          <p>{c.header.sub}</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  {/* Capçalera de DESKTOP (>=900px), definitiva: com la de Quiénes somos (PageHeaderCentered.astro): foto sense degradat i fulla blanca amb la barra cian, el títol (H1) i el subtítol, centrats. A mòbil s'amaga i el substitueix PageHeaderMobile. */}
+  <PageHeaderCentered img="/images/gsn_farma_offices_hall3.jpg" pos={92} title={c.header.title} subtitle={c.header.sub} />
 
   {/* Dades de contacte i formulari, versió DESKTOP (>=900px): dades alineades amb el títol i formulari en una targeta grisa arrodonida que arriba fins al marge dret de la capçalera. A mòbil s'amaga i el substitueixen .sp-cf i .sp-cd. */}
   <section class="qd qd-cf">

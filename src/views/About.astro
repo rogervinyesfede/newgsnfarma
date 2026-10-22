@@ -48,7 +48,7 @@ const areasIntroMix = c.areasIntroMix;
   <PageHeader lang={lang} />
 
   {/* ===== Capçalera, versió MÒBIL (<900px): foto de 220px sense degradat i fulla blanca arrodonida amb la barra cian, el títol i el paràgraf a l'esquerra (veure PageHeaderMobile.astro). A desktop s'amaga i es veu PageHeader. ===== */}
-  <PageHeaderMobile lang={lang} />
+  <PageHeaderMobile title={c.intro.h2} text={c.intro.p} />
 
   {/* ===== Nuestra trayectoria, versió DESKTOP (>=900px): línia de temps a tota l'amplada, amb el contingut alineat a l'esquerra (veure UnionTimeline.astro). A mòbil s'amaga i el substitueix la part «union» de QuienesMobile.astro. ===== */}
 

@@ -1,28 +1,28 @@
 ---
-// Capçalera de MÒBIL (<900px) de Quiénes somos, definitiva: foto de 220px (sense degradat) i fulla blanca arrodonida que li puja 32px, amb el títol («Grupo farmacéutico con más de 30 años…», 24/700), la barra cian a sota i el paràgraf (17/400), tot alineat a l'esquerra. El títol és l'H1 de la pàgina (ja no hi ha cap H1 ocult amb «Sumamos experiencia, sumamos salud»).
-// A desktop s'amaga i es veu PageHeader.astro. Estils: quienes-somos-header-mobile.css.
+// Capçalera de MÒBIL (<900px), definitiva (Quiénes somos i Internacional): foto de 220px (sense degradat) i fulla blanca arrodonida que li puja 32px, amb el títol (H1, 24/700), la barra cian a sota i el paràgraf (17/400), tot alineat a l'esquerra.
+// Un sol títol i un sol subtítol/paràgraf. A desktop s'amaga i es veu PageHeader.astro / PageHeaderCentered.astro. Estils: quienes-somos-header-mobile.css (.qs-mph*).
+// Props: title, text i, opcionalment, img (camí de la foto SENSE extensió; es serveix en .webp i .jpg; per defecte la façana, gsn_farma_offices_building3_hm).
 import '../styles/pages/quienes-somos-header-mobile.css';
-import { about } from '../i18n/about';
 
 interface Props {
-  lang: 'es' | 'ca' | 'en';
+  title: string;
+  text: string;
+  img?: string;
 }
-const { lang } = Astro.props;
-const c = about[lang];
-const { h2, p } = c.intro;
+const { title, text, img = '/images/gsn_farma_offices_building3_hm' } = Astro.props;
 ---
 
 <section class="qs-mph">
   <div class="qs-mph__img">
     <picture>
-      <source srcset="/images/gsn_farma_offices_building3_hm.webp" type="image/webp" />
-      <source srcset="/images/gsn_farma_offices_building3_hm.jpg" />
-      <img src="/images/gsn_farma_offices_building3_hm.jpg" alt="" loading="eager" fetchpriority="high" />
+      <source srcset={`${img}.webp`} type="image/webp" />
+      <source srcset={`${img}.jpg`} />
+      <img src={`${img}.jpg`} alt="" loading="eager" fetchpriority="high" />
     </picture>
   </div>
   <div class="qs-mph__sheet">
-    <h1 class="qs-mph__title">{h2}</h1>
+    <h1 class="qs-mph__title">{title}</h1>
     <span class="qs-mph__bar" aria-hidden="true"></span>
-    <p class="qs-mph__text">{p}</p>
+    <p class="qs-mph__text" set:html={text}></p>
   </div>
 </section>

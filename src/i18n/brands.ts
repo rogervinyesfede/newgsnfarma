@@ -9,7 +9,6 @@ const es = {
     'Marcas de salud desarrolladas bajo el modelo One Health Care, especializadas en medicamentos, salud natural, salud de la mujer y salud animal.',
   header: {
     title: 'Marcas con compromiso farmacéutico',
-    sub: 'Siempre al servicio de la salud y el bienestar',
     text: 'Desarrollamos y comercializamos un portafolio de marcas propias en los ámbitos de <strong>salud natural</strong>, <strong>salud animal</strong> y <strong>medicamentos</strong>, integrando conocimiento farmacéutico, innovación y visión <strong>One Health</strong>.',
   },
   goTo: 'Ir a',
@@ -43,7 +42,6 @@ const ca: typeof es = {
     'Marques de salut desenvolupades sota el model One Health Care, especialitzades en medicaments, salut natural, salut de la dona i salut animal.',
   header: {
     title: 'Marques amb compromís farmacèutic',
-    sub: 'Sempre al servei de la salut i el benestar',
     text: 'Desenvolupem i comercialitzem un portafoli de marques pròpies en els àmbits de <strong>salut natural</strong>, <strong>salut animal</strong> i <strong>medicaments</strong>, integrant coneixement farmacèutic, innovació i visió <strong>One Health</strong>.',
   },
   goTo: 'Anar a',
@@ -77,7 +75,6 @@ const en: typeof es = {
     "Health brands developed under the One Health Care model, specialising in medicines, natural health, women's health and animal health.",
   header: {
     title: 'Brands with a pharmaceutical commitment',
-    sub: 'Always at the service of health and well-being',
     text: 'We develop and market a portfolio of own brands in the fields of <strong>natural health</strong>, <strong>animal health</strong> and <strong>medicines</strong>, integrating pharmaceutical knowledge, innovation and a <strong>One Health</strong> vision.',
   },
   goTo: 'Go to',

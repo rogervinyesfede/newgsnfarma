@@ -6,12 +6,13 @@ import '../styles/pages/subpage-hero-compare.css';
 import '../styles/pages/block2.css';
 import '../styles/pages/block3-compare.css';
 import '../styles/pages/internacional-body-compare.css';
-import '../styles/pages/mobile-hero.css';
 import '../styles/pages/desktop-page-header.css';
 import '../styles/pages/mobile-proposals.css';
 import '../styles/pages/internacional-desktop-proposals.css';
 import QdContact from '../components/QdContact.astro';
 import CatalogCards from '../components/CatalogCards.astro';
+import PageHeaderCentered from '../components/PageHeaderCentered.astro';
+import PageHeaderMobile from '../components/PageHeaderMobile.astro';
 import SpContactBand from '../components/SpContactBand.astro';
 import { detectPage, pathFor } from '../i18n/config';
 import { ui } from '../i18n/ui';
@@ -28,43 +29,11 @@ const catalogLink = (i: number) => (catalogPdfs[i] ? { href: catalogPdfs[i] as s
 ---
 
 <BaseLayout title={c.title} description={c.description}>
-  <section class="mhp">
-    <div class="mhp__img"><picture>
-      <source media="(max-width: 899px)" srcset="/images/gsn_farma_offices_building3_hm.webp" type="image/webp" />
-      <source media="(max-width: 899px)" srcset="/images/gsn_farma_offices_building3_hm.jpg" />
-      <img src="/images/gsn_farma_offices_building4.jpg" alt="" loading="eager" fetchpriority="high" />
-    </picture></div>
-    <div class="mhp__sheet">
-      <div class="mhp__title" role="heading" aria-level="1">{c.header.title}</div>
-      <span class="mhp__bar" aria-hidden="true"></span>
-      <h2 class="mhp__sub">{c.header.sub}</h2>
-      <p class="mhp__text">{c.header.text}</p>
-    </div>
-  </section>
+  {/* Capçalera de MÒBIL (<900px), definitiva: foto de 220px sense degradat i fulla blanca amb el títol, la barra cian i el subtítol, a l'esquerra (PageHeaderMobile.astro). A desktop s'amaga. */}
+  <PageHeaderMobile title={c.header.title} text={c.header.text} />
 
-  {/* Capçalera de DESKTOP (>=900px): component compartit (foto amb degradat + fulla amb títol, subtítol, text i, si cal, una ranura). A mòbil s'amaga i el substitueix .mhp. */}
-
-  <section class="qd qd-u qd-u--page">
-    <div class="qd-u__photo">
-      <picture>
-        <source media="(max-width: 899px)" srcset="/images/gsn_farma_offices_building3_hm.webp" type="image/webp" />
-        <source media="(max-width: 899px)" srcset="/images/gsn_farma_offices_building3_hm.jpg" />
-        <img src="/images/gsn_farma_offices_building4.jpg" alt="" loading="eager" fetchpriority="high" style="object-position: center 52%" />
-      </picture>
-    </div>
-    <div class="qd-u__sheet">
-      <div class="qd-wrap qd-u__grid">
-        <div class="qd-u__head">
-          <h1>{c.header.title}</h1>
-          <span class="qd-bar" aria-hidden="true"></span>
-        </div>
-        <div class="qd-u__body">
-          <h2>{c.header.sub}</h2>
-          <p>{c.header.text}</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  {/* Capçalera de DESKTOP (>=900px), definitiva: com la de Quiénes somos (PageHeaderCentered.astro): foto sense degradat i fulla blanca amb la barra cian, el títol «Presencia global» (H1) i el subtítol, centrats; el subtítol en UNA sola línia, com a Contacto (decisió; per partir-lo en dues línies equilibrades, subMaxWidth={560}). A mòbil s'amaga. */}
+  <PageHeaderCentered img="/images/gsn_farma_offices_building4.jpg" pos={52} title={c.header.title} subtitle={c.header.text} />
 
   <section class="intl-map intl-map--split">
     <div class="container intl-map__split-inner">

@@ -7,6 +7,11 @@
     background: #fff;
   }
 
+  /* capçalera de proposta col·locada després d'una franja groga (no és la primera de la pàgina): sense el marge de la capçalera fixa */
+  .qd-tag + .qd-ph {
+    margin-top: 0;
+  }
+
   .qd-ph__photo {
     position: relative;
     height: 340px;

@@ -4,8 +4,7 @@ const es = {
   title: 'Internacional | GSN Farma Labs Group',
   description: 'Tu partner global en soluciones de salud: medicamentos, salud natural, salud de la mujer y salud animal, con presencia para operar en mercados de todo el mundo.',
   header: {
-    title: 'Presencia Global',
-    sub: 'GSN FARMA LABS GROUP en el mundo',
+    title: 'Presencia global',
     text: 'Tu partner global en soluciones de salud, con capacidad y presencia para operar en mercados de todo el mundo.',
   },
   mapLabel: 'Mapa del mundo con las regiones donde opera GSN Farma Labs Group',
@@ -25,8 +24,7 @@ const ca: typeof es = {
   title: 'Internacional | GSN Farma Labs Group',
   description: "El teu partner global en solucions de salut: medicaments, salut natural, salut de la dona i salut animal, amb presència per operar en mercats d'arreu del món.",
   header: {
-    title: 'Presència Global',
-    sub: 'GSN FARMA LABS GROUP al món',
+    title: 'Presència global',
     text: "El teu partner global en solucions de salut, amb capacitat i presència per operar en mercats d'arreu del món.",
   },
   mapLabel: 'Mapa del món amb les regions on opera GSN Farma Labs Group',
@@ -45,8 +43,7 @@ const en: typeof es = {
   title: 'International | GSN Farma Labs Group',
   description: "Your global partner in health solutions: medicines, natural health, women's health and animal health, with the presence to operate in markets worldwide.",
   header: {
-    title: 'Global Presence',
-    sub: 'GSN FARMA LABS GROUP around the world',
+    title: 'Global presence',
     text: 'Your global partner in health solutions, with the capacity and presence to operate in markets around the world.',
   },
   mapLabel: 'World map showing the regions where GSN Farma Labs Group operates',

@@ -1,0 +1,30 @@
+---
+// Capçalera de DESKTOP (>=900px) amb el plantejament de Quiénes somos (veure PageHeader.astro): banda de foto de 340px SENSE degradat i fulla blanca arrodonida que li puja, amb la barra cian a sobre del títol (H1) i el subtítol, tot centrat.
+// El subtítol es pinta com a HTML (els textos surten d'src/i18n, de confiança; admet <strong>). Una sola frase de títol i una de subtítol (sense l'H2 ni el text addicional de la capçalera antiga). Estils: quienes-somos-header.css (.qd-ph*). A mòbil s'amaga (es veu la capçalera mòbil de cada pàgina).
+import '../styles/pages/desktop-page-header.css';
+import '../styles/pages/quienes-somos-header.css';
+
+interface Props {
+  img: string;
+  // srcset opcional (ample en px) per a fotos grans; es serveix amb sizes="100vw"
+  srcset?: string;
+  // object-position vertical de la foto (%)
+  pos?: number;
+  title: string;
+  subtitle: string;
+  // ample màxim del subtítol (px); per defecte el de .qd-ph (1200px). Útil per partir un subtítol curt en dues línies equilibrades
+  subMaxWidth?: number;
+}
+const { img, srcset, pos = 52, title, subtitle, subMaxWidth } = Astro.props;
+---
+
+<section class="qd qd-ph">
+  <div class="qd-ph__photo"><img src={img} srcset={srcset} sizes={srcset ? '100vw' : undefined} alt="" loading="eager" fetchpriority="high" style={`object-position: center ${pos}%`} /></div>
+  <div class="qd-ph__sheet">
+    <div class="qd-wrap qd-ph__text">
+      <span class="qd-bar" aria-hidden="true"></span>
+      <h1>{title}</h1>
+      <p style={subMaxWidth ? `max-width: ${subMaxWidth}px` : undefined} set:html={subtitle}></p>
+    </div>
+  </div>
+</section>

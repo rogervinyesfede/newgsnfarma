@@ -2,25 +2,14 @@
 // Capçalera de DESKTOP (>=900px) de Quiénes somos: banda de foto (la façana de GSN Farma, enquadrada perquè el rètol quedi sencer) i fulla blanca arrodonida que li puja,
 // amb el títol («Grupo farmacéutico con más de 30 años…», que és l'H1 de la pàgina) i el subtítol («Disponemos de una estructura integral…») CENTRATS. Ja no hi ha cap H1 ocult amb «Sumamos experiencia, sumamos salud».
 // A mòbil s'amaga i el substitueix PageHeaderMobile.astro.
-import '../styles/pages/quienes-somos-header.css';
+import PageHeaderCentered from './PageHeaderCentered.astro';
 import { about } from '../i18n/about';
 
 interface Props {
   lang: 'es' | 'ca' | 'en';
 }
 const { lang } = Astro.props;
-const c = about[lang];
-const img = '/images/gsn_farma_offices_building4.jpg';
-const { h2, p } = c.intro;
+const { h2, p } = about[lang].intro;
 ---
 
-<section class="qd qd-ph">
-  <div class="qd-ph__photo"><img src={img} alt="" loading="eager" fetchpriority="high" /></div>
-  <div class="qd-ph__sheet">
-    <div class="qd-wrap qd-ph__text">
-      <span class="qd-bar" aria-hidden="true"></span>
-      <h1>{h2}</h1>
-      <p>{p}</p>
-    </div>
-  </div>
-</section>
+<PageHeaderCentered img="/images/gsn_farma_offices_building4.jpg" pos={52} title={h2} subtitle={p} />

@@ -6,12 +6,13 @@ import '../styles/pages/block2.css';
 import '../styles/pages/block3-compare.css';
 import '../styles/pages/subpage-hero-compare.css';
 import '../styles/pages/brand-gate.css';
-import '../styles/pages/mobile-hero.css';
 import '../styles/pages/desktop-page-header.css';
 import '../styles/pages/marcas-desktop-proposals.css';
 import '../styles/pages/mobile-proposals.css';
 import QdContact from '../components/QdContact.astro';
 import SpContactBand from '../components/SpContactBand.astro';
+import PageHeaderCentered from '../components/PageHeaderCentered.astro';
+import PageHeaderMobile from '../components/PageHeaderMobile.astro';
 import BrandsGrid from '../components/BrandsGrid.astro';
 import BrandsGridMobile from '../components/BrandsGridMobile.astro';
 import { detectPage, pathFor } from '../i18n/config';
@@ -67,43 +68,11 @@ const headerSrcset = [
 ---
 
 <BaseLayout title={c.title} description={c.description}>
-  <section class="mhp">
-    <div class="mhp__img"><picture>
-      <source media="(max-width: 899px)" srcset="/images/gsn_farma_our_brands_header2_hm.webp" type="image/webp" />
-      <source media="(max-width: 899px)" srcset="/images/gsn_farma_our_brands_header2_hm.jpg" />
-      <img src={headerImg} srcset={headerSrcset} sizes="100vw" alt="" loading="eager" fetchpriority="high" />
-    </picture></div>
-    <div class="mhp__sheet">
-      <div class="mhp__title" role="heading" aria-level="1">{c.header.title}</div>
-      <span class="mhp__bar" aria-hidden="true"></span>
-      <h2 class="mhp__sub">{c.header.sub}</h2>
-      <p class="mhp__text" set:html={c.header.text}></p>
-    </div>
-  </section>
+  {/* Capçalera de MÒBIL (<900px): foto de 220px SENSE degradat i fulla blanca arrodonida amb el títol, la barra cian i el subtítol, a l'esquerra (PageHeaderMobile.astro). A desktop s'amaga. */}
+  <PageHeaderMobile title={c.header.title} text={c.header.text} img="/images/gsn_farma_our_brands_header2_hm" />
 
-  {/* Capçalera de DESKTOP (>=900px): component compartit (foto amb degradat + fulla amb títol, subtítol, text i, si cal, una ranura). A mòbil s'amaga i el substitueix .mhp. */}
-
-  <section class="qd qd-u qd-u--page">
-    <div class="qd-u__photo">
-      <picture>
-        <source media="(max-width: 899px)" srcset="/images/gsn_farma_our_brands_header2_hm.webp" type="image/webp" />
-        <source media="(max-width: 899px)" srcset="/images/gsn_farma_our_brands_header2_hm.jpg" />
-        <img src={headerImg} srcset={headerSrcset} sizes="100vw" alt="" loading="eager" fetchpriority="high" style="object-position: center 18%" />
-      </picture>
-    </div>
-    <div class="qd-u__sheet">
-      <div class="qd-wrap qd-u__grid">
-        <div class="qd-u__head">
-          <h1>{c.header.title}</h1>
-          <span class="qd-bar" aria-hidden="true"></span>
-        </div>
-        <div class="qd-u__body">
-          <h2>{c.header.sub}</h2>
-          <p set:html={c.header.text}></p>
-        </div>
-      </div>
-    </div>
-  </section>
+  {/* Capçalera de DESKTOP (>=900px): com la de Quiénes somos (PageHeaderCentered.astro): foto sense degradat i fulla blanca amb la barra cian, el títol (H1) i el subtítol, centrats. A mòbil s'amaga. */}
+  <PageHeaderCentered img={headerImg} srcset={headerSrcset} pos={18} title={c.header.title} subtitle={c.header.text} />
 
   {/* Graella de targetes de marca, versió DESKTOP (>=900px): 6 marques actuals + 2 de «Próximamente» en una graella 4 × 2 (veure BrandsGrid.astro). A mòbil s'amaga i la substitueix BrandsGridMobile. */}
   <BrandsGrid live={gridLive} soon={gridSoon} legendNow={c.grid.legendNow} legendSoon={c.grid.legendSoon} soonLabel={c.grid.soonLabel} goTo={c.goTo} />
