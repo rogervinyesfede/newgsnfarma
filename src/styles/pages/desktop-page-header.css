@@ -324,3 +324,8 @@
     color: #fff;
   }
 }
+
+/* Ancoratges de les seccions (p. ex. els subapartats del menú de «Quiénes somos»): no queden tapades per la capçalera fixa */
+.qd[id] {
+  scroll-margin-top: var(--header-height);
+}

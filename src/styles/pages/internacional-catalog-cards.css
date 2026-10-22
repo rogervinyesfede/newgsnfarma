@@ -1,0 +1,194 @@
+/* Internacional — catàleg de producte amb targetes (veure CatalogCards.astro). DESKTOP (>=900px): .qd-cc, 5 targetes verticals com les de Nuestras marcas
+   (usa la base de desktop-page-header.css). MÒBIL (<900px): .sp-cc, 5 targetes apilades de tot l'ample. Cada versió s'amaga a l'altre ample. */
+
+@media (min-width: 900px) {
+  .qd-cc {
+    padding: 72px 0 88px;
+    background: #fff;
+  }
+
+  .qd.qd-cc .qd-ih h2 {
+    font-size: 36px;
+  }
+
+  .qd-cc ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  /* ---------- Targetes ---------- */
+  .qd-cc__grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 20px;
+    margin-top: 44px !important;
+    container-type: inline-size;
+  }
+
+  .qd-cc__card {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    /* Mateixa alçada que les targetes de Nuestras marcas (graella de 4 columnes, forats de 20px, proporció 4 / 3.4), calculada a partir de l'ample de la graella */
+    height: calc((100cqw - 60px) / 4 * 3.4 / 4);
+    border-radius: 28px;
+    background-color: #d9d9d6;
+    background-position: center 70%;
+    background-size: cover;
+  }
+
+  .qd-cc__card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(27, 36, 53, 0.15) 0%, rgba(27, 36, 53, 0.72) 100%);
+    transition: background 0.3s ease;
+  }
+
+  .qd-cc__card:hover::before {
+    background: linear-gradient(180deg, rgba(27, 36, 53, 0.4) 0%, rgba(27, 36, 53, 0.88) 100%);
+  }
+
+  .qd-cc__foot {
+    position: absolute;
+    z-index: 1;
+    right: 16px;
+    bottom: 22px;
+    left: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .qd-cc__name {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.25;
+    text-align: center;
+  }
+
+  .qd-cc__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 1.5px solid rgba(255, 255, 255, 0.85);
+    border-radius: 50%;
+    color: #fff;
+    transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+  }
+
+  .qd-cc__btn svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .qd-cc__card:hover .qd-cc__btn,
+  .qd-cc__card:focus-visible .qd-cc__btn {
+    background: #fff;
+    color: var(--qd-navy);
+    transform: translateY(2px);
+  }
+
+  .qd-cc a.qd-cc__card {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .qd-cc a.qd-cc__card:focus-visible {
+    outline: 3px solid var(--qd-cyan-dark);
+    outline-offset: 3px;
+  }
+
+  /* Salud de la mujer i Salud animal: la foto és apaïsada i amb la targeta tan baixa no deixa marge vertical; s'amplia (125 % de l'alçada)
+     i s'alinea a baix perquè la dona i els animals quedin més amunt, lluny del text */
+  .qd-cc__grid li:nth-child(n + 4) .qd-cc__card {
+    background-position: center 100%;
+    background-size: auto 125%;
+  }
+
+  /* Tauleta en horitzontal (900–1023px): 3 columnes */
+  @media (max-width: 1023px) {
+    .qd-cc__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .qd-cc__card::before,
+  .qd-cc__btn {
+    transition: none;
+  }
+}
+
+@media (max-width: 899px) {
+  .sp-cc {
+    padding: 32px 0 40px;
+    background: #fff;
+  }
+
+  .sp-cc__list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .sp-cc__card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    overflow: hidden;
+    min-height: 112px;
+    padding: 0 18px 0 22px;
+    border-radius: 24px;
+    background-color: #d9d9d6;
+    background-position: center 60%;
+    background-size: cover;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .sp-cc__card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(27, 36, 53, 0.82) 0%, rgba(27, 36, 53, 0.3) 100%);
+  }
+
+  .sp-cc__card:focus-visible {
+    outline: 3px solid var(--sp-cyan-dark);
+    outline-offset: 3px;
+  }
+
+  .sp-cc__name {
+    position: relative;
+    z-index: 1;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .sp-cc__btn {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border: 1.5px solid rgba(255, 255, 255, 0.85);
+    border-radius: 50%;
+    color: #fff;
+  }
+}

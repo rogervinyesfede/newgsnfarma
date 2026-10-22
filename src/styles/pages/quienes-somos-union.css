@@ -1,0 +1,147 @@
+/* Bloc «Nuestra trayectoria» de DESKTOP (>=900px) de Quiénes somos (veure UnionTimeline.astro): línia de temps a tota l'amplada i contingut alineat a l'esquerra, amb logos 10 % més petits.
+   Usa la base de desktop-page-header.css (.qd, .qd-wrap). A mòbil s'amaga (QuienesMobile, part union). */
+
+@media (min-width: 900px) {
+  .qd-ut {
+    padding: 72px 0 80px;
+    background: var(--qd-grey);
+  }
+
+  /* Capçalera: filet amb tram cian, títol de 40px (com el de la capçalera de la pàgina) i subtítol de 20px/600 a 14px (el mateix que «Áreas de negocio» i el destacat de One Health) */
+  .qd-ut__head {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    margin-bottom: 56px;
+  }
+
+  /* només la barra cian (sense el filet gris a tota l'amplada); és un element de 5px com .qd-bar perquè el buit fins al títol sigui de 22px a tots els blocs */
+  .qd-ut__rule i {
+    position: relative;
+    display: block;
+    height: 5px;
+  }
+
+  .qd-ut__rule i::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 64px;
+    height: 5px;
+    border-radius: 3px;
+    background: var(--qd-cyan);
+  }
+
+  .qd.qd-ut .qd-ut__h {
+    margin: 0;
+    color: var(--qd-navy);
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.05;
+  }
+
+  .qd.qd-ut .qd-ut__sub {
+    margin: -8px 0 0;
+    color: var(--qd-navy);
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  /* Línia de temps: tres columnes iguals i UNA línia contínua que va de la vora esquerra a la dreta del bloc; cada punt és a la vora esquerra de la seva columna */
+  .qd-ut__tl {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 56px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .qd-ut__tl::before {
+    content: "";
+    position: absolute;
+    top: 11px;
+    right: 0;
+    left: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #007d95 0%, #0e5b69 50%, #1b2435 100%);
+  }
+
+  .qd-ut__tl li {
+    position: relative;
+    padding-top: 60px;
+  }
+
+  .qd-ut__tl li::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    width: 24px;
+    height: 24px;
+    border: 3px solid var(--qd-cyan-dark);
+    border-radius: 50%;
+    background: var(--qd-grey);
+  }
+
+  .qd-ut__tl li:last-child::after {
+    border-color: var(--qd-navy);
+    background: var(--qd-navy);
+  }
+
+  .qd-ut__top {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 18px;
+  }
+
+  .qd-ut__num {
+    color: var(--qd-cyan-dark);
+    font-size: 56px;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  .qd-ut__logo {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: 27px;
+    object-fit: contain;
+    object-position: left center;
+  }
+
+  .qd-ut__logo--group {
+    height: 28px;
+  }
+
+  .qd.qd-ut .qd-ut__tl p {
+    max-width: 340px;
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.7;
+    text-align: left;
+  }
+
+  @media (max-width: 1023px) {
+    .qd-ut__tl {
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
+
+    .qd-ut__tl::before,
+    .qd-ut__tl li::after {
+      display: none;
+    }
+
+    .qd-ut__tl li {
+      padding-top: 0;
+    }
+  }
+}

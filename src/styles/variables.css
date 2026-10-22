@@ -15,7 +15,7 @@
   --color-mobile-menu: #f5f5f0; /* fons del menú mòbil lliscant */
   --color-blue8: #254a68; /* blue8 — títols h2 sobre fons blanc a pàgines internes */
   --color-teal: #226777; /* títols h3 de targetes (serveis, marques) */
-  --color-accent-dark: #00829c; /* electricGSN enfosquit per a text gran (xifres): 3,9:1 sobre #eeeeec */
+  --color-accent-dark: #007d95; /* electricGSN enfosquit: text blanc a sobre 4,8:1 (AA); xifres grans 4,1:1 sobre #eeeeec. Abans #00829c (4,49:1 amb blanc, per sota d'AA) */
   --color-electric3: #aeedff; /* cian clar — línia destacada sobre fons fosc (I+D) */
   --color-section-grey: #d5d6da; /* fons de secció alterna (quiénes somos) */
   --color-slate: #3c4353; /* fons de la secció de contacte (home/contacto) */

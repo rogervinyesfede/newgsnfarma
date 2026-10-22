@@ -1,0 +1,128 @@
+---
+// Blocs MÒBILS (<900px) definitius de Quiénes somos, amb els textos i fotos de src/i18n (about, facilities, international): 'union' (Nuestra trayectoria), 'areas' (Áreas de negocio), 'fac' (Nuestras instalaciones)
+// i 'glob' (Presencia global). La capçalera és PageHeaderMobile.astro, One Health és .qs-moh i el CTA final és SpContactBand (About.astro). Estils: quienes-somos-mobile-proposals.css (.qm*).
+import '../styles/pages/quienes-somos-mobile-proposals.css';
+import { about } from '../i18n/about';
+import { facilities, facilitiesPhotos } from '../i18n/facilities';
+import { international } from '../i18n/international';
+import { pathFor } from '../i18n/config';
+
+interface Props {
+  lang: 'es' | 'ca' | 'en';
+  part: 'union' | 'areas' | 'fac' | 'glob';
+}
+const { lang, part } = Astro.props;
+const c = about[lang];
+const f = facilities[lang];
+const g = international[lang];
+
+const unionTitle = { es: 'Nuestra trayectoria', ca: 'La nostra trajectòria', en: 'Our track record' }[lang];
+const globTitle = { es: 'Presencia global', ca: 'Presència global', en: 'Global presence' }[lang];
+const logos = ['/images/gsn_farma_logo_cropped.png', '/images/coetus_logo_cropped.png'];
+const unionItems = c.union.items.map((it, i) => ({ ...it, logo: logos[i] }));
+const areaImgs = ['/images/about_services3.jpg', '/images/about_brands3.jpg'];
+const areaHrefs = [pathFor('services', lang), pathFor('brands', lang)];
+const areas = c.areas.map((a, i) => ({ ...a, img: areaImgs[i], href: areaHrefs[i], k: i === 0 ? 'a' : 'b' }));
+const photos = f.items.map((it, i) => ({ ...it, src: facilitiesPhotos[i].src, pos: facilitiesPhotos[i].posM ?? facilitiesPhotos[i].pos, posSq: facilitiesPhotos[i].pos }));
+---
+
+{/* ========================= TRAYECTORIA ========================= */}
+{part === 'union' && (
+  <>
+    <section class="qm qm-grey qm-tr" id="trayectoria-m">
+      <div class="qm-wrap">
+        <h2 class="qm-h2">{unionTitle}</h2>
+        <p class="qm-sub">{c.union.title}</p>
+        <ol class="qs-tl qs-tl--inline">
+          {unionItems.map((it) => (
+            <li class="qs-tl__item">
+              <span class="qs-tl__dot" aria-hidden="true"></span>
+              <div class="qs-tl__head">
+                <span class="qs-tl__num">{it.n}</span>
+                <img class="qs-tl__logo" src={it.logo} alt={it.alt} loading="lazy" />
+              </div>
+              <p>{it.text}</p>
+            </li>
+          ))}
+          <li class="qs-tl__item qs-tl__item--end">
+            <span class="qs-tl__dot qs-tl__dot--end" aria-hidden="true"></span>
+            <p>{c.union.footer}</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+  </>
+)}
+
+{/* ========================= ÁREAS DE NEGOCIO ========================= */}
+{part === 'areas' && (
+  <>
+    <section class="qm qm-navy" id="areas-de-negocio-m">
+      <div class="qm-wrap">
+        <h2 class="qm-h2">{c.areasHeading}</h2>
+        <span class="qm-bar qm-bar--after" aria-hidden="true"></span>
+        <p class="qm-sub" set:html={c.areasIntroMix}></p>
+        <div class="qm-cards">
+          {areas.map((a) => (
+            <a class={`qm-card qm-card--${a.k}`} href={a.href}>
+              <span class="qm-card__photo"><img src={a.img} alt={a.alt} loading="lazy" /></span>
+              <span class="qm-card__name">{a.title}</span>
+              <span class="qm-card__text">{a.text}</span>
+              <span class="qm-card__cta">{a.cta}<span aria-hidden="true">›</span></span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+  </>
+)}
+
+{/* ========================= INSTALACIONES ========================= */}
+{part === 'fac' && (
+  <>
+    <section class="qm qm-white" id="instalaciones-m">
+      <div class="qm-wrap">
+        <h2 class="qm-h2">{f.title}</h2>
+        <span class="qm-bar qm-bar--after" aria-hidden="true"></span>
+        <div class="qm-stat"><span class="qm-stat__big">{f.big}</span><span class="qm-sub">{f.rest}</span></div>
+        <div class="qm-acc">
+          {photos.map((p, i) => (
+            <details name="qm-fac" open={i === 0}>
+              <summary>
+                <span class="qm-acc__thumb"><img src={p.src} alt="" loading="lazy" style={`object-position: 50% ${p.posSq}%`} /></span>
+                <span class="qm-acc__title">{p.name}</span>
+                <span class="qm-acc__chev" aria-hidden="true"></span>
+              </summary>
+              <div class="qm-acc__body">
+                <div class="qm-acc__photo"><img src={p.src} alt="" loading="lazy" style={`object-position: 50% ${p.pos}%`} /></div>
+                <p>{p.text}</p>
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+  </>
+)}
+
+{/* ========================= PRESENCIA GLOBAL ========================= */}
+{part === 'glob' && (
+  <>
+    <section class="qm qm-grey qm-g1" id="presencia-global-m">
+      <div class="qm-wrap">
+        <h2 class="qm-h2">{globTitle}</h2>
+        <span class="qm-bar qm-bar--after" aria-hidden="true"></span>
+        <p class="qm-sub">{g.header.text}</p>
+        <p class="qm-label">{g.regionsTitle}:</p>
+      </div>
+      <div class="qm-g1__map"><img src="/images/world-map-presence.svg" width="1000" height="440" alt={g.mapLabel} loading="lazy" decoding="async" /></div>
+      <div class="qm-wrap">
+        <ul class="qm-regs">
+          {g.regions.map((r) => <li>{r}</li>)}
+        </ul>
+      </div>
+    </section>
+  </>
+)}

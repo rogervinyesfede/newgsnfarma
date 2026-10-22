@@ -3,6 +3,8 @@ import type { Lang } from './config';
 
 export interface Ui {
   nav: { about: string; services: string; brands: string; international: string; contact: string };
+  // Subapartats del desplegable de «Quiénes somos» (ancoratges de la pàgina; id buit = a dalt de tot de la pàgina)
+  aboutMenu: { id: string; label: string }[];
   header: {
     goHome: string;
     mainNav: string;
@@ -11,6 +13,7 @@ export interface Ui {
     mobileNav: string;
     closeMenu: string;
     linkedin: string;
+    expandSub: string;
   };
   langLabel: Record<Lang, string>;
   footer: { legalNav: string; legal: string; privacy: string; cookies: string; rights: string };
@@ -42,6 +45,12 @@ const langLabel: Record<Lang, string> = { es: 'ES', ca: 'CAT', en: 'ENG' };
 export const ui: Record<Lang, Ui> = {
   es: {
     nav: { about: 'Quiénes somos', services: 'Servicios', brands: 'Nuestras marcas', international: 'Internacional', contact: 'Contacto' },
+    aboutMenu: [
+      { id: '', label: 'Conócenos' },
+      { id: 'areas-de-negocio', label: 'Áreas de negocio' },
+      { id: 'instalaciones', label: 'Instalaciones' },
+      { id: 'presencia-global', label: 'Presencia global' },
+    ],
     header: {
       goHome: 'Ir a la página de inicio',
       mainNav: 'Navegación principal',
@@ -50,6 +59,7 @@ export const ui: Record<Lang, Ui> = {
       mobileNav: 'Navegación móvil',
       closeMenu: 'Cerrar menú',
       linkedin: 'LinkedIn de GSN Farma Labs Group',
+      expandSub: 'Mostrar subapartados',
     },
     langLabel,
     footer: { legalNav: 'Menú legal', legal: 'Aviso legal', privacy: 'Política de privacidad', cookies: 'Política de cookies', rights: 'Todos los derechos reservados ©' },
@@ -78,6 +88,12 @@ export const ui: Record<Lang, Ui> = {
 
   ca: {
     nav: { about: 'Qui som', services: 'Serveis', brands: 'Les nostres marques', international: 'Internacional', contact: 'Contacte' },
+    aboutMenu: [
+      { id: '', label: 'Coneix-nos' },
+      { id: 'areas-de-negocio', label: 'Àrees de negoci' },
+      { id: 'instalaciones', label: 'Instal·lacions' },
+      { id: 'presencia-global', label: 'Presència global' },
+    ],
     header: {
       goHome: "Anar a la pàgina d'inici",
       mainNav: 'Navegació principal',
@@ -86,6 +102,7 @@ export const ui: Record<Lang, Ui> = {
       mobileNav: 'Navegació mòbil',
       closeMenu: 'Tancar el menú',
       linkedin: 'LinkedIn de GSN Farma Labs Group',
+      expandSub: 'Mostra els subapartats',
     },
     langLabel,
     footer: { legalNav: 'Menú legal', legal: 'Avís legal', privacy: 'Política de privacitat', cookies: 'Política de cookies', rights: 'Tots els drets reservats ©' },
@@ -114,6 +131,12 @@ export const ui: Record<Lang, Ui> = {
 
   en: {
     nav: { about: 'About us', services: 'Services', brands: 'Our brands', international: 'International', contact: 'Contact' },
+    aboutMenu: [
+      { id: '', label: 'Get to know us' },
+      { id: 'areas-de-negocio', label: 'Business areas' },
+      { id: 'instalaciones', label: 'Facilities' },
+      { id: 'presencia-global', label: 'Global presence' },
+    ],
     header: {
       goHome: 'Go to the home page',
       mainNav: 'Main navigation',
@@ -122,6 +145,7 @@ export const ui: Record<Lang, Ui> = {
       mobileNav: 'Mobile navigation',
       closeMenu: 'Close menu',
       linkedin: 'GSN Farma Labs Group on LinkedIn',
+      expandSub: 'Show sub-sections',
     },
     langLabel,
     footer: { legalNav: 'Legal menu', legal: 'Legal notice', privacy: 'Privacy policy', cookies: 'Cookie policy', rights: 'All rights reserved ©' },

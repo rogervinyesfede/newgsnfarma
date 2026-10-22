@@ -8,6 +8,7 @@ import '../styles/pages/mobile-proposals.css';
 import '../styles/pages/desktop-page-header.css';
 import '../styles/pages/home-desktop-proposals.css';
 import QdContact from '../components/QdContact.astro';
+import BusinessAreasColorProposals from '../components/BusinessAreasColorProposals.astro';
 import SpContactBand from '../components/SpContactBand.astro';
 import { detectPage, pathFor } from '../i18n/config';
 import { home } from '../i18n/home';
@@ -129,6 +130,11 @@ const homeAreas = areas.map((a, i) => ({ ...a, panel: areaMeta[i].aboutMb }));
   </section>
 
   {/* Àrees de negoci, versió DESKTOP (>=900px): bloc navy amb «Así sumamos salud» i dos panells de foto (Servicios Farmacéuticos i Marcas Propias), com a Quiénes somos. A mòbil s'amaga i el substitueix .sp-hm. */}
+  {/* Versió DESKTOP definitiva: el mateix bloc «Áreas de negocio» que Quiénes somos (targetes de color amb foto emmarcada; textos de src/i18n/about.ts). */}
+  <BusinessAreasColorProposals lang={lang} bare homeHead />
+
+  {/* OCULT (no esborrat): versió anterior de la Home («Así sumamos salud», dos panells de foto). Es torna a mostrar canviant `false` per `true`. */}
+  {false && (<>
   <section class="qd qd-navy qd-ha">
     <div class="qd-wrap">
       <div class="qd-ha__head">
@@ -150,6 +156,7 @@ const homeAreas = areas.map((a, i) => ({ ...a, panel: areaMeta[i].aboutMb }));
       </div>
     </div>
   </section>
+  </>)}
 
   {/* Àrees de negoci (mòbil <900px): com a «Así sumamos salud» de Quiénes somos (bloc gris, introducció i dues targetes immersives, mateixes fotos), amb els textos i CTA de la Home. A desktop s'amaga i es veu .qd-ha. */}
   <section class="sp sp-hm">

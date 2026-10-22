@@ -1,0 +1,189 @@
+/* Bloc «Nuestras instalaciones» de DESKTOP (>=900px) de Quiénes somos (veure Facilities.astro).
+   Usa la base de desktop-page-header.css (.qd, .qd-wrap, .qd-bar). A mòbil s'amaga (pendent). */
+
+@media (min-width: 900px) {
+  .qd-fi {
+    padding: 72px 0;
+    background: #fff;
+  }
+
+  /* Dues columnes iguals que les targetes d'«Áreas de negocio» (588 + 24 + 588); l'esquerra té coixí a la dreta perquè les línies no toquin la foto */
+  .qd-fi__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: stretch;
+  }
+
+  .qd-fi__col {
+    padding-right: 48px;
+  }
+
+  /* Capçalera: barra cian a 22px del títol (18px fins a la xifra), títol 40/700 i, a sota, la xifra 56/800 al costat del subtítol 20/600, tot a l'esquerra */
+  .qd-fi__head {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    margin-bottom: 24px;
+  }
+
+  .qd-fi__head .qd-bar {
+    margin-bottom: 4px;
+  }
+
+  .qd.qd-fi .qd-fi__head h2 {
+    margin: 0;
+    color: var(--qd-navy);
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.05;
+    text-align: left;
+  }
+
+  .qd-fi__stat {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 22px;
+    margin-top: -2px;
+  }
+
+  .qd-fi__big {
+    flex: none;
+    color: var(--qd-cyan-dark);
+    font-size: 56px;
+    font-weight: 800;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .qd-fi__sub {
+    flex: 1;
+    color: var(--qd-navy);
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  /* Llista en acordió: tots els espais com a files de nom (20/700) i només l'activa desplega el seu text (18/400). El fons gris de la fila activa
+     sobresurt 20px per costat perquè el text quedi alineat amb el títol. */
+  .qd-fi__list {
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid #d6d6d3;
+    list-style: none;
+  }
+
+  .qd-fi__item {
+    position: relative;
+    display: grid;
+    gap: 0;
+    width: 100%;
+    padding: 16px 0;
+    border: 0;
+    border-bottom: 1px solid #d6d6d3;
+    background: transparent;
+    color: var(--qd-navy);
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    isolation: isolate;
+  }
+
+  .qd-fi__item::before {
+    content: "";
+    position: absolute;
+    inset: 0 -20px;
+    z-index: -1;
+    background: var(--qd-grey);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+
+  .qd-fi__item.is-on::before {
+    opacity: 1;
+  }
+
+  .qd-fi__item:focus-visible {
+    outline: 3px solid var(--qd-navy);
+    outline-offset: 4px;
+  }
+
+  .qd-fi__item strong {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+    transition: color 0.25s ease;
+  }
+
+  .qd-fi__item.is-on strong {
+    color: var(--qd-cyan-dark);
+  }
+
+  .qd-fi__item span {
+    max-height: 0;
+    overflow: hidden;
+    color: #4b4b4b;
+    font-size: 18px;
+    line-height: 1.55;
+    opacity: 0;
+    transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, margin 0.4s ease;
+  }
+
+  .qd-fi__item.is-on span {
+    max-height: 90px;
+    margin-top: 6px;
+    opacity: 1;
+  }
+
+  /* Foto: 588px d'ample, s'estira fins a l'alçada de la llista (la vora de dalt coincideix amb la barra cian i la de baix amb l'última línia); cantonades de 28px i fos suau entre espais */
+  .qd-fi__viewer {
+    position: relative;
+    overflow: hidden;
+    border-radius: 28px;
+    background: var(--qd-grey);
+  }
+
+  .qd-fi__slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  .qd-fi__slide.is-on {
+    opacity: 1;
+  }
+
+  .qd-fi__slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media (max-width: 1023px) {
+    .qd-fi__grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .qd-fi__col {
+      padding-right: 0;
+    }
+
+    .qd-fi__viewer {
+      min-height: 440px;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .qd-fi__item::before,
+  .qd-fi__item strong,
+  .qd-fi__item span,
+  .qd-fi__slide {
+    transition: none;
+  }
+}

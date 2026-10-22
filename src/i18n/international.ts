@@ -16,6 +16,8 @@ const es = {
   contact: {
     title: '¿Hablamos?',
     text: 'Contáctanos si estás interesado en explorar oportunidades de colaboración a nivel internacional.',
+    // Mòbil: versió curta perquè càpiga en 2 línies.
+    textMobile: 'Contáctanos para explorar oportunidades de colaboración internacional.',
   },
 };
 
@@ -35,6 +37,7 @@ const ca: typeof es = {
   contact: {
     title: 'Parlem?',
     text: "Contacta amb nosaltres si estàs interessat a explorar oportunitats de col·laboració a nivell internacional.",
+    textMobile: "Contacta'ns per explorar oportunitats de col·laboració internacional.",
   },
 };
 
@@ -54,6 +57,7 @@ const en: typeof es = {
   contact: {
     title: 'Shall we talk?',
     text: 'Contact us if you are interested in exploring collaboration opportunities at an international level.',
+    textMobile: 'Contact us to explore international collaboration opportunities.',
   },
 };
 

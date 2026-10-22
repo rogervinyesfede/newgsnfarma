@@ -1,0 +1,43 @@
+---
+// Bloc «Nuestra trayectoria» de DESKTOP (>=900px) de Quiénes somos: la línia de temps ocupa TOT L'AMPLE del bloc (de la vora esquerra a la dreta) i el contingut va ALINEAT A L'ESQUERRA
+// (cada punt, xifra, logo i text comença a la vora esquerra de la seva columna). Textos i logos surten d'src/i18n/about.ts. A mòbil s'amaga i el substitueix la part «union» de QuienesMobile.astro.
+import '../styles/pages/quienes-somos-union.css';
+import { about } from '../i18n/about';
+
+interface Props {
+  lang: 'es' | 'ca' | 'en';
+}
+const { lang } = Astro.props;
+const c = about[lang];
+const title = { es: 'Nuestra trayectoria', ca: 'La nostra trajectòria', en: 'Our track record' }[lang];
+const logos = ['/images/gsn_farma_logo_cropped.png', '/images/coetus_logo_cropped.png'];
+const items = c.union.items.map((it, i) => ({ ...it, logo: logos[i] }));
+---
+
+<section class="qd qd-ut" id="trayectoria">
+  <div class="qd-wrap">
+    <div class="qd-ut__head">
+      <div class="qd-ut__rule"><i></i></div>
+      <p class="qd-ut__h" role="heading" aria-level="2">{title}</p>
+      <p class="qd-ut__sub">{c.union.title}</p>
+    </div>
+    <ol class="qd-ut__tl">
+      {items.map((it) => (
+        <li>
+          <div class="qd-ut__top">
+            <span class="qd-ut__num">{it.n}</span>
+            <img class="qd-ut__logo" src={it.logo} alt={it.alt} loading="lazy" />
+          </div>
+          <p>{it.text}</p>
+        </li>
+      ))}
+      <li>
+        <div class="qd-ut__top">
+          <span class="qd-ut__num" aria-hidden="true">&nbsp;</span>
+          <img class="qd-ut__logo qd-ut__logo--group" src="/images/gsn_farma_labs_group_logo_cropped.png" alt="GSN Farma Labs Group" loading="lazy" />
+        </div>
+        <p>{c.union.footer}</p>
+      </li>
+    </ol>
+  </div>
+</section>

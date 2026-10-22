@@ -1,0 +1,337 @@
+/* Blocs de MÒBIL (<900px) de Quiénes somos (veure QuienesMobile.astro): Nuestra trayectoria, Áreas de negocio, Nuestras instalaciones i Presencia global.
+   Escala mòbil: títol 24/700 amb la barra cian de 48×4 (a sota del títol: títol → barra → subtítol, 16px entre cada element), subtítol 18/600, text 17/400, xifres 40/800 en verd blavós, CTA 16/700, fulles de 28px, marges de 16px. */
+
+@media (min-width: 900px) {
+  .qm {
+    display: none !important;
+  }
+}
+
+@media (max-width: 899px) {
+  /* ---------- Base dels blocs ---------- */
+  .qm {
+    position: relative;
+    background: #fff;
+    color: #1b2435;
+  }
+
+  .qm-white,
+  .qm-grey,
+  .qm-navy {
+    padding: 40px 0 44px;
+  }
+
+  .qm-grey {
+    background: #eeeeec;
+  }
+
+  .qm-navy {
+    border-radius: 28px 28px 0 0;
+    background: #1b2435;
+    color: #fff;
+  }
+
+  .qm-wrap {
+    padding-inline: 16px;
+  }
+
+  .qm-bar {
+    display: block;
+    width: 48px;
+    height: 4px;
+    margin-bottom: 16px;
+    border-radius: 2px;
+    background: #00dbff;
+  }
+
+  /* barra a SOTA del títol (com a l'original d'Áreas): títol → barra → subtítol, amb 16px entre cada un */
+  .qm-bar--after {
+    margin: 16px 0 0;
+  }
+
+  .qm .qm-bar--after + .qm-sub {
+    margin-top: 16px;
+  }
+
+  .qm .qm-h2 {
+    margin: 0;
+    color: #1b2435;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.15;
+  }
+
+  .qm .qm-sub {
+    margin: 10px 0 0;
+    color: #1b2435;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  .qm-navy .qm-h2,
+  .qm-navy .qm-sub {
+    color: #fff;
+  }
+
+  .qm p {
+    margin: 0;
+    color: #4b4b4b;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+
+  .qm .qm-label {
+    margin: 22px 0 0;
+    color: #4b4b4b;
+    font-size: 17px;
+    font-weight: 600;
+  }
+
+  .qm img {
+    display: block;
+  }
+
+  /* ---------- Nuestra trayectoria: capçalera nova + línia de temps de l'original (.qs-tl*, a quienes-somos-body-compare.css); el bloc es tanca amb cantonades inferiors de 28px
+     i passa per sobre de la foto d'One Health, com la resta de blocs de mòbil ---------- */
+  .qm-tr {
+    z-index: 2;
+    border-radius: 0 0 28px 28px;
+  }
+
+  .qm-tr .qs-tl {
+    margin-top: 28px;
+  }
+
+  /* ---------- Targetes d'Áreas de negocio ---------- */
+  .qm-cards {
+    display: grid;
+    gap: 16px;
+    margin-top: 28px;
+  }
+
+  .qm-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 14px 14px 22px;
+    border-radius: 24px;
+    text-decoration: none;
+  }
+
+  .qm-card--a {
+    background: #007d95;
+    color: #fff;
+  }
+
+  .qm-card--b {
+    background: #dcdcd9;
+    color: #1b2435;
+  }
+
+  .qm-card__photo {
+    display: block;
+    overflow: hidden;
+    border-radius: 16px;
+    aspect-ratio: 1.71;
+  }
+
+  .qm-card__photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .qm-card__name {
+    padding: 6px 8px 0;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.15;
+  }
+
+  .qm-card__text {
+    padding: 0 8px;
+    font-size: 17px;
+    line-height: 1.55;
+  }
+
+  .qm-card--a .qm-card__text {
+    color: #fff;
+  }
+
+  .qm-card--b .qm-card__text {
+    color: #4b4b4b;
+  }
+
+  .qm-card__cta {
+    display: inline-flex;
+    gap: 6px;
+    padding: 4px 8px 0;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .qm-card--b .qm-card__cta {
+    color: #006680;
+  }
+
+  /* ---------- Instal·lacions ---------- */
+  .qm-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 14px;
+  }
+
+  .qm-stat__big {
+    color: #007d95;
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  .qm-stat .qm-sub {
+    margin: 0;
+  }
+
+  .qm-bar--after + .qm-stat {
+    margin-top: 16px;
+  }
+
+  .qm-acc__body {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 4px 0 24px;
+  }
+
+  /* foto de l'acordió amb la mateixa mida que la d'Servicios (.sp-acc__body img: 12/5, radi 16) */
+  .qm-acc__photo {
+    overflow: hidden;
+    border-radius: 16px;
+    aspect-ratio: 12 / 5;
+  }
+
+  .qm-acc__photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* acordió d'Instalaciones, definitiu: com .sp-acc de Servicios (mobile-proposals.css): miniatura quadrada de 64px + nom + xevró; l'obert amaga la miniatura i mostra la foto i el text (.qm-acc__body) */
+  .qm-acc {
+    margin-top: 24px;
+    border-top: 1px solid #e3e3e1;
+  }
+
+  .qm-acc details {
+    border-bottom: 1px solid #e3e3e1;
+  }
+
+  .qm-acc summary {
+    display: grid;
+    grid-template-columns: 64px 1fr 20px;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 0;
+    list-style: none;
+    cursor: pointer;
+  }
+
+  .qm-acc summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .qm-acc__thumb {
+    width: 64px;
+    height: 64px;
+    overflow: hidden;
+    border-radius: 12px;
+  }
+
+  .qm-acc__thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .qm-acc__title {
+    color: #1b2435;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.25;
+  }
+
+  .qm-acc__chev {
+    width: 10px;
+    height: 10px;
+    margin-left: 4px;
+    border-right: 2px solid var(--color-accent-dark);
+    border-bottom: 2px solid var(--color-accent-dark);
+    transform: rotate(45deg);
+    transition: transform 0.2s ease;
+  }
+
+  .qm-acc details[open] summary {
+    grid-template-columns: 1fr 20px;
+  }
+
+  .qm-acc details[open] .qm-acc__thumb {
+    display: none;
+  }
+
+  .qm-acc details[open] .qm-acc__chev {
+    transform: rotate(-135deg);
+  }
+
+  /* ---------- Presencia global ---------- */
+  /* etiqueta de regions (amb «:») centrada a dalt del mapa */
+  .qm-g1 .qm-label {
+    text-align: center;
+  }
+
+  .qm-g1__map {
+    margin: 12px 8px 0;
+  }
+
+  .qm-g1__map img {
+    width: 100%;
+    height: auto;
+  }
+
+  .qm-regs {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    justify-content: center;
+    column-gap: 36px;
+    margin: 8px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .qm-regs li {
+    position: relative;
+    color: #4b4b4b;
+    font-size: 17px;
+    line-height: 1.3;
+    padding: 9px 0 9px 20px;
+  }
+
+  .qm-regs li::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #00dbff;
+    transform: translateY(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .qm-acc__chev {
+    transition: none;
+  }
+}

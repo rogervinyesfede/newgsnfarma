@@ -1,0 +1,163 @@
+/* PROPOSTA addicional (temporal, només desktop >=900px) del bloc «Áreas de negocio» de Quiénes somos amb targetes de colors diferents (veure BusinessAreasColorProposals.astro).
+   Reutilitza la capçalera i el fons navy de .qd-ag (quienes-somos-desktop-proposals.css). Si no s'adopta, esborrar aquest fitxer. */
+
+@media (min-width: 900px) {
+  .qd-agc a {
+    text-decoration: none;
+  }
+
+  .qd-agc img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* ---------- Targetes de color sòlid amb la foto emmarcada a dins ---------- */
+  .qd-agc2__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .qd-agc2__card {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    padding: 20px 20px 36px;
+    border-radius: 28px;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .qd-agc2__card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 22px 48px rgba(0, 0, 0, 0.35);
+  }
+
+  .qd-agc2__card--a {
+    background: var(--qd-cyan-dark);
+    color: #fff;
+  }
+
+  .qd-agc2__card--b {
+    background: var(--qd-grey);
+    color: var(--qd-navy);
+  }
+
+  .qd-agc2__photo {
+    display: block;
+    height: 320px;
+    overflow: hidden;
+    border-radius: 18px;
+  }
+
+  /* Fotos apaïsades (about_services3.jpg i about_brands3.jpg, 1100×642): omplen el marc de 320px sense retocs; l'enquadrament és el centre */
+  .qd-agc2__photo img {
+    object-position: center;
+  }
+
+  .qd-agc2__photo img {
+    transition: transform 0.8s ease;
+  }
+
+  .qd-agc2__card:hover .qd-agc2__photo img {
+    transform: scale(1.04);
+  }
+
+  .qd-agc2__body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 0 20px;
+  }
+
+  .qd-agc2__name {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.12;
+  }
+
+  .qd-agc2__text {
+    flex: 1;
+    font-size: 18px;
+    line-height: 1.65;
+  }
+
+  .qd-agc2__card--a .qd-agc2__text {
+    color: rgba(255, 255, 255, 0.92);
+  }
+
+  .qd-agc2__card--b .qd-agc2__text {
+    color: #4b4b4b;
+  }
+
+  .qd-agc2__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+    font-size: 17px;
+    font-weight: 700;
+  }
+
+  .qd-agc2__card--b .qd-agc2__cta {
+    color: var(--qd-cyan-dark);
+  }
+
+  .qd-agc2__cta > span {
+    font-size: 22px;
+    line-height: 1;
+    transition: transform 0.25s ease;
+  }
+
+  .qd-agc2__card:hover .qd-agc2__cta > span {
+    transform: translateX(6px);
+  }
+
+  /* ---------- Variant ajustada: blanc pur sobre el verd blavós, gris una mica més fosc (menys salt respecte al navy) i enllaç més fosc sobre el gris ---------- */
+  .qd-agc--tuned .qd-agc2__card--a .qd-agc2__text {
+    color: #fff;
+  }
+
+  .qd-agc--tuned .qd-agc2__card--b {
+    background: #dcdcd9;
+  }
+
+  .qd-agc--tuned .qd-agc2__card--b .qd-agc2__cta {
+    color: #006680;
+  }
+
+  /* ---------- Variant amb fons gris (com «Nuestra trayectoria»): capçalera en navy, targeta de marques en blanc (el gris ja no hi destacaria) i ombra més suau ---------- */
+  .qd-agc--grey {
+    background: var(--qd-grey);
+  }
+
+  .qd.qd-agc--grey .qd-ag__head h2,
+  .qd.qd-agc--grey .qd-ag__head p {
+    color: var(--qd-navy);
+  }
+
+  .qd-agc--grey .qd-agc2__card--b {
+    background: #fff;
+  }
+
+  .qd-agc--grey .qd-agc2__card:hover {
+    box-shadow: 0 22px 48px rgba(27, 36, 53, 0.18);
+  }
+
+  @media (max-width: 1023px) {
+    .qd-agc2__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .qd-agc2__card,
+  .qd-agc2__photo img,
+  .qd-agc2__cta > span {
+    transition: none;
+  }
+}

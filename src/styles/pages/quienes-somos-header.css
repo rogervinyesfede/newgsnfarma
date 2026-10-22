@@ -1,0 +1,64 @@
+/* Capçalera de DESKTOP (>=900px) de Quiénes somos (veure PageHeader.astro): banda de foto de 340px, sense degradat, i fulla blanca arrodonida de 36px que li puja 56px,
+   amb el títol i el subtítol centrats. Usa la base de desktop-page-header.css (.qd, .qd-wrap, .qd-bar). A mòbil s'amaga (es veu PageHeaderMobile.astro). */
+
+@media (min-width: 900px) {
+  .qd-ph {
+    margin-top: var(--header-height, 80px);
+    background: #fff;
+  }
+
+  .qd-ph__photo {
+    position: relative;
+    height: 340px;
+    overflow: hidden;
+    background: var(--qd-navy);
+  }
+
+  .qd-ph__photo img {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Mateix enquadrament que la capçalera d'Internacional (object-position: center 52%) */
+    object-position: center 52%;
+  }
+
+  .qd-ph__sheet {
+    position: relative;
+    margin-top: -56px;
+    padding: 52px 0 64px;
+    border-radius: 36px 36px 0 0;
+    background: #fff;
+  }
+
+  .qd-ph__text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+    max-width: 1264px;
+    text-align: center;
+  }
+
+  .qd.qd-ph h1 {
+    max-width: 900px;
+    margin: 0;
+    color: var(--qd-navy);
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.15;
+    text-align: center;
+  }
+
+  /* Subtítol com a «lead» de la pàgina: 20px (la resta de paràgrafs són de 18px), ample màxim 1200px i 3 línies equilibrades; color #4b4b4b heretat de .qd p */
+  .qd.qd-ph .qd-ph__text p {
+    max-width: 1200px;
+    margin: 0;
+    font-size: 20px;
+    line-height: 1.7;
+    text-align: center;
+    text-wrap: balance;
+  }
+}

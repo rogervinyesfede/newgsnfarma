@@ -1,0 +1,54 @@
+---
+// PROPOSTA addicional (temporal, només desktop >=900px) del bloc «Áreas de negocio» de Quiénes somos: mateix plantejament que l'actual (bloc navy amb el títol i el subtítol a l'esquerra i dues targetes amb foto, títol, text i enllaç),
+// però amb les targetes de COLORS DIFERENTS (verd blavós per als serveis i gris clar per a les marques) per distingir les dues àrees. Contingut original (sense afegir res). L'actual (.qd-ag) es manté a sobre com a referència.
+// Textos, fotos i enllaços surten d'src/i18n/about.ts. Eliminar aquest component i quienes-somos-areas-color-proposals.css si no s'adopta cap.
+import '../styles/pages/desktop-page-header.css';
+import '../styles/pages/quienes-somos-desktop-proposals.css'; // base del bloc navy .qd-ag (capçalera i fons); també el fa servir la Home
+import '../styles/pages/quienes-somos-areas-color-proposals.css';
+import { about } from '../i18n/about';
+import { pathFor } from '../i18n/config';
+
+interface Props {
+  lang: 'es' | 'ca' | 'en';
+  // bare: sense la franja groga de proposta (versió definitiva, per a la Home); pinta només la variant visible
+  bare?: boolean;
+  // homeHead: capçalera (barra, títol i subtítol) amb l'estil que tenia a la Home amb «Así sumamos salud»: centrada, títol 40/700 i subtítol 18/400 (només per a la Home)
+  homeHead?: boolean;
+}
+const { lang, bare = false, homeHead = false } = Astro.props;
+const c = about[lang];
+const hrefs = [pathFor('services', lang), pathFor('brands', lang)];
+const imgs = ['/images/about_services3.jpg', '/images/about_brands3.jpg'];
+const areas = c.areas.map((a, i) => ({ ...a, href: hrefs[i], img: imgs[i], k: i === 0 ? 'a' : 'b' }));
+---
+
+{[
+  { cls: ' qd-agc--tuned', tag: 'Targetes de color sòlid amb la foto emmarcada a dins (verd blavós per als serveis i gris per a les marques), ajustades: text blanc pur sobre el verd blavós, gris una mica més fosc per equilibrar el pes de les dues targetes i enllaç més fosc sobre el gris' },
+  // OCULTA (no esborrada): variant amb fons gris. Per tornar-la a mostrar, treure `hidden: true`.
+  { hidden: true, cls: ' qd-agc--tuned qd-agc--grey', tag: 'Com l\'ajustada, però amb el fons del bloc en gris (com «Nuestra trayectoria»): títol i subtítol en navy, targeta de serveis en verd blavós i targeta de marques en blanc' },
+].filter((v) => !v.hidden).map((v) => (
+  <Fragment>
+    {!bare && <div class="qd-tag qd-tag--keep">Áreas de negocio · Proposta addicional · {v.tag}</div>}
+    <section class={`qd qd-ag qd-agc${v.cls}${homeHead ? ' qd-ag--home' : ''}`} id={bare ? 'areas-de-negocio' : undefined}>
+      <div class="qd-wrap">
+        <div class="qd-ag__head">
+          <span class="qd-bar" aria-hidden="true"></span>
+          <h2>{c.areasHeading}</h2>
+          <p set:html={c.areasIntroMix}></p>
+        </div>
+        <div class="qd-agc2__grid">
+          {areas.map((a) => (
+            <a href={a.href} class={`qd-agc2__card qd-agc2__card--${a.k}`}>
+              <span class="qd-agc2__photo"><img src={a.img} alt={a.alt} loading="lazy" /></span>
+              <span class="qd-agc2__body">
+                <span class="qd-agc2__name">{a.title}</span>
+                <span class="qd-agc2__text">{a.text}</span>
+                <span class="qd-agc2__cta">{a.cta}<span aria-hidden="true">›</span></span>
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  </Fragment>
+))}

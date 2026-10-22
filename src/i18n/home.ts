@@ -12,7 +12,7 @@ const es = {
   oh: {
     title: 'One Health:<br />el propósito que nos guía',
     p1: 'Adoptamos el modelo One Health como visión transversal: una salud integrada, sostenible y conectada entre personas, animales y entorno.',
-    p2: 'Desarrollamos, fabricamos y comercializamos productos regulados con agilidad y rigor técnico, bajo los más altos estándares de calidad.',
+    p2: 'Desarrollamos, fabricamos y comercializamos medicamentos y productos regulados con agilidad y rigor técnico, bajo los más altos estándares de calidad.',
     cta: 'Conoce más sobre el grupo',
     alt: 'Familia con su mascota en casa y manos sosteniendo una planta, símbolo del enfoque One Health',
   },
@@ -25,7 +25,7 @@ const es = {
     {
       title: 'Servicios Farmacéuticos',
       alt: 'Científica trabajando con microscopio en el laboratorio',
-      text: 'Unidad industrial con 17.000 m² para ofrecer servicios integrales en desarrollo, fabricación, aseguramiento de calidad, asuntos regulatorios y logística para productos regulados.',
+      text: 'Unidad industrial con 17.000 m² para ofrecer servicios integrales en desarrollo, fabricación, aseguramiento de calidad, asuntos regulatorios y logística para medicamentos y productos regulados.',
       cta: 'Ver todos los servicios',
     },
     {
@@ -66,7 +66,7 @@ const ca: typeof es = {
   oh: {
     title: 'One Health:<br />el propòsit que ens guia',
     p1: 'Adoptem el model One Health com a visió transversal: una salut integrada, sostenible i connectada entre persones, animals i entorn.',
-    p2: 'Desenvolupem, fabriquem i comercialitzem productes regulats amb agilitat i rigor tècnic, sota els més alts estàndards de qualitat.',
+    p2: 'Desenvolupem, fabriquem i comercialitzem medicaments i productes regulats amb agilitat i rigor tècnic, sota els més alts estàndards de qualitat.',
     cta: 'Coneix més sobre el grup',
     alt: "Família amb la seva mascota a casa i mans sostenint una planta, símbol de l'enfocament One Health",
   },
@@ -79,7 +79,7 @@ const ca: typeof es = {
     {
       title: 'Serveis Farmacèutics',
       alt: 'Científica treballant amb un microscopi al laboratori',
-      text: "Unitat industrial amb 17.000 m² per oferir serveis integrals de desenvolupament, fabricació, assegurament de qualitat, afers regulatoris i logística per a productes regulats.",
+      text: "Unitat industrial amb 17.000 m² per oferir serveis integrals de desenvolupament, fabricació, assegurament de qualitat, afers regulatoris i logística per a medicaments i productes regulats.",
       cta: 'Veure tots els serveis',
     },
     {
@@ -119,7 +119,7 @@ const en: typeof es = {
   oh: {
     title: 'One Health:<br />the purpose that guides us',
     p1: 'We embrace the One Health model as a cross-cutting vision: integrated, sustainable and connected health across people, animals and the environment.',
-    p2: 'We develop, manufacture and market regulated products with agility and technical rigour, under the highest quality standards.',
+    p2: 'We develop, manufacture and market medicines and regulated products with agility and technical rigour, under the highest quality standards.',
     cta: 'Learn more about the group',
     alt: 'A family with their pet at home and hands holding a plant, a symbol of the One Health approach',
   },
@@ -132,7 +132,7 @@ const en: typeof es = {
     {
       title: 'Pharmaceutical Services',
       alt: 'A scientist working with a microscope in the laboratory',
-      text: 'Industrial unit of 17,000 m² offering comprehensive services in development, manufacturing, quality assurance, regulatory affairs and logistics for regulated products.',
+      text: 'Industrial unit of 17,000 m² offering comprehensive services in development, manufacturing, quality assurance, regulatory affairs and logistics for medicines and regulated products.',
       cta: 'See all services',
     },
     {

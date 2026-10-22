@@ -1,0 +1,118 @@
+/* Bloc «Presencia global» de DESKTOP (>=900px) de Quiénes somos (veure GlobalPresence.astro).
+   Usa la base de desktop-page-header.css (.qd, .qd-bar) i el sistema de blocs: barra cian a 22px del títol, títol 40/700, subtítol 20/600, padding 72px, text de cos 18/400. A mòbil s'amaga (pendent). */
+
+@media (min-width: 900px) {
+  /* Graella 588 + 24 + 588 amb els marges a banda; el mapa ocupa la part esquerra i el text la columna dreta */
+  .qd-gp {
+    display: grid;
+    grid-template-columns: minmax(32px, 1fr) minmax(0, 588px) 24px minmax(0, 588px) minmax(32px, 1fr);
+    align-items: center;
+    padding: 72px 0;
+    background: var(--qd-grey);
+  }
+
+  /* el mapa comença a l'alçada del logo de la capçalera (marge de 16px, o el de la capçalera centrada de 1440px) i acaba 24px abans de la columna dreta, de manera que no surt de la finestra */
+  .qd-gp__map {
+    grid-column: 1 / 3;
+    grid-row: 1;
+    justify-self: start;
+    width: calc(100% - max(16px, calc(50vw - 704px)) - 24px);
+    margin-left: max(16px, calc(50vw - 704px));
+  }
+
+  .qd-gp__map img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  /* text a x=749 (la mateixa vertical que el text d'One Health) */
+  .qd-gp__text {
+    display: flex;
+    grid-column: 4 / 5;
+    grid-row: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+    padding-left: 24px;
+  }
+
+  .qd.qd-gp h2 {
+    margin: 0;
+    color: var(--qd-navy);
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.05;
+    text-align: left;
+    text-wrap: balance;
+  }
+
+  .qd.qd-gp .qd-gp__sub {
+    margin: -8px 0 0;
+    color: var(--qd-navy);
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.35;
+    text-align: left;
+  }
+
+  .qd.qd-gp .qd-gp__label {
+    margin: 14px 0 -6px;
+    color: #4b4b4b;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.3;
+    text-align: left;
+  }
+
+  /* Regions: dues columnes ajustades al contingut i juntes (48px entre elles), sense línies; punt cian i text 18/400 en gris de cos */
+  .qd-gp__list {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    column-gap: 48px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .qd-gp__list li {
+    position: relative;
+    padding: 10px 0 10px 22px;
+    color: #4b4b4b;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.3;
+  }
+
+  .qd-gp__list li::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--qd-cyan);
+    transform: translateY(-50%);
+  }
+
+  @media (max-width: 1023px) {
+    .qd-gp {
+      grid-template-columns: 1fr;
+      gap: 32px;
+      padding: 72px 32px;
+    }
+
+    .qd-gp__map,
+    .qd-gp__text {
+      grid-column: 1;
+      grid-row: auto;
+      padding-left: 0;
+    }
+
+    .qd-gp__map {
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+}

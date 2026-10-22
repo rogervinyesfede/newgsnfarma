@@ -1,0 +1,27 @@
+---
+// Bloc «Presencia global» de DESKTOP (>=900px) de Quiénes somos: fons gris (com «Nuestra trayectoria»), mapa alineat amb el logo de la capçalera a l'esquerra i, a la columna de la dreta (x=749, com One Health),
+// la barra cian, el títol «Presencia global», la frase i les regions en dues columnes juntes, sense línies. Recupera la informació d'Internacional (src/i18n/international.ts, una sola font de veritat).
+// El mapa és /images/world-map-presence.svg (variant d'world-map.svg amb els països no destacats una mica més foscos). A mòbil s'amaga (pendent de dissenyar).
+import '../styles/pages/quienes-somos-global-presence.css';
+import { international } from '../i18n/international';
+
+interface Props {
+  lang: 'es' | 'ca' | 'en';
+}
+const { lang } = Astro.props;
+const c = international[lang];
+const title = { es: 'Presencia global', ca: 'Presència global', en: 'Global presence' }[lang];
+---
+
+<section class="qd qd-gp" id="presencia-global">
+  <div class="qd-gp__map"><img src="/images/world-map-presence.svg" width="1000" height="440" alt={c.mapLabel} loading="lazy" decoding="async" /></div>
+  <div class="qd-gp__text">
+    <span class="qd-bar" aria-hidden="true"></span>
+    <h2>{title}</h2>
+    <p class="qd-gp__sub">{c.header.text}</p>
+    <p class="qd-gp__label">{c.regionsTitle}</p>
+    <ul class="qd-gp__list">
+      {c.regions.map((r) => <li>{r}</li>)}
+    </ul>
+  </div>
+</section>

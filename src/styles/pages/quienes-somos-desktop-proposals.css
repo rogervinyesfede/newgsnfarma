@@ -1,138 +1,11 @@
-/* Blocs de DESKTOP (>=900px) de "Quiénes somos" (.qd): [capçalera compartida a desktop-page-header.css], unió (.qd-un), One Health (.qd-oh) i àrees (.qd-ag), amb el
+/* Blocs de DESKTOP (>=900px) de "Quiénes somos" (.qd): [capçalera compartida a desktop-page-header.css], One Health (.qd-oh) i àrees (.qd-ag), amb el
    llenguatge del mòbil (fulles i targetes arrodonides, línia cian, blocs blanc / gris / navy). A mòbil s'amaguen i els substitueixen
-   .qs-mhero, .qs-munio, .qs-moh i .qs-mas (quienes-somos-body-compare.css). */
+   .qs-moh (quienes-somos-body-compare.css) i la part «areas» de QuienesMobile.astro. */
 
 @media (min-width: 900px) {
   /* =====================================================================
-     UNIÓ (definitiu a desktop): línia de temps horitzontal de tres columnes iguals sobre gris; cada columna amb el punt de la
-     línia, la xifra, el logo (a la mateixa alçada) i el text centrats; la línia va del centre de la 1a al de la 3a columna. La 3a és el
-     grup: sense xifra, amb el logo de GSN Farma Labs Group i la frase final.
-     ===================================================================== */
-  .qd-un {
-    padding: 72px 0;
-    background: var(--qd-grey);
-  }
-
-  .qd-un__grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 44px;
-  }
-
-  /* Títol centrat (única excepció de la pàgina): el contingut del bloc és simètric i centrat */
-  .qd-un__grid > .qd-stack {
-    align-items: center;
-  }
-
-  .qd .qd-un__grid > .qd-stack h2 {
-    text-align: center;
-  }
-
-  .qd-un__tl {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .qd-un__tl li {
-    position: relative;
-    padding-top: 60px;
-    text-align: center;
-  }
-
-  .qd-un__tl li::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    box-sizing: border-box;
-    width: 24px;
-    height: 24px;
-    border: 3px solid var(--qd-cyan-dark);
-    border-radius: 50%;
-    background: var(--qd-grey);
-    transform: translateX(-50%);
-  }
-
-  .qd-un__tl li:last-child::after {
-    border-color: var(--qd-navy);
-    background: var(--qd-navy);
-  }
-
-  .qd-un__tl li:not(:last-child)::before {
-    content: '';
-    position: absolute;
-    top: 11px;
-    left: 50%;
-    width: calc(100% + 40px);
-    height: 2px;
-  }
-
-  .qd-un__tl li:nth-child(1)::before {
-    background: linear-gradient(90deg, #00829c, #0e5b69);
-  }
-
-  .qd-un__tl li:nth-child(2)::before {
-    background: linear-gradient(90deg, #0e5b69, #1b2435);
-  }
-
-  .qd-un__head {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
-    margin-bottom: 18px;
-  }
-
-  .qd-un__num {
-    font-size: 64px;
-    font-weight: 800;
-    line-height: 1;
-    color: var(--qd-cyan-dark);
-  }
-
-  .qd-un__head .qd-logo {
-    height: 30px;
-    object-position: center;
-  }
-
-  .qd .qd-un__tl p {
-    max-width: 340px;
-    margin-inline: auto;
-    text-align: center;
-  }
-
-  /* 3a columna (el grup): mateixa anatomia que les altres (el número buit manté el logo a la mateixa alçada). El logo (retallat a la tinta i amb el
-     mateix negre) fa 31px d'alt perquè les lletres de «GSN FARMA» tinguin l'alçada dels altres logos (30px); si la columna és estreta s'encongeix. */
-  .qd-un__head .qd-logo--group {
-    height: 31px;
-    max-width: 100%;
-    object-position: center;
-  }
-
-  @media (max-width: 1023px) {
-    .qd-un__tl {
-      grid-template-columns: 1fr;
-      gap: 40px;
-    }
-
-    .qd-un__tl li::before,
-    .qd-un__tl li::after {
-      display: none;
-    }
-
-    .qd-un__tl li {
-      padding-top: 0;
-    }
-  }
-
-  /* =====================================================================
      ONE HEALTH (definitiu a desktop): composició partida sobre blanc; foto vertical arrodonida (28px) a l'esquerra i, a la dreta,
-     el títol amb la línia cian, el destacat (22/600) i el text.
+     la línia cian a sobre del títol (com la resta de blocs), el títol, el destacat (22/600) i el text.
      ===================================================================== */
   .qd-oh {
     padding: 72px 0;
@@ -169,6 +42,11 @@
     gap: 26px;
   }
 
+  /* barra cian a 22px del títol (el gap del bloc és de 26px entre la resta d'elements) */
+  .qd-oh__text .qd-bar {
+    margin-bottom: -4px;
+  }
+
   .qd .qd-oh__text h2 {
     font-size: 40px;
     font-weight: 700;
@@ -176,7 +54,7 @@
 
   .qd .qd-oh__lead {
     color: var(--qd-navy);
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 600;
     line-height: 1.4;
   }
@@ -202,29 +80,36 @@
     background: var(--qd-navy);
   }
 
+  /* Capçalera del bloc: barra cian, títol de 40px (com «Nuestra trayectoria») i subtítol de 20px/600 a 14px, tot a l'esquerra */
   .qd-ag__head {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: 24px;
-    max-width: 900px;
-    margin: 0 auto 44px;
-    text-align: center;
+    margin: 0 0 40px;
+    text-align: left;
+  }
+
+  /* barra cian a 22px del títol (el gap de la capçalera és de 24px per a la resta) */
+  .qd-ag__head .qd-bar {
+    margin-bottom: -2px;
   }
 
   .qd .qd-ag__head h2 {
     color: #fff;
     font-size: 40px;
-    text-align: center;
+    font-weight: 700;
+    line-height: 1.05;
+    text-align: left;
   }
 
   .qd .qd-ag__head p {
-    color: rgba(255, 255, 255, 0.85);
-    text-align: center;
-  }
-
-  .qd .qd-ag__head p strong {
+    margin-top: -10px;
     color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.35;
+    text-align: left;
   }
 
   .qd-ag__panels {
@@ -283,6 +168,11 @@
 
   .qd .qd-ag__body p {
     color: rgba(255, 255, 255, 0.9);
+  }
+
+  /* Més aire entre el text i l'enllaç «Ver todos…» (16px del gap + 24px) */
+  .qd-ag__body .qd-cta {
+    margin-top: 24px;
   }
 
   @media (max-width: 1023px) {

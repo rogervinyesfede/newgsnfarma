@@ -1,0 +1,66 @@
+---
+// Catàleg de producte d'Internacional amb targetes (foto de la marca de cada categoria i botó circular de descàrrega).
+// DESKTOP (>=900px): .qd-cc, 5 targetes verticals en fila, com les de Nuestras marcas. MÒBIL (<900px): .sp-cc, 5 targetes apilades de tot l'ample
+// (nom a l'esquerra, botó a la dreta). Estils a src/styles/pages/internacional-catalog-cards.css.
+import '../styles/pages/internacional-catalog-cards.css';
+
+interface Item {
+  name: string;
+  href: string;
+  external: boolean;
+}
+interface Props {
+  title: string;
+  items: Item[];
+  lang: 'es' | 'ca' | 'en';
+}
+
+const { title, items, lang } = Astro.props;
+
+const dl = { es: 'Descargar PDF', ca: 'Descarregar PDF', en: 'Download PDF' }[lang];
+
+// Fotos de les marques que corresponen a cada categoria (les mateixes de les targetes de Nuestras marcas).
+const photos = ['/images/gsnfarma_card.jpg', '/images/esenciales-farmacia.jpg', '/images/brand_herbaldi.jpg', '/images/brands_orissens-shifted.jpg', '/images/brand-nakama-shifted2.jpg'];
+// Títol curt de la targeta d'Esenciales (el llistat de mòbil manté el nom complet).
+const shortEsenciales = { es: 'Esenciales farmacia', ca: 'Essencials farmàcia', en: 'Pharmacy essentials' }[lang];
+const data = items.map((it, i) => ({ ...it, name: i === 1 ? shortEsenciales : it.name, photo: photos[i] }));
+const link = (it: Item) => ({ href: it.href, ...(it.external ? { target: '_blank', rel: 'noopener noreferrer' } : {}) });
+const ICON = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14" stroke-linecap="round" stroke-linejoin="round"></path></svg>';
+const ICONM = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14" stroke-linecap="round" stroke-linejoin="round"></path></svg>';
+---
+
+{/* DESKTOP (>=900px) */}
+<section class="qd qd-cc">
+  <div class="qd-wrap">
+    <div class="qd-ih qd-ih--left"><h2>{title}</h2><span class="qd-bar" aria-hidden="true"></span></div>
+    <ul class="qd-cc__grid">
+      {data.map((it) => (
+        <li>
+          <a {...link(it)} class="qd-cc__card" style={`background-image:url(${it.photo})`} aria-label={`${dl}: ${it.name}`}>
+            <span class="qd-cc__foot">
+              <span class="qd-cc__name">{it.name}</span>
+              <span class="qd-cc__btn" aria-hidden="true"><span set:html={ICON}></span></span>
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+{/* MÒBIL (<900px) */}
+<section class="sp sp-cc">
+  <div class="container">
+    <div class="sp-head"><h2>{title}</h2><span class="sp-bar" aria-hidden="true"></span></div>
+    <ul class="sp-cc__list">
+      {data.map((it) => (
+        <li>
+          <a {...link(it)} class="sp-cc__card" style={`background-image:url(${it.photo})`} aria-label={`${dl}: ${it.name}`}>
+            <span class="sp-cc__name">{it.name}</span>
+            <span class="sp-cc__btn" aria-hidden="true"><span set:html={ICONM}></span></span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

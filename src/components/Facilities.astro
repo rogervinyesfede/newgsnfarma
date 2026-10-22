@@ -1,0 +1,68 @@
+---
+// Bloc «Nuestras instalaciones» de DESKTOP (>=900px) de Quiénes somos: capçalera com la dels blocs anteriors (barra cian, títol 40/700), la xifra «17.000 m²» (56/800 verd blavós, com les
+// de trayectoria) al costat del subtítol 20/600, i dues columnes iguals a les de les targetes d'«Áreas de negocio» (588 + 24 + 588): a l'esquerra, la llista dels cinc espais en acordió (nom en negreta;
+// només l'activa, en gris, desplega el seu text amb ratolí, focus o clic) i a la dreta una foto de 588px d'ample (s'estira fins a l'alçada de la llista, ≈535px a 1440px) que canvia amb un fos suau.
+// Textos dels espais i fotos: de l'usuari (CA/EN, meus, a revisar). Fotos recomanades: 1200×1600 px (3:4, vertical), JPG. A mòbil s'amaga (pendent de dissenyar).
+import '../styles/pages/quienes-somos-facilities.css';
+import { facilities, facilitiesPhotos } from '../i18n/facilities';
+
+interface Props {
+  lang: 'es' | 'ca' | 'en';
+}
+const { lang } = Astro.props;
+
+const L = facilities[lang];
+const data = L.items.map((it, i) => ({ ...it, photo: facilitiesPhotos[i].src, pos: facilitiesPhotos[i].pos }));
+---
+
+<section class="qd qd-fi" data-fi id="instalaciones">
+  <div class="qd-wrap qd-fi__grid">
+    <div class="qd-fi__col">
+      <div class="qd-fi__head">
+        <span class="qd-bar" aria-hidden="true"></span>
+        <h2>{L.title}</h2>
+        <div class="qd-fi__stat">
+          <span class="qd-fi__big">{L.big}</span>
+          <span class="qd-fi__sub">{L.rest}</span>
+        </div>
+      </div>
+      <ul class="qd-fi__list">
+        {data.map((it, i) => (
+          <li>
+            <button type="button" class={`qd-fi__item${i === 0 ? ' is-on' : ''}`} aria-pressed={i === 0 ? 'true' : 'false'}>
+              <strong>{it.name}</strong>
+              <span>{it.text}</span>
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div class="qd-fi__viewer" aria-hidden="true">
+      {data.map((it, i) => (
+        <div class={`qd-fi__slide${i === 0 ? ' is-on' : ''}`}>
+          <img src={it.photo} alt="" loading="lazy" style={`object-position: 50% ${it.pos}%`} />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  // L'espai actiu (ratolí, focus o clic) es marca en gris i mostra la seva foto.
+  document.querySelectorAll<HTMLElement>('[data-fi]').forEach((root) => {
+    const items = Array.from(root.querySelectorAll<HTMLElement>('.qd-fi__item'));
+    const slides = Array.from(root.querySelectorAll<HTMLElement>('.qd-fi__slide'));
+    const show = (i: number) => {
+      items.forEach((el, k) => {
+        el.classList.toggle('is-on', k === i);
+        el.setAttribute('aria-pressed', k === i ? 'true' : 'false');
+      });
+      slides.forEach((el, k) => el.classList.toggle('is-on', k === i));
+    };
+    items.forEach((el, i) => {
+      el.addEventListener('mouseenter', () => show(i));
+      el.addEventListener('focus', () => show(i));
+      el.addEventListener('click', () => show(i));
+    });
+  });
+</script>

@@ -1,0 +1,65 @@
+/* Capçalera de MÒBIL (<900px) de Quiénes somos (veure PageHeaderMobile.astro): foto de 220px sense degradat i fulla blanca arrodonida que li puja 32px, amb el títol, la barra cian a sota i el paràgraf, tot a l'esquerra.
+   A desktop s'amaga (es veu PageHeader.astro). */
+
+.qs-mph {
+  display: none;
+}
+
+@media (max-width: 899px) {
+  .qs-mph {
+    display: block;
+    margin-top: var(--header-height);
+    background: #fff;
+  }
+
+  .qs-mph__img {
+    height: 220px;
+  }
+
+  .qs-mph__img picture {
+    display: block;
+    height: 100%;
+  }
+
+  .qs-mph__img img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .qs-mph__sheet {
+    position: relative;
+    z-index: 1;
+    margin-top: -32px;
+    padding: 28px var(--space-4) 32px;
+    border-radius: 28px 28px 0 0;
+    background: #fff;
+  }
+
+  .qs-mph__bar {
+    display: block;
+    width: 48px;
+    height: 4px;
+    margin-top: 16px;
+    border-radius: 2px;
+    background: var(--color-accent);
+  }
+
+  .qs-mph .qs-mph__title {
+    margin: 0;
+    color: var(--color-primary);
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.15;
+    text-align: left;
+  }
+
+  .qs-mph .qs-mph__text {
+    margin: 16px 0 0;
+    color: #4b4b4b;
+    font-size: 17px;
+    line-height: 1.6;
+    text-align: left;
+  }
+}

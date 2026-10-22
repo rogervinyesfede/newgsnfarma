@@ -13,8 +13,14 @@ const t = ui[lang];
 const isHome = key === 'home';
 const overlap = isHome || transparent;
 
+// «Quiénes somos» té un desplegable amb els subapartats de la pàgina (ancoratges; textos a ui.ts → aboutMenu).
+const aboutHref = pathFor('about', lang);
+// A mòbil (<900px) encara no existeixen els blocs d'Instalaciones i Presencia global: els seus enllaços s'amaguen al menú mòbil fins que es dissenyin (data-d-only).
+const desktopOnly = ['instalaciones', 'presencia-global'];
+const aboutSub = t.aboutMenu.map((s) => ({ ...s, href: s.id ? `${aboutHref}#${s.id}` : aboutHref, dOnly: desktopOnly.includes(s.id) }));
+
 const navItems = [
-  { label: t.nav.about, href: pathFor('about', lang) },
+  { label: t.nav.about, href: aboutHref, sub: aboutSub },
   { label: t.nav.services, href: pathFor('services', lang) },
   { label: t.nav.brands, href: pathFor('brands', lang) },
   { label: t.nav.international, href: pathFor('international', lang) },
@@ -38,7 +44,27 @@ const otherLangs = LANGS.filter((l) => l !== lang).map((l) => ({ lang: l, label:
       <nav class="site-header__nav" aria-label={t.header.mainNav}>
         <ul>
           {navItems.map((item) => (
-            <li><a href={item.href}>{item.label}</a></li>
+            <li class={item.sub ? 'has-sub' : undefined}>
+              <a href={item.href}>
+                {item.label}
+                {item.sub && (
+                  <svg class="site-header__chev" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+                    <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                )}
+              </a>
+              {item.sub && (
+                <div class="site-header__sub">
+                  <ul>
+                    {item.sub.map((s) => (
+                      <li>
+                        <a href={s.href}>{s.label}</a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </li>
           ))}
         </ul>
       </nav>
@@ -84,7 +110,27 @@ const otherLangs = LANGS.filter((l) => l !== lang).map((l) => ({ lang: l, label:
   </button>
   <ul class="mobile-nav__list">
     {navItems.map((item) => (
-      <li><a href={item.href}>{item.label}</a></li>
+      <li class={item.sub ? 'has-sub' : undefined}>
+        {item.sub ? (
+          <>
+            <div class="mobile-nav__row">
+              <a href={item.href}>{item.label}</a>
+              <button type="button" class="mobile-nav__expand" aria-expanded="false" aria-controls="mobile-sub-about" aria-label={t.header.expandSub}>
+                <svg width="14" height="9" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+                  <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+            </div>
+            <ul class="mobile-nav__sub" id="mobile-sub-about">
+              {item.sub.map((s) => (
+                <li data-d-only={s.dOnly ? '' : undefined}><a href={s.href} data-id={s.id}>{s.label}</a></li>
+              ))}
+            </ul>
+          </>
+        ) : (
+          <a href={item.href}>{item.label}</a>
+        )}
+      </li>
     ))}
   </ul>
   <a
@@ -130,6 +176,43 @@ const otherLangs = LANGS.filter((l) => l !== lang).map((l) => ({ lang: l, label:
   mobileNav?.querySelectorAll('.mobile-nav__list a').forEach((link) => {
     link.addEventListener('click', closeNav);
   });
+
+  // Menú mòbil: el botó del xevró desplega els subapartats de «Quiénes somos»; l'enllaç del títol porta a la pàgina.
+  const expand = mobileNav?.querySelector<HTMLButtonElement>('.mobile-nav__expand');
+  expand?.addEventListener('click', () => {
+    const li = expand.closest('li');
+    const isOpen = li?.classList.toggle('is-open');
+    expand.setAttribute('aria-expanded', String(!!isOpen));
+  });
+
+  // Els ancoratges tenen un id a desktop i el mateix id amb «-m» a la versió mòbil (<900px): es salta a l'element que sigui visible, descomptant la capçalera fixa.
+  const goToHash = (id: string) => {
+    if (!id) return;
+    const el = [id, id + '-m'].map((k) => document.getElementById(k)).find((e) => e && e.getClientRects().length > 0);
+    if (!el) return;
+    const top = el.getBoundingClientRect().top + window.scrollY - (header?.offsetHeight ?? 0);
+    window.scrollTo({ top: Math.max(0, top), behavior: 'auto' });
+  };
+
+  mobileNav?.querySelectorAll<HTMLAnchorElement>('.mobile-nav__sub a, .mobile-nav__row a').forEach((link) => {
+    link.addEventListener('click', (e) => {
+      const url = new URL(link.href);
+      if (url.pathname !== location.pathname) return; // altra pàgina: navegació normal (el salt es fa en carregar)
+      e.preventDefault();
+      history.pushState(null, '', url.pathname + url.hash);
+      closeNav();
+      // la pàgina és llarga i amb imatges mandroses: es torna a ajustar el salt mentre es carreguen les imatges de sobre
+      const go = () => (url.hash ? goToHash(url.hash.slice(1)) : window.scrollTo({ top: 0, behavior: 'auto' }));
+      requestAnimationFrame(go);
+      [350, 900].forEach((d) => setTimeout(go, d));
+    });
+  });
+
+  // En carregar una pàgina amb ancoratge, el navegador pot saltar a un element amagat (versió desktop a mòbil): es corregeix cap al visible.
+  if (location.hash) {
+    const fix = () => goToHash(decodeURIComponent(location.hash.slice(1)));
+    window.addEventListener('load', () => { fix(); setTimeout(fix, 500); });
+  }
 
   const langToggle = document.getElementById('lang-toggle');
   const langWrap = langToggle?.closest('.site-header__lang-wrap');

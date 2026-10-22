@@ -24,15 +24,17 @@ const es = {
     alt: 'Familia con su mascota en casa y manos sosteniendo una planta, símbolo del enfoque One Health',
   },
   areasTitle: 'Así sumamos salud',
+  areasHeading: 'Áreas de negocio',
+  contactText: 'Contáctanos para conocernos mejor.',
   areasIntro:
     'Estructuramos nuestra actividad en dos grandes áreas de negocio: los <strong>servicios farmacéuticos</strong> y las <strong>marcas propias</strong>.',
   areasIntroMix:
-    'Estructuramos nuestra actividad en dos grandes áreas de negocio:<br />los <strong>servicios farmacéuticos</strong> y las <strong>marcas propias</strong>.',
+    'Estructuramos nuestra actividad en dos grandes áreas de negocio:',
   areas: [
     {
       title: 'Servicios Farmacéuticos',
       alt: 'Científica trabajando con microscopio en el laboratorio',
-      text: 'Unidad industrial con 17.000 m² para ofrecer servicios integrales en desarrollo, fabricación, aseguramiento de calidad, asuntos regulatorios y logística para productos regulados.',
+      text: 'Unidad industrial con 17.000 m² para ofrecer servicios integrales en desarrollo, fabricación, aseguramiento de calidad, asuntos regulatorios y logística para medicamentos y productos regulados.',
       cta: 'Ver todos los servicios',
     },
     {
@@ -68,15 +70,17 @@ const ca: typeof es = {
     alt: "Família amb la seva mascota a casa i mans sostenint una planta, símbol de l'enfocament One Health",
   },
   areasTitle: 'Així sumem salut',
+  areasHeading: 'Àrees de negoci',
+  contactText: 'Contacta amb nosaltres per conèixer-nos millor.',
   areasIntro:
     'Estructurem la nostra activitat en dues grans àrees de negoci: els <strong>serveis farmacèutics</strong> i les <strong>marques pròpies</strong>.',
   areasIntroMix:
-    'Estructurem la nostra activitat en dues grans àrees de negoci:<br />els <strong>serveis farmacèutics</strong> i les <strong>marques pròpies</strong>.',
+    'Estructurem la nostra activitat en dues grans àrees de negoci:',
   areas: [
     {
       title: 'Serveis Farmacèutics',
       alt: 'Científica treballant amb un microscopi al laboratori',
-      text: 'Unitat industrial amb 17.000 m² per oferir serveis integrals de desenvolupament, fabricació, assegurament de qualitat, afers regulatoris i logística per a productes regulats.',
+      text: 'Unitat industrial amb 17.000 m² per oferir serveis integrals de desenvolupament, fabricació, assegurament de qualitat, afers regulatoris i logística per a medicaments i productes regulats.',
       cta: 'Veure tots els serveis',
     },
     {
@@ -112,15 +116,17 @@ const en: typeof es = {
     alt: 'A family with their pet at home and hands holding a plant, a symbol of the One Health approach',
   },
   areasTitle: 'This is how we add health',
+  areasHeading: 'Business areas',
+  contactText: 'Contact us to get to know us better.',
   areasIntro:
     'We structure our activity into two main business areas: <strong>pharmaceutical services</strong> and <strong>own brands</strong>.',
   areasIntroMix:
-    'We structure our activity into two main business areas:<br /><strong>pharmaceutical services</strong> and <strong>own brands</strong>.',
+    'We structure our activity into two main business areas:',
   areas: [
     {
       title: 'Pharmaceutical Services',
       alt: 'A scientist working with a microscope in the laboratory',
-      text: 'Industrial unit of 17,000 m² offering comprehensive services in development, manufacturing, quality assurance, regulatory affairs and logistics for regulated products.',
+      text: 'Industrial unit of 17,000 m² offering comprehensive services in development, manufacturing, quality assurance, regulatory affairs and logistics for medicines and regulated products.',
       cta: 'See all services',
     },
     {

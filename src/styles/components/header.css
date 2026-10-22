@@ -315,6 +315,69 @@ body.nav-open .site-header__toggle span {
   color: #fff;
 }
 
+/* Subapartats de «Quiénes somos» al menú mòbil: fila amb l'enllaç i un botó de xevró; la llista es desplega com un acordió */
+.mobile-nav__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.mobile-nav__expand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  margin-right: -12px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.mobile-nav__expand svg {
+  transition: transform var(--transition-base, 0.3s ease);
+}
+
+.mobile-nav__list li.is-open .mobile-nav__expand svg {
+  transform: rotate(180deg);
+}
+
+.mobile-nav__list .mobile-nav__sub {
+  display: block;
+  max-height: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  list-style: none;
+  opacity: 0;
+  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, margin 0.4s ease;
+}
+
+.mobile-nav__list li.is-open .mobile-nav__sub {
+  max-height: 340px;
+  margin: var(--space-4) 0 0;
+  opacity: 1;
+}
+
+.mobile-nav__list .mobile-nav__sub a {
+  padding: 11px 0 11px var(--space-4);
+  border-left: 2px solid rgba(255, 255, 255, 0.28);
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.mobile-nav__list .mobile-nav__sub a:hover,
+.mobile-nav__list .mobile-nav__sub a:focus-visible {
+  border-left-color: var(--color-accent, #00dbff);
+  color: #fff;
+}
+
 .mobile-nav__lang {
   display: flex;
   align-items: center;
@@ -439,5 +502,80 @@ body.nav-open .site-header__toggle span {
 
   .site-header__lang {
     font-size: 0.95rem;
+  }
+}
+
+/* =========================================================================
+   Desplegable de subapartats de «Quiénes somos» (només escriptori >=1024px): llista simple sota l'element del menú, amb els apartats de la pàgina (ancoratges).
+   S'obre amb el cursor o amb el teclat (focus-within). L'element del menú ocupa tota l'alçada de la capçalera perquè el cursor pugui baixar al desplegable sense tancar-lo.
+   ========================================================================= */
+@media (min-width: 1024px) {
+  .site-header__nav ul {
+    align-items: center;
+  }
+
+  .site-header__nav li.has-sub {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: var(--header-height);
+  }
+
+  .site-header__chev {
+    margin-left: 6px;
+    vertical-align: middle;
+    transition: transform var(--transition-base, 0.3s ease);
+  }
+
+  .site-header__nav li.has-sub:hover .site-header__chev,
+  .site-header__nav li.has-sub:focus-within .site-header__chev {
+    transform: rotate(180deg);
+  }
+
+  .site-header__sub {
+    position: absolute;
+    top: 100%;
+    left: -8px;
+    z-index: 5;
+    min-width: 290px;
+    padding: 8px 0;
+    background: #fff;
+    box-shadow: var(--shadow-md);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+    transition: opacity var(--transition-base, 0.3s ease), transform var(--transition-base, 0.3s ease), visibility 0s linear var(--transition-base, 0.3s);
+  }
+
+  .site-header__nav li.has-sub:hover .site-header__sub,
+  .site-header__nav li.has-sub:focus-within .site-header__sub {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition-delay: 0s;
+  }
+
+  .site-header__sub ul {
+    display: block;
+    gap: 0;
+  }
+
+  /* els enllaços del desplegable no hereten l'estil de la barra (majúscules, blanc, subratllat) */
+  .site-header .site-header__nav .site-header__sub a {
+    display: block;
+    padding: 12px 22px;
+    border-bottom: 0;
+    color: #4b4b4b;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-transform: none;
+    white-space: nowrap;
+  }
+
+  .site-header .site-header__nav .site-header__sub a:hover {
+    border-bottom: 0;
+    background: var(--color-primary-light);
+    color: var(--color-primary);
   }
 }
