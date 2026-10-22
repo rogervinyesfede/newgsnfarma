@@ -779,19 +779,6 @@
   }
 }
 
-/* Home mòbil: respir blanc de 28px entre el bloc navy d'Àrees de negoci i la banda de contacte (també navy), perquè no es toquin */
-.sp-home-gap {
-  display: none;
-}
-
-@media (max-width: 899px) {
-  .sp-home-gap {
-    display: block;
-    height: 28px;
-    background: #fff;
-  }
-}
-
 /* Banda de contacte de mòbil (SpContactBand.astro; Home, Servicios i Nuestras marcas): centrada, CTA en enllaç de text i cantonades superiors arrodonides */
 @media (max-width: 899px) {
   .sp-ct3 {

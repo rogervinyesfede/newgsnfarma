@@ -181,11 +181,7 @@ const homeAreas = areas.map((a, i) => ({ ...a, panel: areaMeta[i].aboutMb }));
   <QdContact title={c.contact.title} text={c.contact.text} />
 
 
-  {/* ¿Hablamos?, versió MÒBIL (<900px): banda centrada amb el CTA en enllaç de text (SpContactBand), amb un respir blanc de 28px a dalt perquè no es toqui amb el bloc navy d'Àrees. A desktop s'amaga. */}
-  <div class="sp-home-gap" aria-hidden="true"></div>
-  <SpContactBand title={c.contact.title} text={c.contact.textMobile} href={href.contact} label={ui[lang].contactBand.label} />
-
-  {/* Finançament (mòbil <900px): franja de mínima importància — rètol petit, textos de 13px en gris i logos de 24px als seus colors originals (no es modifiquen per requisits de publicitat de la UE). A desktop s'amaga i es veu .qd-hf. */}
+  {/* Finançament (mòbil <900px): franja de mínima importància — rètol petit, textos de 13px en gris i logos de 24px als seus colors originals (no es modifiquen per requisits de publicitat de la UE). Com a desktop (.qd-hf), va just després d'Àrees de negoci i abans del contacte; la seva franja blanca separa els dos blocs navy. */}
   <section class="sp sp-fa">
     <div class="container">
       <p class="sp-fcap">{c.fundingCaption}</p>
@@ -199,5 +195,8 @@ const homeAreas = areas.map((a, i) => ({ ...a, panel: areaMeta[i].aboutMb }));
       ))}
     </div>
   </section>
+
+  {/* ¿Hablamos?, versió MÒBIL (<900px): banda centrada amb el CTA en enllaç de text (SpContactBand), l'ÚLTIM bloc abans del peu. A desktop s'amaga. */}
+  <SpContactBand title={c.contact.title} text={c.contact.textMobile} href={href.contact} label={ui[lang].contactBand.label} />
 
 </BaseLayout>
