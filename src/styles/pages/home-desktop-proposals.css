@@ -143,34 +143,23 @@
     color: #fff;
   }
 
-  /* Bloc «Áreas de negocio» de la Home (BusinessAreasColorProposals amb homeHead): la capçalera (barra, títol i subtítol) té l'estil que tenia amb «Así sumamos salud»
-     (.qd-ha__head): columna CENTRADA de 900px, barra cian a sobre, títol 40/700 i subtítol 20/500 blanc al 85%, amb 24px entre cada element i 44px fins a les targetes.
-     A Quiénes somos la capçalera continua a l'esquerra (veure .qd-ag__head a quienes-somos-desktop-proposals.css). */
+  /* Bloc «Áreas de negocio» de la Home (BusinessAreasColorProposals amb homeHead): la capçalera (barra, títol i subtítol) va CENTRADA (columna de 900px), però amb les MATEIXES SEPARACIONS que a Quiénes somos
+     (.qd-ag__head a quienes-somos-desktop-proposals.css): barra a 22px del títol (gap 24 - 2), títol de line-height 1,05, subtítol a 14px del títol (-10) i 40px fins a les targetes. Aquí només canvien
+     l'alineació, l'ample màxim i el subtítol (20/500, blanc al 85%). */
   .qd.qd-ag--home .qd-ag__head {
     align-items: center;
-    gap: 24px;
     max-width: 900px;
-    margin: 0 auto 44px;
+    margin: 0 auto 40px;
     text-align: center;
   }
 
-  .qd.qd-ag--home .qd-ag__head .qd-bar {
-    margin-bottom: 0;
-  }
-
   .qd.qd-ag--home .qd-ag__head h2 {
-    font-size: 40px;
-    font-weight: 700;
-    line-height: 1.15;
     text-align: center;
   }
 
   .qd.qd-ag--home .qd-ag__head p {
-    margin-top: 0;
     color: rgba(255, 255, 255, 0.85);
-    font-size: 20px;
     font-weight: 500;
-    line-height: 1.7;
     text-align: center;
   }
 

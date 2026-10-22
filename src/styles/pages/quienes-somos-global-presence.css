@@ -3,7 +3,8 @@
 
 @media (min-width: 900px) {
   /* Graella 588 + 24 + 588 amb els marges a banda; el mapa ocupa la part esquerra i el text la columna dreta */
-  .qd-gp {
+  /* .qd.qd-gp (no només .qd-gp): la base .qd{display:block} es carrega inline DESPRÉS d'aquest fitxer a producció i, amb la mateixa especificitat, hi guanyaria (el bloc quedava apilat) */
+  .qd.qd-gp {
     display: grid;
     grid-template-columns: minmax(32px, 1fr) minmax(0, 588px) 24px minmax(0, 588px) minmax(32px, 1fr);
     align-items: center;
