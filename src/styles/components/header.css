@@ -565,8 +565,8 @@ body.nav-open .site-header__toggle span {
     display: block;
     padding: 12px 22px;
     border-bottom: 0;
-    color: #4b4b4b;
-    font-size: 18px;
+    color: var(--color-primary);
+    font-size: 17px;
     font-weight: 500;
     letter-spacing: 0;
     text-transform: none;

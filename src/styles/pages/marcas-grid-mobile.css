@@ -97,8 +97,9 @@
     max-width: 82%;
   }
 
+  /* Logo nou (retallat al contingut): × 0,979 perquè el contingut visible mesuri el mateix ample que abans */
   .sp-bc__logo--medicamentos {
-    max-width: min(142px, 70%);
+    max-width: min(calc(142px * 0.979), calc(70% * 0.979));
   }
 
   /* Marca sense logo (Ortopedia, Dermo): el nom en text, al lloc del logo */

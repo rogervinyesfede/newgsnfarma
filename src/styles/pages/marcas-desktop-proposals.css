@@ -59,8 +59,9 @@
     height: 46px;
   }
 
+  /* Logo nou (retallat al contingut, 6,39:1): 36,5px d'alt → ~233,3px d'ample, el mateix ample visible que el logo antic a 40px (233,5px) */
   .qd-mk__logo--medicamentos {
-    height: 40px;
+    height: 36.5px;
   }
 
   /* Esenciales: logo molt apaïsat (6,8:1) */

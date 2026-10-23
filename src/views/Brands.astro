@@ -26,7 +26,7 @@ const c = brandsCopy[lang];
 const brands = brandsJson.map((b, i) => ({ ...b, ...c.brands[i], ctaLabel: c.brands[i].cta }));
 
 // PROVES MÒBIL (.sp): helpers per a les propostes de marques.
-const brandLogo = (b: any) => (b.name === 'Medicamentos' ? '/images/gsnfarma_new_logo2.png' : b.logo);
+const brandLogo = (b: any) => (b.name === 'Medicamentos' ? '/images/gsnfarma_new_logo3.png' : b.logo);
 const gridImg = (b: any) =>
   b.name === 'Nakama' ? '/images/brand-nakama-shifted2.jpg'
   : b.name === 'Orissens' ? '/images/brands_orissens-shifted.jpg'
@@ -36,7 +36,7 @@ const gridImg = (b: any) =>
 const stripImg = (b: any) => (b.name === 'Orissens' ? '/images/brands_orissens-shifted.jpg' : b.image);
 
 // PROVES DESKTOP (.qd): helpers per a les propostes de logos i de franges de marca.
-const cardLogo = (b: any) => (b.name === 'Medicamentos' ? '/images/gsnfarma_new_logo_white2.png' : b.name === 'Esenciales' ? '/images/logo_esenciales_white.webp' : b.logo);
+const cardLogo = (b: any) => (b.name === 'Medicamentos' ? '/images/gsnfarma_new_logo_white3.png' : b.name === 'Esenciales' ? '/images/logo_esenciales_white.webp' : b.logo);
 const key = (b: any) => b.name.toLowerCase();
 const ctaLabel = (b: any) => b.ctaLabel;
 // PDF del llistat de medicaments: s'obre en una pestanya nova quan l'usuari confirma que és professional sanitari (popup d'accés professional).
@@ -55,24 +55,22 @@ const mobileCard = (b: any) => ({ key: key(b), alt: b.alt, img: b.name === 'GSN'
 const mobileLive = ['orissens', 'gsn', 'nakama', 'herbaldi', 'esenciales', 'medicamentos'].map((k) => mobileCard(brands.find((b: any) => key(b) === k)));
 const mobileSoon = ['ortopedia', 'dermo'].map((k) => { const m = mobileCard(brands.find((b: any) => key(b) === k)); return { key: m.key, alt: m.alt, img: m.img }; });
 
-// Foto de capçalera de desktop en tres mides (la caixa ocupa tota l'amplada, 100vw): el navegador tria la més petita que
-// cobreix l'amplada de la pantalla (1280 → 131 KB, 1600 → 185 KB, resta/retina → la gran de 277 KB).
-// Les DUES etiquetes <img> d'aquesta pàgina (mòbil i desktop) han de dur el mateix srcset: a desktop es resolen a la mateixa
-// URL i només es baixa una vegada.
-const headerImg = '/images/gsn_farma_our_brands_header3.jpg';
+// Foto de capçalera de desktop (PROVA: header4, 2560×680, ja retallada a la proporció de la banda de 340px) en tres mides: el navegador tria la més petita que cobreix
+// l'amplada de la pantalla (1280 → 50 KB, 1600 → 68 KB, resta/retina → la gran de 186 KB). Mòbil: header4_hm (retall 1204×680 centrat a l'esquerra, 828×468). Les imatges antigues (header3 / header2_hm) continuen a public/images.
+const headerImg = '/images/gsn_farma_our_brands_header4.jpg';
 const headerSrcset = [
-  '/images/gsn_farma_our_brands_header3_1280.jpg 1280w',
-  '/images/gsn_farma_our_brands_header3_1600.jpg 1600w',
-  `${headerImg} 3000w`,
+  '/images/gsn_farma_our_brands_header4_1280.jpg 1280w',
+  '/images/gsn_farma_our_brands_header4_1600.jpg 1600w',
+  `${headerImg} 2560w`,
 ].join(', ');
 ---
 
 <BaseLayout title={c.title} description={c.description}>
   {/* Capçalera de MÒBIL (<900px): foto de 220px SENSE degradat i fulla blanca arrodonida amb el títol, la barra cian i el subtítol, a l'esquerra (PageHeaderMobile.astro). A desktop s'amaga. */}
-  <PageHeaderMobile title={c.header.title} text={c.header.text} img="/images/gsn_farma_our_brands_header2_hm" />
+  <PageHeaderMobile title={c.header.title} text={c.header.text} img="/images/gsn_farma_our_brands_header4_hm" />
 
   {/* Capçalera de DESKTOP (>=900px): com la de Quiénes somos (PageHeaderCentered.astro): foto sense degradat i fulla blanca amb la barra cian, el títol (H1) i el subtítol, centrats. A mòbil s'amaga. */}
-  <PageHeaderCentered img={headerImg} srcset={headerSrcset} pos={18} title={c.header.title} subtitle={c.header.text} />
+  <PageHeaderCentered img={headerImg} srcset={headerSrcset} pos={50} title={c.header.title} subtitle={c.header.text} />
 
   {/* Graella de targetes de marca, versió DESKTOP (>=900px): 6 marques actuals + 2 de «Próximamente» en una graella 4 × 2 (veure BrandsGrid.astro). A mòbil s'amaga i la substitueix BrandsGridMobile. */}
   <BrandsGrid live={gridLive} soon={gridSoon} legendNow={c.grid.legendNow} legendSoon={c.grid.legendSoon} soonLabel={c.grid.soonLabel} goTo={c.goTo} />

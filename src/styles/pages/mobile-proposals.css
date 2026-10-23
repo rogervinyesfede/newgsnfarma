@@ -530,8 +530,9 @@
     height: 43px; /* -10% */
   }
 
+  /* Logo nou (retallat al contingut, 6,39:1): 29,2px d'alt → ~186,6px d'ample, el mateix ample visible que el logo antic a 32px (186,8px) */
   .sp-mb2__logo--medicamentos {
-    height: 32px; /* -20% (el logo ja quedava limitat per l'ample: es dibuixava a 40px d'alt) */
+    height: 29.2px;
     max-width: 192px;
   }
 

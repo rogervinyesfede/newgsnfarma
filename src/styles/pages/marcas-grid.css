@@ -120,8 +120,9 @@
     max-width: calc(84% * 0.9);
   }
 
+  /* Logo nou (3: retallat al contingut, ratio 6,39:1; l'antic tenia ~2% de marge): × 0,979 perquè el contingut visible mesuri el mateix ample que abans */
   .qd-bc__logo--medicamentos {
-    max-width: min(calc(142px * var(--qd-bc-s) * 1.1), 77%);
+    max-width: min(calc(142px * var(--qd-bc-s) * 1.1 * 0.979), calc(77% * 0.979));
   }
 
   /* Marca sense logo: el nom en text, al lloc del logo */
